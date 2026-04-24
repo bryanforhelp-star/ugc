@@ -1,12 +1,12 @@
 /* ---------- design tokens ---------- */
 :root {
-  --bg:        #E8E4D7;   /* cool bone / archival paper */
-  --bg-muted:  #DCD6C4;   /* alternating stripe */
+  --bg:        #F6F4ED;   /* near-white paper */
+  --bg-muted:  #EDEAE1;   /* subtle alt stripe */
   --ink:       #0B0B0B;
   --ink-soft:  #1f1f1f;
-  --ink-mute:  #6d675b;
-  --line:      #0B0B0B;   /* hairlines are black, but thin */
-  --line-soft: #b8b1a0;
+  --ink-mute:  #7a7468;
+  --line:      #0B0B0B;   /* hairlines — thin black */
+  --line-soft: #d6d1c3;
   --hi:        #B23A2E;   /* rare editorial red — used sparingly */
 
   --serif: 'Instrument Serif', 'Times New Roman', Times, serif;
@@ -131,7 +131,7 @@ em { font-style: italic; }
   filter: grayscale(20%) contrast(1.02);
 }
 .hero-photo img.placeholder,
-.hero-photo:not(:has(img[src])) { background: linear-gradient(180deg, #dcd6c4, #a9a290); }
+.hero-photo:not(:has(img[src])) { background: linear-gradient(180deg, #e3dfd2, #b5ae9d); }
 
 .eyebrow {
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
@@ -249,7 +249,7 @@ em { font-style: italic; }
   position: absolute; inset: 0;
   background:
     repeating-linear-gradient(135deg, rgba(11,11,11,.035) 0 2px, transparent 2px 6px),
-    linear-gradient(180deg, #d4cebd, #a9a290);
+    linear-gradient(180deg, #e3dfd2, #b5ae9d);
   opacity: 0;
   transition: opacity var(--t);
 }
@@ -284,6 +284,33 @@ em { font-style: italic; }
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  margin-top: 4px;
+}
+.brand-logo {
+  height: 22px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  object-position: left center;
+  /* force brand logos to pure black for editorial consistency */
+  filter: brightness(0) saturate(100%);
+}
+.brand-logo[data-color="true"] { filter: none; }
+.brand-name {
+  display: none;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.brand.no-logo .brand-logo { display: none; }
+.brand.no-logo .brand-name { display: block; }
 .video-meta .tag {
   display: inline-block;
   font-size: 10px;
@@ -407,7 +434,7 @@ em { font-style: italic; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) contrast(1.02); }
 .about-photo img.placeholder,
 .about-photo:not(:has(img[src])) {
-  background: linear-gradient(180deg, #d4cebd, #8a8478);
+  background: linear-gradient(180deg, #e3dfd2, #9a9285);
 }
 .about-copy { display: grid; gap: 18px; font-size: 17px; line-height: 1.6; color: var(--ink-soft); }
 .about-copy em { color: var(--ink); }
