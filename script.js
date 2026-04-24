@@ -63,7 +63,4 @@
     frames.forEach(f => io.observe(f));
   }
 
-  // Footer year
-  const y = $('#year');
-  if (y) y.textContent = new Date().getFullYear();
 })();
