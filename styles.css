@@ -225,6 +225,7 @@ em { font-style: italic; }
   gap: clamp(20px, 2.5vw, 36px);
 }
 .video-grid.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.video-grid.grid-3 { grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin-left: auto; margin-right: auto; }
 .video-grid.grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-left: auto; margin-right: auto; }
 
 .video-card { display: flex; flex-direction: column; gap: 14px; }
@@ -340,8 +341,41 @@ em { font-style: italic; }
 .video-meta dd { margin: 0; color: var(--ink); }
 
 /* ---------- performance testing ---------- */
-.test-block { display: grid; gap: clamp(40px, 5vw, 64px); }
+.test-package {
+  display: grid;
+  gap: clamp(28px, 4vw, 44px);
+  padding-top: clamp(32px, 4vw, 48px);
+  margin-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--ink);
+}
+.test-package:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+.test-package-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+.test-package-brand {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .18em;
+  font-weight: 500;
+  color: var(--ink);
+}
+.test-package-meta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink);
+}
 .test-label {
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -489,6 +523,7 @@ em { font-style: italic; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-photo { max-width: 360px; }
   .video-grid.grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .video-grid.grid-3 { grid-template-columns: repeat(2, 1fr); max-width: 720px; }
   .analytics-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { position: static; max-width: 420px; }
@@ -515,8 +550,11 @@ em { font-style: italic; }
   .nav-links a:last-child { border-bottom: 0; }
 
   .video-grid.grid-4,
+  .video-grid.grid-3,
   .video-grid.grid-2 { grid-template-columns: 1fr; }
   .video-frame.vertical { max-width: 360px; margin: 0 auto; width: 100%; }
+  .test-package-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .test-package-meta { font-size: 18px; }
 
   .analytics-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
