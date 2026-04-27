@@ -413,9 +413,11 @@ em { font-style: italic; }
   height: auto;
   display: block;
 }
-/* strips column: naked, staggered like a hand-pasted scrapbook */
+/* strips column: soft container, staggered like a hand-pasted scrapbook */
 .analytics-col:first-child .analytics-shot {
   max-width: 78%;
+  background: var(--bg-muted);
+  padding: 18px 22px;
 }
 .analytics-col:first-child .analytics-shot:nth-child(1) { margin-left: 0; }
 .analytics-col:first-child .analytics-shot:nth-child(2) { margin-left: 14%; }
