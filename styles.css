@@ -198,19 +198,6 @@ em { font-style: italic; }
   position: relative;
 }
 .section-header.center { text-align: center; margin-left: auto; margin-right: auto; }
-.section-flourish {
-  display: block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
-  line-height: 1;
-  color: var(--ink);
-  margin-bottom: 14px;
-  letter-spacing: 0.06em;
-  user-select: none;
-}
-.section-flourish .star { font-size: .7em; vertical-align: super; margin: 0 .15em; }
-.section-flourish .swirl { font-style: normal; display: inline-block; transform: rotate(-8deg); margin-left: .1em; }
 .section-kicker {
   display: inline-block;
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
