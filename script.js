@@ -48,18 +48,18 @@
     video.addEventListener('ended', () => frame.classList.remove('is-playing'));
   });
 
-  // Soft autoplay (muted) when scrolled into view on desktop
-  if ('IntersectionObserver' in window && window.matchMedia('(min-width: 720px)').matches) {
+  // Pause any playing video when it scrolls fully out of view
+  if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        if (entry.isIntersecting) return;
         const v = $('video', entry.target);
-        if (!v || !v.currentSrc) return;
-        if (entry.isIntersecting && v.paused && !entry.target.classList.contains('is-playing')) {
-          v.muted = true;
-          v.play().catch(() => {});
+        if (v && !v.paused) {
+          v.pause();
+          entry.target.classList.remove('is-playing');
         }
       });
-    }, { threshold: 0.55 });
+    }, { threshold: 0 });
     frames.forEach(f => io.observe(f));
   }
 
