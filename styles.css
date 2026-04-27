@@ -417,6 +417,7 @@ em { font-style: italic; }
 .analytics-col:first-child .analytics-shot {
   max-width: 78%;
   background: var(--bg-muted);
+  border: 1px solid var(--ink);
   padding: 18px 22px;
 }
 .analytics-col:first-child .analytics-shot:nth-child(1) { margin-left: 0; }
