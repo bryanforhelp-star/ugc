@@ -1,0 +1,14 @@
+{
+  "name": "@ugc/seedance",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node --env-file=.env generate.mjs"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}
