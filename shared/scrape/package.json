@@ -1,0 +1,14 @@
+{
+  "name": "@ugc/scrape",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node --env-file=.env scrape.mjs"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

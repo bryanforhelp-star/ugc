@@ -5,9 +5,11 @@ Monorepo for UGC ad work — one folder per client, shared tools at the root.
 ## Layout
 
 ```
-.claude/skills/      shared ad-writing skills (/ad-concept, /ad-script, /ad-hook, /ad-headline, /ad-audit)
+.claude/skills/      shared skills — direct-response (/ad-*) and organic (/organic-script)
 clients/<brand>/     one folder per client — brand brief, prompts, generated assets
-shared/<tool>/       reusable tooling (e.g. shared/seedance/ — Seedance video generator via fal.ai)
+shared/<tool>/       reusable tooling
+                       ├── seedance/   Seedance text-to-video via fal.ai
+                       └── scrape/     pull reference reels from IG/TikTok/YouTube → summary.md
 ```
 
 ## Current clients

@@ -2,5 +2,6 @@ node_modules/
 .env
 .env.local
 clients/*/output/
+shared/*/output/
 *.log
 .DS_Store
