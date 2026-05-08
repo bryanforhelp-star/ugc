@@ -587,6 +587,16 @@ em { font-style: italic; }
   transition: opacity var(--t);
 }
 .logo-mark-text:hover { opacity: 1; }
+.logo-img {
+  height: clamp(22px, 2.4vw, 32px);
+  width: auto;
+  object-fit: contain;
+  opacity: .85;
+  filter: grayscale(100%) contrast(1.05);
+  mix-blend-mode: multiply;
+  transition: opacity var(--t);
+}
+.logo-img:hover { opacity: 1; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
