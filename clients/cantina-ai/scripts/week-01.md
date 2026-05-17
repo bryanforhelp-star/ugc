@@ -193,6 +193,37 @@
 
 ---
 
+---
+
+## 15. Dark Humor — Pet Passed Away (iMessage from Mom)
+
+**Film:** Calm face. Maybe sitting on couch, scrolling. Then get the notification and react.
+
+**Text overlay:** "When your mom texts you out of nowhere…"
+
+**iMessage — from: Mom** (pet avatar — dog or cat, your pick of Cantina character)
+> "I'm so sorry but [Pet Name] passed away yesterday… He wanted me to tell you something though."
+
+**Cantina bot** (pet avatar continues):
+> "Hey. It's me. I just wanted to say — I knew about the treats you hid. I always knew. I ate them anyway. No regrets. Also you left my water bowl empty for three days in 2019 and I never forgot. Love you though. Goodbye."
+
+**Your reaction:** Hand over mouth. Can't decide if you want to laugh or cry.
+
+---
+
+## 16. Dark Humor — Cat Passed Away (Cat's POV)
+
+**Film:** Slightly sad/concerned face at the start. Reading a notification.
+
+**Text overlay:** "My cat passed away and apparently had some final words…"
+
+**iMessage — from: The Cat** (cat Cantina avatar)
+> "I died as I lived — judging you. The vet said 'natural causes.' I call it boredom. You played that same playlist for 4 years. I chose to leave. Anyway I knocked your AirPods behind the couch on purpose in 2021. They're still there. Meow."
+
+**Your reaction:** Fully losing it. "WHY WOULD YOU TELL ME THAT NOW."
+
+---
+
 ## Quick Reference — Format Types Used
 
 | # | Format | Tone |
@@ -211,3 +242,5 @@
 | 12 | AI Therapist | Dark / relatable |
 | 13 | Positive Affirmations | Wholesome pivot |
 | 14 | 🍬ddy Chaos | Shock / drama |
+| 15 | Pet Passed Away (Mom's text) | Dark / emotional |
+| 16 | Cat's Final Words (Cat's POV) | Dark / absurd |
