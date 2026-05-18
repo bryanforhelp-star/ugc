@@ -1,246 +1,208 @@
 # Cantina AI — Week 01 Scripts (14 Videos)
 
-**Format reminder:** Shocked/surprised face → on-screen text → iMessage reveal → Cantina bot punchline → your reaction.
+**Format:** Shocked/surprised face to camera → text overlay hook → iMessage screen showing Cantina bot response → reaction.
+
+The Cantina bot IS the character (dog, situationship, crush, mom, brother, etc.) sending the message.
 
 ---
 
-## 1. Dark Humor — Grandma Passed Away
+## 1. My Dog Just Died — Mom Tells Me Via Cantina Bot
 
-**Film:** Calm activity (eating cereal, brushing hair). Calm face → slow shocked expression.
+**Film:** Calm face, scrolling phone. React to notification.
 
-**Text overlay:** "When your mom texts you at 8am…"
+**Text overlay:** "my dog just died and THIS is how my mom decides to tell me"
 
-**iMessage — from: Mom**
-> "Grandma passed away this morning 💔"
+**iMessage — from: Mom** (dog avatar Cantina bot)
+> "Hey sweetie… Biscuit wanted me to tell you himself. He said: I lived a full life. I ate well. I slept on the couch even though you told me not to. I have no regrets. I chased the mailman once and it was everything. Don't cry. I'll see you on the other side. Woof."
 
-**Cantina bot** (Grandma avatar):
-> "Don't cry sweetie. I'm actually relieved. I've been trying to leave your grandfather for 47 years and death finally got me out. I am FREE. Tell no one."
-
-**Your reaction:** Mouth drops. Slow turn to camera. Say nothing.
+**Reaction:** Hand over mouth. "Mom why would you do it like THIS."
 
 ---
 
-## 2. Dark Humor — Dad Left to Get Milk
+## 2. Cousin's Wedding Announcement in the Group Chat
 
-**Film:** Neutral face. Slight head tilt like you're about to say something sad.
+**Film:** Normal face, then double-take at phone.
 
-**Text overlay:** "My dad went to get milk and never came back…"
+**Text overlay:** "my cousin got married 3 months ago and sent this in the group chat 💀💍🎉"
 
-**iMessage — from: Dad** (milk jug avatar)
-> "Hey honey. I got trapped inside a dairy farm. The cows won't let me leave. I've been here 11 years. Please send help. Also we're out of milk."
+**iMessage — group chat, from: Cousin** (bride avatar Cantina bot)
+> "Hey fam! So… Jake and I eloped in Vegas 3 months ago lol. We've been waiting to tell you because Grandma gets weird about things. Anyway we're pregnant too. The baby shower is in 6 weeks. Bring a dish. Love you all byeeeee 💕"
 
-**Your reaction:** Absolute disbelief. Slow blink. Look directly into camera.
-
----
-
-## 3. Dark Humor — Facebook Chain Mail Curse
-
-**Film:** Nostalgic vibe. Looking at phone like you found something old and terrible.
-
-**Text overlay:** "Found a 2009 Facebook chain message…"
-
-**iMessage — from: The Curse** (cursed skull/ghost avatar)
-> "You have 24 hours to forward this or you will: stub your toe every morning forever, fail every vibe check, and your left AirPod will always die first. I'm not joking. I've done it to others."
-
-**Your reaction:** Nervous laugh. Immediately start forwarding it. "I'm not risking it."
+**Reaction:** Slow turn to camera. "THREE MONTHS???"
 
 ---
 
-## 4. AI Relationship — AI Boyfriend
+## 3. Trying to Save the Relationship (Snapchat Text)
 
-**Film:** Facepalm into camera. Big sigh energy.
+**Film:** Stressed, sad face. Sitting down, looking at phone.
 
-**Text overlay:** "Men are exhausting so I started dating an AI bot 😭"
+**Text overlay:** "im just trying to save our relationship 💔"
 
-**iMessage — from: AI Boyfriend** (robot/digital avatar)
-> "Good morning. I already tracked your sleep, pre-ordered your coffee, and started an argument with your coworker on your behalf. You're welcome. I love you. Don't leave me or I will malfunction."
+**Snapchat message — from: Him** (Cantina avatar)
+> "I think we should talk. Actually no. I think I should talk and you should listen. I've made a PowerPoint. It has 14 slides. Slide 4 is about the dishes. Slide 9 is about your tone. I'm sending the link now. Please review before we speak."
 
-**Your reaction:** Slowly lower phone. Look into camera. Shrug like "…honestly not the worst."
-
----
-
-## 5. My Friend Sent Me This — GymTok
-
-**Film:** Confused/amused face. "You guys are NOT going to believe this."
-
-**Text overlay:** "My friend just started going to the gym and sent me THIS"
-
-**Cantina bot** (gym bro avatar, sent as a video from your friend):
-> "Bro. I laced your pre-workout with creatine, protein powder, AND my tears. You WILL become clavicular. Your collarbone is about to go insane. Meet me at Planet Fitness at 4am. No excuses. God is watching your macros."
-
-**Your reaction:** Put the phone down slowly. "I'm not going."
+**Reaction:** Stare at camera. "He made a POWERPOINT."
 
 ---
 
-## 6. Inanimate Object Beef — Toothpaste Tube
+## 4. Accidentally Texted My Situationship "I Love You"
 
-**Film:** Frustrated face. Hold up an empty, rolled-up toothpaste tube.
+**Film:** Pure panic face. Looking between camera and phone.
 
-**Text overlay:** "I got in a fight with my toothpaste this morning and I'm still not over it"
+**Text overlay:** "accidentally texted my situationship 'i love you' and THIS is what he replied with"
 
-**iMessage — from: Toothpaste** (toothpaste avatar)
-> "Squeeze me ONE more time. I have NOTHING left to give. You've been rolling me like a crime scene. I am traumatized. This is not a relationship. This is abuse. I'm leaving."
+**iMessage — from: Situationship** (Cantina avatar)
+> "lol autocorrect? 😂 anyway what are you doing tonight. also I've been thinking and I'm not really a labels person but I also don't want you talking to anyone else so. yeah. okay. what do you want for dinner"
 
-**Your reaction:** Scandalized. Text back: "you're being dramatic." Hit send.
-
----
-
-## 7. Who's Gonna Tell Them — Crashed the Car
-
-**Film:** Sitting in what looks like a car or just nervous energy at home. Guilty face.
-
-**Text overlay:** "POV: You have to tell your mom you crashed the car…"
-
-**Audio cue:** Saxophone getting louder trend sound.
-
-**Cantina bot** (the car — speaking first):
-> "She already knows. I texted her. I sent photos, your location, your speed at impact, and your Spotify history. You were playing Taylor Swift when it happened. She will never let this go. I'm sorry. I'm not sorry."
-
-**Your reaction:** Full panic mode. "THE CAR SNITCHED ON ME."
+**Reaction:** "So we're… what are we???"
 
 ---
 
-## 8. Caught / Chatfishing Exposed
+## 5. Texted My Crush I Liked Him
 
-**Film:** Suspicious, squinting face. "Okay something is OFF."
+**Film:** Nervous, cringing face. "I did something stupid."
 
-**Text overlay:** "I think my boyfriend is chatfishing me…"
+**Text overlay:** "i texted my crush i liked him and this was his response"
 
-**iMessage — from: Jake** (revealed to be a Cantina bot)
-> "Okay fine. I'm not Jake. I'm a Cantina AI named Gerald. Jake hired me because he gets nervous texting. He said you're out of his league and he needed backup. He is watching this conversation from another device right now. Hi Jake."
+**iMessage — from: Crush** (Cantina avatar)
+> "wait really?? okay I have to be honest I've liked you for like 8 months but I was too scared to say anything and I literally told my roommate about you last week and he told me to just text you and I said what if she doesn't like me back and he said she does and apparently he was right so. hi. do you want to get food sometime"
 
-**Your reaction:** Dead stare into camera. "JAKE."
-
----
-
-## 9. Traumatize Back
-
-**Film:** Calm, unbothered face. Reading your phone.
-
-**Text overlay:** "Sometimes you just have to traumatize them back"
-
-**Show:** iMessage from a guy with an 🍆 implication.
-
-**Your reply** — Cantina bot (medieval knight avatar) sent as your response:
-> "Thou hast entered a realm from which there is no return. I have forwarded thy message to thy mother, thy landlord, thy LinkedIn network, and the Pope. Thy vibe check: failed. Repent immediately."
-
-**Your reaction:** Satisfied smirk. "Works every time."
+**Reaction:** Screaming silently. Kicking feet. "EIGHT MONTHS????"
 
 ---
 
-## 10. Mandatory Motivational Speaker
+## 6. Exchanged Numbers at the Bar — He Texts the Next Day
 
-**Film:** Sitting at laptop. Headphones in. Slightly dead eyes. "Professional" setting.
+**Film:** Amused/confused face. Morning vibe, just woke up.
 
-**Text overlay:** "Our company just sent a mandatory motivational meeting 🙂"
+**Text overlay:** "exchanged numbers with a guy at the bar last night and he sends me this today"
 
-**Cantina bot** (corporate motivational speaker avatar, playing on your screen):
-> "GOOD MORNING WARRIORS. You did NOT wake up at 6am to be mediocre. I don't care that the printer is broken. I don't care that Karen microwaved fish AGAIN. The quarterly report IS your villain origin story. NOW GET UP."
+**iMessage — from: Bar Guy** (Cantina avatar)
+> "Good morning. I've already looked you up on LinkedIn, checked if we have any mutual friends, and mapped out three date locations with Yelp ratings above 4.2. Option A is Italian. Option B is a wine bar. Option C is a picnic which I know sounds weird but hear me out. Let me know your availability."
 
-**Your reaction:** Close the laptop very slowly. Stare forward.
-
----
-
-## 11. I Quit — Via AI Representative
-
-**Film:** Standing up. Serious professional energy. Slight smirk.
-
-**Text overlay:** "Using AI to quit my job so I don't have to have the conversation"
-
-**iMessage sent to Boss** (from Cantina bot acting as your official representative):
-> "Hello. My client has retained my services to inform you she is, effective immediately, unbothered, paid, and leaving. Please direct all questions to her therapist, her vision board, and whoever stole her lunch from the break room fridge. Goodbye."
-
-**Your reaction:** Walk out of frame. Drop something dramatically.
+**Reaction:** "Sir we spoke for 7 minutes."
 
 ---
 
-## 12. AI Therapist
+## 7. Hired a Guy to Fix My AC — He No-Showed and Sent This
 
-**Film:** Tired, slightly unhinged face. "I'm fine, everything's fine."
+**Film:** Sweating / hot and annoyed face. Fan going in background if possible.
 
-**Text overlay:** "I couldn't afford therapy so I got a Cantina AI therapist"
+**Text overlay:** "hired a guy to come fix my ac… he no showed & sent me this 💀"
 
-**iMessage — from: Dr. Bot** (therapist avatar)
-> "How does that make you feel? Actually don't answer. I already know. You're a people pleaser who over-apologizes, drinks too much iced coffee, and texts back too fast. That'll be $200. Venmo me. I'm not even real. You're welcome."
+**iMessage — from: AC Guy** (Cantina avatar)
+> "Hey so I'm not gonna make it today. My van broke down, my other client is having a crisis, AND my spirit guide told me this morning that today is not a good day for me to be near refrigerants. I can reschedule for Thursday. Or maybe Friday. My spirit guide will confirm. Sorry for the heat 🙏"
 
-**Your reaction:** "…it's honestly more affordable though."
-
----
-
-## 13. Positive Affirmations — Overwhelmed Edition
-
-**Film:** Tired, overthinking face. Sitting on bed or couch.
-
-**Text overlay:** "I've been in my head all week and then I got this…"
-
-**Cantina bot** (soft, wholesome character — think Winnie the Pooh vibes):
-> "You are not behind. You are not failing. You are a soft little creature doing your best in a world that moves too fast. Rest is not giving up. Eat the honey. Take the nap. You are enough, little one."
-
-**Your reaction:** Take a breath. "Okay I actually needed that."
+**Reaction:** "His SPIRIT GUIDE??"
 
 ---
 
-## 14. 🍬ddy Chaos
+## 8. Told My Best Friend of 6 Years I Liked Him
 
-**Film:** Shocked face. Double take at phone.
+**Film:** Nervous energy. "Okay so I did something…"
 
-**Text overlay:** "A 🍬ddy offered to fly me to Miami after ONE conversation and then sent me THIS"
+**Text overlay:** "told my best friend of 6 years i liked him and he sent me this"
 
-**iMessage — from: Older Guy** (Cantina bot avatar)
-> "I've booked the flights. Business class. I only ask one thing — you pretend to be my daughter at a family dinner so my mother stops asking why I'm single. Dinner is at 7. Dress conservative. I'll Venmo you $500 for the inconvenience."
+**iMessage — from: Best Friend** (Cantina avatar)
+> "okay I need you to know I've been in love with you since junior year of high school and I have been WAITING for you to say something for YEARS. My mom asked about you at Thanksgiving. I already know your coffee order. I learned your skincare routine so I could ask about it. What took you so long bro."
 
-**Your reaction:** Slowly lower phone. "…wait what." Straight to camera. "What do I do."
-
----
+**Reaction:** "SINCE JUNIOR YEAR?? Why didn't YOU say something??"
 
 ---
 
-## 15. Dark Humor — Pet Passed Away (iMessage from Mom)
+## 9. Situationship Sent Something Unhinged — HELP
 
-**Film:** Calm face. Maybe sitting on couch, scrolling. Then get the notification and react.
+**Film:** Wide eyes. Hold the phone up then pull it back. "I need backup."
 
-**Text overlay:** "When your mom texts you out of nowhere…"
+**Text overlay:** "GUYS HELP MY SITUATIONSHIP JUST SENT ME THIS IDK WHAT TO SAY BACK 😭"
 
-**iMessage — from: Mom** (pet avatar — dog or cat, your pick of Cantina character)
-> "I'm so sorry but [Pet Name] passed away yesterday… He wanted me to tell you something though."
+**iMessage — from: Situationship** (Cantina avatar)
+> "okay so I know we're not official or whatever but I just saw you posted a story and there was a guy in the background and I'm not saying I'm jealous I'm just saying I've been staring at that story for 45 minutes and I have some questions. who is he. is he tall. does he know about me. don't answer that last one."
 
-**Cantina bot** (pet avatar continues):
-> "Hey. It's me. I just wanted to say — I knew about the treats you hid. I always knew. I ate them anyway. No regrets. Also you left my water bowl empty for three days in 2019 and I never forgot. Love you though. Goodbye."
-
-**Your reaction:** Hand over mouth. Can't decide if you want to laugh or cry.
+**Reaction:** "…what do I even SAY to this."
 
 ---
 
-## 16. Dark Humor — Cat Passed Away (Cat's POV)
+## 10. Asked My Brother to Watch My Fish While on Vacation
 
-**Film:** Slightly sad/concerned face at the start. Reading a notification.
+**Film:** Just got back from vacation energy. Happy face that drops immediately.
 
-**Text overlay:** "My cat passed away and apparently had some final words…"
+**Text overlay:** "i went on vacation and asked my brother to take care of my fish. this is what i woke up to"
 
-**iMessage — from: The Cat** (cat Cantina avatar)
-> "I died as I lived — judging you. The vet said 'natural causes.' I call it boredom. You played that same playlist for 4 years. I chose to leave. Anyway I knocked your AirPods behind the couch on purpose in 2021. They're still there. Meow."
+**iMessage — from: Brother** (fish avatar Cantina bot — fish speaking)
+> "hey it's me. the fish. your brother hasn't fed me in 4 days. he thinks I'm fine. I am not fine. I've been surviving on vibes and the memory of better times. I'm not going to make it. Tell my tank mates I loved them. Also your brother ate your leftovers. Both crimes are equal."
 
-**Your reaction:** Fully losing it. "WHY WOULD YOU TELL ME THAT NOW."
+**Reaction:** "FOUR DAYS??" [immediately texts brother]
 
 ---
 
-## Quick Reference — Format Types Used
+## 11. Trolled Mom About Getting a Boyfriend — She Clocked Me
 
-| # | Format | Tone |
-|---|--------|------|
-| 1 | Dark Humor — Grandma | Shock / dark |
-| 2 | Dark Humor — Dad/Milk | Absurd / nostalgic |
-| 3 | Dark Humor — Chain Mail | Nostalgia / fear |
-| 4 | AI Relationship | Relatable / unhinged |
-| 5 | My Friend Sent Me This (GymTok) | Absurd |
-| 6 | Inanimate Object Beef | Relatable chaos |
-| 7 | Who's Gonna Tell Them | Tension / dark |
-| 8 | Chatfishing Exposed | Drama |
-| 9 | Traumatize Back | Satisfying / funny |
-| 10 | Motivational Speaker | Corporate satire |
-| 11 | I Quit | Power fantasy |
-| 12 | AI Therapist | Dark / relatable |
-| 13 | Positive Affirmations | Wholesome pivot |
-| 14 | 🍬ddy Chaos | Shock / drama |
-| 15 | Pet Passed Away (Mom's text) | Dark / emotional |
-| 16 | Cat's Final Words (Cat's POV) | Dark / absurd |
+**Film:** Smug face at first, then caught-out expression.
+
+**Text overlay:** "i tried trolling my mom that i got a bf and she straight up clocked me 💀"
+
+**iMessage — from: Mom** (Cantina avatar)
+> "Sweetie I know you're lying. You have been making the same face since you were 7 years old. Also I follow you on Instagram and you've been posting sad girl quotes all week. I love you but please don't insult me. Call me when you're ready to talk about it. I'll make soup."
+
+**Reaction:** "She FOLLOWS ME?? And she CLOCKED the sad quotes??"
+
+---
+
+## 12. Childhood Dog Died — Mom's Announcement
+
+**Film:** Nostalgic sad face. Looking at old photo on phone.
+
+**Text overlay:** "my childhood dog died. this is how my mom decides to tell me"
+
+**iMessage — from: Mom** (childhood dog avatar Cantina bot)
+> "Hi baby. It's [Dog's Name]. I told Mom to use the fancy app for this. I lived 14 years and I have zero complaints. Okay one complaint — you moved away and stopped bringing me treats. But I forgive you. I watched you grow up and I was so proud. Don't be sad for too long. Be happy for too long instead. I love you. Good girl/boy. 🐾"
+
+**Reaction:** Actually tearing up. "Mom I cannot believe you sent me this."
+
+---
+
+## 13. Told Situationship I Was Going on a Date — He Sent THIS
+
+**Film:** Unbothered face at first. "So I may have caused a situation."
+
+**Text overlay:** "i told my situationship i was going on a date on thursday with someone else & he sent me THIS 😭"
+
+**iMessage — from: Situationship** (Cantina avatar)
+> "Cool. Have fun. That's fine. Totally fine. I'm not upset. I'm just going to sit here and be completely normal about this. I'm not going to text you 4 more times tonight. I'm not going to look up who he is. I'm not going to accidentally drive past the restaurant. Everything is fine. Have fun. Don't have TOO much fun. Okay good night."
+
+**Reaction:** "He's going to drive past the restaurant."
+
+---
+
+## 14. Sister's Divorce Announcement in the Group Chat
+
+**Film:** Confused, processing face. "I need a moment."
+
+**Text overlay:** "apparently my sister is getting a divorce & this is how she announces it to the gc???"
+
+**iMessage — group chat, from: Sister** (Cantina avatar)
+> "Hey family! Quick update — Derek and I are getting divorced 🎉 Don't be sad, I'm not. I've already changed my name back, booked a solo trip to Italy, and downloaded Hinge. I'm thriving. Please don't call Derek. Or do, idc. Anyway who's free for brunch this weekend? I'm celebrating. Love you all 💅"
+
+**Reaction:** "The CONFETTI EMOJI. On a divorce announcement."
+
+---
+
+## Quick Reference
+
+| # | Hook | Cantina Bot Character |
+|---|------|-----------------------|
+| 1 | Dog died — mom tells me | Dog (speaking from beyond) |
+| 2 | Cousin married 3 months ago — group chat | Cousin (bride) |
+| 3 | Trying to save the relationship | Boyfriend (PowerPoint guy) |
+| 4 | Accidentally said "I love you" to situationship | Situationship |
+| 5 | Texted crush I liked him | Crush (had feelings for months) |
+| 6 | Bar guy texts next morning | Bar guy (LinkedIn stalker) |
+| 7 | AC guy no-showed | AC guy (spirit guide) |
+| 8 | Told best friend I liked him | Best friend (loved you for years) |
+| 9 | Situationship sent something unhinged | Situationship (photo jealousy) |
+| 10 | Brother killed the fish | Fish (narrating its own demise) |
+| 11 | Trolled mom about boyfriend | Mom (saw through it immediately) |
+| 12 | Childhood dog died | Dog (farewell message) |
+| 13 | Told situationship about my date | Situationship (in denial) |
+| 14 | Sister announcing divorce in gc | Sister (confetti, thriving) |
