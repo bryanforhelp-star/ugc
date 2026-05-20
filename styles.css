@@ -597,6 +597,7 @@ em { font-style: italic; }
   transition: opacity var(--t);
 }
 .logo-img:hover { opacity: 1; }
+.logo-img--lg { height: clamp(32px, 3.6vw, 48px); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {
