@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mockup A — Creator's Desk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #FBF5EC;
+      --cream-dark: #F0E8D8;
+      --blush: #F2D0BE;
+      --ink: #1A1209;
+      --ink-soft: #3D2E1E;
+      --ink-mute: #8C7B68;
+      --tape: rgba(255,240,180,0.75);
+      --sticky-1: #FDEF8A;
+      --sticky-2: #B8E4C9;
+      --sticky-3: #F9C9C9;
+      --serif: 'Instrument Serif', serif;
+      --hand: 'Caveat', cursive;
+      --sans: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.5;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    /* ---------- custom cursor ---------- */
+    #cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s;
+      mix-blend-mode: multiply;
+    }
+    .spark {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 14px;
+      animation: sparkle 0.7s forwards;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes sparkle {
+      0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -150%) scale(0.3); }
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 2px solid var(--ink);
+      padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--hand);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 100%;
+      height: 2px;
+      background: var(--ink);
+      transition: right 0.3s cubic-bezier(.2,.8,.2,1);
+    }
+    .nav-links a:hover::after { right: 0; }
+
+    /* ---------- hero ---------- */
+    .hero {
+      padding: 80px 48px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-photos {
+      position: relative;
+      height: 520px;
+    }
+    .polaroid {
+      position: absolute;
+      background: white;
+      padding: 12px 12px 40px;
+      box-shadow: 3px 4px 16px rgba(26,18,9,0.18);
+      cursor: grab;
+      user-select: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .polaroid:active { cursor: grabbing; box-shadow: 6px 8px 24px rgba(26,18,9,0.28); }
+    .polaroid img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .polaroid .caption {
+      font-family: var(--hand);
+      font-size: 17px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-top: 8px;
+    }
+    .p1 { width: 220px; height: 260px; top: 30px; left: 20px; transform: rotate(-4deg); z-index: 3; }
+    .p2 { width: 200px; height: 240px; top: 60px; left: 160px; transform: rotate(3.5deg); z-index: 2; }
+    .p3 { width: 180px; height: 220px; top: 200px; left: 80px; transform: rotate(-1.5deg); z-index: 4; }
+    .p1 .img { background: linear-gradient(135deg, #d4c5b0, #b5a892); height: 190px; }
+    .p2 .img { background: linear-gradient(135deg, #c9b8a5, #a89278); height: 175px; }
+    .p3 .img { background: linear-gradient(135deg, #e2d4c2, #c4ae96); height: 158px; }
+
+    /* tape strips */
+    .tape {
+      position: absolute;
+      background: var(--tape);
+      border: 1px solid rgba(200,180,100,0.3);
+      z-index: 10;
+    }
+    .tape-h { height: 22px; width: 60px; transform: rotate(-3deg); }
+    .tape-v { height: 22px; width: 55px; transform: rotate(5deg); }
+    .t1 { top: 16px; left: 70px; }
+    .t2 { top: 48px; left: 280px; transform: rotate(-6deg); }
+    .t3 { top: 196px; left: 140px; transform: rotate(2deg); }
+
+    .hero-copy { padding-left: 24px; }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(52px, 6vw, 80px);
+      line-height: .95;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero h1 em { font-style: italic; }
+    .hero-sub {
+      font-family: var(--hand);
+      font-size: 28px;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+      transform: rotate(-1deg);
+      display: inline-block;
+    }
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 48ch;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-desk {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 14px 24px;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: var(--sans);
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-desk:hover { background: var(--cream); color: var(--ink); outline: 2px solid var(--ink); }
+    .btn-ghost-desk {
+      font-family: var(--hand);
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 2px;
+    }
+
+    /* ---------- worked with marquee ---------- */
+    .logo-strip {
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 20px 0;
+      overflow: hidden;
+      background: var(--cream-dark);
+    }
+    .logo-track { display: flex; animation: scroll 20s linear infinite; width: max-content; }
+    .logo-track:hover { animation-play-state: paused; }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .logo-list { display: flex; align-items: center; gap: 56px; padding-right: 56px; flex-shrink: 0; }
+    .logo-list span {
+      font-family: var(--hand);
+      font-size: 22px;
+      color: var(--ink);
+      white-space: nowrap;
+      opacity: 0.75;
+    }
+    .logo-divider { font-size: 18px; color: var(--ink-mute); }
+
+    /* ---------- work section ---------- */
+    .section {
+      padding: 80px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header { margin-bottom: 56px; }
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-family: var(--sans);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: .95;
+      letter-spacing: -0.02em;
+    }
+    .section-header h2 em { font-style: italic; }
+
+    /* scattered card grid */
+    .desk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .desk-card {
+      background: white;
+      padding: 14px;
+      box-shadow: 2px 4px 14px rgba(26,18,9,0.12);
+      cursor: grab;
+      transition: box-shadow 0.2s, transform 0.15s;
+      position: relative;
+    }
+    .desk-card:nth-child(1) { transform: rotate(-1.5deg); }
+    .desk-card:nth-child(2) { transform: rotate(0.8deg); margin-top: 20px; }
+    .desk-card:nth-child(3) { transform: rotate(-0.5deg); margin-top: -10px; }
+    .desk-card:hover { box-shadow: 5px 8px 24px rgba(26,18,9,0.2); transform: rotate(0deg) translateY(-4px) !important; z-index: 10; }
+    .desk-card:active { cursor: grabbing; }
+
+    .card-tape {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      background: var(--tape);
+      border: 1px solid rgba(200,180,100,0.3);
+      width: 50px; height: 20px;
+      z-index: 2;
+    }
+
+    .card-video {
+      aspect-ratio: 9/16;
+      background: linear-gradient(180deg, #d4c5b0, #a89278);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .card-video video { width: 100%; height: 100%; object-fit: cover; }
+    .play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 48px; height: 48px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+    }
+    .play-btn::after {
+      content: '';
+      border-left: 14px solid white;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: 3px;
+    }
+
+    .card-meta { padding: 14px 4px 4px; }
+    .card-brand {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    /* sticky note */
+    .sticky {
+      padding: 12px 14px;
+      font-family: var(--hand);
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--ink);
+      transform: rotate(1.5deg);
+      box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+    .sticky strong { font-weight: 700; display: block; font-size: 13px; margin-bottom: 2px; }
+    .s-yellow { background: var(--sticky-1); }
+    .s-green  { background: var(--sticky-2); }
+    .s-pink   { background: var(--sticky-3); transform: rotate(-1deg); }
+
+    /* ---------- about ---------- */
+    .about {
+      background: var(--cream-dark);
+      border-top: 2px solid var(--ink);
+      padding: 80px 48px;
+    }
+    .about-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo {
+      background: white;
+      padding: 16px 16px 56px;
+      box-shadow: 4px 6px 20px rgba(26,18,9,0.15);
+      transform: rotate(-2deg);
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(180deg, #e2d4c2, #b5a488);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--hand);
+      font-size: 18px;
+      color: var(--ink-mute);
+    }
+    .about-caption {
+      font-family: var(--hand);
+      font-size: 19px;
+      text-align: center;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    .about-note {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: var(--sticky-1);
+      padding: 14px 16px;
+      font-family: var(--hand);
+      font-size: 17px;
+      transform: rotate(3deg);
+      box-shadow: 2px 3px 10px rgba(0,0,0,0.12);
+      max-width: 160px;
+      line-height: 1.4;
+    }
+    .about-copy h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: .95;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .about-copy h2 em { font-style: italic; }
+    .about-copy p {
+      font-size: 17px; line-height: 1.7; color: var(--ink-soft);
+      margin-bottom: 18px; max-width: 52ch;
+    }
+    .about-tag {
+      font-family: var(--hand);
+      font-size: 26px;
+      color: var(--ink);
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 2px solid var(--ink);
+      display: block;
+    }
+
+    /* ---------- contact ---------- */
+    .contact {
+      border-top: 2px solid var(--ink);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .contact-inner { max-width: 640px; margin: 0 auto; }
+    .contact h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: .95;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .contact h2 em { font-style: italic; }
+    .contact p { color: var(--ink-soft); font-size: 16px; margin-bottom: 36px; }
+    .contact-email {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 18px 36px;
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: var(--sans);
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .contact-email:hover { background: var(--blush); color: var(--ink); }
+
+    /* ---------- footer ---------- */
+    footer {
+      border-top: 2px solid var(--ink);
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    footer .name { font-family: var(--serif); font-style: italic; font-size: 18px; }
+    footer .links { display: flex; gap: 24px; }
+    footer .links a { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    footer .copy { font-size: 11px; color: var(--ink-mute); letter-spacing: .08em; }
+
+    /* label badge */
+    .label-badge {
+      position: fixed;
+      top: 80px; right: 24px;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 8px 14px;
+      font-family: var(--hand);
+      font-size: 16px;
+      transform: rotate(2deg);
+      z-index: 200;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div class="label-badge">✦ Mockup A — Creator's Desk</div>
+
+<nav>
+  <a class="nav-logo" href="#">kyndall ramirez</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photos">
+    <div class="tape tape-h t1"></div>
+    <div class="tape tape-v t2"></div>
+    <div class="tape tape-h t3"></div>
+
+    <div class="polaroid p1" id="pol1">
+      <div class="img" style="height:190px; background: linear-gradient(145deg,#d9cec0,#b5a48e);"></div>
+      <div class="caption">kyn ✦</div>
+    </div>
+    <div class="polaroid p2" id="pol2">
+      <div class="img" style="height:175px; background: linear-gradient(145deg,#cec0b0,#a8937a);"></div>
+      <div class="caption">creating :)</div>
+    </div>
+    <div class="polaroid p3" id="pol3">
+      <div class="img" style="height:158px; background: linear-gradient(145deg,#e5d8c8,#c9b49a);"></div>
+      <div class="caption">bts</div>
+    </div>
+  </div>
+
+  <div class="hero-copy">
+    <p class="eyebrow">(KR / PORTFOLIO)</p>
+    <h1>hey, i'm<br><em>kyndall.</em></h1>
+    <span class="hero-sub">ugc creator & strategist ✦</span>
+    <p>i make short-form video that feels human, native to the feed & built to actually perform. think less "branded content", more real.</p>
+    <div class="hero-actions">
+      <a class="btn-desk" href="mailto:kyn@bykyndall.com">kyn@bykyndall.com →</a>
+      <a class="btn-ghost-desk" href="#work">see the work</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="logo-track">
+    <ul class="logo-list">
+      <span>solvely.ai</span><span class="logo-divider">✦</span>
+      <span>prism ai</span><span class="logo-divider">✦</span>
+      <span>honeydew</span><span class="logo-divider">✦</span>
+      <span>cantina</span><span class="logo-divider">✦</span>
+      <span>triips</span><span class="logo-divider">✦</span>
+      <span>lovable</span><span class="logo-divider">✦</span>
+      <span>opal</span><span class="logo-divider">✦</span>
+      <span>replit</span><span class="logo-divider">✦</span>
+      <span>preply</span><span class="logo-divider">✦</span>
+    </ul>
+    <ul class="logo-list" aria-hidden="true">
+      <span>solvely.ai</span><span class="logo-divider">✦</span>
+      <span>prism ai</span><span class="logo-divider">✦</span>
+      <span>honeydew</span><span class="logo-divider">✦</span>
+      <span>cantina</span><span class="logo-divider">✦</span>
+      <span>triips</span><span class="logo-divider">✦</span>
+      <span>lovable</span><span class="logo-divider">✦</span>
+      <span>opal</span><span class="logo-divider">✦</span>
+      <span>replit</span><span class="logo-divider">✦</span>
+      <span>preply</span><span class="logo-divider">✦</span>
+    </ul>
+  </div>
+</div>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-header">
+    <span class="section-kicker">(01) client work</span>
+    <h2><em>paid ads</em></h2>
+  </div>
+  <div class="desk-grid">
+
+    <div class="desk-card">
+      <div class="card-tape"></div>
+      <div class="card-video" style="background: linear-gradient(180deg,#cfc0aa,#a08060);"></div>
+      <div class="card-meta">
+        <div class="card-brand">Opal</div>
+        <div class="card-title">problem / solution</div>
+        <div class="sticky s-yellow">
+          <strong>angle</strong>
+          creative burnout & phone overstim.
+        </div>
+      </div>
+    </div>
+
+    <div class="desk-card">
+      <div class="card-tape" style="transform: translateX(-50%) rotate(3deg);"></div>
+      <div class="card-video" style="background: linear-gradient(180deg,#c5d4c0,#8aaa82);"></div>
+      <div class="card-meta">
+        <div class="card-brand">Preply</div>
+        <div class="card-title">educational testimonial</div>
+        <div class="sticky s-green">
+          <strong>angle</strong>
+          structured learning vs scattered apps.
+        </div>
+      </div>
+    </div>
+
+    <div class="desk-card">
+      <div class="card-tape" style="transform: translateX(-50%) rotate(-4deg);"></div>
+      <div class="card-video" style="background: linear-gradient(180deg,#d0c8e0,#9080b0);"></div>
+      <div class="card-meta">
+        <div class="card-brand">Replit</div>
+        <div class="card-title">use-case product demo</div>
+        <div class="sticky s-pink">
+          <strong>angle</strong>
+          build a real app from a relatable problem.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <div class="about-img">[ photo ]</div>
+        <div class="about-caption">kyndall ✦ 2024</div>
+      </div>
+      <div class="about-note">thinks like a marketer, creates like a human ✦</div>
+    </div>
+    <div class="about-copy">
+      <h2>about <em>me</em></h2>
+      <p>i'm kyndall — ugc creator with a background in paid media and creative strategy.</p>
+      <p>i care about how things feel <em>and</em> how they perform. i think about where attention drops, what makes someone keep watching, and what actually makes them click.</p>
+      <p>my experience behind the scenes in digital marketing shapes every piece i create. story-driven. built with intention.</p>
+      <span class="about-tag">marketer's brain. human's voice. ✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <h2>let's create <em>together</em></h2>
+    <p>ugc packages · creative strategy · scriptwriting · photography</p>
+    <a class="contact-email" href="mailto:kyn@bykyndall.com">kyn@bykyndall.com →</a>
+  </div>
+</section>
+
+<footer>
+  <span class="name">kyndall ramirez</span>
+  <div class="links">
+    <a href="#">EMAIL</a>
+    <a href="#">TIKTOK</a>
+    <a href="#">INSTAGRAM</a>
+  </div>
+  <span class="copy">(KR) — ALL RIGHTS RESERVED</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const sparks = ['✦','★','✿','◦','·'];
+  let lastSpark = 0;
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+
+    if (Date.now() - lastSpark > 80) {
+      lastSpark = Date.now();
+      const s = document.createElement('span');
+      s.className = 'spark';
+      s.textContent = sparks[Math.floor(Math.random() * sparks.length)];
+      s.style.left = e.clientX + 'px';
+      s.style.top  = e.clientY + 'px';
+      s.style.fontSize = (10 + Math.random() * 8) + 'px';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 700);
+    }
+  });
+
+  // Draggable polaroids
+  document.querySelectorAll('.polaroid, .desk-card').forEach(el => {
+    let isDragging = false, ox = 0, oy = 0, sx = 0, sy = 0;
+    const startRot = (parseFloat(getComputedStyle(el).transform.split(',')[1]) || 0);
+
+    el.addEventListener('mousedown', e => {
+      isDragging = true;
+      const rect = el.getBoundingClientRect();
+      ox = e.clientX - rect.left;
+      oy = e.clientY - rect.top;
+      el.style.position = 'absolute';
+      el.style.zIndex = 100;
+      el.style.transition = 'box-shadow 0.1s';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const parent = el.parentElement.getBoundingClientRect();
+      el.style.left = (e.clientX - parent.left - ox) + 'px';
+      el.style.top  = (e.clientY - parent.top  - oy) + 'px';
+    });
+
+    document.addEventListener('mouseup', () => { isDragging = false; el.style.zIndex = ''; });
+  });
+</script>
+</body>
+</html>
