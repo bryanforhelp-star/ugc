@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mockup C — Scrapbook Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --paper:  #F5F0E8;
+      --paper2: #EDE6D6;
+      --ink:    #100E09;
+      --ink-soft: #362D20;
+      --ink-mute: #8A7D68;
+      --red:    #C8392B;
+      --tape:   rgba(255,238,160,0.7);
+      --hand: 'Caveat', cursive;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ---------- custom cursor ---------- */
+    #cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: multiply;
+    }
+    #cursor-ring {
+      position: fixed;
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left 0.12s, top 0.12s, width 0.2s, height 0.2s;
+    }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 500;
+      background: var(--ink);
+      padding: 14px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--hand);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--paper);
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a .scribble {
+      position: absolute;
+      bottom: -6px; left: -4px; right: -4px;
+      height: 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover .scribble { opacity: 1; }
+    .nav-links a:hover { color: #FFE49A; }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 92vh;
+      padding: 72px 48px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+    .hero-copy { padding-top: 16px; }
+    .kicker {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--ink-mute); margin-bottom: 24px; font-family: var(--sans);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(60px, 7.5vw, 108px);
+      line-height: .9;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .hero h1 em { font-style: italic; }
+    .hero-annotation {
+      font-family: var(--hand);
+      font-size: 22px;
+      color: var(--red);
+      transform: rotate(-2deg);
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 17px; line-height: 1.65;
+      color: var(--ink-soft);
+      max-width: 46ch;
+      margin-bottom: 40px;
+    }
+    .hero-btns { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-main {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 15px 26px;
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: var(--sans);
+      font-weight: 500;
+      position: relative;
+      transition: 0.15s;
+    }
+    .btn-main::after {
+      content: '';
+      position: absolute; bottom: -3px; right: -3px;
+      border: 2px solid var(--red);
+      inset: 3px -3px -3px 3px;
+      transition: 0.15s;
+    }
+    .btn-main:hover { transform: translate(-2px, -2px); }
+    .btn-text {
+      font-family: var(--hand);
+      font-size: 22px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px dashed var(--ink);
+      padding-bottom: 2px;
+    }
+
+    .hero-image-col { position: relative; }
+    .hero-img-frame {
+      background: white;
+      padding: 14px 14px 56px;
+      box-shadow: 4px 6px 20px rgba(16,14,9,0.18);
+      transform: rotate(1.5deg);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-img-inner {
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #d9cec0, #a89278);
+    }
+    .hero-img-caption {
+      font-family: var(--hand);
+      font-size: 20px;
+      text-align: center;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    .hero-tape {
+      position: absolute;
+      background: var(--tape);
+      border: 1px solid rgba(180,160,80,0.3);
+      z-index: 3;
+    }
+    .ht1 { width: 60px; height: 22px; top: -8px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+    .ht2 { width: 22px; height: 60px; right: -8px; top: 30%; transform: rotate(5deg); }
+
+    .hero-sticker {
+      position: absolute;
+      font-family: var(--hand);
+      font-weight: 700;
+      background: var(--red);
+      color: white;
+      padding: 10px 14px;
+      font-size: 17px;
+      transform: rotate(-8deg);
+      bottom: 30px;
+      left: -20px;
+      z-index: 5;
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.2);
+    }
+
+    /* torn paper bottom edge */
+    .torn-edge {
+      position: relative;
+      height: 60px;
+      background: var(--paper);
+      margin-top: -2px;
+    }
+    .torn-edge svg {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: 60px;
+    }
+
+    /* ---------- logo strip ---------- */
+    .logo-strip {
+      background: var(--ink);
+      padding: 22px 0;
+      overflow: hidden;
+    }
+    .logo-track { display: flex; animation: scroll 18s linear infinite; width: max-content; }
+    .logo-track:hover { animation-play-state: paused; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .logo-list { display: flex; align-items: center; gap: 48px; padding-right: 48px; flex-shrink: 0; }
+    .logo-list span { font-family: var(--hand); font-size: 22px; color: rgba(245,240,232,0.75); white-space: nowrap; }
+    .logo-list .dot { color: var(--red); font-size: 16px; }
+
+    /* ---------- work ---------- */
+    .section {
+      padding: 80px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-border {
+      border-top: 2px solid var(--ink);
+      padding-top: 56px;
+      margin-top: 0;
+    }
+
+    .sec-header { margin-bottom: 56px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .sec-kicker { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); font-family: var(--sans); display: block; margin-bottom: 14px; }
+    .sec-header h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6vw, 72px); line-height: .95; letter-spacing: -0.02em; }
+    .sec-header h2 em { font-style: italic; }
+    .sec-note { font-family: var(--hand); font-size: 19px; color: var(--ink-mute); max-width: 32ch; text-align: right; line-height: 1.4; }
+
+    /* scrapbook card grid */
+    .scrap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 28px;
+    }
+    .scrap-card {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .scrap-card:nth-child(1) { transform: rotate(-1deg); }
+    .scrap-card:nth-child(2) { transform: rotate(0.5deg); margin-top: 24px; }
+    .scrap-card:nth-child(3) { transform: rotate(-0.8deg); margin-top: -8px; }
+    .scrap-card:hover { transform: rotate(0deg) scale(1.02) translateY(-6px) !important; z-index: 10; }
+
+    .scrap-tape {
+      position: absolute;
+      top: -10px; left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      background: var(--tape);
+      border: 1px solid rgba(180,160,80,0.3);
+      width: 48px; height: 18px;
+      z-index: 2;
+    }
+
+    .scrap-video {
+      aspect-ratio: 9/16;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+    }
+    .scrap-video .bg { width: 100%; height: 100%; display: block; }
+
+    /* flip card on hover */
+    .scrap-card .front, .scrap-card .back {
+      backface-visibility: hidden;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .scrap-card .back {
+      position: absolute; inset: 0;
+      background: var(--paper2);
+      border: 2px solid var(--ink);
+      transform: rotateY(180deg);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 28px 22px;
+    }
+    .scrap-card:hover .front { transform: rotateY(-180deg); }
+    .scrap-card:hover .back  { transform: rotateY(0deg); }
+
+    .back-brand { font-family: var(--sans); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
+    .back-angle { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.15; margin-bottom: 16px; color: var(--ink); }
+    .back-goal { font-family: var(--hand); font-size: 17px; color: var(--ink-soft); line-height: 1.5; }
+    .back-goal strong { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 4px; }
+
+    .card-brand-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 12px; padding: 8px 0 0;
+      border-top: 1px solid var(--ink);
+    }
+    .card-brand-name { font-family: var(--serif); font-style: italic; font-size: 22px; }
+    .card-type { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); font-family: var(--sans); }
+
+    /* ---------- mood board (draggable) ---------- */
+    .moodboard {
+      background: var(--paper2);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+      min-height: 460px;
+    }
+    .moodboard-label {
+      position: absolute; top: 20px; left: 48px;
+      font-family: var(--hand); font-size: 19px; color: var(--ink-mute);
+    }
+    .drag-item {
+      position: absolute;
+      cursor: grab;
+      user-select: none;
+      background: white;
+      padding: 10px 10px 36px;
+      box-shadow: 2px 4px 14px rgba(16,14,9,0.14);
+    }
+    .drag-item:active { cursor: grabbing; }
+    .drag-item .di-img {
+      display: block;
+      pointer-events: none;
+    }
+    .drag-item .di-cap {
+      font-family: var(--hand); font-size: 16px;
+      text-align: center; color: var(--ink-soft); margin-top: 8px;
+      pointer-events: none;
+    }
+    .di1 { width: 160px; top: 60px;  left: 12%;  transform: rotate(-3deg); }
+    .di2 { width: 140px; top: 80px;  left: 32%;  transform: rotate(2deg); }
+    .di3 { width: 180px; top: 40px;  left: 52%;  transform: rotate(-1deg); }
+    .di4 { width: 150px; top: 200px; left: 22%;  transform: rotate(4deg); }
+    .di5 { width: 165px; top: 190px; left: 62%;  transform: rotate(-2deg); }
+
+    /* ---------- about ---------- */
+    .about-scrap {
+      padding: 80px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .about-scrap h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: .95; letter-spacing: -0.02em; margin-bottom: 28px; }
+    .about-scrap h2 em { font-style: italic; }
+    .about-scrap p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 18px; max-width: 52ch; }
+    .about-quote {
+      font-family: var(--hand);
+      font-size: 26px;
+      color: var(--ink);
+      padding: 20px 0 0;
+      border-top: 2px solid var(--ink);
+      margin-top: 24px;
+    }
+
+    .about-photo-stack { position: relative; height: 420px; }
+    .stack-photo {
+      position: absolute;
+      background: white;
+      padding: 12px 12px 46px;
+      box-shadow: 3px 5px 16px rgba(16,14,9,0.16);
+    }
+    .stack-photo .sp-img {
+      width: 100%; display: block;
+    }
+    .stack-photo .sp-cap { font-family: var(--hand); font-size: 17px; text-align: center; color: var(--ink-soft); margin-top: 8px; }
+    .sp1 { width: 220px; top: 0;   left: 0;  transform: rotate(-3deg); z-index: 1; }
+    .sp2 { width: 200px; top: 20px; left: 80px; transform: rotate(2deg); z-index: 2; }
+    .sp-img-block { aspect-ratio: 1; background: linear-gradient(145deg,#d9cec0,#a89278); }
+
+    /* tape corners */
+    .tc {
+      position: absolute;
+      background: var(--tape);
+      border: 1px solid rgba(180,160,80,0.3);
+      width: 22px; height: 22px;
+    }
+    .tc-tl { top: -8px; left: -8px; transform: rotate(45deg); }
+    .tc-tr { top: -8px; right: -8px; transform: rotate(-45deg); }
+    .tc-bl { bottom: -8px; left: -8px; transform: rotate(-45deg); }
+    .tc-br { bottom: -8px; right: -8px; transform: rotate(45deg); }
+
+    /* ---------- contact ---------- */
+    .contact {
+      background: var(--ink);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6vw, 80px); line-height: .95; letter-spacing: -0.02em; color: var(--paper); margin-bottom: 20px; }
+    .contact h2 em { font-style: italic; }
+    .contact-hand { font-family: var(--hand); font-size: 22px; color: rgba(245,240,232,0.6); margin-bottom: 40px; display: block; }
+    .contact-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 18px 40px;
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: var(--sans);
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .contact-btn:hover { background: #FFE49A; color: var(--ink); }
+
+    /* ---------- footer ---------- */
+    footer {
+      border-top: 2px solid var(--paper2);
+      background: var(--ink);
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    footer .name { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--paper); }
+    footer .links { display: flex; gap: 24px; }
+    footer .links a { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,232,0.6); text-decoration: none; }
+    footer .copy { font-size: 11px; color: rgba(245,240,232,0.4); letter-spacing: .08em; }
+
+    /* label */
+    .label-badge {
+      position: fixed; top: 80px; right: 24px;
+      background: var(--red);
+      color: white;
+      padding: 8px 14px;
+      font-family: var(--hand);
+      font-size: 16px;
+      transform: rotate(2deg);
+      z-index: 600;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div class="label-badge">✦ Mockup C — Scrapbook</div>
+
+<nav>
+  <a class="nav-logo" href="#">kyndall ramirez</a>
+  <ul class="nav-links">
+    <li><a href="#work">
+      Work
+      <svg class="scribble" viewBox="0 0 80 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 6 C15 2, 30 7, 45 4 C58 1, 68 6, 78 3" stroke="#FFE49A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </a></li>
+    <li><a href="#about">
+      About
+      <svg class="scribble" viewBox="0 0 80 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 5 C18 1, 35 7, 50 3 C62 0, 72 6, 78 4" stroke="#FFE49A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </a></li>
+    <li><a href="#contact">
+      Contact
+      <svg class="scribble" viewBox="0 0 80 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 4 C20 8, 38 1, 55 5 C65 7, 74 2, 78 5" stroke="#FFE49A" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="hero-copy">
+      <p class="kicker">(KR / PORTFOLIO)</p>
+      <h1>hey,<br>i'm <em>kyn&shy;dall.</em></h1>
+      <span class="hero-annotation">↓ ugc creator & creative strategist</span>
+      <p>short-form video that feels human, native to the feed & built to actually perform. i think like a marketer but create like a real person.</p>
+      <div class="hero-btns">
+        <a class="btn-main" href="mailto:kyn@bykyndall.com">kyn@bykyndall.com →</a>
+        <a class="btn-text" href="#work">see the work</a>
+      </div>
+    </div>
+
+    <div class="hero-image-col">
+      <div class="hero-tape ht1"></div>
+      <div class="hero-tape ht2"></div>
+      <div class="hero-img-frame">
+        <div class="hero-img-inner"></div>
+        <div class="hero-img-caption">kyndall ✦</div>
+      </div>
+      <div class="hero-sticker">ugc creator ✦</div>
+    </div>
+  </div>
+
+  <!-- torn paper bottom -->
+  <div class="torn-edge">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 L0,30 C40,45 80,20 120,35 C160,50 200,25 240,38 C280,52 320,22 360,36 C400,50 440,28 480,40 C520,52 560,20 600,34 C640,48 680,24 720,37 C760,50 800,22 840,35 C880,48 920,26 960,39 C1000,52 1040,20 1080,33 C1120,46 1160,24 1200,37 C1240,50 1280,26 1320,39 C1360,52 1400,28 1440,38 L1440,0 Z" fill="#100E09"/>
+    </svg>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="logo-track">
+    <ul class="logo-list">
+      <span>solvely.ai</span><span class="dot">◆</span>
+      <span>prism ai</span><span class="dot">◆</span>
+      <span>honeydew</span><span class="dot">◆</span>
+      <span>cantina</span><span class="dot">◆</span>
+      <span>triips</span><span class="dot">◆</span>
+      <span>lovable</span><span class="dot">◆</span>
+      <span>opal</span><span class="dot">◆</span>
+      <span>replit</span><span class="dot">◆</span>
+      <span>preply</span><span class="dot">◆</span>
+    </ul>
+    <ul class="logo-list" aria-hidden="true">
+      <span>solvely.ai</span><span class="dot">◆</span>
+      <span>prism ai</span><span class="dot">◆</span>
+      <span>honeydew</span><span class="dot">◆</span>
+      <span>cantina</span><span class="dot">◆</span>
+      <span>triips</span><span class="dot">◆</span>
+      <span>lovable</span><span class="dot">◆</span>
+      <span>opal</span><span class="dot">◆</span>
+      <span>replit</span><span class="dot">◆</span>
+      <span>preply</span><span class="dot">◆</span>
+    </ul>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section section-border">
+    <div class="sec-header">
+      <div>
+        <span class="sec-kicker">(01) client work</span>
+        <h2><em>paid ads</em></h2>
+      </div>
+      <p class="sec-note">hover a card to see the strategy behind it →</p>
+    </div>
+
+    <div class="scrap-grid">
+
+      <div class="scrap-card">
+        <div class="scrap-tape"></div>
+        <div class="front">
+          <div class="scrap-video" style="background: linear-gradient(180deg,#cfc0aa,#9a7858);">
+            <div class="bg" style="aspect-ratio:9/16;"></div>
+          </div>
+          <div class="card-brand-bar">
+            <span class="card-brand-name">Opal</span>
+            <span class="card-type">problem / solution</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-brand">Opal · Problem / Solution</div>
+          <div class="back-angle">creative burnout & phone overstimulation</div>
+          <div class="back-goal"><strong>goal</strong>drive trial by resonating with high-identification pain.</div>
+        </div>
+      </div>
+
+      <div class="scrap-card">
+        <div class="scrap-tape" style="transform: translateX(-50%) rotate(3deg);"></div>
+        <div class="front">
+          <div class="scrap-video" style="background: linear-gradient(180deg,#c0cfc0,#7a9878);">
+            <div class="bg" style="aspect-ratio:9/16;"></div>
+          </div>
+          <div class="card-brand-bar">
+            <span class="card-brand-name">Preply</span>
+            <span class="card-type">educational testimonial</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-brand">Preply · Educational Testimonial</div>
+          <div class="back-angle">structured learning vs scattered apps</div>
+          <div class="back-goal"><strong>goal</strong>drive sign-ups through clarity & personalization.</div>
+        </div>
+      </div>
+
+      <div class="scrap-card">
+        <div class="scrap-tape" style="transform: translateX(-50%) rotate(-4deg);"></div>
+        <div class="front">
+          <div class="scrap-video" style="background: linear-gradient(180deg,#c0c0d8,#8080b0);">
+            <div class="bg" style="aspect-ratio:9/16;"></div>
+          </div>
+          <div class="card-brand-bar">
+            <span class="card-brand-name">Replit</span>
+            <span class="card-type">product demo</span>
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-brand">Replit · Use-Case Demo</div>
+          <div class="back-angle">build a real app from a relatable problem</div>
+          <div class="back-goal"><strong>goal</strong>show that technical complexity is no longer a barrier.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MOOD BOARD -->
+<div class="moodboard">
+  <span class="moodboard-label">✦ drag these around</span>
+
+  <div class="drag-item di1">
+    <div class="di-img sp-img-block" style="width:136px;aspect-ratio:1;background:linear-gradient(145deg,#d9cec0,#b09878);"></div>
+    <div class="di-cap">bts ✦</div>
+  </div>
+  <div class="drag-item di2">
+    <div class="di-img sp-img-block" style="width:116px;aspect-ratio:1;background:linear-gradient(145deg,#c0d4c0,#8aaa82);"></div>
+    <div class="di-cap">on set</div>
+  </div>
+  <div class="drag-item di3">
+    <div class="di-img sp-img-block" style="width:156px;aspect-ratio:4/5;background:linear-gradient(145deg,#d0c0d8,#9880b0);"></div>
+    <div class="di-cap">kyn ✦ 2024</div>
+  </div>
+  <div class="drag-item di4">
+    <div class="di-img sp-img-block" style="width:126px;aspect-ratio:1;background:linear-gradient(145deg,#e0d8c0,#c0a878);"></div>
+    <div class="di-cap">creative call</div>
+  </div>
+  <div class="drag-item di5">
+    <div class="di-img sp-img-block" style="width:141px;aspect-ratio:3/4;background:linear-gradient(145deg,#d8c0c0,#b08080);"></div>
+    <div class="di-cap">filming day</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <div class="about-scrap" id="about">
+    <div>
+      <h2>about <em>me</em></h2>
+      <p>i'm kyndall — ugc creator with a background in paid media and creative strategy.</p>
+      <p>i care about how things feel <em>and</em> how they perform. i think about where attention drops, what makes someone keep watching, and what actually makes them click.</p>
+      <p>my experience behind the scenes in digital marketing shapes every piece i create. story-driven, built with intention.</p>
+      <span class="about-quote">marketer's brain.<br>human's voice. ✦</span>
+    </div>
+    <div class="about-photo-stack">
+      <div class="stack-photo sp1">
+        <div class="tc tc-tl"></div><div class="tc tc-tr"></div>
+        <div class="sp-img sp-img-block" style="width:196px;"></div>
+        <div class="sp-cap">kyndall</div>
+      </div>
+      <div class="stack-photo sp2">
+        <div class="tc tc-bl"></div><div class="tc tc-br"></div>
+        <div class="sp-img sp-img-block" style="width:176px;"></div>
+        <div class="sp-cap">creating ✦</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>let's create <em>together</em></h2>
+  <span class="contact-hand">ugc packages · creative strategy · scriptwriting · photography</span>
+  <a class="contact-btn" href="mailto:kyn@bykyndall.com">kyn@bykyndall.com →</a>
+</section>
+
+<footer>
+  <span class="name">kyndall ramirez</span>
+  <div class="links">
+    <a href="#">EMAIL</a><a href="#">TIKTOK</a><a href="#">INSTAGRAM</a>
+  </div>
+  <span class="copy">(KR) — ALL RIGHTS RESERVED</span>
+</footer>
+
+<script>
+  // Cursor
+  const dot  = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  document.addEventListener('mousemove', e => {
+    dot.style.left  = e.clientX + 'px';
+    dot.style.top   = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .scrap-card, .drag-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.width = '52px'; ring.style.height = '52px'; });
+    el.addEventListener('mouseleave', () => { ring.style.width = '32px'; ring.style.height = '32px'; });
+  });
+
+  // Draggable mood board items
+  document.querySelectorAll('.drag-item').forEach(el => {
+    let dragging = false, ox = 0, oy = 0;
+    el.addEventListener('mousedown', e => {
+      dragging = true;
+      const r = el.getBoundingClientRect();
+      ox = e.clientX - r.left; oy = e.clientY - r.top;
+      el.style.zIndex = 50;
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const pr = el.parentElement.getBoundingClientRect();
+      el.style.left = (e.clientX - pr.left - ox) + 'px';
+      el.style.top  = (e.clientY - pr.top  - oy) + 'px';
+    });
+    document.addEventListener('mouseup', () => { dragging = false; el.style.zIndex = ''; });
+  });
+</script>
+</body>
+</html>

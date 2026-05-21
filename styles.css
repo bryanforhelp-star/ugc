@@ -1,13 +1,13 @@
 /* ---------- design tokens ---------- */
 :root {
-  --bg:        #FBFAF6;   /* warm near-white */
-  --bg-muted:  #F4F2EC;   /* subtle alt stripe */
+  --bg:        #FBFAF6;
+  --bg-muted:  #F4F2EC;
   --ink:       #0B0B0B;
   --ink-soft:  #1f1f1f;
   --ink-mute:  #7a7468;
-  --line:      #0B0B0B;   /* hairlines — thin black */
+  --line:      #0B0B0B;
   --line-soft: #d6d1c3;
-  --hi:        #B23A2E;   /* rare editorial red — used sparingly */
+  --hi:        #B23A2E;
 
   --serif: 'Instrument Serif', 'Times New Roman', Times, serif;
   --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -51,7 +51,7 @@ em { font-style: italic; }
 .skip-link:focus { left: 16px; }
 :focus-visible { outline: 1.5px solid var(--ink); outline-offset: 3px; }
 
-/* ---------- mono utility (used on all meta/labels/nav) ---------- */
+/* ---------- mono utility ---------- */
 .nav-links a,
 .logo-mark,
 .eyebrow,
@@ -297,10 +297,8 @@ em { font-style: italic; }
   max-width: 220px;
   object-fit: contain;
   object-position: left center;
-  /* blend white logo backgrounds into the paper bg */
   mix-blend-mode: multiply;
 }
-/* per-logo overrides — visual weight varies because of mark padding */
 .brand-logo[alt="Replit"]   { height: 58px; }
 .brand-logo[alt="Prism AI"] { height: 50px; }
 .brand-name {
@@ -413,7 +411,6 @@ em { font-style: italic; }
   height: auto;
   display: block;
 }
-/* strips column: soft container, staggered like a hand-pasted scrapbook */
 .analytics-col:first-child .analytics-shot {
   max-width: 78%;
   background: var(--bg-muted);
@@ -423,7 +420,6 @@ em { font-style: italic; }
 .analytics-col:first-child .analytics-shot:nth-child(1) { margin-left: 0; }
 .analytics-col:first-child .analytics-shot:nth-child(2) { margin-left: 14%; }
 .analytics-col:first-child .analytics-shot:nth-child(3) { margin-left: 6%; }
-/* donut column: framed */
 .analytics-col:last-child .analytics-shot {
   background: var(--bg-muted);
   border: 1px solid var(--ink);
@@ -539,20 +535,21 @@ em { font-style: italic; }
   justify-self: end;
 }
 
-/* ---------- logo strip ---------- */
+/* ---------- logo strip marquee ---------- */
 .logo-strip {
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
-  padding: clamp(28px, 4vw, 44px) var(--pad-x);
+  padding: clamp(28px, 4vw, 44px) 0;
+  overflow: hidden;
 }
 .logo-strip-inner {
-  max-width: var(--w-max);
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: clamp(24px, 4vw, 56px);
+  gap: clamp(24px, 4vw, 48px);
+  padding-left: var(--pad-x);
 }
 .logo-strip-label {
+  font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -561,16 +558,30 @@ em { font-style: italic; }
   white-space: nowrap;
   flex-shrink: 0;
 }
-.logo-marks {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(20px, 3vw, 44px);
+.logo-track-wrapper {
   flex: 1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+}
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: logo-scroll 22s linear infinite;
+}
+.logo-track:hover { animation-play-state: paused; }
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.logo-marks {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 5vw, 72px);
+  flex-shrink: 0;
+  padding-right: clamp(40px, 5vw, 72px);
   margin: 0;
-  padding: 0;
+  padding-left: 0;
 }
 .logo-marks li {
   display: flex;
@@ -585,6 +596,7 @@ em { font-style: italic; }
   line-height: 1;
   opacity: .85;
   transition: opacity var(--t);
+  white-space: nowrap;
 }
 .logo-mark-text:hover { opacity: 1; }
 .logo-img {
@@ -595,6 +607,7 @@ em { font-style: italic; }
   filter: grayscale(100%) contrast(1.05);
   mix-blend-mode: multiply;
   transition: opacity var(--t);
+  flex-shrink: 0;
 }
 .logo-img:hover { opacity: 1; }
 .logo-img--lg { height: clamp(32px, 3.6vw, 48px); }
@@ -609,11 +622,6 @@ em { font-style: italic; }
   .about-photo { position: static; max-width: 420px; }
   .footer-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .footer-name, .footer-links, .footer-copy { justify-self: center; }
-}
-
-@media (max-width: 960px) {
-  .logo-strip-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
-  .logo-marks { justify-content: flex-start; gap: 22px 32px; }
 }
 
 @media (max-width: 720px) {
@@ -649,6 +657,12 @@ em { font-style: italic; }
   }
 
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+  .logo-strip-inner { gap: 16px; }
+  .logo-track-wrapper {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 32px, black calc(100% - 32px), transparent 100%);
+  }
 }
 
 @media (max-width: 420px) {
