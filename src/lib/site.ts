@@ -64,10 +64,6 @@ export const SITE = {
   },
 } as const;
 
-export function substackEmbedUrl(publicationUrl: string) {
-  return `${publicationUrl.replace(/\/$/, "")}/embed`;
-}
-
 export function substackSubscribeUrl(publicationUrl: string) {
   const base = publicationUrl.replace(/\/$/, "");
   return base.includes("/subscribe") ? base : `${base}/subscribe`;
