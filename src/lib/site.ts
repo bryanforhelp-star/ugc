@@ -11,6 +11,13 @@ function siteUrl() {
   return "https://kyndall.com";
 }
 
+export type TrustedBrand = {
+  name: string;
+  logo?: string;
+  width?: number;
+  height?: number;
+};
+
 export const SITE = {
   name: "kyndall",
   /** Set NEXT_PUBLIC_SITE_URL when you have a custom domain */
@@ -48,7 +55,13 @@ export const SITE = {
   },
   trustedBy: {
     label: "trusted by",
-    brands: ["cantina", "prism ai", "solvely.ai", "doola", "honeydew"],
+    brands: [
+      { name: "cantina", logo: "/brands/cantina.png", width: 132, height: 24 },
+      { name: "prism ai" },
+      { name: "solvely.ai", logo: "/brands/solvely.png", width: 140, height: 33 },
+      { name: "doola", logo: "/brands/doola.png", width: 120, height: 34 },
+      { name: "honeydew" },
+    ] as TrustedBrand[],
   },
   building: {
     label: "Building",
