@@ -19,7 +19,7 @@ export function NewsletterSignup() {
 
   return (
     <div className="newsletter">
-      <p className="newsletter__cta">{SITE.newsletter.cta}</p>
+      <p className="newsletter__name">{SITE.newsletter.name}</p>
       <p className="newsletter__lead">{SITE.newsletter.lead}</p>
 
       <form className="newsletter__form" onSubmit={handleSubmit}>

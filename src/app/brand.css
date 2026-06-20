@@ -252,13 +252,14 @@
   max-width: 28rem;
 }
 
-.newsletter__cta {
-  font-family: var(--serif);
-  font-size: clamp(17px, 1.4vw, 21px);
-  line-height: 1.45;
+.newsletter__name {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
   color: var(--ink);
   margin: 0 0 10px;
-  max-width: 32ch;
+  line-height: 1;
 }
 
 .newsletter__lead {
