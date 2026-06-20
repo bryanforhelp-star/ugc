@@ -55,8 +55,8 @@
     "actions stage";
   gap: clamp(24px, 4vw, 56px);
   align-items: center;
-  min-height: 80vh;
-  padding: clamp(20px, 4vh, 52px) 0;
+  min-height: auto;
+  padding: clamp(20px, 4vh, 52px) 0 clamp(12px, 2vh, 24px);
 }
 
 .home .h-left {
@@ -169,7 +169,11 @@
 }
 
 .home section {
-  padding: clamp(96px, 14vh, 184px) 0;
+  padding: clamp(72px, 10vh, 140px) 0;
+}
+
+.home #about {
+  padding-top: clamp(28px, 4vh, 48px);
 }
 
 .home .s-head {
@@ -510,10 +514,11 @@
 
 @media (max-width: 840px) {
   .home section {
-    padding: clamp(52px, 9vh, 80px) 0;
+    padding: clamp(40px, 7vh, 64px) 0;
   }
 
   .home #about {
+    padding-top: clamp(12px, 2vh, 20px);
     padding-bottom: clamp(40px, 7vh, 56px);
   }
 
@@ -533,6 +538,7 @@
       "actions";
     min-height: auto;
     gap: 14px;
+    padding-bottom: 0;
   }
 
   .home .h-sub {
@@ -551,7 +557,8 @@
   .home .h-actions {
     justify-content: center;
     align-self: center;
-    margin-top: clamp(18px, 4vw, 28px);
+    margin-top: clamp(12px, 3vw, 18px);
+    margin-bottom: 0;
   }
 
   .home .showcase-piece {
