@@ -58,7 +58,7 @@ export const SITE = {
   },
   newsletter: {
     name: "human.md",
-    lead: "an email when i have something worth sharing about ai, making things, and figuring it out as i go.",
+    lead: "field notes on ai, technology, creativity and the very human urge to make things.",
     substackUrl:
       process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "https://humanmd.substack.com",
   },
