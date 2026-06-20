@@ -46,6 +46,10 @@ export const SITE = {
     label: "Work with me",
     email: "kyn@bykyndall.com",
   },
+  trustedBy: {
+    label: "trusted by",
+    brands: ["cantina", "prism ai", "solvely.ai", "doola", "honeydew"],
+  },
   building: {
     label: "Building",
     inProgress: "What I'm building",

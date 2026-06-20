@@ -5,6 +5,7 @@ import { HomePortrait } from "@/components/HomePortrait";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
+import { TrustedBy } from "@/components/TrustedBy";
 import { getFeaturedGuides } from "@/lib/guides";
 import { SITE } from "@/lib/site";
 import "./home.css";
@@ -97,6 +98,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <TrustedBy />
 
         <ContentShowcase />
 

@@ -176,6 +176,38 @@
   padding-top: clamp(28px, 4vh, 48px);
 }
 
+.home .brands {
+  padding: clamp(36px, 5vh, 56px) 0 clamp(44px, 6vh, 64px);
+}
+
+.home .brands__eyebrow {
+  font-family: var(--square);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pop);
+  margin: 0 0 clamp(18px, 3vw, 24px);
+}
+
+.home .brands__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 28px) clamp(20px, 3.5vw, 40px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home .brands__list li {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  color: var(--ink);
+}
+
 .home .s-head {
   font-family: var(--display);
   font-weight: 400;
@@ -524,6 +556,14 @@
   .home #about {
     padding-top: clamp(12px, 2vh, 20px);
     padding-bottom: clamp(40px, 7vh, 56px);
+  }
+
+  .home .brands {
+    padding: clamp(28px, 4vh, 40px) 0 clamp(32px, 5vh, 48px);
+  }
+
+  .home .brands__list {
+    gap: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 24px);
   }
 
   .home .showcase {
