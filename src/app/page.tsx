@@ -36,18 +36,18 @@ export default function HomePage() {
                 <br />
                 play with what&apos;s possible.
               </p>
-              <div className="h-actions">
-                <Link href="/work-with-me" className="glass-pill">
-                  work with me
-                </Link>
-                <a className="h-link" href="#guides">
-                  <span className="h-link__text">learn from me</span>
-                  <span className="arr-down">↓</span>
-                </a>
-              </div>
             </div>
             <div className="stage">
               <HomePortrait />
+            </div>
+            <div className="h-actions">
+              <Link href="/work-with-me" className="glass-pill">
+                work with me
+              </Link>
+              <a className="h-link" href="#guides">
+                <span className="h-link__text">learn from me</span>
+                <span className="arr-down">↓</span>
+              </a>
             </div>
           </header>
         </div>

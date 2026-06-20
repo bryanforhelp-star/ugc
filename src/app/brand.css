@@ -23,6 +23,7 @@
   --hair: #ecebe7;
   --pop: #1b2bff;
   --pop-soft: rgba(27, 43, 255, 0.14);
+  --surface: rgba(27, 43, 255, 0.055);
   --display: "Bootzy TM", system-ui, sans-serif;
   --serif: "NewPixel", Georgia, serif;
   --square: "NewPixelSquare", "NewPixel", monospace;
@@ -37,8 +38,8 @@
 #bg {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
 }

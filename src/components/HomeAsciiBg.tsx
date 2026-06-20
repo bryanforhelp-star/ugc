@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 type FadeRect = { left: number; top: number; right: number; bottom: number };
 
 const MASK_SELECTORS =
-  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .showcase, .showcase-carousel, #guides, .cards, .guide-card, .foot, " +
+  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .showcase, .showcase-carousel, #guides, .guide-card, .foot, #contact, " +
   ".page-lead, .prose, .meta, .back, .guides-hub, " +
   ".work-card, .site-footer__links";
 
@@ -30,6 +30,9 @@ export function HomeAsciiBg() {
     const styles = () => getComputedStyle(root);
     const POP = styles().getPropertyValue("--pop").trim() || "#1B2BFF";
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = matchMedia("(pointer: fine)").matches;
+    const narrow = matchMedia("(max-width: 840px)").matches;
+    const animateBlob = isHome && finePointer && !narrow && !reduce;
 
     let cols: number;
     let rows: number;
@@ -53,11 +56,15 @@ export function HomeAsciiBg() {
       root.querySelectorAll(MASK_SELECTORS).forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.width < 2 || r.height < 2) return;
+        const isGuides = el.id === "guides";
+        const isCard = el.classList.contains("guide-card");
+        const pad = isCard ? 10 : 6;
+        const padBottom = isGuides ? 48 : isCard ? 32 : pad;
         fadeRects.push({
-          left: r.left - 6,
-          top: r.top - 6,
-          right: r.right + 6,
-          bottom: r.bottom + 6,
+          left: r.left - pad,
+          top: r.top - pad,
+          right: r.right + pad,
+          bottom: r.bottom + padBottom,
         });
       });
     }
@@ -132,17 +139,25 @@ export function HomeAsciiBg() {
 
     function field(nx: number, ny: number, t: number) {
       const mx = isHome
-        ? mouse.on
+        ? animateBlob && mouse.on
           ? mouse.x
-          : 0.5 + 0.16 * Math.sin(t * 0.25)
+          : animateBlob
+            ? 0.5 + 0.16 * Math.sin(t * 0.25)
+            : narrow
+              ? 0.62
+              : 0.5
         : ANCHOR.x;
       const my = isHome
-        ? mouse.on
+        ? animateBlob && mouse.on
           ? mouse.y
-          : 0.42 + 0.12 * Math.cos(t * 0.3)
+          : animateBlob
+            ? 0.42 + 0.12 * Math.cos(t * 0.3)
+            : narrow
+              ? 0.38
+              : 0.42
         : ANCHOR.y;
       let v = 0.012 / (d2(nx, ny, mx, my) + 0.005);
-      v *= 0.8 + 0.2 * Math.sin(nx * 9 + ny * 7 + (isHome ? t * 1.4 : 0));
+      v *= 0.8 + 0.2 * Math.sin(nx * 9 + ny * 7 + (animateBlob ? t * 1.4 : 0));
       return v;
     }
 
@@ -191,7 +206,7 @@ export function HomeAsciiBg() {
     const onResize = () => size();
     const onScroll = () => scheduleMaskUpdate();
 
-    if (isHome) {
+    if (isHome && finePointer) {
       addEventListener("pointermove", onPointerMove);
       addEventListener("pointerleave", onPointerLeave);
     }
@@ -200,7 +215,7 @@ export function HomeAsciiBg() {
 
     size();
 
-    if (!isHome || reduce) {
+    if (!isHome || reduce || !animateBlob) {
       draw(0);
     } else {
       raf = requestAnimationFrame(loop);
