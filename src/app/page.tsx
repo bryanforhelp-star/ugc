@@ -120,8 +120,8 @@ export default function HomePage() {
         <footer id="contact">
           <div className="wrap">
             <div className="foot">
-              <NewsletterSignup />
               <SiteSocials />
+              <NewsletterSignup />
             </div>
           </div>
         </footer>

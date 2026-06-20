@@ -13,19 +13,21 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="wrap site-footer__inner">
-        <NewsletterSignup />
-        <div className="site-footer__links">
-          <Link href="/guides">
-            <span className="arr">↳</span> {SITE.guides.navLabel}
-          </Link>
-          <Link href="/work-with-me">
-            <span className="arr">↳</span> work with me
-          </Link>
-          <Link href="/">
-            <span className="arr">↳</span> home
-          </Link>
+        <div className="site-footer__start">
+          <div className="site-footer__links">
+            <Link href="/guides">
+              <span className="arr">↳</span> {SITE.guides.navLabel}
+            </Link>
+            <Link href="/work-with-me">
+              <span className="arr">↳</span> work with me
+            </Link>
+            <Link href="/">
+              <span className="arr">↳</span> home
+            </Link>
+          </div>
+          <SiteSocials />
         </div>
-        <SiteSocials />
+        <NewsletterSignup />
       </div>
     </footer>
   );

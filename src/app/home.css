@@ -471,9 +471,16 @@
 
 .home .foot {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(28px, 4vw, 40px);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(24px, 4vw, 48px);
+  flex-wrap: wrap;
+}
+
+.home .foot .newsletter {
+  margin-left: auto;
+  align-self: flex-end;
 }
 
 .home .socials {
@@ -566,5 +573,16 @@
     flex-wrap: wrap;
     gap: 22px;
     padding-right: 0;
+  }
+
+  .home .foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home .foot .newsletter {
+    margin-left: 0;
+    align-self: stretch;
+    max-width: none;
   }
 }

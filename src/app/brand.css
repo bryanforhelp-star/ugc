@@ -177,9 +177,23 @@
 
 .site-footer__inner {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(24px, 4vw, 48px);
+  flex-wrap: wrap;
+}
+
+.site-footer__start {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(24px, 4vw, 36px);
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.site-footer__inner .newsletter {
+  margin-left: auto;
+  align-self: flex-end;
 }
 
 .site-footer__links {
@@ -304,6 +318,19 @@
   border: 0;
   flex-shrink: 0;
   align-self: center;
+}
+
+@media (max-width: 840px) {
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-footer__inner .newsletter {
+    margin-left: 0;
+    align-self: stretch;
+    max-width: none;
+  }
 }
 
 .sr-only {
