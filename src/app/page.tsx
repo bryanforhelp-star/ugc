@@ -52,8 +52,6 @@ export default function HomePage() {
           </header>
         </div>
 
-        <hr className="divider" />
-
         <section id="about">
           <div className="wrap">
             <h2 className="s-head">about</h2>
@@ -104,11 +102,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <hr className="divider" />
-
         <ContentShowcase />
-
-        <hr className="divider" />
 
         <section id="guides">
           <div className="wrap">
