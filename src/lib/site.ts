@@ -58,10 +58,9 @@ export const SITE = {
   },
   newsletter: {
     label: "human.md",
-    lead: "notes on using ai to make things, solve problems, and bring the thing in your head to life.",
-    comingSoon: "substack link coming soon.",
-    /** Set NEXT_PUBLIC_SUBSTACK_URL when live, e.g. https://humanmd.substack.com */
-    substackUrl: process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "",
+    lead: "field notes on ai, technology, creativity and the very human urge to make things.",
+    substackUrl:
+      process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "https://humanmd.substack.com",
   },
 } as const;
 
