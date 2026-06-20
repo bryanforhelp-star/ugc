@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 type FadeRect = { left: number; top: number; right: number; bottom: number };
 
 const MASK_SELECTORS =
-  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .showcase, .showcase-carousel, #guides, .guide-card, .foot, .foot-aside, .newsletter, #contact, " +
+  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .showcase, .showcase-carousel, #guides, .guide-card, .foot, .newsletter, #contact, " +
   ".page-lead, .prose, .meta, .back, .guides-hub, " +
   ".work-card, .site-footer__links";
 

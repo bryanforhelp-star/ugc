@@ -120,15 +120,8 @@ export default function HomePage() {
         <footer id="contact">
           <div className="wrap">
             <div className="foot">
-              <div className="big">
-                let&apos;s make
-                <br />
-                something.
-              </div>
-              <div className="foot-aside">
-                <NewsletterSignup />
-                <SiteSocials />
-              </div>
+              <NewsletterSignup />
+              <SiteSocials />
             </div>
           </div>
         </footer>

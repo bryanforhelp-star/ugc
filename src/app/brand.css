@@ -177,14 +177,6 @@
 
 .site-footer__inner {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.site-footer__aside {
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(24px, 4vw, 36px);
@@ -214,12 +206,6 @@
 
 .site-footer__links a:hover .arr {
   transform: translateX(5px);
-}
-
-.site-footer__tagline {
-  font-family: var(--display);
-  font-size: clamp(24px, 3.5vw, 42px);
-  line-height: 0.94;
 }
 
 .socials {
