@@ -370,6 +370,17 @@
   animation-play-state: paused;
 }
 
+.home .showcase-carousel--marquee .showcase-piece__motion {
+  animation: none;
+  transition: none;
+  will-change: auto;
+}
+
+.home .showcase-carousel--marquee .showcase-piece:hover .showcase-piece__motion,
+.home .showcase-carousel--marquee .showcase-piece:focus-within .showcase-piece__motion {
+  transform: none;
+}
+
 @keyframes showcase-marquee {
   from {
     transform: translateX(0);
@@ -549,16 +560,6 @@
 
   .home .showcase-piece {
     flex: 0 0 min(78vw, 280px);
-  }
-
-  .home .showcase-piece__motion {
-    animation: none;
-    transition: none;
-  }
-
-  .home .showcase-piece:hover .showcase-piece__motion,
-  .home .showcase-piece:focus-within .showcase-piece__motion {
-    transform: none;
   }
 
   .home .about-grid {
