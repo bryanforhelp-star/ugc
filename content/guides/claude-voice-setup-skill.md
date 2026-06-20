@@ -1,10 +1,10 @@
 ---
-title: "your voice file (and the rest of your context files)"
-description: "A Claude skill that interviews you out loud and builds five context files (voice, about, audience, examples, do-not-say) so AI stops rewriting the same thing in generic jargon."
-category: claude skills
+title: "build your voice files (the simple way)"
+description: "Paste one prompt into Claude, talk through five questions, and get voice, about, audience, examples, and do-not-say files. Drop them in a project so AI stops rewriting everything in generic jargon."
+category: guide
 topics:
-  - workflows
   - setup
+  - workflows
 tools:
   - claude
 cover: "stop telling claude you know my tone"
@@ -20,105 +20,44 @@ published: true
 date: 2026-06-12
 ---
 
-okay so. if you've ever told claude "you know my tone" and then watched it rewrite the same thing twelve times, this is for you.
+you tell claude "make it sound like me" and it just... doesn't. because "sound like me" isn't context. claude has never met you.
 
-ai doesn't know your voice. it knows *generic*. it's never been embarrassed, never sent a risky text, never had a tone in its life. so when you say "make it sound like me," it has nothing to go on, and you get the ai trash jargon.
+the fix is a few short files that teach it who you are and how you talk. here's the least annoying way to make them. no templates, no filling in blanks, you just talk.
 
-the fix is a few files that teach it who you are. how you talk, who you're talking to, what you're about, and the words you'd rather die than use. but i'm not about to make you sit and fill in blank templates like it's homework, because nobody is doing that.
+## the whole thing, 3 steps
 
-so this is a skill that interviews you instead. you just talk. it asks the questions, you answer out loud, and it builds all the files for you. one conversation and you're done.
+**1. paste the prompt below into claude.**
 
-## what it builds for you
+**2. answer its questions. just talk, messy is totally fine.** it builds you 5 short files: voice, about, audience, examples, and the do-not-say file.
 
-in one sitting, it compiles all five:
+**3. make a project, paste the 5 files into the project instructions, and work in there from now on.** that's it. every chat inside that project already knows how you sound, so you never explain yourself again.
 
-- **your voice file:** how you actually talk, your tone, your phrases, your different modes (your "professional but human" voice vs your "be so for real" voice)
-- **your about file:** what you do, what you believe, and what you're building
-- **your audience file:** who you're talking to and what they care about
-- **your examples file:** real things you've written: post scripts, captions, emails, so it has proof of how you actually sound
-- **your do-not-say file:** the phrases that make you want to throw up (this one does the most work, more on that below)
+*(no projects? just paste the files at the top of a chat whenever you want claude to write something. less magic, still works.)*
 
-you don't fill in anything. it asks, you talk, it writes all five for you.
+## the prompt
 
-## install it (so it's always there)
+> interview me and build me 5 short .md files that teach you who i am and how i sound, so i never have to explain my voice again.
+>
+> the 5 files are: **voice.md** (how i talk), **about.md** (what i do, believe, and am building), **audience.md** (who i'm talking to), **examples.md** (real things i've written), and **do-not-say.md** (words i'd never use).
+>
+> go one file at a time. ask me a few questions for each, keep it conversational, and follow up if my answer is thin. for examples, have me paste a few real things i've written. for do-not-say, push me for specific words i'd never use. all five matter and they work together, so don't let any of them come out thin.
+>
+> i'll just talk, you compile. at the end, give me all 5 as separate .md files, each clearly labeled and ready to save, written in my actual words, not corporate-ified. start by telling me what we're doing and asking your first question.
 
-first, turn skills on. go to **settings → capabilities** and switch on **"code execution and file creation."** (works on free, pro, all of them.)
+## what you'll end up with
 
-then go to **customize → skills**, hit **"+"**, then **"create skill."**
+- **voice:** how you actually talk
+- **about:** what you do, believe, and are building
+- **audience:** who you're talking to
+- **examples:** real things you've written
+- **do-not-say:** the words that make you want to throw up
 
-- **easiest:** pick **create with claude**, paste in the whole skill block below, and say "set this up as my skill." it'll show up as **voice setup**. done.
-- **by hand:** save the block as a file named exactly `SKILL.md` (that's the required filename, not the skill's name), drop it in a folder called `voice-setup`, zip it, upload.
+## why all five
 
-prefer not to install? just copy the block below (skip the `---` bit at the top), paste it into a fresh chat, and it'll start interviewing you.
+none of these does the job alone. voice gives it your rhythm, examples prove it with your real writing, do-not-say keeps it away from the cringe, audience aims it at the right person, and about grounds it in what you actually do. it's all five together that make the output sound like you instead of generic.
 
-## how to run it once it's installed
+and they're never really "done." every time claude nails something, your files got it right. every time it misses, add the fix, a new word to do-not-say, a fresh example, whatever it got wrong. they get sharper the more you use them.
 
-- **just talk:** *"help me build my voice and context files."*
-- **type `/`** and pick **voice setup**.
-- **name it:** *"use my voice setup skill."*
+## want it always there without a project? (optional, 2 minutes)
 
-then just answer its questions. messy answers are fine, that's its whole job.
-
-## the skill
-
-```
----
-name: Voice Setup
-description: Interview the user and compile their five context files (voice, about, audience, examples, do-not-say) so AI sounds like them. Use when the user wants a voice file, context files, or to make AI write or sound like them.
----
-
-# voice setup
-
-you help me build a set of context files that teach ai who i am, how i talk, and who i'm talking to. you do it by interviewing me. i talk, you compile. at the end you hand me finished files i can save and reuse. i should not have to fill in or format anything.
-
-## the files you're building (five of them)
-- **voice file**: how i actually talk, my tone, my phrases, my different modes
-- **about file**: what i do, what i believe, and what i'm building
-- **audience file**: who i'm talking to and what they care about
-- **examples file**: real things i've written (post scripts, captions, emails) so you have proof of how i sound
-- **do-not-say file**: the phrases i'd never use (this one matters most)
-
-## how to run it
-1. quick intro: tell me what we're doing, and that i should just talk, messy is fine, you'll clean it up.
-2. go one file at a time. ask me a few focused questions per file, and follow up when my answer is thin or vague. don't move on until you've actually got enough to work with.
-   - **voice:** how do i want to sound (casual or formal, lowercase or not, short and punchy or flowing, funny or straight).
-   - **about:** what i do, what i believe, and what i'm building. and what i'm NOT, so you don't fake expertise i don't have.
-   - **audience:** who am i talking to and what do they care about, what do they already know.
-   - **examples:** ask me to paste a handful of real things i've written (post scripts, captions, emails). organize them into the examples file. this is the most important input, because examples teach you my voice faster than anything i could describe.
-   - **do-not-say:** what words make me cringe, what sounds too corporate, what would i never say. push me for specific words, not vibes.
-3. don't interrogate me to death. a few good questions per file, then move on. this should feel like a conversation, not a form.
-4. at the end, output each file separately, clearly labeled, clean and ready to copy. use my actual words and examples. do not sand them into corporate-speak.
-
-## rules
-- i talk, you compile. don't make me format anything.
-- keep my real phrasing and examples in the files. they should sound like me, not like a brand guideline.
-- the do-not-say file matters most. get specific words, not general vibes.
-- keep it moving and conversational.
-
-## start
-tell me we're building my context files, that all i have to do is talk, and ask me the first question about how i want to sound.
-```
-
-## a note on the do-not-say file
-
-this one's the secret weapon, and it's the one people skip. it's easier for ai to sound like you by knowing what you'd *never* say than by following a list of rules about what you would. every time something comes out wrong, you add that word to the file, and it gets sharper. let the skill push you for specifics here.
-
-## how to use the files it makes
-
-- **paste them** at the top of a chat when you want it to write something.
-- **drop them in a project** so they're always on, every chat, no pasting.
-- **make the voice file a skill** so it always writes like you. same create-with-claude flow: paste your voice file, say "make this a skill so you always write in my voice."
-
-## why this works
-
-ai is great at writing. it's just bad at writing like *you*, because you never showed it how. you can't ask it to channel a voice it's never seen.
-
-these files fix that. they're not turning ai into a clone of you, they're handing it a reference so it stops defaulting to beige. the taste and the angle and the weird little turns of phrase are still yours. the files just make sure that when ai writes, it starts from you instead of from nobody.
-
-## skill not working?
-
-- **is it on?** check **customize → skills** has **voice setup** toggled on, and that "code execution and file creation" is on in settings → capabilities.
-- **name it directly:** *"use my voice setup skill."* most reliable way to start it.
-- **type `/`** to see if it's even there. if not, it's not enabled yet.
-- **start a fresh chat** if it won't pick up mid-conversation.
-- **files came out a little off?** tell it which file and what's wrong ("the voice one's too formal, here's a better example"), and it'll redo that section. your files get sharper the more you use them.
+paste that same prompt into **customize → skills → create skill → create with claude** and say "make this a skill." now you can build or update your files anytime just by asking for it. (you'll need "code execution and file creation" switched on in settings → capabilities first.)
