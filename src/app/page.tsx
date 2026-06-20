@@ -88,13 +88,6 @@ export default function HomePage() {
                   </span>
                 </li>
                 <li>
-                  <b>creative side</b>
-                  <span>
-                    writer, creator, painter, person who sometimes overshares on
-                    the internet
-                  </span>
-                </li>
-                <li>
                   <b>building</b>
                   <span>ai experiments, workflows, apps, content systems</span>
                 </li>
