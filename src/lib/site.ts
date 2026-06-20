@@ -57,7 +57,7 @@ export const SITE = {
     email: "mailto:kyn@bykyndall.com",
   },
   newsletter: {
-    label: "human.md",
+    cta: "sign up for my newsletter, human.md",
     lead: "field notes on ai, technology, creativity and the very human urge to make things.",
     substackUrl:
       process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "https://humanmd.substack.com",
