@@ -503,6 +503,13 @@
   line-height: 0.94;
 }
 
+.home .foot-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(28px, 4vw, 40px);
+}
+
 .home .socials {
   display: flex;
   flex-direction: column;

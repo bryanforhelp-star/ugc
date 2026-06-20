@@ -3,6 +3,8 @@ import { ContentShowcase } from "@/components/ContentShowcase";
 import { GuideCard } from "@/components/GuideCard";
 import { HomePortrait } from "@/components/HomePortrait";
 import { LiquidGlassButton } from "@/components/LiquidGlassButton";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { SiteSocials } from "@/components/SiteSocials";
 import { getFeaturedGuides } from "@/lib/guides";
 import { SITE } from "@/lib/site";
 import "./home.css";
@@ -124,16 +126,9 @@ export default function HomePage() {
                 <br />
                 something.
               </div>
-              <div className="socials">
-                <a href="https://instagram.com/kyndall" target="_blank" rel="noreferrer">
-                  <span className="arr">↳</span> instagram
-                </a>
-                <a href="https://tiktok.com/@kyndall" target="_blank" rel="noreferrer">
-                  <span className="arr">↳</span> tiktok
-                </a>
-                <a href={SITE.social.email}>
-                  <span className="arr">↳</span> email
-                </a>
+              <div className="foot-aside">
+                <NewsletterSignup />
+                <SiteSocials />
               </div>
             </div>
           </div>

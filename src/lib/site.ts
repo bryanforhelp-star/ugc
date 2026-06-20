@@ -52,8 +52,24 @@ export const SITE = {
     shipped: "Things I've built",
   },
   social: {
-    instagram: "https://instagram.com/kyndall",
+    instagram: "https://instagram.com/withkyndall",
     tiktok: "https://tiktok.com/@kyndall",
     email: "mailto:kyn@bykyndall.com",
   },
+  newsletter: {
+    label: "newsletter",
+    lead: "ai experiments, tools, and things worth trying. one note when there's something good.",
+    comingSoon: "launching on substack soon.",
+    /** Set NEXT_PUBLIC_SUBSTACK_URL to your publication, e.g. https://withkyndall.substack.com */
+    substackUrl: process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "",
+  },
 } as const;
+
+export function substackEmbedUrl(publicationUrl: string) {
+  return `${publicationUrl.replace(/\/$/, "")}/embed`;
+}
+
+export function substackSubscribeUrl(publicationUrl: string) {
+  const base = publicationUrl.replace(/\/$/, "");
+  return base.includes("/subscribe") ? base : `${base}/subscribe`;
+}
