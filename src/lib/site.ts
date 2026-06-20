@@ -57,7 +57,7 @@ export const SITE = {
     label: "trusted by",
     brands: [
       { name: "cantina", logo: "/brands/cantina.png", width: 132, height: 24 },
-      { name: "prism ai" },
+      { name: "prism ai", logo: "/brands/prism-ai.png", width: 108, height: 32 },
       { name: "solvely.ai", logo: "/brands/solvely.png", width: 140, height: 33 },
       { name: "doola", logo: "/brands/doola.png", width: 120, height: 34 },
     ] as TrustedBrand[],
