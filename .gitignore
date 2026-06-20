@@ -1,7 +1,22 @@
+# dependencies
 node_modules/
+
+# next.js
+.next/
+out/
+
+# env
 .env
-.env.local
+.env*.local
+
+# debug / tooling
+*.tsbuildinfo
+.vercel/
+*.log
+
+# repo outputs
 clients/*/output/
 shared/*/output/
-*.log
+
+# os
 .DS_Store

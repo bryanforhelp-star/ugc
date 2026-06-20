@@ -1,0 +1,18 @@
+.matcha-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  will-change: transform;
+  user-select: none;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .matcha-cursor {
+    display: none;
+  }
+}

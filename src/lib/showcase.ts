@@ -1,0 +1,19 @@
+/** Homepage portfolio row — drop files in public/showcase/ and fill in paths below */
+
+export type ShowcasePiece = {
+  id: string;
+  /** e.g. "/showcase/01.mp4" */
+  video?: string;
+  poster?: string;
+};
+
+/** One line under the headline — edit to your voice */
+export const SHOWCASE_INTRO =
+  "i make content about using ai on real problems. tested, useful, shared while it's still messy.";
+
+export const SHOWCASE_PIECES: ShowcasePiece[] = [
+  { id: "01" },
+  { id: "02" },
+  { id: "03" },
+  { id: "04" },
+];

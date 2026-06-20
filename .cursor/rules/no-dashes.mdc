@@ -1,0 +1,28 @@
+---
+description: Never use em dashes or en dashes in user-facing copy
+alwaysApply: true
+---
+
+# No dashes in copy
+
+Never use em dashes (—) or en dashes (–) in user-facing text for this project.
+
+Includes: homepage copy, guides (`content/guides/`), UI strings, meta descriptions, button labels, and any text visitors or readers see.
+
+## Use instead
+
+| Instead of | Use |
+|------------|-----|
+| `thing — other thing` | `thing. other thing` or `thing, other thing` |
+| `step 1 — do this` | `step 1: do this` or `step 1. do this` |
+| `buy it — it's worth it` | `buy it. it's worth it` |
+
+## Still allowed
+
+- Hyphens in compound words: `step-by-step`, `copy-paste`, `real-time`
+- Hyphens in code, URLs, file paths, CSS, and technical identifiers
+- Minus signs in math or numbers
+
+## When editing existing content
+
+If you find em or en dashes in user-facing copy, replace them as part of the change. Do not introduce new ones.
