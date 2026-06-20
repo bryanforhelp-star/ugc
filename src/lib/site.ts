@@ -60,7 +60,7 @@ export const SITE = {
       { name: "prism ai" },
       { name: "solvely.ai", logo: "/brands/solvely.png", width: 140, height: 33 },
       { name: "doola", logo: "/brands/doola.png", width: 120, height: 34 },
-      { name: "honeydew" },
+      { name: "honeydew", logo: "/brands/honeydew.png", width: 140, height: 41 },
     ] as TrustedBrand[],
   },
   building: {
