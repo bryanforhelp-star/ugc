@@ -54,6 +54,7 @@ export const SITE = {
   social: {
     instagram: "https://instagram.com/withkyndall",
     tiktok: "https://tiktok.com/@kyndall",
+    youtube: "https://youtube.com/@withkyndall",
     email: "mailto:kyn@bykyndall.com",
   },
   newsletter: {

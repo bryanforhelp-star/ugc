@@ -191,6 +191,10 @@
   gap: clamp(20px, 3vw, 28px);
 }
 
+.site-footer__start .site-copyright {
+  margin-top: 0;
+}
+
 .site-footer__inner .newsletter {
   margin-left: auto;
   align-self: flex-end;
@@ -246,6 +250,22 @@
 
 .socials a:hover .arr {
   transform: translateX(5px);
+}
+
+.site-copyright {
+  font-family: var(--serif);
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.4;
+  color: var(--soft);
+  margin: clamp(16px, 2vw, 22px) 0 0;
+  max-width: 22ch;
+}
+
+.foot-start,
+.site-footer__start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .newsletter {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
 import { SITE } from "@/lib/site";
 import { usePathname } from "next/navigation";
@@ -26,6 +27,7 @@ export function SiteFooter() {
             </Link>
           </div>
           <SiteSocials />
+          <SiteCopyright />
         </div>
         <NewsletterSignup />
       </div>

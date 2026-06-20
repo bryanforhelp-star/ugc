@@ -487,6 +487,10 @@
   align-self: flex-end;
 }
 
+.home .foot-start {
+  gap: 0;
+}
+
 .home .socials {
   display: flex;
   flex-direction: column;

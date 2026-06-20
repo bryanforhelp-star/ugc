@@ -3,6 +3,7 @@ import { ContentShowcase } from "@/components/ContentShowcase";
 import { GuideCard } from "@/components/GuideCard";
 import { HomePortrait } from "@/components/HomePortrait";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
 import { getFeaturedGuides } from "@/lib/guides";
 import { SITE } from "@/lib/site";
@@ -120,7 +121,10 @@ export default function HomePage() {
         <footer id="contact">
           <div className="wrap">
             <div className="foot">
-              <SiteSocials />
+              <div className="foot-start">
+                <SiteSocials />
+                <SiteCopyright />
+              </div>
               <NewsletterSignup />
             </div>
           </div>
