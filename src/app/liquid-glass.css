@@ -109,6 +109,7 @@
 }
 
 .lg-fallback {
+  position: relative;
   display: inline-flex;
   align-items: center;
   font-family: var(--serif);
@@ -117,10 +118,16 @@
   padding: 10px 22px;
   border-radius: 999px;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--hair);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
   cursor: pointer;
+  isolation: isolate;
+  box-shadow:
+    0 1px 2px rgba(11, 11, 12, 0.04),
+    0 6px 16px rgba(11, 11, 12, 0.06),
+    0 14px 32px -8px rgba(120, 140, 255, 0.22),
+    0 4px 12px -6px rgba(255, 180, 200, 0.14);
 }
 
 /* CSS-only pill — same look without page sampling (guide cards, etc.) */

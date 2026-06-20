@@ -196,14 +196,16 @@ class Container {
       scale: 1,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: null,
+      backgroundColor: '#ffffff',
       ignoreElements: function (element) {
-        // Ignore all glass elements and site background canvas
+        // Ignore glass UI and decorative layers so refraction samples the page content
         return (
           element.id === 'bg' ||
           element.classList.contains('glass-container') ||
           element.classList.contains('glass-button') ||
-          element.classList.contains('glass-button-text')
+          element.classList.contains('glass-button-text') ||
+          element.classList.contains('lg-host') ||
+          element.classList.contains('matcha-cursor')
         )
       }
     })

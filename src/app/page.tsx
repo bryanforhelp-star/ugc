@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContentShowcase } from "@/components/ContentShowcase";
 import { GuideCard } from "@/components/GuideCard";
 import { HomePortrait } from "@/components/HomePortrait";
+import { LiquidGlassButton } from "@/components/LiquidGlassButton";
 import { getFeaturedGuides } from "@/lib/guides";
 import { SITE } from "@/lib/site";
 import "./home.css";
@@ -41,9 +42,9 @@ export default function HomePage() {
               <HomePortrait />
             </div>
             <div className="h-actions">
-              <Link href="/work-with-me" className="glass-pill">
+              <LiquidGlassButton href="/work-with-me" size={18}>
                 work with me
-              </Link>
+              </LiquidGlassButton>
               <a className="h-link" href="#guides">
                 <span className="h-link__text">learn from me</span>
                 <span className="arr-down">↓</span>
