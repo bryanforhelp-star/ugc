@@ -57,10 +57,10 @@ export const SITE = {
     email: "mailto:kyn@bykyndall.com",
   },
   newsletter: {
-    label: "newsletter",
-    lead: "ai experiments, tools, and things worth trying. one note when there's something good.",
-    comingSoon: "launching on substack soon.",
-    /** Set NEXT_PUBLIC_SUBSTACK_URL to your publication, e.g. https://withkyndall.substack.com */
+    label: "human.md",
+    lead: "notes on using ai to make things, solve problems, and bring the thing in your head to life.",
+    comingSoon: "substack link coming soon.",
+    /** Set NEXT_PUBLIC_SUBSTACK_URL when live, e.g. https://humanmd.substack.com */
     substackUrl: process.env.NEXT_PUBLIC_SUBSTACK_URL ?? "",
   },
 } as const;

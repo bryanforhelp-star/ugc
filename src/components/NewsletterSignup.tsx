@@ -23,7 +23,7 @@ export function NewsletterSignup() {
             rel="noreferrer"
             className="newsletter__link"
           >
-            <span className="arr">↳</span> subscribe on substack
+            <span className="arr">↳</span> subscribe
           </a>
         </>
       ) : (

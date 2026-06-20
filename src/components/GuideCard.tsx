@@ -1,5 +1,4 @@
 import { GuideCategory } from "@/components/GuideCategory";
-import { LiquidGlassButton } from "@/components/LiquidGlassButton";
 import Link from "next/link";
 import type { GuideListItem } from "@/lib/guides";
 
@@ -17,9 +16,9 @@ export function GuideCard({ guide, variant = "hub" }: Props) {
           <h2>{guide.title}</h2>
           <p className="guide-card__desc">{guide.description}</p>
           <div className="guide-card__row">
-            <LiquidGlassButton href={`/guides/${guide.slug}`} size={18}>
+            <Link href={`/guides/${guide.slug}`} className="glass-pill">
               learn more
-            </LiquidGlassButton>
+            </Link>
           </div>
         </div>
       </article>
