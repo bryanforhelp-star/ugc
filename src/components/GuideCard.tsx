@@ -10,15 +10,16 @@ type Props = {
 export function GuideCard({ guide, variant = "hub" }: Props) {
   if (variant === "home") {
     return (
-      <article className="card">
-        <div className="resource-head">
+      <article className="guide-card guide-card--hub guide-card--home">
+        <div className="guide-card__inner">
           <GuideCategory label={guide.category} />
-          <h3>{guide.title}</h3>
-        </div>
-        <div className="row">
-          <Link href={`/guides/${guide.slug}`} className="glass-pill">
-            learn more
-          </Link>
+          <h2>{guide.title}</h2>
+          <p className="guide-card__desc">{guide.description}</p>
+          <div className="guide-card__row">
+            <Link href={`/guides/${guide.slug}`} className="glass-pill">
+              learn more
+            </Link>
+          </div>
         </div>
       </article>
     );
