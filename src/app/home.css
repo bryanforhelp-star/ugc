@@ -324,52 +324,65 @@
   overflow-x: clip;
 }
 
+.home .showcase-carousel--marquee::before,
+.home .showcase-carousel--marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(32px, 5vw, 64px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home .showcase-carousel--marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--paper), transparent);
+}
+
+.home .showcase-carousel--marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--paper), transparent);
+}
+
 .home .showcase {
   overflow-x: clip;
 }
 
 .home .showcase-feed {
-  display: flex;
-  gap: clamp(14px, 2vw, 22px);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  overflow: hidden;
   padding-bottom: 4px;
 }
 
-.home .showcase-feed::-webkit-scrollbar {
-  display: none;
+.home .showcase-feed__track {
+  display: flex;
+  gap: clamp(14px, 2vw, 22px);
+  width: max-content;
+}
+
+.home .showcase-feed__track--marquee {
+  animation: showcase-marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.home .showcase-carousel--marquee:hover .showcase-feed__track--marquee,
+.home .showcase-carousel--marquee:focus-within .showcase-feed__track--marquee {
+  animation-play-state: paused;
+}
+
+@keyframes showcase-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - clamp(7px, 1vw, 11px)));
+  }
 }
 
 .home .showcase-piece {
   flex: 0 0 min(260px, 72vw);
   min-width: 0;
-}
-
-.home .showcase-dots {
-  display: none;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.home .showcase-dots button {
-  appearance: none;
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: var(--hair);
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.home .showcase-dots button.is-active {
-  background: var(--pop);
-  transform: scale(1.15);
 }
 
 @keyframes showcase-wave {
@@ -406,15 +419,9 @@
   .home .showcase-piece:focus-within .showcase-piece__motion {
     transform: none;
   }
-}
 
-@media (min-width: 1100px) {
-  .home .showcase-feed {
-    overflow-x: visible;
-  }
-
-  .home .showcase-piece {
-    flex: 1 1 0;
+  .home .showcase-feed__track--marquee {
+    animation: none;
   }
 }
 
@@ -540,29 +547,8 @@
     margin-top: clamp(18px, 4vw, 28px);
   }
 
-  .home .showcase-carousel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 48px;
-    height: calc(100% - 28px);
-    pointer-events: none;
-    background: linear-gradient(to left, var(--paper), transparent);
-  }
-
-  .home .showcase-feed {
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: max(4vw, 16px);
-    padding-inline: max(4vw, 16px);
-    margin-inline: calc(-1 * max(4vw, 16px));
-    overscroll-behavior-x: contain;
-    touch-action: pan-x pan-y;
-  }
-
   .home .showcase-piece {
     flex: 0 0 min(78vw, 280px);
-    scroll-snap-align: center;
   }
 
   .home .showcase-piece__motion {
@@ -573,10 +559,6 @@
   .home .showcase-piece:hover .showcase-piece__motion,
   .home .showcase-piece:focus-within .showcase-piece__motion {
     transform: none;
-  }
-
-  .home .showcase-dots {
-    display: flex;
   }
 
   .home .about-grid {
