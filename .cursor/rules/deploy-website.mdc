@@ -1,0 +1,25 @@
+---
+description: When updating the live site, commit and push to deploy automatically
+alwaysApply: true
+---
+
+# Deploy website changes automatically
+
+When the user asks to **update the website**, **change the site**, or make any change that should appear on the live site (bykyndall.com), treat deployment as part of the task. Do not stop at local file edits.
+
+## Workflow
+
+1. Make the requested change (code, assets, content in `content/guides/`, `public/`, `src/`, etc.).
+2. Commit only the files related to that change. Do not bundle unrelated local work.
+3. Push to `origin main` to trigger the Vercel deploy.
+4. Tell the user the push is done and the site will update in a minute or two.
+
+## Scope
+
+- Applies to homepage assets (`public/hero/`), site components (`src/`), published guides (`content/guides/`), and any other change meant for production.
+- If the user only wants a local preview or explicitly says not to deploy, skip commit/push.
+
+## Notes
+
+- Hero video lives at `public/hero/kyndall.mp4` with poster `kyndall-poster.jpg`. Muted loop is handled in `HomePortrait.tsx`.
+- Run `pnpm dev` for local preview; push is what makes it live.
