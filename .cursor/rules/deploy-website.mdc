@@ -11,8 +11,10 @@ When the user asks to **update the website**, **change the site**, or make any c
 
 1. Make the requested change (code, assets, content in `content/guides/`, `public/`, `src/`, etc.).
 2. Commit only the files related to that change. Do not bundle unrelated local work.
-3. Push to `origin main` to trigger the Vercel deploy.
-4. Tell the user the push is done and the site will update in a minute or two.
+3. Push to `origin main`.
+4. Run `vercel --prod --yes` from the repo root. Git push alone does **not** auto-deploy this project.
+5. Confirm the live asset updated (e.g. curl `/hero/kyndall.mp4` content-length or etag).
+6. Tell the user it's live.
 
 ## Scope
 
