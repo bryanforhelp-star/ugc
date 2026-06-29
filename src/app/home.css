@@ -419,8 +419,17 @@
 }
 
 .home .showcase-carousel--marquee .showcase-piece:hover .showcase-piece__motion,
-.home .showcase-carousel--marquee .showcase-piece:focus-within .showcase-piece__motion {
+.home .showcase-carousel--marquee .showcase-piece:focus-within .showcase-piece__motion,
+.home .showcase-carousel--playing .showcase-piece--playing .showcase-piece__motion {
   transform: none;
+}
+
+.home .showcase-carousel--playing .showcase-feed__track--marquee {
+  will-change: auto;
+}
+
+.home .showcase-piece--playing .showcase-piece__motion {
+  animation-play-state: paused;
 }
 
 .home .showcase-piece {

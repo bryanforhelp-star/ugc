@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ShowcasePiece as Piece } from "@/lib/showcase";
 import { ShowcasePiece } from "@/components/ShowcasePiece";
 
@@ -15,13 +15,30 @@ export function ShowcaseFeed({ pieces }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef(0);
   const pausedRef = useRef(false);
+  const playbackLockRef = useRef(false);
+  const playingVideosRef = useRef(new Set<HTMLVideoElement>());
   const resumeTimerRef = useRef(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const setPlaybackLock = useCallback((video: HTMLVideoElement, playing: boolean) => {
+    if (playing) playingVideosRef.current.add(video);
+    else playingVideosRef.current.delete(video);
+
+    const locked = playingVideosRef.current.size > 0;
+    playbackLockRef.current = locked;
+    setIsPlaying(locked);
+    if (locked) {
+      pausedRef.current = true;
+      window.clearTimeout(resumeTimerRef.current);
+    }
+  }, []);
 
   const pause = useCallback(() => {
+    if (playbackLockRef.current) return;
     pausedRef.current = true;
     window.clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = window.setTimeout(() => {
-      pausedRef.current = false;
+      if (!playbackLockRef.current) pausedRef.current = false;
     }, PAUSE_MS);
   }, []);
 
@@ -39,7 +56,7 @@ export function ShowcaseFeed({ pieces }: Props) {
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
 
-      if (!pausedRef.current) {
+      if (!pausedRef.current && !playbackLockRef.current) {
         offsetRef.current += PX_PER_SEC * dt;
         const loopWidth = track.scrollWidth / 2;
         if (loopWidth > 0) {
@@ -76,14 +93,14 @@ export function ShowcaseFeed({ pieces }: Props) {
 
   return (
     <div
-      className={`showcase-carousel${marquee ? " showcase-carousel--marquee" : ""}`}
+      className={`showcase-carousel${marquee ? " showcase-carousel--marquee" : ""}${isPlaying ? " showcase-carousel--playing" : ""}`}
       onPointerDown={pause}
       onTouchStart={pause}
       onMouseEnter={() => {
         pausedRef.current = true;
       }}
       onMouseLeave={() => {
-        pausedRef.current = false;
+        if (!playbackLockRef.current) pausedRef.current = false;
       }}
     >
       <div className="showcase-feed">
@@ -96,6 +113,7 @@ export function ShowcaseFeed({ pieces }: Props) {
               key={`${piece.id}-${index}`}
               piece={piece}
               index={index % pieces.length}
+              onPlaybackChange={setPlaybackLock}
             />
           ))}
         </div>
