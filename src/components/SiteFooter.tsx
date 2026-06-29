@@ -4,12 +4,13 @@ import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
+import { isUgcPath } from "@/lib/site-mode";
 import { SITE } from "@/lib/site";
 import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
+  if (pathname === "/" || isUgcPath(pathname)) return null;
 
   return (
     <footer className="site-footer">

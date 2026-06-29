@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { isUgcPath } from "@/lib/site-mode";
 import { SITE } from "@/lib/site";
 import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
+  if (pathname === "/" || isUgcPath(pathname)) return null;
 
   return (
     <header className="site-header">
