@@ -35,23 +35,25 @@ const LINKS = [
 
 export function SiteSocials() {
   return (
-    <nav className="socials" aria-label="learn with me">
-      <span className="socials__cta">
+    <nav className="socials-block" aria-label="learn with me">
+      <p className="socials__cta">
         <span className="arr" aria-hidden="true">
           ↳
         </span>
         learn with me
-      </span>
-      {LINKS.map(({ href, label, icon: Icon, external }) => (
-        <a
-          key={label}
-          href={href}
-          aria-label={label}
-          {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-        >
-          <Icon className="socials__icon" />
-        </a>
-      ))}
+      </p>
+      <div className="socials">
+        {LINKS.map(({ href, label, icon: Icon, external }) => (
+          <a
+            key={label}
+            href={href}
+            aria-label={label}
+            {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+          >
+            <Icon className="socials__icon" />
+          </a>
+        ))}
+      </div>
     </nav>
   );
 }
