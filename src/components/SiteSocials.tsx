@@ -35,14 +35,13 @@ const LINKS = [
 
 export function SiteSocials() {
   return (
-    <div className="socials-block">
-      <p className="socials__cta">
+    <nav className="socials" aria-label="learn with me">
+      <span className="socials__cta">
         <span className="arr" aria-hidden="true">
           ↳
         </span>
         learn with me
-      </p>
-      <nav className="socials" aria-label="social links">
+      </span>
       {LINKS.map(({ href, label, icon: Icon, external }) => (
         <a
           key={label}
@@ -53,7 +52,6 @@ export function SiteSocials() {
           <Icon className="socials__icon" />
         </a>
       ))}
-      </nav>
-    </div>
+    </nav>
   );
 }
