@@ -1,6 +1,7 @@
 ---
 title: "build your voice files (the simple way)"
 description: "Paste one prompt into Claude, talk through five questions, and get voice, about, audience, examples, and do-not-say files. Drop them in a project so AI stops rewriting everything in generic jargon."
+summary: "Talk through five questions in Claude to generate five voice files, then drop them in a project so AI writes in your voice without you re-explaining every time."
 category: guide
 topics:
   - setup

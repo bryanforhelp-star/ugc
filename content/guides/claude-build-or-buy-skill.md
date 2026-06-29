@@ -1,6 +1,7 @@
 ---
 title: "build or buy: the thing i run before i pay for anything."
 description: "A Claude skill that tells you straight up: buy it, it's secretly a prompt, or build a rough version yourself in an afternoon. Let Claude set it up, install it step by step, or paste when you need it."
+summary: "Before you subscribe to any tool, run this Claude skill to learn whether you should buy it, steal the prompt, or build a rough version yourself in an afternoon."
 category: claude skills
 topics:
   - workflows
@@ -24,7 +25,7 @@ Before I pay for any tool, I run this. You give it whatever software you're abou
 
 Three ways to use it. Let Claude set it up for you, install it yourself step by step, or just paste it in when you need it. Your call.
 
-## Option A: the lazy way (let Claude do it)
+## option a: the lazy way (let Claude do it)
 
 Open a fresh chat. Copy the whole skill block at the bottom of this page. Paste it in and say:
 
@@ -32,7 +33,7 @@ Open a fresh chat. Copy the whole skill block at the bottom of this page. Paste 
 
 That's it. Claude walks you through turning on skills if you need to, creates it, and it shows up in your list as **build or buy**. Takes about five minutes and you don't have to touch any settings yourself.
 
-## Option B: install it yourself (step by step)
+## option b: install it yourself (step by step)
 
 If you'd rather do it by hand, or Claude's being weird, follow these in order.
 
@@ -70,7 +71,7 @@ Back in **Customize → Skills**, find **build or buy** and toggle it on.
 
 You're set.
 
-## Using it once it's installed
+## using it once it's installed
 
 You don't have to do anything fancy. Three ways to fire it off:
 
@@ -80,11 +81,11 @@ You don't have to do anything fancy. Three ways to fire it off:
 
 Then it takes over, asks you a few questions, and gives you the verdict.
 
-## Option C: just paste it, no setup
+## option c: just paste it, no setup
 
 Don't feel like installing anything? Fair. Copy the block below (you can skip the little `---` bit at the very top), paste it into a fresh chat, and tell it what tool you're eyeing.
 
-## The skill
+## the skill
 
 ```
 ---
@@ -138,13 +139,13 @@ be honest. tell me to buy it when buying is the right move. never talk me into b
 open by asking me what tool i'm thinking about paying for.
 ```
 
-## Why this works
+## why this works
 
 Most of us pay for tools on reflex. You see the tool, you want the tool, you enter your card, you forget you even have it. This makes you ask one question first: do I actually need this, or is it a prompt and ten minutes?
 
 Sometimes it's worth paying, and that's fine. I'm not anti-software. But every time the answer is "that's just a prompt," you keep another $60 a month, and the graveyard of subscriptions you forgot to cancel stops growing.
 
-## Skill not working?
+## skill not working?
 
 Skills can be a little shy. You install one, type `/`, and nothing. Been there. If it's not showing up or not kicking in, run through this:
 

@@ -53,10 +53,10 @@ export interface Build {
 /** Projects — in progress or shipped */
 export const BUILDS: Record<string, Build> = {
   "ugc-outreach": {
-    label: "UGC Outreach Bot",
-    description: "Automated brand research and pitch prep for creators",
-    status: "building",
-    href: null,
+    label: "Stardust",
+    description: "UGC outreach: brand intel, gap-driven pitches, inbox tracking",
+    status: "built",
+    href: "https://stardust-woad.vercel.app",
   },
   "trading-tutor": {
     label: "Trading Tutor",
@@ -91,6 +91,10 @@ export interface GuideFrontmatter {
   seriesEpisode?: number;
   tags: string[];
   episode?: string;
+  /** One-line direct answer for AEO / schema abstract */
+  summary?: string;
+  /** Last meaningful update — defaults to date */
+  updated?: string;
   published: boolean;
   date: string;
 }

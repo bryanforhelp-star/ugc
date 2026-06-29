@@ -1,6 +1,7 @@
 ---
 title: "the ai learning loop: how to get ai to teach you anything."
 description: "Set up an automated learning loop with AI: context before, assessment during, review after. So you actually understand what you're doing instead of copying answers."
+summary: "Build a three-phase AI learning loop: get context before new information, process it as it arrives, and review after so you understand instead of copying answers."
 category: workflow
 topics:
   - learning
@@ -22,7 +23,7 @@ Most people use AI like a search box: ask once, get an answer, move on. You neve
 
 This guide shows you how to build a **learning loop**: a repeatable system where AI feeds you context, helps you process new information as it arrives, and reviews what happened so the next round gets smarter. Not a single prompt. A loop you can run on anything.
 
-## The problem
+## the problem
 
 You're consuming information you don't understand.
 
@@ -34,7 +35,7 @@ And after a trade closed, I wanted to know: *was that a good call? What did I mi
 
 That's not one ChatGPT question. That's a loop.
 
-## The loop
+## the loop
 
 Every learning loop has three phases. Same structure whether you're learning trading, design, cooking, or how to use a new tool.
 
@@ -72,7 +73,7 @@ When the thing is done (trade closed, project shipped, lesson finished), AI help
 
 This closes the loop. The lesson feeds back into tomorrow's briefing.
 
-## What I built
+## what i built
 
 I set this up as an automated workflow (I use Claude + a simple automation tool, but you can start manually).
 
@@ -84,7 +85,7 @@ I set this up as an automated workflow (I use Claude + a simple automation tool,
 
 Over time I'm not just following signals. I'm building a mental model of how markets move. The loop is the teacher.
 
-## Set up yours
+## set up yours
 
 You don't need code to start. You need three prompts and a habit.
 
@@ -136,7 +137,7 @@ Review this for me:
 Keep it short. I want one takeaway, not a lecture.
 ```
 
-## Steal this: full loop in one place
+## steal this: full loop in one place
 
 Save these three. Run them in order every time you sit down to learn something.
 
@@ -148,7 +149,7 @@ Save these three. Run them in order every time you sit down to learn something.
 
 The skill isn't the prompt. The skill is **running the loop until you can do phase 2 yourself**: evaluating new information without needing AI to hold your hand.
 
-## What to do next
+## what to do next
 
 1. Pick one thing you're trying to learn this week.
 2. Run the context prompt tomorrow morning.

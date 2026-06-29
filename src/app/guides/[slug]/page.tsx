@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
+import { GuideProse } from "@/components/GuideProse";
 import { JsonLd } from "@/components/JsonLd";
 import { getGuideBySlug, getPublishedGuideSlugs } from "@/lib/guides";
-import { articleJsonLd, breadcrumbJsonLd, guideMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, guideMetadata, howToJsonLd } from "@/lib/seo";
 import { PILLARS, SERIES } from "@/lib/types";
 
 export async function generateStaticParams() {
@@ -30,10 +30,13 @@ export default async function GuidePage({
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
 
+  const howTo = howToJsonLd(guide);
+
   return (
     <article className="page page--article">
       <JsonLd data={articleJsonLd(guide)} />
       <JsonLd data={breadcrumbJsonLd(guide)} />
+      {howTo ? <JsonLd data={howTo} /> : null}
 
       <div className="wrap">
         <p className="back">
@@ -61,7 +64,7 @@ export default async function GuidePage({
         </div>
 
         <div className="prose">
-          <ReactMarkdown>{guide.content}</ReactMarkdown>
+          <GuideProse content={guide.content} />
         </div>
       </div>
     </article>

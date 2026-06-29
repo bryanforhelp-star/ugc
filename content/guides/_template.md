@@ -1,6 +1,7 @@
 ---
-title: "Guide Title"
-description: "One clear sentence — what they'll get. This shows in Google, social previews, and AI search summaries."
+title: "guide title"
+description: "One clear sentence. Shows as the lead under the title and in SEO previews."
+summary: "One direct-answer sentence for AEO. What they get in one line."
 category: guide
 topics:
   - learning
@@ -17,30 +18,38 @@ date: 2026-06-12
 
 Open with what this guide gives them and who it's for. No "full version of the reel" language.
 
-## The problem
+## the problem
 
-What's going wrong — the pain they're already feeling.
+What's going wrong. The pain they're already feeling.
 
-## The loop (or framework)
+## the framework
 
 The repeatable structure. Name the phases. Explain what each one does.
 
-## What I built
+## what i built
 
 Your real story. Specific example of how you use this.
 
-## Set up yours
+## set up yours
 
-Tangible steps so they can build their own version. Not just a prompt — a system.
+Tangible steps so they can build their own version.
 
-## Steal this
+## steal this
 
-Copy-paste prompts, checklists, or templates — organized by phase or step.
+Copy-paste prompts. Use blockquotes or fenced code blocks (both become click-to-copy on the site).
+
+> paste this prompt into claude.
+>
+> add follow-up lines with `>` on each line.
+
+Or for long prompts / skills:
 
 ```
-Paste prompts in code blocks.
+full prompt or skill content here
 ```
 
-## What to do next
+## what to do next
 
 One clear first action they can take today.
+
+See `content/guides/GUIDE-STANDARD.md` for the full publishing standard.
