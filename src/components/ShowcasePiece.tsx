@@ -85,8 +85,11 @@ export function ShowcasePiece({ piece, index, onPlaybackChange }: Props) {
               src={piece.video}
               poster={piece.poster}
               controls
+              controlsList="nodownload noremoteplayback"
+              disablePictureInPicture
               playsInline
               preload="metadata"
+              onContextMenu={(e) => e.preventDefault()}
               onPlay={handlePlay}
               onPause={handlePause}
               onEnded={handleEnded}
