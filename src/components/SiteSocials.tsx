@@ -37,10 +37,10 @@ export function SiteSocials() {
   return (
     <nav className="socials-block" aria-label="learn with me">
       <p className="socials__cta">
-        <span className="arr" aria-hidden="true">
-          ↳
+        learn with me{" "}
+        <span className="socials__arrow arr" aria-hidden="true">
+          ↓
         </span>
-        learn with me
       </p>
       <div className="socials">
         {LINKS.map(({ href, label, icon: Icon, external }) => (

@@ -209,6 +209,8 @@
   width: auto;
   height: clamp(22px, 2.8vw, 32px);
   object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.88;
 }
 
 .home .brands__name {
@@ -519,6 +521,155 @@
   background: var(--hair);
 }
 
+.home #contact {
+  padding-bottom: clamp(96px, 14vh, 160px);
+  background: var(--paper);
+}
+
+.home .ugc-services {
+  list-style: none;
+  margin: clamp(32px, 5vh, 48px) 0 0;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.8;
+  max-width: 52ch;
+}
+
+.home .ugc-services li::before {
+  content: "◦ ";
+  color: var(--pop);
+}
+
+.home .ugc-contact-inline {
+  margin-top: clamp(28px, 4vh, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.home .ugc-contact-note {
+  font-family: var(--square);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  margin: 0;
+}
+
+.home .ugc-audience-note {
+  margin-top: clamp(28px, 4vh, 40px);
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: var(--soft);
+  max-width: 46ch;
+  line-height: 1.55;
+}
+
+.home .ugc-audience-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home .ugc-audience-note a:hover {
+  color: var(--pop);
+}
+
+/* UGC work grid — static ad cards with brand logo beneath */
+.home .ugc-work {
+  padding: clamp(72px, 10vh, 120px) 0;
+}
+
+.home .ugc-work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 36px);
+  margin-top: clamp(36px, 5vh, 52px);
+}
+
+.home .ugc-work__card {
+  min-width: 0;
+}
+
+.home .ugc-work__frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: var(--hair);
+}
+
+.home .ugc-work__frame::before,
+.home .ugc-work__frame::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--pop);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home .ugc-work__frame::before {
+  top: -8px;
+  left: -8px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.home .ugc-work__frame::after {
+  bottom: -8px;
+  right: -8px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.home .ugc-work__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #e8e8e8;
+}
+
+.home .ugc-work__meta {
+  margin-top: clamp(16px, 2vw, 22px);
+}
+
+.home .ugc-work__logo-wrap {
+  height: clamp(18px, 2vw, 26px);
+  display: flex;
+  align-items: center;
+}
+
+.home .ugc-work__logo {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: min(120px, 100%);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.home .ugc-work__tag {
+  font-family: var(--square);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pop);
+  margin: 10px 0 0;
+}
+
+.home .ugc-work__placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--hair);
+}
+
+.home .ugc-work--organic {
+  background: var(--surface);
+}
+
 .home footer {
   border-top: 0;
   background: var(--surface);
@@ -543,12 +694,17 @@
   gap: 0;
 }
 
+.home .socials-block {
+  gap: 0;
+}
+
 .home .socials {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
+  margin-top: 2px;
 }
 
 .home .socials a {
@@ -601,6 +757,11 @@
 
   .home .showcase-carousel {
     margin-top: clamp(24px, 4vh, 32px);
+  }
+
+  .home .ugc-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 4vw, 24px);
   }
 
   .home .hero {

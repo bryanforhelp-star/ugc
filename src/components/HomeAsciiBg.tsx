@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 type FadeRect = { left: number; top: number; right: number; bottom: number };
 
 const MASK_SELECTORS =
-  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .brands, .showcase, .showcase-carousel, #guides, .guide-card, .foot, .foot-start, .site-copyright, .newsletter, #contact, " +
-  ".page-lead, .prose, .meta, .back, .guides-hub, " +
-  ".work-card, .site-footer__links";
+  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .brands, .showcase, .showcase-carousel, .ugc-work, #guides, .guide-card, .foot, .foot-start, .site-copyright, .newsletter, #contact, " +
+  ".page-title, .page-lead, .prose, .meta, .back, .guides-hub, " +
+  ".work-section, .work-card, .site-footer__links";
 
 /** Bottom-left anchor for inner pages (normalized 0–1) */
 const ANCHOR = { x: 0.2, y: 0.84 };
@@ -53,20 +53,49 @@ export function HomeAsciiBg() {
 
     function collectFadeRects() {
       fadeRects = [];
+      const footer = root.querySelector(".site-footer");
+      const footerTop = footer?.getBoundingClientRect().top ?? Infinity;
+
       root.querySelectorAll(MASK_SELECTORS).forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.width < 2 || r.height < 2) return;
         const isGuides = el.id === "guides";
         const isCard = el.classList.contains("guide-card");
+        const isTallContent =
+          el.classList.contains("prose") || el.classList.contains("guides-hub");
         const pad = isCard ? 10 : 6;
         const padBottom = isGuides ? 48 : isCard ? 32 : pad;
+        let top = r.top - pad;
+        let bottom = r.bottom + padBottom;
+
+        // Tall article/hub blocks can still intersect the footer zone while
+        // scrolled — keep the footer social blob visible behind those links.
+        if (isTallContent && footerTop < H && bottom > footerTop - 24) {
+          bottom = Math.min(bottom, footerTop - 24);
+        }
+        if (bottom <= top + 8) return;
+
         fadeRects.push({
           left: r.left - pad,
-          top: r.top - pad,
+          top,
           right: r.right + pad,
-          bottom: r.bottom + padBottom,
+          bottom,
         });
       });
+    }
+
+    function innerAnchor() {
+      const socials = root.querySelector(".socials");
+      if (socials) {
+        const r = socials.getBoundingClientRect();
+        if (r.width > 2 && r.height > 2) {
+          return {
+            x: Math.min(0.42, Math.max(0.12, (r.left + r.width * 0.35) / W)),
+            y: Math.min(0.92, Math.max(0.35, (r.top + r.height * 0.55) / H)),
+          };
+        }
+      }
+      return ANCHOR;
     }
 
     function fadeAt(px: number, py: number) {
@@ -138,6 +167,7 @@ export function HomeAsciiBg() {
     };
 
     function field(nx: number, ny: number, t: number) {
+      const anchor = isHome ? null : innerAnchor();
       const mx = isHome
         ? animateBlob && mouse.on
           ? mouse.x
@@ -146,7 +176,7 @@ export function HomeAsciiBg() {
             : narrow
               ? 0.62
               : 0.5
-        : ANCHOR.x;
+        : anchor!.x;
       const my = isHome
         ? animateBlob && mouse.on
           ? mouse.y
@@ -155,7 +185,7 @@ export function HomeAsciiBg() {
             : narrow
               ? 0.38
               : 0.42
-        : ANCHOR.y;
+        : anchor!.y;
       let v = 0.012 / (d2(nx, ny, mx, my) + 0.005);
       v *= 0.8 + 0.2 * Math.sin(nx * 9 + ny * 7 + (animateBlob ? t * 1.4 : 0));
       return v;

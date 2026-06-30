@@ -286,22 +286,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0;
 }
 
 .socials__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(18px, 1.6vw, 24px);
-  line-height: 1.2;
+  line-height: 1;
   color: var(--ink);
 }
 
-.socials__cta .arr {
+.socials__arrow {
   color: var(--pop);
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1;
 }
 
 .socials {
@@ -310,7 +309,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  padding-left: 1.35em;
+  margin-top: 2px;
 }
 
 .socials a {

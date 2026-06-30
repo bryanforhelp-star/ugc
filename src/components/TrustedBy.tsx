@@ -1,13 +1,21 @@
 import Image from "next/image";
-import { SITE } from "@/lib/site";
+import { SITE, type TrustedBrand } from "@/lib/site";
 
-export function TrustedBy() {
+type Props = {
+  label?: string;
+  brands?: readonly TrustedBrand[];
+};
+
+export function TrustedBy({
+  label = SITE.trustedBy.label,
+  brands = SITE.trustedBy.brands,
+}: Props) {
   return (
-    <section id="brands" className="brands" aria-label="trusted by">
+    <section id="brands" className="brands" aria-label={label}>
       <div className="wrap">
-        <p className="brands__eyebrow">{SITE.trustedBy.label}</p>
+        <p className="brands__eyebrow">{label}</p>
         <ul className="brands__list">
-          {SITE.trustedBy.brands.map((brand) => (
+          {brands.map((brand) => (
             <li key={brand.name}>
               {brand.logo ? (
                 <Image
