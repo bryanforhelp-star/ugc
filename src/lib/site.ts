@@ -8,7 +8,7 @@ function siteUrl() {
   if (vercelHost) {
     return `https://${vercelHost}`;
   }
-  return "https://kyndall.com";
+  return "https://bykyndall.com";
 }
 
 export type TrustedBrand = {
@@ -22,6 +22,8 @@ export const SITE = {
   name: "kyndall",
   /** Set NEXT_PUBLIC_SITE_URL when you have a custom domain */
   url: siteUrl(),
+  seoDescription:
+    "Practical AI guides, workflows, and templates by kyndall. Claude skills, learning loops, voice files, and real-world setups.",
   guides: {
     label: "Guides",
     navLabel: "free guides",
@@ -36,9 +38,9 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
+    "building-ai-loops",
     "claude-voice-setup-skill",
     "claude-build-or-buy-skill",
-    "ai-learning-loop",
   ],
   /** Digital products — add back to nav when something is published */
   kits: {
@@ -69,7 +71,7 @@ export const SITE = {
   },
   social: {
     instagram: "https://instagram.com/withkyndall",
-    tiktok: "https://tiktok.com/@kyndall",
+    tiktok: "https://tiktok.com/@withkyndall",
     youtube: "https://youtube.com/@withkyndall",
     email: "mailto:kyn@bykyndall.com",
   },
