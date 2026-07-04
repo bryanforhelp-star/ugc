@@ -1,10 +1,10 @@
 ---
 title: "the ai loops kit"
-description: "Build your first AI loop in 15 minutes. Copy-paste setup for all five loops from the reel. No code, no agents, just Claude and a note app."
-summary: "Open Claude, paste the setup prompt, run it once, log what happened, run it again with one fix. That's a loop. This page walks you through your first one step by step."
-category: workflow
+description: "A prompt gets one answer and stops. A loop runs, evaluates, adjusts, and repeats until the goal is closer. Build your first one in Claude in 15 minutes."
+summary: "A loop is input, action, evaluation, next action, repeat. The output of each cycle changes how the next cycle runs. This page shows you how to set one up."
+category: guide
 topics:
-  - workflows
+  - loops
 tools:
   - claude
 cover: "prompting is not the skill anymore. building loops is."
@@ -15,344 +15,326 @@ pillars:
 tags:
   - ai
   - loops
-  - workflows
 published: true
 date: 2026-07-04
 updated: 2026-07-04
 ---
 
-you watched the reel. this is how you actually build a loop.
+## prompt vs loop
 
-no code. no zapier. no "agents." just claude and a place to jot notes (apple notes, google doc, notion, whatever).
+**A prompt is:**
 
-**start with the 15-minute walkthrough below.** don't scroll to the other loops until you've done run 1.
+input → output → stop
 
-## your first loop in 15 minutes
+**A loop is:**
 
-we'll build an **email loop**. almost everyone has email. you'll feel the difference between a one-off prompt and a loop in one session.
+input → action → evaluation → next action → repeat until goal achieved
 
-### what you need
+**The key difference:**
 
-- a free [claude.ai](https://claude.ai) account
-- 2 real emails sitting in your inbox (one easy, one annoying)
-- apple notes or any blank doc for your loop log
+the output of one cycle changes the behavior of the next cycle.
 
-### step 1: open a new chat
+That's it. Not workflows. Not agents. Loops.
 
-go to claude.ai → **new chat**.
+## how to build any loop
 
-### step 2: paste this setup prompt
+every loop follows the same four steps.
 
-this tells claude what the loop is. you only paste this once.
+**step 1: set a goal**
 
-```
-you're my email loop. not a one-off helper — a system that gets better every time i use you.
+not a question. a goal.
 
-here's how we work:
+- bad: "help me with this email"
+- good: "spend less time on email and need fewer edits each week"
 
-every time i paste emails, you:
-1. sort each one (urgent / reply today / fyi / no reply needed)
-2. draft replies in my voice
-3. when i paste what i actually sent (or how i edited your draft), remember what changed
+**step 2: run the action**
 
-over time you should need fewer edits from me.
+open claude. paste a setup prompt once. then paste your input (emails, a decision, a topic, whatever).
 
-my voice: [DESCRIBE HOW YOU WRITE — casual, short, no corporate fluff, etc. OR paste 2 real replies you've sent before]
+**step 3: evaluate**
 
-things i never want in a draft: [e.g. "hope this finds you well", emojis, exclamation marks, being overly formal]
+after the action, tell claude what actually happened. what you sent. what you changed. what worked. what didn't.
 
-confirm you understand and ask me to paste my first emails.
-```
+**step 4: repeat**
 
-fill in the brackets. messy is fine.
+open the same chat. run again. claude should behave differently because you evaluated the last cycle.
 
-### step 3: paste 2 emails
+do this until the goal is closer.
 
-copy real emails from your inbox. paste them into the chat.
+## build your first loop (email)
 
-claude will categorize them and draft replies.
+**you need:** [claude.ai](https://claude.ai) + 2 real emails + apple notes (or any blank doc)
 
-### step 4: send (or edit and send)
+### step 1: set the goal
 
-use the drafts or fix them. this is normal on run 1.
+"draft my emails faster, in my voice, with fewer edits each week."
 
-### step 5: close the loop
+### step 2: run the action
 
-paste this after you've sent (or decided not to reply):
+open claude → new chat → paste this:
 
 ```
-loop log — run 1:
+you're my email loop.
 
-email 1: i [sent your draft / edited it to say: PASTE WHAT YOU CHANGED / didn't reply because REASON]
-email 2: i [same]
+goal: draft my emails in my voice with fewer edits over time.
 
-what should you do differently on run 2?
-```
-
-**this is the loop.** you didn't just get drafts. you fed back what happened so the next run is smarter.
-
-### step 6: run it again tomorrow
-
-open the **same chat**. paste new emails. no setup prompt needed.
-
-after 3 to 5 runs, drafts should need less editing. that's the whole point.
-
----
-
-**want to finish a full loop in one sitting instead?** skip to the [decision loop](#decision-loop-easiest-one-session). same idea, one purchase or choice, done in 15 minutes.
-
-## what a loop actually is
-
-plain version:
-
-| | what you do | what you get |
-|---|-------------|--------------|
-| **prompt** | ask once | one answer |
-| **loop** | same goal, same steps, come back, log what happened, fix one thing | better answers over time |
-
-a loop needs four things. that's it.
-
-1. **a goal** — "spend less time on email" not "help with this email"
-2. **steps that repeat** — sort, draft, i send, log
-3. **a log** — what worked, what i changed, what bombed
-4. **one fix per run** — don't rewrite everything. change one thing.
-
-you don't need to understand "agents" or "workflows." if you did step 5 above, you already built one.
-
-## save your loop (so you don't start over)
-
-after run 1, pin this so you never re-explain yourself.
-
-### option a: keep the same chat (easiest)
-
-just reopen the chat tomorrow. claude remembers the thread.
-
-downside: eventually the chat gets long. fine for the first week.
-
-### option b: claude project (5 minutes, worth it)
-
-1. claude.ai → **projects** → **new project**
-2. name it something like `email loop`
-3. open **project instructions** (or project knowledge)
-4. paste your setup prompt from step 2 above
-5. from now on, start new chats **inside this project**
-
-every chat in the project already knows the loop. you just paste emails.
-
-## your loop log
-
-don't overthink this. a note titled `loop log` with entries like:
-
-```
-run 1 — mar 4
-- loop: email
-- what i ran: 2 client emails
-- what worked: short drafts, good tone
-- what i fixed: stopped saying "happy to help"
-- change for next run: add "never say happy to help" to my rules
-
-run 2 — mar 5
-- loop: email
-- ...
-```
-
-three lines per run is enough. the log is what makes it a loop instead of a chat you forgot about.
-
----
-
-## pick your loop
-
-five starters from the reel. each one: who it's for, what to paste, what to do after.
-
-**already did the email walkthrough?** pick a different one below.
-
-### email loop
-
-**for you if:** inbox eats your afternoon and you write the same kinds of replies over and over.
-
-**you need:** claude + real emails
-
-**setup prompt** (paste once in a new chat or project):
-
-```
-you're my email loop. every time i paste emails:
-1. sort each (urgent / reply today / fyi / no reply needed)
-2. draft replies in my voice
-3. when i paste what i actually sent, remember what changed
+every cycle:
+1. i paste emails
+2. you sort them and draft replies
+3. i tell you what i actually sent
+4. you adjust for next time
 
 my voice: [HOW YOU WRITE — or paste 2 real replies]
+never say: [PHRASES YOU HATE — e.g. "hope this finds you well"]
+
+ask me to paste emails.
+```
+
+fill in the brackets. paste 2 real emails when claude asks.
+
+### step 3: evaluate
+
+send the drafts (or edit them first). then paste:
+
+```
+evaluation — cycle 1:
+
+email 1: [SENT YOUR DRAFT / EDITED TO: ___ / DIDN'T REPLY BECAUSE ___]
+email 2: [SAME]
+
+what should you do differently in cycle 2?
+```
+
+### step 4: repeat
+
+tomorrow, open the **same chat**. paste new emails. no setup needed.
+
+after 3 to 5 cycles, you should be editing less. the output of cycle 1 changed how cycle 2 runs. that's the loop.
+
+---
+
+**want one full cycle in a single sitting?** use the [decision loop](#5-decision-loop) instead.
+
+## save your loop
+
+so you don't start over every time.
+
+**easy way:** keep using the same chat.
+
+**better way (5 min):** claude → projects → new project → name it `email loop` → paste your setup prompt into project instructions → always start chats inside that project.
+
+## 5 loops you can use
+
+each one follows: input → action → evaluation → next action → repeat.
+
+pick one. don't build all five.
+
+### 1. email loop
+
+**goal:** less time in inbox, fewer edits over time
+
+| cycle | what happens |
+|-------|--------------|
+| input | emails in your inbox |
+| action | sort + draft replies |
+| evaluation | what you sent vs what claude drafted |
+| next action | claude adjusts tone, length, phrases |
+| repeat | same chat, next batch of emails |
+
+**setup prompt:**
+
+```
+you're my email loop. goal: draft emails in my voice, fewer edits over time.
+
+cycle: i paste emails → you sort and draft → i tell you what i sent → you adjust.
+
+my voice: [HOW YOU WRITE]
 never say: [PHRASES YOU HATE]
 
 ask me to paste emails.
 ```
 
-**after each batch, paste:**
+**evaluation prompt (paste after each batch):**
 
 ```
-i sent: [PASTE WHAT YOU ACTUALLY SENT OR WHAT YOU CHANGED]
-what should you do differently next time?
+evaluation:
+- email 1: [WHAT YOU SENT OR CHANGED]
+- email 2: [WHAT YOU SENT OR CHANGED]
+what changes for next cycle?
 ```
 
 ---
 
-### decision loop (easiest one-session)
+### 2. research loop
 
-**for you if:** you're about to buy something, pick a tool, or make a choice and you keep asking "which one should i get?"
+**goal:** weekly brief with more signal, less noise, each week
 
-**you need:** claude + one real decision you're facing right now
+| cycle | what happens |
+|-------|--------------|
+| input | your sources + topic |
+| action | 3 insights + 1 action item |
+| evaluation | what you used vs what was noise |
+| next action | claude weights better sources, filters worse ones |
+| repeat | next week's brief |
 
 **setup prompt:**
 
 ```
-you're my decision loop. i'll use you whenever i'm deciding on something.
+you're my research loop. goal: weekly brief that gets sharper each week.
 
-each time:
-1. ask me what i'm deciding and what matters to me
-2. research 3 options
-3. compare them honestly against my priorities
-4. recommend one and say what would change your mind
-5. when i tell you what i picked, remember for next time
+cycle: i give sources → you brief me → i say what was useful → you adjust.
 
-start by asking what i'm deciding on right now.
+topic: [WHAT YOU CARE ABOUT]
+sources: [YOUR LIST]
+ignore: [HYPE, VAGUE TAKES, REHASHED NEWS]
+
+give me this week's brief: 3 insights + 1 action.
 ```
 
-**after you decide, paste:**
+**evaluation prompt:**
 
 ```
-i picked: [YOUR CHOICE]
-why: [ONE SENTENCE]
-next time i decide something like this, weight [X] higher and care less about [Y].
+evaluation:
+- useful: [WHAT I ACTUALLY USED]
+- noise: [WHAT I SKIPPED]
+next cycle: weight [X] higher, ignore [Y].
 ```
-
-one session = one full loop. good first loop if email felt boring.
 
 ---
 
-### research loop
+### 3. learning loop
 
-**for you if:** you follow a bunch of newsletters or accounts and want a weekly brief, not another "summarize the internet" dump.
+**goal:** understand a topic, not just copy answers
 
-**you need:** claude + a list of where you get info (urls, newsletter names, accounts)
+| cycle | what happens |
+|-------|--------------|
+| input | topic + new material or question |
+| action | brief you, help you think (not just answer) |
+| evaluation | what clicked, what you got wrong |
+| next action | claude focuses on weak spots |
+| repeat | next study session |
+
+full version with all prompts: [the ai learning loop guide](/guides/ai-learning-loop).
 
 **setup prompt:**
 
 ```
-you're my research loop. every sunday i'll ask for my weekly brief.
+you're my learning loop for [TOPIC]. goal: understand it, not copy answers.
 
-each run:
-1. i tell you my sources and topic
-2. you pull out 3 things worth knowing and 1 action for me
-3. you flag noise to ignore next time
-4. when i tell you what was useful, adjust next week's brief
-
-my topic: [WHAT YOU CARE ABOUT — e.g. ai tools for my business]
-my sources: [PASTE LIST]
-noise i don't want: [HYPE, VAGUE TAKES, ETC.]
-
-give me this week's brief now.
-```
-
-**after you read it, paste:**
-
-```
-useful: [WHAT YOU ACTUALLY USED]
-skipped: [WHAT WAS NOISE]
-next week: look harder for [X], ignore [Y].
-```
-
----
-
-### learning loop
-
-**for you if:** you're trying to learn something (coding, trading, a new skill) and you keep copying answers without understanding.
-
-**you need:** claude + a topic
-
-full three-phase walkthrough with all prompts: [the ai learning loop guide](/guides/ai-learning-loop).
-
-**short version — paste once:**
-
-```
-you're my learning loop for [TOPIC].
-
-each study session:
-1. brief me on what matters today (key ideas, what to watch for)
-2. when i paste a question or problem, help me think through it — don't just give the answer
-3. when i'm done, one takeaway i should remember
+cycle: you brief me → i paste questions/material → you help me think → i say what i learned → you adjust.
 
 start with today's briefing.
 ```
 
+**evaluation prompt:**
+
+```
+evaluation:
+- got it: [WHAT CLICKED]
+- missed: [WHAT I GOT WRONG]
+next cycle: focus on [WEAK SPOT].
+```
+
 ---
 
-### lead gen loop
+### 4. lead gen loop
 
-**for you if:** you do outreach (dm, email, linkedin) and want better messages over time, not one list of names.
+**goal:** better outreach and higher replies over time
 
-**you need:** claude + clarity on who you sell to
+| cycle | what happens |
+|-------|--------------|
+| input | who you sell to + signals to look for |
+| action | find companies + draft outreach |
+| evaluation | who replied, which angles worked |
+| next action | claude leans into winners, drops losers |
+| repeat | next batch |
 
 **setup prompt:**
 
 ```
-you're my lead gen loop. every tuesday we'll do a batch.
+you're my lead gen loop. goal: higher reply rate over time.
 
-each run:
-1. i remind you who i sell to and what signals to look for
-2. you find 10 companies and draft short personalized outreach for each
-3. i tell you who replied and what i sent
-4. you update the angle for next week
+cycle: i give my icp → you find 10 companies and draft outreach → i tell you results → you adjust angles.
 
 i sell: [YOUR OFFER]
-ideal customer: [WHO — industry, size, what they look like]
-signals they might need me: [e.g. running ads, hiring, just launched]
-how i write: [YOUR TONE — or paste a real message you sent]
+ideal customer: [WHO]
+signals: [e.g. running ads, hiring, just launched]
+my voice: [HOW YOU WRITE]
 
-run batch 1 now. end with a simple table: company, why them, draft message.
+run cycle 1. table: company, why them, draft message.
 ```
 
-**after you send, paste:**
+**evaluation prompt:**
 
 ```
-results: [COMPANY] replied / [COMPANY] ignored / etc.
-best angle: [WHAT GOT REPLIES]
-next batch: lean into [X], drop [Y].
+evaluation:
+- replied: [COMPANIES + WHICH ANGLE]
+- ignored: [COMPANIES]
+next cycle: lean into [WINNING ANGLE], drop [LOSING ANGLE].
 ```
 
 ---
 
-## not sure which loop? let claude pick
+### 5. decision loop
 
-paste this in a fresh chat. answer the questions. it'll tell you which loop to build and write your setup prompt.
+**goal:** faster, clearer decisions that match your taste
+
+| cycle | what happens |
+|-------|--------------|
+| input | what you're deciding + what matters |
+| action | research options, compare, recommend |
+| evaluation | what you picked and why |
+| next action | claude weights your priorities better |
+| repeat | next decision |
+
+**setup prompt:**
 
 ```
-i want to build my first ai loop. not a one-off prompt — something i come back to that gets better.
+you're my decision loop. goal: better decisions, faster, over time.
 
-ask me simple questions, one at a time:
-- what do i keep asking ai to do over and over?
-- what does "better" look like after a few weeks?
-- what tools do i already use? (just claude? email? notion?)
+cycle: i tell you what i'm deciding → you research and compare → i say what i picked → you remember my taste.
 
-when you have enough, tell me:
-1. which loop fits best (email, decision, research, learning, or lead gen)
-2. my setup prompt, ready to paste
-3. what to log after run 1
+what are you deciding on right now?
+```
+
+**evaluation prompt:**
+
+```
+evaluation:
+- picked: [YOUR CHOICE]
+- why: [ONE SENTENCE]
+next cycle: care more about [X], care less about [Y].
+```
+
+---
+
+## don't know which loop?
+
+paste this. answer the questions. claude picks one and writes your setup prompt.
+
+```
+i want to build an ai loop, not write a one-off prompt.
+
+a loop is: input → action → evaluation → next action → repeat until goal achieved.
+
+ask me one question at a time:
+1. what do i keep doing over and over?
+2. what would "better" look like after a few cycles?
+
+then give me:
+- which loop fits (email, research, learning, lead gen, or decision)
+- my setup prompt
+- my evaluation prompt
 
 start with question 1.
 ```
 
-## when you're ready to go deeper
-
-you don't need any of this to run your first loop. come back after 5 to 10 runs.
-
-**anthropic's take:** their [building effective agents](https://www.anthropic.com/engineering/building-effective-agents) guide says what most teams learn the hard way: start with the simplest thing that works. add complexity only when the simple version breaks. that's what you're doing manually before you automate anything.
-
-**when to automate:** if you've run the same loop 10+ times and one step is pure copy-paste busywork (pulling the same report every monday, same email sort every morning), *then* look at scheduling, zaps, or scripts. until then, the chat + log is the loop.
-
 ## what to do next
 
-1. do the [15-minute email walkthrough](#your-first-loop-in-15-minutes) OR the [decision loop](#decision-loop-easiest-one-session) if you want one sitting.
-2. write 3 lines in your loop log.
-3. run it again tomorrow in the same chat or project.
-4. after run 3, change one rule (a phrase to ban, a source to drop, an angle to double down on).
+1. pick one loop above (or do the email walkthrough).
+2. paste the setup prompt into claude.
+3. run cycle 1.
+4. paste the evaluation prompt.
+5. run cycle 2 in the same chat.
 
-that's it. prompts get you an answer. loops get you a system.
+prompts stop. loops compound.
