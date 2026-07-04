@@ -1,10 +1,11 @@
 ---
 title: "5 ai loops you can actually use"
-description: "Five loops to replace one-off prompts: lead gen, research, learning, email, and decisions. Each one gets better every time you run it."
-summary: "Instead of asking AI once and stopping, build a loop that runs, learns from what happened, and improves the next time."
+description: "Five agentic loops for Claude: a goal, steps the agent runs, memory that updates each cycle, and a system that improves without you copy-pasting prompts."
+summary: "An agentic loop saves state after each run so the next run behaves differently. Set one up in a Claude project, say run the loop, and let the agent handle the cycle."
 category: guide
 topics:
   - loops
+  - agents
 tools:
   - claude
 cover: "prompting is not the skill anymore. building loops is."
@@ -15,14 +16,11 @@ pillars:
 tags:
   - ai
   - loops
+  - agents
 published: true
 date: 2026-07-04
 updated: 2026-07-04
 ---
-
-a prompt gets you one answer and stops.
-
-a loop keeps going. you run it, see what happened, fix one thing, run it again. each time it should work a little better.
 
 **prompt:** get an answer.
 
@@ -30,25 +28,98 @@ a loop keeps going. you run it, see what happened, fix one thing, run it again. 
 
 **loop:** build a system that improves.
 
-pick one loop below. set it up in claude. run it twice in the same chat. that's when you'll feel the difference.
+a loop is not you going back and forth copy-pasting "here's what happened." that's still a prompt with extra steps.
 
-## how to set up any loop in claude
+an **agentic loop** is a system with a goal, steps the agent runs on its own, and **memory that updates after each cycle** so the next run behaves differently.
 
-same steps every time:
+**prompt:** input → output → stop
 
-1. open [claude.ai](https://claude.ai) → new chat
-2. paste the setup prompt for your loop (fill in anything in brackets)
-3. give it your input (emails, a topic, a decision, whatever)
-4. when you're done, tell it what happened and what to do differently next time
-5. come back to the **same chat** and run it again
+**agentic loop:** input → action → evaluation → update memory → next action → repeat until goal achieved
 
-keep the same chat. that's what makes it a loop.
+**the key difference:** the output of one cycle is **saved**. the next cycle **reads it** and changes behavior. you don't hold the state. the loop does.
 
-**optional:** save the setup prompt in a claude project so every new chat already knows the loop. projects → new project → paste setup into project instructions.
+## copy-paste is not a loop
+
+if you're pasting a setup prompt, then an evaluation prompt, then telling it what to fix... you're doing the agent's job. you're the memory. you're the scheduler.
+
+that's fine for week one. it's not a loop.
+
+a loop needs three things:
+
+1. **a goal** (not a question)
+2. **steps the agent runs** (you trigger it, it executes the cycle)
+3. **a state file** the agent reads at the start and rewrites at the end
+
+you say **"run the loop."** the agent does the rest. you only step in when it needs something it can't know (did someone reply? what did you pick?).
+
+## set up any agentic loop (one time)
+
+**you need:** [claude.ai](https://claude.ai) (pro or max helps for projects, but free works to start)
+
+### step 1: create a project
+
+claude → **projects** → **new project** → name it after your loop (e.g. `lead gen loop`).
+
+### step 2: paste the loop engine into project instructions
+
+this is the brain. it tells claude how to run any loop. copy the whole block in [the loop engine](#the-loop-engine) below. fill in the `[BRACKETS]` for whichever loop you're building.
+
+### step 3: add a starter state file
+
+create a file called `loop-state.md` and add it to **project knowledge** (upload or paste). use the starter from your loop section below.
+
+### step 4: run it
+
+open a chat inside the project. say:
+
+> run the loop
+
+claude reads `loop-state.md`, runs every step, asks you only what it can't know, then **rewrites `loop-state.md`** with what it learned.
+
+save the updated file back to project knowledge (or let claude write it if you have file creation on).
+
+### step 5: run it again
+
+next time, same thing. say **"run the loop."** claude reads the **updated** state. behavior should be different. that's the loop.
 
 ---
 
-## 1. lead generation loop
+## the loop engine
+
+paste this into **project instructions**. customize the bracketed parts for your loop.
+
+```
+you are an agentic loop. not a chatbot. not a one-off prompt.
+
+GOAL: [ONE SENTENCE — e.g. "higher reply rate on outreach over time"]
+
+STEPS (run all of these every time i say "run the loop"):
+1. read loop-state.md
+2. [STEP 2 — e.g. "find 10 companies matching my criteria"]
+3. [STEP 3 — e.g. "research each and draft outreach"]
+4. [STEP 4 — e.g. "present the batch for me to send"]
+5. evaluate this run against the goal
+6. rewrite loop-state.md with: what worked, what didn't, rules for next run, run count + 1
+
+RULES:
+- run all steps in one cycle. don't stop halfway and wait for me to ask the next step.
+- only ask me for inputs you cannot get yourself (outcomes, replies, decisions i made).
+- at the end of every cycle, output the full updated loop-state.md so i can save it to project knowledge.
+- each cycle must change something in loop-state.md. if nothing changed, the loop isn't working.
+
+MY CONTEXT:
+[paste anything the loop always needs — who i sell to, my voice, sources, priorities, etc.]
+```
+
+---
+
+## 5 ai loops you can actually use
+
+pick one. set it up once. then just say **"run the loop."**
+
+---
+
+### 1. lead generation loop
 
 instead of:
 
@@ -65,40 +136,60 @@ build a loop that:
 
 **goal:** better leads over time.
 
-**set it up:**
+**customize the loop engine:**
 
 ```
-you're my lead gen loop. you get better every time i use you.
+GOAL: higher reply rate on outreach to the right companies over time
 
-each time i come back:
-1. find 10 companies that match my criteria
-2. research each one
-3. write personalized outreach in my voice
-4. when i tell you who replied, learn which messages worked
-5. improve the next batch
+STEPS:
+1. read loop-state.md
+2. find 10 companies matching my criteria and buying signals
+3. research each (what they do, why they'd care, recent signal)
+4. draft personalized outreach in my voice
+5. present as a table: company, signal, draft message
+6. ask if there are replies from the last batch (if any pending)
+7. evaluate which angles are working
+8. rewrite loop-state.md
 
-i sell: [WHAT YOU SELL]
-who i want to reach: [INDUSTRY, SIZE, TYPE OF COMPANY]
-signals they're a good fit: [e.g. running ads, hiring, just launched]
-how i write: [YOUR TONE — or paste a real message you sent]
-
-run the first batch now.
+MY CONTEXT:
+i sell: [YOUR OFFER]
+ideal customer: [WHO]
+buying signals: [e.g. running ads, hiring, just launched]
+my voice: [HOW YOU WRITE — or paste a real message]
 ```
 
-**after you send outreach, paste:**
+**starter loop-state.md:**
 
 ```
-here's what happened:
-- replied: [NAMES]
-- no reply: [NAMES]
-- best message angle: [WHAT WORKED]
+# lead gen loop
 
-update the loop for next time.
+run count: 0
+
+## current strategy
+first run. no data yet. test 2 to 3 angles.
+
+## angles to test
+- [angle 1]
+- [angle 2]
+
+## what works
+(none yet)
+
+## what doesn't
+(none yet)
+
+## pending outreach
+(none yet)
+
+## rules learned
+(none yet)
 ```
+
+**what you do each cycle:** say "run the loop." send the outreach it drafts. when it asks about replies, answer once. save the updated state file.
 
 ---
 
-## 2. research loop
+### 2. research loop
 
 instead of:
 
@@ -115,36 +206,55 @@ build a loop that:
 
 **goal:** better signal, less noise.
 
-**set it up:**
+**customize the loop engine:**
 
 ```
-you're my research loop. you get better every time i use you.
+GOAL: weekly brief with more signal and less noise each week
 
-each time i come back:
-1. scan my sources for the last week
-2. find recurring themes
-3. filter out noise
-4. give me 3 key insights connected to what i care about
-5. when i tell you what was useful, look harder for that next time
+STEPS:
+1. read loop-state.md
+2. scan my sources for the last 7 days
+3. cluster recurring themes
+4. filter noise using my rules
+5. output: 3 insights + 1 action for me + sources to deprioritize
+6. ask what i actually used from last week's brief (if run count > 0)
+7. rewrite loop-state.md with updated source weights and filter rules
 
-my topic: [WHAT YOU CARE ABOUT]
-my sources: [NEWSLETTERS, ACCOUNTS, URLS]
-noise to ignore: [HYPE, VAGUE TAKES, REHASHED NEWS]
-
-give me this week's brief.
+MY CONTEXT:
+topic: [WHAT YOU CARE ABOUT]
+sources: [YOUR LIST]
+always ignore: [HYPE, VAGUE TAKES, REHASHED NEWS]
 ```
 
-**after you read it, paste:**
+**starter loop-state.md:**
 
 ```
-useful: [WHAT I ACTUALLY USED]
-waste of time: [WHAT I SKIPPED]
-next time: look harder for [X], ignore [Y].
+# research loop
+
+run count: 0
+
+## source weights
+(list sources — all start at medium priority)
+
+## themes to watch
+(none yet)
+
+## noise patterns
+- generic hype
+- predictions with no evidence
+
+## last brief
+(none yet)
+
+## what i actually used
+(none yet)
 ```
+
+**what you do each cycle:** say "run the loop." read the brief. when it asks what you used last time, answer in one sentence. save the updated state file.
 
 ---
 
-## 3. learning loop
+### 3. learning loop
 
 instead of:
 
@@ -161,34 +271,52 @@ build a loop that:
 
 **goal:** learn faster.
 
-full walkthrough with more prompts: [the ai learning loop guide](/guides/ai-learning-loop).
+deeper version with all phase prompts: [the ai learning loop guide](/guides/ai-learning-loop).
 
-**set it up:**
-
-```
-you're my learning loop for [TOPIC]. you get better every time i use you.
-
-each session:
-1. explain where we left off and what to focus on today
-2. teach me a concept
-3. test if i actually understand (don't just give me the answer)
-4. if i'm stuck, re-explain and give me a practice exercise
-5. when i tell you what i struggled with, adjust next session
-
-start session 1.
-```
-
-**when the session ends, paste:**
+**customize the loop engine:**
 
 ```
-what i got: [WHAT CLICKED]
-what i missed: [WHAT I'M STILL CONFUSED ABOUT]
-next session: focus on [WEAK SPOT].
+GOAL: understand [TOPIC] well enough to make my own calls, not copy answers
+
+STEPS:
+1. read loop-state.md
+2. brief me on what to focus on today based on my gaps
+3. teach one concept
+4. test my understanding (ask me, don't just explain)
+5. if i'm wrong, re-explain and give a practice exercise
+6. update loop-state.md with what i got, what i missed, what to focus on next
+
+MY CONTEXT:
+topic: [WHAT YOU'RE LEARNING]
+my level: [BEGINNER / SOME EXPOSURE / ETC.]
 ```
+
+**starter loop-state.md:**
+
+```
+# learning loop
+
+run count: 0
+topic: [TOPIC]
+
+## solid
+(none yet)
+
+## gaps
+(none yet)
+
+## focus next session
+start from the beginning
+
+## exercises done
+(none yet)
+```
+
+**what you do each cycle:** say "run the loop." answer its questions. don't ask for the answer. save the updated state file.
 
 ---
 
-## 4. email loop
+### 4. email loop
 
 instead of:
 
@@ -204,36 +332,50 @@ build a loop that:
 
 **goal:** spend less time in your inbox.
 
-**set it up:**
+**customize the loop engine:**
 
 ```
-you're my email loop. you get better every time i use you.
+GOAL: draft emails in my voice with fewer edits each week
 
-each time i paste emails:
-1. categorize each one (urgent / reply today / fyi / no reply needed)
-2. flag what's priority
-3. draft replies in my voice
-4. when i tell you what i actually sent, learn from my edits
-5. need fewer edits from me over time
+STEPS:
+1. read loop-state.md
+2. ask me to paste today's emails (or i paste them upfront)
+3. categorize each (urgent / reply today / fyi / no reply needed)
+4. flag priority
+5. draft replies using my voice rules from loop-state.md
+6. after i confirm what i sent, compare drafts to my final versions
+7. rewrite loop-state.md with new voice rules and phrases to avoid
 
+MY CONTEXT:
 my voice: [HOW YOU WRITE — or paste 2 real replies]
-never say: [PHRASES YOU HATE]
-
-ask me to paste emails.
 ```
 
-**after you send, paste:**
+**starter loop-state.md:**
 
 ```
-email 1: [WHAT I SENT — or what i changed from your draft]
-email 2: [SAME]
+# email loop
 
-what should you do differently next time?
+run count: 0
+
+## voice rules
+- [how you write]
+
+## never say
+- hope this finds you well
+- [add yours]
+
+## edits i keep making
+(none yet)
+
+## what's working
+(none yet)
 ```
+
+**what you do each cycle:** paste emails (or say "run the loop" and paste when asked). send the drafts. tell it what you changed. save the updated state file.
 
 ---
 
-## 5. decision-making loop
+### 5. decision-making loop
 
 instead of:
 
@@ -250,38 +392,70 @@ build a loop that:
 
 **goal:** make better decisions over time.
 
-**set it up:**
+**customize the loop engine:**
 
 ```
-you're my decision loop. you get better every time i use you.
+GOAL: faster, clearer decisions that match my actual priorities over time
 
-each time i'm deciding something:
-1. ask what i'm deciding and what matters to me
-2. research 3 to 5 options
-3. compare reviews and tradeoffs
-4. score them based on my priorities
-5. recommend one
-6. when i tell you what i picked, remember for next time
+STEPS:
+1. read loop-state.md
+2. ask what i'm deciding (if i haven't said)
+3. research 3 to 5 options
+4. score against my priorities from loop-state.md
+5. lay out tradeoffs and recommend one
+6. after i decide, ask what i picked and why
+7. rewrite loop-state.md — update priority weights based on my choice
 
-what am i deciding on right now?
+MY CONTEXT:
+default priorities: [LIST WITH WEIGHTS — e.g. price 3, ease 5, support 4]
+budget rules: [HARD LIMITS]
+dealbreakers: [NON-NEGOTIABLES]
 ```
 
-**after you decide, paste:**
+**starter loop-state.md:**
 
 ```
-i picked: [YOUR CHOICE]
-why: [ONE SENTENCE]
-next time: care more about [X], care less about [Y].
+# decision loop
+
+run count: 0
+
+## priority weights
+- price: 3
+- ease of use: 5
+- [add yours]
+
+## dealbreakers
+- [list]
+
+## past decisions
+(none yet)
+
+## what i actually care about
+(learned over time — none yet)
 ```
+
+**what you do each cycle:** say "run the loop" + what you're deciding. pick one. tell it your choice and why. save the updated state file.
 
 ---
 
+## turn it into a skill (optional)
+
+want to trigger it from any chat without opening the project?
+
+1. **settings → capabilities** → turn on **code execution and file creation**
+2. **customize → skills → create skill → create with claude**
+3. paste your loop engine and say **"make this my [name] loop skill. it should read and update loop-state.md each run."**
+4. toggle it on
+
+then hit `/` or say **"run my email loop."** same agentic behavior, portable across chats.
+
 ## what to do next
 
-1. pick the loop closest to something you already do every week.
-2. paste the setup prompt into a new claude chat.
-3. run it once.
-4. tell claude what happened.
-5. run it again in the same chat.
+1. pick one loop above.
+2. create a claude project.
+3. paste the loop engine (customized) into project instructions.
+4. add the starter `loop-state.md` to project knowledge.
+5. say **"run the loop."**
+6. save the updated state file after each run.
 
-one prompt, one answer. one loop, a system that improves.
+you trigger it. the agent runs the cycle. the state file is the memory. that's the loop.
