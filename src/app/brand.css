@@ -36,23 +36,18 @@
   color: #fff;
 }
 
-/* Burned-in section subheaders in guide articles */
+/* Section subheaders in guide articles */
 .page--article .prose h2 {
-  display: inline-block;
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(24px, 2.4vw, 32px);
   line-height: 1.05;
   letter-spacing: 0.005em;
   text-transform: lowercase;
-  color: #fff;
-  background: var(--pop);
-  padding: 0.08em 0.32em;
+  color: var(--ink);
   margin: 2.5rem 0 0;
   border: 0;
   border-radius: 0;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .page--article .prose h2 + * {
