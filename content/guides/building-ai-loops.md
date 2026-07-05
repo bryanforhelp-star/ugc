@@ -1,6 +1,6 @@
 ---
 title: "5 ai loops you can actually use"
-description: "Five loops that replace one-off prompts, with sources from Anthropic and a walkthrough for building your first one."
+description: "Five loops that replace one-off prompts, plus a walkthrough for building your first one in Hermes."
 summary: "A loop runs, checks itself, remembers what happened, and improves the next run. Pick one of five examples, then follow the setup walkthrough."
 category: guide
 topics:
@@ -22,7 +22,7 @@ date: 2026-07-04
 updated: 2026-07-05
 ---
 
-**sources:** [anthropic: building effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [hermes agent docs](https://hermes-agent.nousresearch.com/docs/) · [setup walkthrough on youtube](https://www.youtube.com/@withkyndall)
+**sources:** [hermes agent docs](https://hermes-agent.nousresearch.com/docs/) · [setup walkthrough on youtube](https://www.youtube.com/@withkyndall)
 
 prompting was the skill. loops are the skill now.
 
@@ -40,9 +40,9 @@ a loop is: input → action → evaluation → next action → repeat until the 
 
 ## why this matters now
 
-anthropic's [building effective agents](https://www.anthropic.com/engineering/building-effective-agents) guide puts it plainly: start with the simplest thing that works, and only add complexity when it actually improves outcomes. most people are still stuck at step one (one prompt, one answer). loops are what you build when the same work keeps coming back and you want it to get better without you babysitting every step.
+the agent tools got good enough that "ask once, get an answer" is the slow path. if the same work comes back every week (email, research, outreach, decisions), you want a system that runs the steps, checks the output, saves what it learned, and does it again without you re-explaining everything.
 
-that's the shift. you're not writing better prompts. you're designing a system that prompts, acts, checks, and remembers for you.
+that's a loop. not a better prompt.
 
 ## what a loop actually is
 
@@ -162,7 +162,7 @@ this page is the **what**. the five examples. the goals. the difference between 
 
 to actually build one, you need the **how**.
 
-i build my loops in [hermes agent](https://hermes-agent.nousresearch.com/docs/) (open source, built by nous research). it has a built-in learning loop: skills, memory across sessions, scheduled runs. that's my stack. i recorded a walkthrough so you don't have to figure it out from docs alone.
+i build my loops in [hermes agent](https://hermes-agent.nousresearch.com/docs/) (open source, from nous research). it's built around this exact idea: a learning loop with memory across sessions, skills the agent creates and improves, and scheduled runs so the loop keeps going without you sitting there. that's the stack i use. i recorded a walkthrough so you're not piecing it together from docs alone.
 
 **watch:** [how to set up your first ai loop →](https://www.youtube.com/@withkyndall)
 
@@ -185,18 +185,17 @@ loops aren't free. they take setup, they run multiple steps, and they only pay o
 
 if you can't describe how the system should check its own work, it's not ready to be a loop yet. keep it as a prompt until you can.
 
-## sources and further reading
+## sources
 
-- **[building effective agents](https://www.anthropic.com/engineering/building-effective-agents)** — anthropic's guide on workflows, agents, and when to add complexity. the framework behind the "loops not prompts" shift.
-- **[hermes agent documentation](https://hermes-agent.nousresearch.com/docs/)** — how i build and run loops (memory, skills, scheduling, messaging). open source.
+- **[hermes agent documentation](https://hermes-agent.nousresearch.com/docs/)** — the agent platform i use. memory, skills, scheduling, messaging. open source, actively updated.
 - **[the ai learning loop](/guides/ai-learning-loop)** — full setup for loop #3 above (brief → connect → review).
 - **[setup walkthrough](https://www.youtube.com/@withkyndall)** — zero to your first working loop on video.
 
 ## what to do next
 
 1. pick one loop from the list.
-2. read the [anthropic guide](https://www.anthropic.com/engineering/building-effective-agents) if you want the theory in one sitting.
-3. watch the [setup walkthrough](https://www.youtube.com/@withkyndall).
-4. build it. run it twice.
+2. watch the [setup walkthrough](https://www.youtube.com/@withkyndall).
+3. build it in hermes (or whatever you're using).
+4. run it twice. if the second run is smarter than the first, you have a loop.
 
 prompts stop. loops compound.
