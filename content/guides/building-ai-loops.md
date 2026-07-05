@@ -1,6 +1,6 @@
 ---
 title: "5 ai loops you can actually use"
-description: "Five loops that replace one-off prompts, plus a walkthrough for building your first one in Hermes."
+description: "Five loops that replace one-off prompts, with links to Claude Code, Hermes, and the people saying build loops now."
 summary: "A loop runs, checks itself, remembers what happened, and improves the next run. Pick one of five examples, then follow the setup walkthrough."
 category: guide
 topics:
@@ -22,7 +22,7 @@ date: 2026-07-04
 updated: 2026-07-05
 ---
 
-**sources:** [hermes agent docs](https://hermes-agent.nousresearch.com/docs/) · [setup walkthrough on youtube](https://www.youtube.com/@withkyndall)
+**sources:** [boris cherny on loops](https://www.youtube.com/watch?v=Sg7DdOfQCcY) · [addy osmani: loop engineering](https://addyosmani.com/blog/loop-engineering/) · [claude code /goal](https://code.claude.com/docs/en/goal) · [claude code /loop](https://code.claude.com/docs/en/commands) · [hermes agent](https://hermes-agent.nousresearch.com/docs/) · [my setup walkthrough](https://www.youtube.com/@withkyndall)
 
 prompting was the skill. loops are the skill now.
 
@@ -43,6 +43,22 @@ a loop is: input → action → evaluation → next action → repeat until the 
 the agent tools got good enough that "ask once, get an answer" is the slow path. if the same work comes back every week (email, research, outreach, decisions), you want a system that runs the steps, checks the output, saves what it learned, and does it again without you re-explaining everything.
 
 that's a loop. not a better prompt.
+
+## who's saying "build loops, not prompts"
+
+this isn't just a hot take. the people building the agents are saying the same thing:
+
+**boris cherny** (head of claude code at anthropic): *"i don't prompt claude anymore. i have loops running that prompt claude and figuring out what to do. my job is to write loops."*
+
+→ [watch the clip](https://www.youtube.com/watch?v=Sg7DdOfQCcY) · [his thread on /loop and /schedule in claude code](https://x.com/bcherny/status/2038454336355999749)
+
+**peter steinberger** (openclaw): *"you shouldn't be prompting coding agents anymore. you should be designing loops that prompt your agents."*
+
+→ [addy osmani's breakdown](https://addyosmani.com/blog/loop-engineering/) (quotes steinberger + cherny and maps the pieces)
+
+**addy osmani** (chrome, ex-google): wrote the clearest explainer on loop engineering: same five pieces (automations, skills, goals, sub-agents, connectors) whether you're in claude code, codex, or hermes.
+
+→ [loop engineering](https://addyosmani.com/blog/loop-engineering/)
 
 ## what a loop actually is
 
@@ -156,24 +172,34 @@ build a loop that:
 
 ---
 
-## go from zero to a working loop
+## how to actually build a loop
 
-this page is the **what**. the five examples. the goals. the difference between a prompt and a loop.
+this page gives you the **what** (five examples above). here's the **how**, depending on what you're using:
 
-to actually build one, you need the **how**.
+### claude code (if you code or use the terminal)
 
-i build my loops in [hermes agent](https://hermes-agent.nousresearch.com/docs/) (open source, from nous research). it's built around this exact idea: a learning loop with memory across sessions, skills the agent creates and improves, and scheduled runs so the loop keeps going without you sitting there. that's the stack i use. i recorded a walkthrough so you're not piecing it together from docs alone.
+anthropic built loops directly into claude code. two commands:
+
+| command | what it does | docs |
+|---------|--------------|------|
+| **`/goal`** | keeps claude working until a condition you define is met. a separate model checks after each turn. | [claude code /goal docs](https://code.claude.com/docs/en/goal) |
+| **`/loop`** | re-runs a prompt on a schedule (every 5m, every morning, etc.) while the session is open | [claude code commands](https://code.claude.com/docs/en/commands) |
+
+boris cherny runs loops like `/loop 5m /babysit` to auto-address code review and shepherd PRs. [his full list →](https://x.com/bcherny/status/2038454336355999749)
+
+also worth knowing: **`/schedule`** for routines that run on anthropic's cloud even when your laptop is closed. same commands page above.
+
+### hermes agent (what i use)
+
+[hermes agent](https://hermes-agent.nousresearch.com/docs/) is open source from nous research. built-in learning loop: memory across sessions, skills the agent creates and improves, scheduled runs, works from telegram/discord/cli.
+
+this is my stack for the loops above. i recorded a walkthrough so you're not piecing it together from docs alone.
 
 **watch:** [how to set up your first ai loop →](https://www.youtube.com/@withkyndall)
 
-the video covers:
+### not sure which tool?
 
-1. pick one loop from the list above
-2. write the goal in one sentence (what "done" or "better" looks like)
-3. set up the steps, memory, and check
-4. run it once, see what changed, run it again
-
-if the second run is smarter than the first, you have a loop.
+read [addy osmani's loop engineering post](https://addyosmani.com/blog/loop-engineering/) first. the shape is the same everywhere. pick the tool you already have, build one loop, run it twice.
 
 ## when a prompt is enough
 
@@ -187,15 +213,28 @@ if you can't describe how the system should check its own work, it's not ready t
 
 ## sources
 
-- **[hermes agent documentation](https://hermes-agent.nousresearch.com/docs/)** — the agent platform i use. memory, skills, scheduling, messaging. open source, actively updated.
-- **[the ai learning loop](/guides/ai-learning-loop)** — full setup for loop #3 above (brief → connect → review).
-- **[setup walkthrough](https://www.youtube.com/@withkyndall)** — zero to your first working loop on video.
+**people saying build loops now**
+
+- [boris cherny: "my job is to write loops"](https://www.youtube.com/watch?v=Sg7DdOfQCcY) (head of claude code)
+- [boris cherny on /loop and /schedule](https://x.com/bcherny/status/2038454336355999749)
+- [addy osmani: loop engineering](https://addyosmani.com/blog/loop-engineering/) (breakdown citing cherny + steinberger)
+
+**how to build loops**
+
+- [claude code /goal](https://code.claude.com/docs/en/goal) — work until a verifiable condition is met
+- [claude code commands (/loop, /schedule)](https://code.claude.com/docs/en/commands) — repeat on a schedule
+- [hermes agent docs](https://hermes-agent.nousresearch.com/docs/) — open source agent with a built-in learning loop
+- [my setup walkthrough](https://www.youtube.com/@withkyndall) — zero to your first loop on video
+
+**from this site**
+
+- [the ai learning loop](/guides/ai-learning-loop) — full setup for loop #3 above
 
 ## what to do next
 
 1. pick one loop from the list.
-2. watch the [setup walkthrough](https://www.youtube.com/@withkyndall).
-3. build it in hermes (or whatever you're using).
-4. run it twice. if the second run is smarter than the first, you have a loop.
+2. pick your tool (claude code, hermes, or watch my [walkthrough](https://www.youtube.com/@withkyndall)).
+3. build it. run it twice.
+4. if the second run is smarter than the first, you have a loop.
 
 prompts stop. loops compound.
