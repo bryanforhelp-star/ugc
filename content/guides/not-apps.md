@@ -1,7 +1,7 @@
 ---
 title: "the three ai systems i actually use (none of them are apps)"
 description: "Three workflows that replaced whole teams for me: digital product pages, brand deal outreach, and a content bank. Copy-paste prompts to build your own versions."
-summary: "Build three small AI systems instead of apps: a digital product page workflow, a brand research and pitch pipeline, and a content bank that turns saves and trends into post ideas."
+summary: "Build three small AI systems in Cursor or Claude: product pages, brand research and pitches, and a content bank. No coding required."
 category: workflow
 topics:
   - workflows
@@ -36,7 +36,7 @@ This guide breaks down the three I use every week:
 2. **Brand deal pipeline**: research before outreach, warm pitches instead of "hey collab?"
 3. **Content bank**: saves, trends, and overperformers organized into ideas, patterns, and angles
 
-You don't need to learn to code. You need to get clear on what problem you're solving, then build the smallest system that solves it.
+You don't need to learn to code. I don't. I use **Cursor** for all three. If you prefer Claude, every workflow below has a Project version too.
 
 ## the reframe
 
@@ -48,11 +48,22 @@ Apps need auth, onboarding, support, pricing pages, and a reason for strangers t
 
 Start with systems. Ship apps later if the demand shows up.
 
+## pick your tool
+
+I run all three workflows in **Cursor**. I am not a developer. I describe what I want, Cursor builds it.
+
+| Tool | Best for |
+|------|----------|
+| **Cursor** (what I use) | Building systems by talking. Research, pages, emails, workflows. No coding required. |
+| **Claude Project** | Same systems if you live in Claude. Projects, skills, web search. |
+
+Same workflows either way. Pick the tool you already open every day.
+
 ## 1. digital product page workflow
 
 **The problem:** spinning up a digital product used to mean a designer for the landing page, a developer for checkout, a copywriter for the emails, and a week of back-and-forth.
 
-**What I built:** one workflow that generates all three pieces for a new product in a couple of hours. I run it in **Cursor** because I build on my own site. If you don't code, build the same system in a **Claude Project**.
+**What I built:** one workflow in **Cursor** that generates all three pieces for a new product in a couple of hours. I don't write code. I describe the system and Cursor builds it.
 
 **The flow:**
 
@@ -62,15 +73,6 @@ product idea → landing page → checkout flow → delivery email sequence
 
 Each piece follows the same structure every time. The first one took the longest. Now I can spin up a new page fast because the system exists.
 
-### pick your setup
-
-| If you... | Use this |
-|-----------|----------|
-| Don't code | **Claude Project.** Set it up once, run `new product` whenever. |
-| Build on your own site | **Cursor.** One session, all three pieces, ship to your repo. |
-
-Two paths, same system. Pick the one you'll actually use.
-
 ### what each piece does
 
 | Piece | Job |
@@ -78,63 +80,6 @@ Two paths, same system. Pick the one you'll actually use.
 | Landing page | sells the product, matches my site style, mobile-first |
 | Checkout flow | payment + confirmation, minimal friction |
 | Delivery emails | sends the product, sets expectations, one follow-up |
-
-### build it in Claude
-
-Set up a **Claude Project** once. Every new product, open the project and say `new product` instead of re-explaining the whole workflow.
-
-**Setup (10 minutes, one time):**
-
-1. In Claude, click **Projects** → **New project**
-2. Name it something like `product launcher`
-3. Paste the project instructions below into **Project instructions**
-4. (Optional) Upload one product you've already shipped as an example file
-5. Save
-
-**Every time you launch something new:**
-
-Open the project and say:
-
-```
-new product:
-- name: [NAME]
-- what it is: [ONE SENTENCE]
-- price: [PRICE]
-- delivery: [FILE / LINK / ACCESS]
-```
-
-Claude runs the same three steps every time because the instructions are already loaded.
-
-**Project instructions (paste this in):**
-
-```
-You are my product launch workflow. Every time I say "new product," run this system:
-
-STEP 1: product page
-- Title
-- Short description (2 sentences max)
-- 3 bullets on what they get
-- One line on who it's for
-- Tone: plain, friendly, no corporate jargon
-
-STEP 2: checkout copy
-- Confirmation message (what they bought, what happens in 60 seconds)
-- Button text and order summary copy
-- What the buyer sees after they pay
-
-STEP 3: delivery emails (3 emails)
-- Email 1 (immediate): product + how to use it
-- Email 2 (day 2): one tip they might miss
-- Email 3 (day 5): ask for feedback
-
-Rules:
-- Do one step at a time. Wait for my OK before the next step.
-- Match the tone and structure of any example files I uploaded.
-- If I don't have examples yet, keep the first one simple and ask what to save as the template.
-- End each run with a checklist of what I still need to wire up on my end.
-```
-
-**Want it even more permanent?** Turn it into a Claude Skill (same idea as my [build or buy skill](/guides/claude-build-or-buy-skill)). Open a chat, paste the instructions above, and say "set this up as my skill called product launcher."
 
 ### build it in Cursor
 
@@ -183,12 +128,33 @@ Now build the same three pieces for a new product:
 Keep the same structure and tone. Only change what's specific to this product.
 ```
 
-**Claude reuse:** open the project, say `new product: [DETAILS]`.
+### or build it in Claude
+
+Set up a **Claude Project** called `product launcher`. Paste the project instructions below into **Project instructions**, then say `new product: [DETAILS]` each time.
+
+**Project instructions:**
+
+```
+You are my product launch workflow. Every time I say "new product," run this system:
+
+STEP 1: product page
+- Title, short description, 3 bullets, who it's for
+- Tone: plain, friendly, no corporate jargon
+
+STEP 2: checkout copy
+- Confirmation message, button text, order summary
+
+STEP 3: delivery emails (3 emails)
+- Immediate, day 2 tip, day 5 feedback ask
+
+Do one step at a time. Wait for my OK before the next.
+```
+
+Turn it into a [Claude Skill](/guides/claude-build-or-buy-skill) if you want it outside projects.
 
 ### tools
 
-- **Claude** for the system (project or skill)
-- **Cursor** if you're building pages on your own site
+- **Cursor** (what I use) or **Claude** (project or skill)
 - **Stripe + your email tool** for checkout and delivery (whatever you already use)
 
 You don't need a custom app. You need a repeatable system that generates the same three outputs every time.
@@ -197,7 +163,7 @@ You don't need a custom app. You need a repeatable system that generates the sam
 
 **The problem:** outreach is tedious. Generic "want to collab?" emails get ignored. Good pitches take 45 minutes of research per brand, and I kept skipping the research because it sucked.
 
-**What I built:** a research step that runs before I write a single word. It pulls context on their ads, products, and creator partnerships, then drafts a warm pitch that proves I actually looked. I run the whole thing in **Cursor**. Same system works in a **Claude Project** if you don't code.
+**What I built:** a research step that runs before I write a single word. It pulls context on their ads, products, and creator partnerships, then drafts a warm pitch that proves I actually looked. I run the whole thing in **Cursor**. Same prompts work in a **Claude Project**.
 
 **The flow:**
 
@@ -212,42 +178,6 @@ brand name → research → ads + products + creators → pitch angle → email 
 | What ads are they running? | shows you can speak to their creative direction |
 | What products are they launching? | gives you a timely hook |
 | Are they working with creators? | tells you if they already buy UGC and what style they like |
-
-### pick your setup
-
-| If you... | Use this |
-|-----------|----------|
-| Don't code | **Claude Project.** Say `pitch [brand]` and let it research + draft. |
-| Build in Cursor | **Cursor.** Research and pitch in one session. |
-
-You don't need a separate research tool. Claude and Cursor can both search the web. The system is: research first, pitch second, never skip step one.
-
-### build it in Claude
-
-**Claude Project** called `brand pipeline`. Paste your bio into the project instructions, then say `pitch [BRAND NAME]` and let it run research and drafting in one go.
-
-**Project instructions:**
-
-```
-You are my brand outreach pipeline. When I say "pitch [BRAND]":
-
-RESEARCH (use web search):
-1. What ads they're currently running
-2. Recent product launches (last 90 days)
-3. Creators they've worked with recently
-4. Their positioning and audience
-5. One gap or opportunity I could offer as a creator
-
-Then PITCH:
-1. Find the strongest hook from the research
-2. Write two emails (direct + casual), under 150 words each
-3. Open with something specific to THEM, not "I love your brand"
-4. Offer one concrete content idea tied to what they're doing
-5. End with a soft ask
-
-About me:
-[PASTE YOUR BIO, PROOF POINTS, AND ANGLE HERE]
-```
 
 ### build it in Cursor
 
@@ -274,6 +204,30 @@ Then write two pitch emails (direct + casual) that:
 - End with a soft ask
 
 Give me the research brief first. I'll say go before you draft.
+```
+
+### or build it in Claude
+
+**Claude Project** called `brand pipeline`. Paste your bio into project instructions, then say `pitch [BRAND NAME]`.
+
+```
+You are my brand outreach pipeline. When I say "pitch [BRAND]":
+
+RESEARCH (use web search):
+1. What ads they're running
+2. Recent product launches (last 90 days)
+3. Creators they've worked with recently
+4. Their positioning and audience
+5. One gap I could offer as a creator
+
+Then PITCH:
+- Two emails (direct + casual), under 150 words
+- Open with something specific to THEM
+- One concrete content idea
+- Soft ask at the end
+
+About me:
+[PASTE YOUR BIO, PROOF POINTS, AND ANGLE HERE]
 ```
 
 ### steal this: research only
@@ -334,7 +288,7 @@ Hyper-specific beats high-volume every time, especially when you don't have a hu
 
 **The problem:** I had 200 saved reels and zero posts. Hooks I forgot. Screenshots going nowhere. Saves don't equal a system.
 
-**What I built:** a content bank that pulls in relevant content, tracks what overperforms, brings in news and trends from my niche, and organizes everything into ideas, patterns, and angles.
+**What I built:** a content bank that pulls in relevant content, tracks what overperforms, brings in news and trends from my niche, and organizes everything into ideas, patterns, and angles. I run it in **Cursor**. Claude Project version below if you prefer.
 
 **The flow:**
 
@@ -350,7 +304,32 @@ inputs (saves, trends, news, your own frictions) → tag + connect → ideas / p
 | **Patterns** | reels that overperformed (yours or others') | repeatable formats worth copying |
 | **Angles** | news, launches, trends in your space | timely takes only you would post |
 
-### build it in Claude
+### build it in Cursor
+
+Two commands I use in **Cursor**:
+
+- `log this:` + a brain dump, friction, or save
+- `weekly review` (every Sunday)
+
+Paste this once to set up the system, then use those two commands going forward:
+
+```
+You are my content bank. Tag everything as: idea, pattern, or angle.
+
+When I say "log this:" capture the friction, hook, format, and audience. Reply with the tagged entry only.
+
+When I say "weekly review" organize everything I've logged this week into:
+1. Ideas: 5 posts I could film (ranked by urgency)
+2. Patterns: 2 formats working right now
+3. Angles: 3 timely takes for my niche
+
+For each idea: cover line, hook (first 3 seconds), why now.
+
+My niche: [PASTE YOUR NICHE]
+My content style: [PASTE 1-2 LINES]
+```
+
+### or build it in Claude
 
 **Claude Project** called `content bank`. Two commands you'll use constantly:
 
@@ -444,11 +423,11 @@ The tool matters less than the habit: **capture on the way in, review on the way
 
 ## you don't need to code
 
-I use Cursor because I build on my own site. If you don't, use Claude. Same system, different tool.
+I don't. I use Cursor anyway.
 
-For the product page workflow: **Claude Project** if you want the workflow without code. **Cursor** if you're shipping to your own site.
+Cursor isn't a "developer tool" in the way people think. It's where I describe systems and let AI build them. Landing pages, research pipelines, content banks. I talk, it does the work.
 
-For outreach and content: **Claude Project** for each one. Same two-tool rule: Claude or Cursor.
+If Claude is more your speed, every workflow above has a Project version. Same systems, different app.
 
 I got really clear on what problems I was trying to solve in my own world:
 
@@ -464,9 +443,9 @@ That's the skill. Not coding. Not prompting. **Noticing what you do 40 times and
 
 Pick the one that hurts most right now:
 
-1. **Launching something?** Pick Claude or Cursor. Set up the system. Run it on one product this week.
-2. **Pitching brands?** Say `pitch [brand]` in Claude or run the Cursor prompt. Research first, always.
-3. **Sitting on saves?** Log three frictions from this week and run the Sunday review prompt.
+1. **Launching something?** Open Cursor (or Claude). Run the product page prompt on one idea this week.
+2. **Pitching brands?** Run the brand pipeline prompt. Research first, always.
+3. **Sitting on saves?** Set up the content bank. Log three frictions, then run `weekly review`.
 
 Build one system. Use it twice. If the second time is faster than the first, you have something worth keeping.
 
