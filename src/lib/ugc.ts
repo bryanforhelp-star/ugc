@@ -79,9 +79,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     video: "/ugc/assets/videos/opal.mp4",
     poster: "/ugc/assets/posters/opal.jpg",
     brand: "Opal",
-    brandLogo: "/ugc/assets/logos/opal-wordmark.svg",
-    brandLogoWidth: 72,
-    brandLogoHeight: 24,
+    brandLogo: "/ugc/assets/logos/opal-wordmark.png",
+    brandLogoWidth: 76,
+    brandLogoHeight: 37,
   },
   {
     id: "preply",
