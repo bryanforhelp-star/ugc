@@ -8,7 +8,6 @@ topics:
   - building
 tools:
   - cursor
-  - perplexity
   - claude
 cover: "most useful things I build with AI aren't even apps"
 commentKeyword: APPS
@@ -19,7 +18,7 @@ tags:
   - ai
   - workflows
   - cursor
-  - perplexity
+  - claude
   - content
 published: true
 date: 2026-07-07
@@ -198,7 +197,7 @@ You don't need a custom app. You need a repeatable system that generates the sam
 
 **The problem:** outreach is tedious. Generic "want to collab?" emails get ignored. Good pitches take 45 minutes of research per brand, and I kept skipping the research because it sucked.
 
-**What I built:** a research step that runs before I write a single word. It pulls context on their ads, products, and creator partnerships, then drafts a warm pitch that proves I actually looked.
+**What I built:** a research step that runs before I write a single word. It pulls context on their ads, products, and creator partnerships, then drafts a warm pitch that proves I actually looked. I run the whole thing in **Cursor**. Same system works in a **Claude Project** if you don't code.
 
 **The flow:**
 
@@ -214,34 +213,70 @@ brand name → research → ads + products + creators → pitch angle → email 
 | What products are they launching? | gives you a timely hook |
 | Are they working with creators? | tells you if they already buy UGC and what style they like |
 
+### pick your setup
+
+| If you... | Use this |
+|-----------|----------|
+| Don't code | **Claude Project.** Say `pitch [brand]` and let it research + draft. |
+| Build in Cursor | **Cursor.** Research and pitch in one session. |
+
+You don't need a separate research tool. Claude and Cursor can both search the web. The system is: research first, pitch second, never skip step one.
+
 ### build it in Claude
 
-Same idea as the product workflow: one **Claude Project** called `brand pipeline`.
-
-1. Paste your bio/proof points into project instructions (what you create, brands you've worked with, your angle)
-2. Research still happens in **Perplexity** (Claude can't browse ad libraries as well)
-3. Paste the Perplexity brief into the project and say `pitch [BRAND NAME]`
+**Claude Project** called `brand pipeline`. Paste your bio into the project instructions, then say `pitch [BRAND NAME]` and let it run research and drafting in one go.
 
 **Project instructions:**
 
 ```
-You are my brand outreach pipeline. I research brands in Perplexity first, then paste the brief here.
+You are my brand outreach pipeline. When I say "pitch [BRAND]":
 
-When I say "pitch [BRAND]":
-1. Read my research brief
-2. Find the strongest hook (their ads, a launch, or a creator gap)
-3. Write two pitch emails (direct + casual), under 150 words each
-4. Open with something specific to THEM, not "I love your brand"
-5. Offer one concrete content idea tied to what they're doing
-6. End with a soft ask
+RESEARCH (use web search):
+1. What ads they're currently running
+2. Recent product launches (last 90 days)
+3. Creators they've worked with recently
+4. Their positioning and audience
+5. One gap or opportunity I could offer as a creator
+
+Then PITCH:
+1. Find the strongest hook from the research
+2. Write two emails (direct + casual), under 150 words each
+3. Open with something specific to THEM, not "I love your brand"
+4. Offer one concrete content idea tied to what they're doing
+5. End with a soft ask
 
 About me:
 [PASTE YOUR BIO, PROOF POINTS, AND ANGLE HERE]
 ```
 
-### steal this: brand research prompt
+### build it in Cursor
 
-Paste into Perplexity (or any research tool with web access):
+Paste into **Cursor**:
+
+```
+Research [BRAND NAME] for a creator partnership pitch, then draft the email.
+
+Research:
+1. What ads they're currently running (check Meta Ad Library, TikTok, YouTube if relevant)
+2. Recent product launches or announcements (last 90 days)
+3. Creators or influencers they've worked with recently
+4. Their target audience and positioning
+5. One gap or opportunity I could offer as a creator
+
+About me:
+[PASTE YOUR BIO, PROOF POINTS, AND ANGLE]
+
+Then write two pitch emails (direct + casual) that:
+- Open with something specific from their ads or recent launch
+- Offer one concrete content idea tied to what they're already doing
+- Stay under 150 words
+- Sound like a person, not a template
+- End with a soft ask
+
+Give me the research brief first. I'll say go before you draft.
+```
+
+### steal this: research only
 
 ```
 Research [BRAND NAME] for a creator partnership pitch.
@@ -256,9 +291,9 @@ Find:
 Format as a brief I can scan in 2 minutes. Include links where possible.
 ```
 
-### steal this: warm pitch draft
+Use this if you want to research a batch of brands first, then pitch later.
 
-After the research brief, paste into Claude:
+### steal this: pitch only (if you already researched)
 
 ```
 Here's my research on [BRAND NAME]:
@@ -413,7 +448,7 @@ I use Cursor because I build on my own site. If you don't, use Claude. Same syst
 
 For the product page workflow: **Claude Project** if you want the workflow without code. **Cursor** if you're shipping to your own site.
 
-For outreach and content: **Claude Project** for each one. Research still starts in Perplexity for the brand pipeline.
+For outreach and content: **Claude Project** for each one. Same two-tool rule: Claude or Cursor.
 
 I got really clear on what problems I was trying to solve in my own world:
 
@@ -430,7 +465,7 @@ That's the skill. Not coding. Not prompting. **Noticing what you do 40 times and
 Pick the one that hurts most right now:
 
 1. **Launching something?** Pick Claude or Cursor. Set up the system. Run it on one product this week.
-2. **Pitching brands?** Research one brand with the Perplexity prompt before you write a word.
+2. **Pitching brands?** Say `pitch [brand]` in Claude or run the Cursor prompt. Research first, always.
 3. **Sitting on saves?** Log three frictions from this week and run the Sunday review prompt.
 
 Build one system. Use it twice. If the second time is faster than the first, you have something worth keeping.
