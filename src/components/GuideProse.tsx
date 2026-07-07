@@ -2,6 +2,7 @@
 
 import { useState, type ElementType, type KeyboardEvent, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function nodeToText(node: ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
@@ -63,6 +64,7 @@ type Props = {
 export function GuideProse({ content }: Props) {
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       components={{
         blockquote: ({ children }) => <CopyPrompt>{children}</CopyPrompt>,
         pre: ({ children }) => <CopyPrompt as="pre">{children}</CopyPrompt>,

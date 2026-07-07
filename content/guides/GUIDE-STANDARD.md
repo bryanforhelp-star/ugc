@@ -40,6 +40,8 @@ Do not try to style these in markdown. Use structure only.
 - Title Case in source is fine (CSS lowercases), but prefer lowercase in markdown for consistency.
 - Examples: `## the prompt`, `## steal this`, `## what to do next`
 
+**Tables:** pipe tables render correctly on the site (`| col | col |` with a `|---|---|` separator row). Use them for comparisons and checklists. Do not use tables inside prompt blocks.
+
 ## Copy-paste prompts
 
 Use **either** blockquotes or fenced code blocks. Both render as click-to-copy prompt areas.
