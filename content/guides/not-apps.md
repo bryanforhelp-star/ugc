@@ -67,10 +67,11 @@ Each piece follows the same structure every time. The first one took the longest
 
 | If you... | Use this |
 |-----------|----------|
-| Already use Cursor (or code a little) | Cursor. One session, all three pieces, paste into your site. |
-| Don't code at all | **Claude or ChatGPT** for the copy + **Gumroad or Lemon Squeezy** for the page, checkout, and delivery email. |
+| Want a reusable system in Claude | **Claude Project.** Set it up once, run "new product" whenever. See below. |
+| Already use Cursor (or code a little) | **Cursor.** One session, all three pieces, paste into your site. |
+| Just want to ship one product fast | **Claude chat + Gumroad.** One prompt, paste copy, done. |
 
-Most people reading this should use the second path. Gumroad and Lemon Squeezy already have a product page, payment, and automatic delivery built in. You're not building checkout. You're writing the words and pasting them in.
+Most people should either build the **Claude Project** (if you'll launch more than one thing) or use the **Gumroad one-shot** (if it's a single product).
 
 ### what each piece does
 
@@ -80,9 +81,67 @@ Most people reading this should use the second path. Gumroad and Lemon Squeezy a
 | Checkout flow | payment + confirmation, minimal friction |
 | Delivery emails | sends the product, sets expectations, one follow-up |
 
-### steal this: the no-code version (start here)
+### build it in Claude (the system version)
 
-Paste into **Claude** or **ChatGPT**:
+This is the closest thing to what I do in Cursor, without code. You set up a **Claude Project** once. Every new product, you open the project and say "new product" instead of re-explaining the whole workflow.
+
+**Setup (10 minutes, one time):**
+
+1. In Claude, click **Projects** → **New project**
+2. Name it something like `product launcher`
+3. Paste the project instructions below into **Project instructions**
+4. (Optional) Upload one product you've already shipped as an example file
+5. Save
+
+**Every time you launch something new:**
+
+Open the project and say:
+
+```
+new product:
+- name: [NAME]
+- what it is: [ONE SENTENCE]
+- price: [PRICE]
+- delivery: [FILE / LINK / ACCESS]
+- where it's going: [GUMROAD / MY SITE / BOTH]
+```
+
+Claude runs the same three steps every time because the instructions are already loaded.
+
+**Project instructions (paste this in):**
+
+```
+You are my product launch workflow. Every time I say "new product," run this system:
+
+STEP 1: product page
+- Title
+- Short description (2 sentences max)
+- 3 bullets on what they get
+- One line on who it's for
+- Tone: plain, friendly, no corporate jargon
+
+STEP 2: checkout copy
+- Confirmation message (what they bought, what happens in 60 seconds)
+- If I'm using Gumroad/Lemon Squeezy: format for their fields
+- If I'm using my own site: include button text and order summary copy
+
+STEP 3: delivery emails (3 emails)
+- Email 1 (immediate): product + how to use it
+- Email 2 (day 2): one tip they might miss
+- Email 3 (day 5): ask for feedback
+
+Rules:
+- Do one step at a time. Wait for my OK before the next step.
+- Match the tone and structure of any example files I uploaded.
+- If I don't have examples yet, keep the first one simple and ask what to save as the template.
+- End each run with a checklist: what to paste where (Gumroad fields, email tool, etc.)
+```
+
+**Want it even more permanent?** Turn it into a Claude Skill (same idea as my [build or buy skill](/guides/claude-build-or-buy-skill)). Open a chat, paste the instructions above, and say "set this up as my skill called product launcher." It shows up in your skills list and works outside projects too.
+
+### steal this: one product, no setup (quick version)
+
+Paste into any **Claude** chat:
 
 ```
 I'm launching a digital product. Write all the copy I need to paste into Gumroad (or Lemon Squeezy).
@@ -148,7 +207,9 @@ Start with the landing page copy. I'll review before you build the rest.
 
 ### steal this: reuse the system for product #2
 
-**No-code:** paste your last Gumroad page copy into Claude and say "same structure, new product: [DETAILS]."
+**Claude Project:** open the project, say `new product: [DETAILS]`. Done.
+
+**One-off chat:** paste your last product copy and say "same structure, new product: [DETAILS]."
 
 **Cursor:**
 
@@ -166,16 +227,20 @@ Keep the same structure and tone. Only change what's specific to this product.
 
 ### tools
 
-**No-code path (most people):**
-- **Claude or ChatGPT** for all the copy
-- **Gumroad or Lemon Squeezy** for the page, checkout, and delivery (one tool, no building)
+**Claude Project (reusable system):**
+- **Claude** with a project + the instructions above
+- **Gumroad or Lemon Squeezy** to host (unless you're building on your own site)
+
+**One product, fast:**
+- **Claude** for copy
+- **Gumroad or Lemon Squeezy** for page, checkout, delivery
 
 **If you already build on a site:**
 - **Cursor** for generating pages and emails in one session
 - **Stripe / Lemon Squeezy / Gumroad** for checkout
 - **Your email tool** (ConvertKit, Resend, whatever you already use) for delivery
 
-You don't need a custom app. You need a repeatable prompt that generates the same three outputs every time.
+You don't need a custom app. You need a repeatable system that generates the same three outputs every time.
 
 ## 2. brand deal pipeline
 
@@ -196,6 +261,31 @@ brand name → research → ads + products + creators → pitch angle → email 
 | What ads are they running? | shows you can speak to their creative direction |
 | What products are they launching? | gives you a timely hook |
 | Are they working with creators? | tells you if they already buy UGC and what style they like |
+
+### build it in Claude
+
+Same idea as the product workflow: one **Claude Project** called `brand pipeline`.
+
+1. Paste your bio/proof points into project instructions (what you create, brands you've worked with, your angle)
+2. Research still happens in **Perplexity** (Claude can't browse ad libraries as well)
+3. Paste the Perplexity brief into the project and say `pitch [BRAND NAME]`
+
+**Project instructions:**
+
+```
+You are my brand outreach pipeline. I research brands in Perplexity first, then paste the brief here.
+
+When I say "pitch [BRAND]":
+1. Read my research brief
+2. Find the strongest hook (their ads, a launch, or a creator gap)
+3. Write two pitch emails (direct + casual), under 150 words each
+4. Open with something specific to THEM, not "I love your brand"
+5. Offer one concrete content idea tied to what they're doing
+6. End with a soft ask
+
+About me:
+[PASTE YOUR BIO, PROOF POINTS, AND ANGLE HERE]
+```
 
 ### steal this: brand research prompt
 
@@ -273,6 +363,33 @@ inputs (saves, trends, news, your own frictions) → tag + connect → ideas / p
 | **Patterns** | reels that overperformed (yours or others') | repeatable formats worth copying |
 | **Angles** | news, launches, trends in your space | timely takes only you would post |
 
+### build it in Claude
+
+**Claude Project** called `content bank`. Two commands you'll use constantly:
+
+- `log this:` + a brain dump, friction, or save
+- `weekly review` (run every Sunday)
+
+**Project instructions:**
+
+```
+You are my content bank. Tag everything as: idea, pattern, or angle.
+
+When I say "log this:" capture the friction, hook, format, and audience. Reply with the tagged entry only.
+
+When I say "weekly review" organize everything I've logged this week into:
+1. Ideas: 5 posts I could film (ranked by urgency)
+2. Patterns: 2 formats working right now
+3. Angles: 3 timely takes for [MY NICHE: paste yours here]
+
+For each idea give me: cover line, hook (first 3 seconds), why now.
+
+My niche: [PASTE YOUR NICHE]
+My content style: [PASTE 1-2 LINES ON HOW YOU TALK / WHAT YOU POST]
+```
+
+Keep a running doc in the project (or paste your week's logs before `weekly review`). Notion works too if you prefer a visual board.
+
 ### steal this: log a friction
 
 When something annoying happens, capture it before you forget:
@@ -342,7 +459,9 @@ The tool matters less than the habit: **capture on the way in, review on the way
 
 I use Cursor because I build on my own site. You don't need any of that.
 
-For the product page workflow, **Claude + Gumroad** gets you the same result: landing copy, checkout, delivery emails. No terminal, no repo, no "vibe coding."
+For the product page workflow, a **Claude Project** gets you the same repeatable system: open it, say "new product," get the same three outputs every time. Pair it with Gumroad if you're not hosting on your own site.
+
+For outreach and content, same move: one project each, instructions loaded, run the same commands every week.
 
 I didn't learn to code to build any of this.
 
@@ -360,7 +479,7 @@ That's the skill. Not coding. Not prompting. **Noticing what you do 40 times and
 
 Pick the one that hurts most right now:
 
-1. **Launching something?** Run the no-code prompt in Claude. Paste it into Gumroad. Ship one product this week.
+1. **Launching something?** Set up the Claude Project. Run `new product` on one idea this week.
 2. **Pitching brands?** Research one brand with the Perplexity prompt before you write a word.
 3. **Sitting on saves?** Log three frictions from this week and run the Sunday review prompt.
 
