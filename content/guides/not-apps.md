@@ -1,7 +1,7 @@
 ---
 title: "the three ai systems i actually use (none of them are apps)"
 description: "Three workflows that replaced whole teams for me: digital product pages, brand deal outreach, and a content bank. Copy-paste prompts to build your own versions."
-summary: "Build three small AI systems instead of apps: a digital product page workflow in Cursor, a brand research and pitch pipeline in Perplexity, and a content bank that turns saves and trends into post ideas."
+summary: "Build three small AI systems instead of apps: a digital product page workflow, a brand research and pitch pipeline, and a content bank that turns saves and trends into post ideas."
 category: workflow
 topics:
   - workflows
@@ -53,7 +53,7 @@ Start with systems. Ship apps later if the demand shows up.
 
 **The problem:** spinning up a digital product used to mean a designer for the landing page, a developer for checkout, a copywriter for the emails, and a week of back-and-forth.
 
-**What I built:** one workflow in Cursor that generates all three pieces for a new product in a couple of hours.
+**What I built:** one workflow that generates all three pieces for a new product in a couple of hours. I run it in **Cursor** because I already use it to build stuff on my site. You don't need Cursor for this.
 
 **The flow:**
 
@@ -63,6 +63,15 @@ product idea → landing page → checkout flow → delivery email sequence
 
 Each piece follows the same structure every time. The first one took the longest. Now I can spin up a new page fast because the system exists.
 
+### pick your setup
+
+| If you... | Use this |
+|-----------|----------|
+| Already use Cursor (or code a little) | Cursor. One session, all three pieces, paste into your site. |
+| Don't code at all | **Claude or ChatGPT** for the copy + **Gumroad or Lemon Squeezy** for the page, checkout, and delivery email. |
+
+Most people reading this should use the second path. Gumroad and Lemon Squeezy already have a product page, payment, and automatic delivery built in. You're not building checkout. You're writing the words and pasting them in.
+
 ### what each piece does
 
 | Piece | Job |
@@ -71,9 +80,42 @@ Each piece follows the same structure every time. The first one took the longest
 | Checkout flow | payment + confirmation, minimal friction |
 | Delivery emails | sends the product, sets expectations, one follow-up |
 
-### steal this: kick off a new product page
+### steal this: the no-code version (start here)
 
-Paste into Cursor (or Claude with code execution):
+Paste into **Claude** or **ChatGPT**:
+
+```
+I'm launching a digital product. Write all the copy I need to paste into Gumroad (or Lemon Squeezy).
+
+Product name: [NAME]
+What it is: [ONE SENTENCE]
+Price: [PRICE]
+What they get after buying: [FILE / LINK / ACCESS]
+
+Write:
+
+1. Product page
+- Title
+- Short description (2 sentences max)
+- 3 bullet points on what they get
+- One line on who it's for
+
+2. Checkout confirmation message
+- What they just bought
+- What happens in the next 60 seconds
+- Where to go if something's wrong
+
+3. Delivery email sequence (3 emails)
+- Email 1 (immediate): here's your product + how to use it
+- Email 2 (day 2): one tip they might miss
+- Email 3 (day 5): ask for feedback
+
+Keep it plain, friendly, no corporate jargon. Start with the product page.
+```
+
+**Then:** create the product on [Gumroad](https://gumroad.com) or [Lemon Squeezy](https://lemonsqueezy.com), paste the copy in, upload your file, set the price. Done. They handle payment and delivery.
+
+### steal this: if you use Cursor
 
 ```
 I'm building a digital product page system. Help me ship a new product end to end.
@@ -106,6 +148,10 @@ Start with the landing page copy. I'll review before you build the rest.
 
 ### steal this: reuse the system for product #2
 
+**No-code:** paste your last Gumroad page copy into Claude and say "same structure, new product: [DETAILS]."
+
+**Cursor:**
+
 ```
 I already have a product page system that works. Here's the last one I shipped: [PASTE OR LINK].
 
@@ -120,11 +166,16 @@ Keep the same structure and tone. Only change what's specific to this product.
 
 ### tools
 
-- **Cursor** for building the pages and emails in one session
-- **Stripe / Lemon Squeezy / Gumroad** for checkout (pick one, stick with it)
+**No-code path (most people):**
+- **Claude or ChatGPT** for all the copy
+- **Gumroad or Lemon Squeezy** for the page, checkout, and delivery (one tool, no building)
+
+**If you already build on a site:**
+- **Cursor** for generating pages and emails in one session
+- **Stripe / Lemon Squeezy / Gumroad** for checkout
 - **Your email tool** (ConvertKit, Resend, whatever you already use) for delivery
 
-You don't need a custom app. You need a repeatable folder structure and prompts that generate the same three outputs every time.
+You don't need a custom app. You need a repeatable prompt that generates the same three outputs every time.
 
 ## 2. brand deal pipeline
 
@@ -289,6 +340,10 @@ The tool matters less than the habit: **capture on the way in, review on the way
 
 ## you don't need to code
 
+I use Cursor because I build on my own site. You don't need any of that.
+
+For the product page workflow, **Claude + Gumroad** gets you the same result: landing copy, checkout, delivery emails. No terminal, no repo, no "vibe coding."
+
 I didn't learn to code to build any of this.
 
 I got really clear on what problems I was trying to solve in my own world:
@@ -305,7 +360,7 @@ That's the skill. Not coding. Not prompting. **Noticing what you do 40 times and
 
 Pick the one that hurts most right now:
 
-1. **Launching something?** Run the product page prompt in Cursor. Ship one landing page this week.
+1. **Launching something?** Run the no-code prompt in Claude. Paste it into Gumroad. Ship one product this week.
 2. **Pitching brands?** Research one brand with the Perplexity prompt before you write a word.
 3. **Sitting on saves?** Log three frictions from this week and run the Sunday review prompt.
 
