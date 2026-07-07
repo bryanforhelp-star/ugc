@@ -38,6 +38,7 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
+    "not-apps",
     "building-ai-loops",
     "claude-voice-setup-skill",
     "claude-build-or-buy-skill",
