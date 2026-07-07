@@ -53,7 +53,7 @@ Start with systems. Ship apps later if the demand shows up.
 
 **The problem:** spinning up a digital product used to mean a designer for the landing page, a developer for checkout, a copywriter for the emails, and a week of back-and-forth.
 
-**What I built:** one workflow that generates all three pieces for a new product in a couple of hours. I run it in **Cursor** because I already use it to build stuff on my site. You don't need Cursor for this.
+**What I built:** one workflow that generates all three pieces for a new product in a couple of hours. I run it in **Cursor** because I build on my own site. If you don't code, build the same system in a **Claude Project**.
 
 **The flow:**
 
@@ -67,11 +67,10 @@ Each piece follows the same structure every time. The first one took the longest
 
 | If you... | Use this |
 |-----------|----------|
-| Want a reusable system in Claude | **Claude Project.** Set it up once, run "new product" whenever. See below. |
-| Already use Cursor (or code a little) | **Cursor.** One session, all three pieces, paste into your site. |
-| Just want to ship one product fast | **Claude chat + Gumroad.** One prompt, paste copy, done. |
+| Don't code | **Claude Project.** Set it up once, run `new product` whenever. |
+| Build on your own site | **Cursor.** One session, all three pieces, ship to your repo. |
 
-Most people should either build the **Claude Project** (if you'll launch more than one thing) or use the **Gumroad one-shot** (if it's a single product).
+Two paths, same system. Pick the one you'll actually use.
 
 ### what each piece does
 
@@ -81,9 +80,9 @@ Most people should either build the **Claude Project** (if you'll launch more th
 | Checkout flow | payment + confirmation, minimal friction |
 | Delivery emails | sends the product, sets expectations, one follow-up |
 
-### build it in Claude (the system version)
+### build it in Claude
 
-This is the closest thing to what I do in Cursor, without code. You set up a **Claude Project** once. Every new product, you open the project and say "new product" instead of re-explaining the whole workflow.
+Set up a **Claude Project** once. Every new product, open the project and say `new product` instead of re-explaining the whole workflow.
 
 **Setup (10 minutes, one time):**
 
@@ -103,7 +102,6 @@ new product:
 - what it is: [ONE SENTENCE]
 - price: [PRICE]
 - delivery: [FILE / LINK / ACCESS]
-- where it's going: [GUMROAD / MY SITE / BOTH]
 ```
 
 Claude runs the same three steps every time because the instructions are already loaded.
@@ -122,8 +120,8 @@ STEP 1: product page
 
 STEP 2: checkout copy
 - Confirmation message (what they bought, what happens in 60 seconds)
-- If I'm using Gumroad/Lemon Squeezy: format for their fields
-- If I'm using my own site: include button text and order summary copy
+- Button text and order summary copy
+- What the buyer sees after they pay
 
 STEP 3: delivery emails (3 emails)
 - Email 1 (immediate): product + how to use it
@@ -134,47 +132,14 @@ Rules:
 - Do one step at a time. Wait for my OK before the next step.
 - Match the tone and structure of any example files I uploaded.
 - If I don't have examples yet, keep the first one simple and ask what to save as the template.
-- End each run with a checklist: what to paste where (Gumroad fields, email tool, etc.)
+- End each run with a checklist of what I still need to wire up on my end.
 ```
 
-**Want it even more permanent?** Turn it into a Claude Skill (same idea as my [build or buy skill](/guides/claude-build-or-buy-skill)). Open a chat, paste the instructions above, and say "set this up as my skill called product launcher." It shows up in your skills list and works outside projects too.
+**Want it even more permanent?** Turn it into a Claude Skill (same idea as my [build or buy skill](/guides/claude-build-or-buy-skill)). Open a chat, paste the instructions above, and say "set this up as my skill called product launcher."
 
-### steal this: one product, no setup (quick version)
+### build it in Cursor
 
-Paste into any **Claude** chat:
-
-```
-I'm launching a digital product. Write all the copy I need to paste into Gumroad (or Lemon Squeezy).
-
-Product name: [NAME]
-What it is: [ONE SENTENCE]
-Price: [PRICE]
-What they get after buying: [FILE / LINK / ACCESS]
-
-Write:
-
-1. Product page
-- Title
-- Short description (2 sentences max)
-- 3 bullet points on what they get
-- One line on who it's for
-
-2. Checkout confirmation message
-- What they just bought
-- What happens in the next 60 seconds
-- Where to go if something's wrong
-
-3. Delivery email sequence (3 emails)
-- Email 1 (immediate): here's your product + how to use it
-- Email 2 (day 2): one tip they might miss
-- Email 3 (day 5): ask for feedback
-
-Keep it plain, friendly, no corporate jargon. Start with the product page.
-```
-
-**Then:** create the product on [Gumroad](https://gumroad.com) or [Lemon Squeezy](https://lemonsqueezy.com), paste the copy in, upload your file, set the price. Done. They handle payment and delivery.
-
-### steal this: if you use Cursor
+Paste this into **Cursor** when you're starting a new product:
 
 ```
 I'm building a digital product page system. Help me ship a new product end to end.
@@ -205,13 +170,7 @@ Build three things:
 Start with the landing page copy. I'll review before you build the rest.
 ```
 
-### steal this: reuse the system for product #2
-
-**Claude Project:** open the project, say `new product: [DETAILS]`. Done.
-
-**One-off chat:** paste your last product copy and say "same structure, new product: [DETAILS]."
-
-**Cursor:**
+**Reuse for product #2:**
 
 ```
 I already have a product page system that works. Here's the last one I shipped: [PASTE OR LINK].
@@ -225,20 +184,13 @@ Now build the same three pieces for a new product:
 Keep the same structure and tone. Only change what's specific to this product.
 ```
 
+**Claude reuse:** open the project, say `new product: [DETAILS]`.
+
 ### tools
 
-**Claude Project (reusable system):**
-- **Claude** with a project + the instructions above
-- **Gumroad or Lemon Squeezy** to host (unless you're building on your own site)
-
-**One product, fast:**
-- **Claude** for copy
-- **Gumroad or Lemon Squeezy** for page, checkout, delivery
-
-**If you already build on a site:**
-- **Cursor** for generating pages and emails in one session
-- **Stripe / Lemon Squeezy / Gumroad** for checkout
-- **Your email tool** (ConvertKit, Resend, whatever you already use) for delivery
+- **Claude** for the system (project or skill)
+- **Cursor** if you're building pages on your own site
+- **Stripe + your email tool** for checkout and delivery (whatever you already use)
 
 You don't need a custom app. You need a repeatable system that generates the same three outputs every time.
 
@@ -457,13 +409,11 @@ The tool matters less than the habit: **capture on the way in, review on the way
 
 ## you don't need to code
 
-I use Cursor because I build on my own site. You don't need any of that.
+I use Cursor because I build on my own site. If you don't, use Claude. Same system, different tool.
 
-For the product page workflow, a **Claude Project** gets you the same repeatable system: open it, say "new product," get the same three outputs every time. Pair it with Gumroad if you're not hosting on your own site.
+For the product page workflow: **Claude Project** if you want the workflow without code. **Cursor** if you're shipping to your own site.
 
-For outreach and content, same move: one project each, instructions loaded, run the same commands every week.
-
-I didn't learn to code to build any of this.
+For outreach and content: **Claude Project** for each one. Research still starts in Perplexity for the brand pipeline.
 
 I got really clear on what problems I was trying to solve in my own world:
 
@@ -479,7 +429,7 @@ That's the skill. Not coding. Not prompting. **Noticing what you do 40 times and
 
 Pick the one that hurts most right now:
 
-1. **Launching something?** Set up the Claude Project. Run `new product` on one idea this week.
+1. **Launching something?** Pick Claude or Cursor. Set up the system. Run it on one product this week.
 2. **Pitching brands?** Research one brand with the Perplexity prompt before you write a word.
 3. **Sitting on saves?** Log three frictions from this week and run the Sunday review prompt.
 
