@@ -17,7 +17,11 @@ export const SHOWCASE_PIECES: ShowcasePiece[] = [
     video: "/showcase/01.mp4",
     poster: "/showcase/01-poster.jpg",
   },
-  { id: "02" },
+  {
+    id: "02",
+    video: "/showcase/02.mp4",
+    poster: "/showcase/02-poster.jpg",
+  },
   { id: "03" },
   { id: "04" },
 ];
