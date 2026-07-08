@@ -57,6 +57,30 @@ function AdCard({ piece }: AdCardProps) {
 
   return (
     <article className="ugc-work__card">
+      <div className="ugc-work__caption">
+        <div className="ugc-work__brand-row">
+          <div className="ugc-work__logo-wrap">
+            <Image
+              src={piece.brandLogo}
+              alt={piece.brand}
+              width={piece.brandLogoWidth ?? 120}
+              height={piece.brandLogoHeight ?? 32}
+              className="ugc-work__logo"
+              style={{ width: "auto", height: "100%" }}
+            />
+          </div>
+          {piece.category ? (
+            <p className="ugc-work__category">{piece.category}</p>
+          ) : null}
+        </div>
+        {piece.angle || piece.goal ? (
+          <p className="ugc-work__blurb">
+            {piece.angle}
+            {piece.angle && piece.goal ? " " : null}
+            {piece.goal}
+          </p>
+        ) : null}
+      </div>
       <div
         ref={frameRef}
         className={`ugc-work__frame${isPlaying ? " is-playing" : ""}`}
@@ -76,33 +100,6 @@ function AdCard({ piece }: AdCardProps) {
           onPause={handlePause}
           onEnded={handlePause}
         />
-      </div>
-      <div className="ugc-work__meta">
-        <div className="ugc-work__logo-wrap">
-          <Image
-            src={piece.brandLogo}
-            alt={piece.brand}
-            width={piece.brandLogoWidth ?? 120}
-            height={piece.brandLogoHeight ?? 32}
-            className="ugc-work__logo"
-            style={{ width: "auto", height: "100%" }}
-          />
-        </div>
-        {piece.category ? (
-          <p className="ugc-work__category">[{piece.category}]</p>
-        ) : null}
-        {piece.angle ? (
-          <p className="ugc-work__detail">
-            <span className="ugc-work__label">angle</span>
-            {piece.angle}
-          </p>
-        ) : null}
-        {piece.goal ? (
-          <p className="ugc-work__detail">
-            <span className="ugc-work__label">goal</span>
-            {piece.goal}
-          </p>
-        ) : null}
       </div>
     </article>
   );
@@ -187,8 +184,10 @@ export function UgcAdsGrid({ id, title, intro, pieces }: AdsGridProps) {
   return (
     <section id={id} className="ugc-work">
       <div className="wrap">
-        <h2 className="s-head">{title}</h2>
-        {intro ? <p className="s-sub">{intro}</p> : null}
+        <div className="ugc-work__intro">
+          <h2 className="s-head">{title}</h2>
+          {intro ? <p className="s-sub">{intro}</p> : null}
+        </div>
         <div className="ugc-work__grid">
           {pieces.map((piece) => (
             <AdCard key={piece.id} piece={piece} />
@@ -210,8 +209,10 @@ export function UgcOrganicGrid({ id, title, intro, pieces }: OrganicGridProps) {
   return (
     <section id={id} className="ugc-work ugc-work--organic">
       <div className="wrap">
-        <h2 className="s-head">{title}</h2>
-        {intro ? <p className="s-sub">{intro}</p> : null}
+        <div className="ugc-work__intro">
+          <h2 className="s-head">{title}</h2>
+          {intro ? <p className="s-sub">{intro}</p> : null}
+        </div>
         <div className="ugc-work__grid">
           {pieces.map((piece) => (
             <OrganicCard key={piece.id} piece={piece} />
