@@ -10,10 +10,10 @@ export type UgcWorkPiece = {
   brandLogo: string;
   brandLogoWidth?: number;
   brandLogoHeight?: number;
-  /** e.g. "PROBLEM / SOLUTION" — shown in brackets under the logo */
+  /** short format label, e.g. "variation testing" */
   category?: string;
-  angle?: string;
-  goal?: string;
+  /** one line under the video */
+  summary?: string;
 };
 
 export type UgcOrganicPiece = {
@@ -36,7 +36,7 @@ export const UGC_SITE = {
   organicIntro:
     "content from my channel. ai, building, and real problems.",
   adsIntro:
-    "variation testing packages. multiple hooks and ctas built so brands can test before scaling.",
+    "paid social hooks and variation packages for brands testing before they scale.",
   workWithMeLead:
     "paid ads and organic content for brands that want to show up native in the feed.",
   services: [
@@ -64,9 +64,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/brands/doola.png",
     brandLogoWidth: 120,
     brandLogoHeight: 34,
-    category: "VARIATION TESTING PACKAGE",
-    angle: "hook variation A. different opener, same core offer.",
-    goal: "part of a multi-hook package I built so doola could test angles before scaling paid spend.",
+    category: "variation testing",
+    summary: "hook A from a multi-hook package built to test before scaling.",
   },
   {
     id: "doola-h2",
@@ -76,9 +75,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/brands/doola.png",
     brandLogoWidth: 120,
     brandLogoHeight: 34,
-    category: "VARIATION TESTING PACKAGE",
-    angle: "hook variation B. second creative for the same testing sprint.",
-    goal: "built to run against variation A and see what wins before the brand scales.",
+    category: "variation testing",
+    summary: "hook B, same offer, built to run against hook A.",
   },
   {
     id: "opal",
@@ -88,9 +86,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/opal-wordmark.png",
     brandLogoWidth: 130,
     brandLogoHeight: 61,
-    category: "PROBLEM / SOLUTION",
-    angle: "creative burnout / phone overstimulation.",
-    goal: "drive trial by resonating with high-identification pain.",
+    category: "problem / solution",
+    summary: "creative burnout and phone overstimulation.",
   },
   {
     id: "preply-testimonial",
@@ -100,9 +97,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/preply-wordmark.png",
     brandLogoWidth: 140,
     brandLogoHeight: 38,
-    category: "EDUCATIONAL TESTIMONIAL",
-    angle: "structured learning vs scattered apps.",
-    goal: "drive sign-ups through clarity + personalization.",
+    category: "educational testimonial",
+    summary: "structured learning vs scattered apps.",
   },
   {
     id: "replit",
@@ -112,9 +108,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/replit-wordmark.svg",
     brandLogoWidth: 128,
     brandLogoHeight: 32,
-    category: "USE-CASE PRODUCT DEMO",
-    angle: "real-time app build from a relatable problem.",
-    goal: "show that technical complexity is no longer a barrier.",
+    category: "product demo",
+    summary: "real-time app build from a relatable problem.",
   },
   {
     id: "prism",
@@ -124,9 +119,8 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/prism.png",
     brandLogoWidth: 108,
     brandLogoHeight: 30,
-    category: "PRODUCT DEMO · HOOK V1",
-    angle: "cutting through tech news noise in 60 seconds.",
-    goal: "drive pro conversions by replacing scattered news feeds with focused AI updates.",
+    category: "product demo",
+    summary: "60-second hook on cutting through tech news noise.",
   },
 ];
 

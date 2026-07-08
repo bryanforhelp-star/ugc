@@ -57,30 +57,6 @@ function AdCard({ piece }: AdCardProps) {
 
   return (
     <article className="ugc-work__card">
-      <div className="ugc-work__caption">
-        <div className="ugc-work__brand-row">
-          <div className="ugc-work__logo-wrap">
-            <Image
-              src={piece.brandLogo}
-              alt={piece.brand}
-              width={piece.brandLogoWidth ?? 120}
-              height={piece.brandLogoHeight ?? 32}
-              className="ugc-work__logo"
-              style={{ width: "auto", height: "100%" }}
-            />
-          </div>
-          {piece.category ? (
-            <p className="ugc-work__category">{piece.category}</p>
-          ) : null}
-        </div>
-        {piece.angle || piece.goal ? (
-          <p className="ugc-work__blurb">
-            {piece.angle}
-            {piece.angle && piece.goal ? " " : null}
-            {piece.goal}
-          </p>
-        ) : null}
-      </div>
       <div
         ref={frameRef}
         className={`ugc-work__frame${isPlaying ? " is-playing" : ""}`}
@@ -101,6 +77,24 @@ function AdCard({ piece }: AdCardProps) {
           onEnded={handlePause}
         />
       </div>
+      <footer className="ugc-work__meta">
+        <div className="ugc-work__logo-wrap">
+          <Image
+            src={piece.brandLogo}
+            alt={piece.brand}
+            width={piece.brandLogoWidth ?? 120}
+            height={piece.brandLogoHeight ?? 32}
+            className="ugc-work__logo"
+            style={{ width: "auto", height: "100%" }}
+          />
+        </div>
+        {piece.category ? (
+          <p className="ugc-work__type">{piece.category}</p>
+        ) : null}
+        {piece.summary ? (
+          <p className="ugc-work__summary">{piece.summary}</p>
+        ) : null}
+      </footer>
     </article>
   );
 }
