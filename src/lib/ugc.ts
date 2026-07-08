@@ -117,18 +117,6 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     goal: "show that technical complexity is no longer a barrier.",
   },
   {
-    id: "preply-demo",
-    video: "/ugc/assets/videos/preply-demo.mp4",
-    poster: "/ugc/assets/posters/preply-demo.jpg",
-    brand: "Preply",
-    brandLogo: "/ugc/assets/logos/preply-wordmark.svg",
-    brandLogoWidth: 108,
-    brandLogoHeight: 28,
-    category: "EDUCATIONAL PRODUCT DEMO",
-    angle: "structured learning vs scattered self-study.",
-    goal: "one-to-one tutoring as the faster, clearer path to measurable progress.",
-  },
-  {
     id: "prism",
     video: "/ugc/assets/videos/prism-v1.mp4",
     poster: "/ugc/assets/posters/prism-v1.jpg",
