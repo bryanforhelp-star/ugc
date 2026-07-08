@@ -324,11 +324,6 @@
   margin-top: 0;
 }
 
-.home--ugc .ugc-work:not(.ugc-work--organic) .ugc-work__grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
-}
-
 .home--ugc .ugc-work--organic .ugc-work__grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: 720px;
