@@ -287,6 +287,15 @@
   height: clamp(32px, 4.5vw, 48px);
 }
 
+.home--ugc .brands__list {
+  flex-wrap: nowrap;
+  gap: clamp(12px, 2vw, 24px) clamp(16px, 3vw, 32px);
+}
+
+.home--ugc .brands__list li:last-child {
+  margin-left: auto;
+}
+
 .home .about-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -797,6 +806,14 @@
 
   .home .brands__list {
     gap: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 24px);
+  }
+
+  .home--ugc .brands__list {
+    flex-wrap: wrap;
+  }
+
+  .home--ugc .brands__list li:last-child {
+    margin-left: 0;
   }
 
   .home .showcase {
