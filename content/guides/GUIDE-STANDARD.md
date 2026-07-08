@@ -29,6 +29,7 @@ updated: 2026-06-12      # optional — last meaningful edit
 | Title (`title`) | Bootzy, large, black |
 | Lead (`description`) | NewPixel, black |
 | Body | Helvetica Neue, condensed, black |
+| Tables (`\| col \| col \|`) | Helvetica Neue, same readable size as body |
 | Section subheaders (`##`) | Bootzy, white on tight royal blue block |
 | Prompts | Mono “code block” look, click to copy |
 
@@ -40,7 +41,7 @@ Do not try to style these in markdown. Use structure only.
 - Title Case in source is fine (CSS lowercases), but prefer lowercase in markdown for consistency.
 - Examples: `## the prompt`, `## steal this`, `## what to do next`
 
-**Tables:** pipe tables render correctly on the site (`| col | col |` with a `|---|---|` separator row). Use them for comparisons and checklists. Do not use tables inside prompt blocks.
+**Tables:** pipe tables render correctly on the site (`| col | col |` with a `|---|---|` separator row). Use them for comparisons and checklists. Table text renders in **Helvetica Neue** (readable sans), not pixel fonts. Do not use tables inside prompt blocks.
 
 ## Copy-paste prompts
 

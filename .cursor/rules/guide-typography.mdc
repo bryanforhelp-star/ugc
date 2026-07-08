@@ -1,0 +1,31 @@
+---
+description: Typography rules for bykyndall.com guide pages and guide markdown
+globs: content/guides/**/*.md
+alwaysApply: false
+---
+
+# Guide typography
+
+When writing or editing guides in `content/guides/`, follow `content/guides/GUIDE-STANDARD.md`.
+
+## Readable text uses Helvetica Neue
+
+These render in Helvetica Neue on the site (handled by CSS, not markdown):
+
+- Body paragraphs
+- Table headers and cells (`| col | col |` pipe tables)
+- Guide card descriptions on the homepage and `/guides` hub
+
+## Keep pixel / display fonts only where specified
+
+- **Bootzy TM**: page title, `##` section subheaders
+- **NewPixel**: lead paragraph (`description` under the title)
+- **Mono**: copy-paste prompt blocks
+
+Do not try to set fonts in markdown. Use structure only.
+
+## Tables
+
+- Use pipe tables for comparisons, checklists, and setup pickers.
+- Never put tables inside prompt blocks.
+- Table copy should be plain, scannable sentences. No pixel-font styling tricks.
