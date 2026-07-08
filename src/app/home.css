@@ -325,8 +325,10 @@
 }
 
 .home--ugc .ugc-work:not(.ugc-work--organic) .ugc-work__grid {
-  max-width: 980px;
-  margin-inline: auto;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  justify-content: start;
+  column-gap: clamp(24px, 3vw, 36px);
+  row-gap: clamp(32px, 4vw, 48px);
 }
 
 .home--ugc .ugc-work--organic .ugc-work__grid {
@@ -770,7 +772,10 @@
 }
 
 .home .ugc-work__meta {
-  margin-top: clamp(12px, 1.5vw, 16px);
+  margin-top: clamp(10px, 1.2vw, 14px);
+  width: 100%;
+  padding: clamp(12px, 1.4vw, 16px);
+  background: var(--surface);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -780,6 +785,7 @@
   height: clamp(20px, 2.4vw, 28px);
   display: flex;
   align-items: center;
+  margin-bottom: clamp(8px, 1vw, 12px);
 }
 
 .home .ugc-work__logo {
@@ -807,7 +813,6 @@
   line-height: 1.45;
   color: var(--ink);
   margin: 0;
-  max-width: 28ch;
 }
 
 .home .ugc-work__tag {
@@ -916,6 +921,11 @@
   .home .ugc-work__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(18px, 4vw, 24px);
+  }
+
+  .home--ugc .ugc-work:not(.ugc-work--organic) .ugc-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
   }
 
   .home .hero {
