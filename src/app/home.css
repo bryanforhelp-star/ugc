@@ -281,6 +281,18 @@
 .home--ugc .s-sub {
   font-family: var(--readable), Helvetica, Arial, sans-serif;
   letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: clamp(10px, 1.2vw, 14px);
+  line-height: 1.45;
+  max-width: 48ch;
+}
+
+.home--ugc .ugc-work .s-sub {
+  margin-bottom: clamp(18px, 2.5vh, 24px);
+}
+
+.home--ugc .ugc-work__grid {
+  margin-top: 0;
 }
 
 .home--ugc .brands__logo {
