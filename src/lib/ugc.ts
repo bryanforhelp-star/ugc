@@ -142,6 +142,4 @@ export const UGC_ORGANIC_PIECES: UgcOrganicPiece[] = [
     video: "/showcase/02.mp4",
     poster: "/showcase/02-poster.jpg",
   },
-  { id: "03" },
-  { id: "04" },
 ];
