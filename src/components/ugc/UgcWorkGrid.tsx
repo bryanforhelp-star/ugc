@@ -88,7 +88,21 @@ function AdCard({ piece }: AdCardProps) {
             style={{ width: "auto", height: "100%" }}
           />
         </div>
-        {piece.tag ? <p className="ugc-work__tag">{piece.tag}</p> : null}
+        {piece.category ? (
+          <p className="ugc-work__category">[{piece.category}]</p>
+        ) : null}
+        {piece.angle ? (
+          <p className="ugc-work__detail">
+            <span className="ugc-work__label">angle</span>
+            {piece.angle}
+          </p>
+        ) : null}
+        {piece.goal ? (
+          <p className="ugc-work__detail">
+            <span className="ugc-work__label">goal</span>
+            {piece.goal}
+          </p>
+        ) : null}
       </div>
     </article>
   );

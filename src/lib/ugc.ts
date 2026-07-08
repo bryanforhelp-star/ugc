@@ -10,8 +10,10 @@ export type UgcWorkPiece = {
   brandLogo: string;
   brandLogoWidth?: number;
   brandLogoHeight?: number;
-  /** short portfolio tag, e.g. "hook variation" */
-  tag?: string;
+  /** e.g. "PROBLEM / SOLUTION" — shown in brackets under the logo */
+  category?: string;
+  angle?: string;
+  goal?: string;
 };
 
 export type UgcOrganicPiece = {
@@ -62,7 +64,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/brands/doola.png",
     brandLogoWidth: 120,
     brandLogoHeight: 34,
-    tag: "hook variation",
+    category: "VARIATION TESTING PACKAGE",
+    angle: "hook variation A. different opener, same core offer.",
+    goal: "part of a multi-hook package I built so doola could test angles before scaling paid spend.",
   },
   {
     id: "doola-h2",
@@ -72,7 +76,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/brands/doola.png",
     brandLogoWidth: 120,
     brandLogoHeight: 34,
-    tag: "hook variation",
+    category: "VARIATION TESTING PACKAGE",
+    angle: "hook variation B. second creative for the same testing sprint.",
+    goal: "built to run against variation A and see what wins before the brand scales.",
   },
   {
     id: "opal",
@@ -82,15 +88,21 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/opal-wordmark.png",
     brandLogoWidth: 76,
     brandLogoHeight: 37,
+    category: "PROBLEM / SOLUTION",
+    angle: "creative burnout / phone overstimulation.",
+    goal: "drive trial by resonating with high-identification pain.",
   },
   {
-    id: "preply",
+    id: "preply-testimonial",
     video: "/ugc/assets/videos/preply-testimonial.mp4",
     poster: "/ugc/assets/posters/preply-testimonial.jpg",
     brand: "Preply",
     brandLogo: "/ugc/assets/logos/preply-wordmark.svg",
     brandLogoWidth: 108,
     brandLogoHeight: 28,
+    category: "EDUCATIONAL TESTIMONIAL",
+    angle: "structured learning vs scattered apps.",
+    goal: "drive sign-ups through clarity + personalization.",
   },
   {
     id: "replit",
@@ -100,6 +112,21 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/replit-wordmark.svg",
     brandLogoWidth: 128,
     brandLogoHeight: 32,
+    category: "USE-CASE PRODUCT DEMO",
+    angle: "real-time app build from a relatable problem.",
+    goal: "show that technical complexity is no longer a barrier.",
+  },
+  {
+    id: "preply-demo",
+    video: "/ugc/assets/videos/preply-demo.mp4",
+    poster: "/ugc/assets/posters/preply-demo.jpg",
+    brand: "Preply",
+    brandLogo: "/ugc/assets/logos/preply-wordmark.svg",
+    brandLogoWidth: 108,
+    brandLogoHeight: 28,
+    category: "EDUCATIONAL PRODUCT DEMO",
+    angle: "structured learning vs scattered self-study.",
+    goal: "one-to-one tutoring as the faster, clearer path to measurable progress.",
   },
   {
     id: "prism",
@@ -109,6 +136,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/prism.png",
     brandLogoWidth: 108,
     brandLogoHeight: 30,
+    category: "PRODUCT DEMO",
+    angle: "ai workflow shown on a real creative task.",
+    goal: "make the product feel useful in the feed, not like a feature list.",
   },
 ];
 

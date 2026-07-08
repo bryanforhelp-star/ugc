@@ -650,11 +650,14 @@
 }
 
 .home .ugc-work__meta {
-  margin-top: clamp(16px, 2vw, 22px);
+  margin-top: clamp(18px, 2.5vw, 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .home .ugc-work__logo-wrap {
-  height: clamp(18px, 2vw, 26px);
+  height: clamp(28px, 3.5vw, 42px);
   display: flex;
   align-items: center;
 }
@@ -663,9 +666,37 @@
   display: block;
   width: auto;
   height: 100%;
-  max-width: min(120px, 100%);
+  max-width: min(180px, 100%);
   object-fit: contain;
   object-position: left center;
+}
+
+.home .ugc-work__category {
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(13px, 1vw, 15px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.home .ugc-work__detail {
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+.home .ugc-work__label {
+  font-family: var(--square);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  display: block;
+  margin-bottom: 3px;
 }
 
 .home .ugc-work__tag {
