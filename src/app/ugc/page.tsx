@@ -15,7 +15,7 @@ import "../home.css";
 
 export default function UgcPage() {
   return (
-    <div className="home">
+    <div className="home home--ugc">
       <div className="layer">
         <div className="wrap">
           <nav>
