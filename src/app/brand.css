@@ -26,7 +26,7 @@
   --surface: rgba(27, 43, 255, 0.055);
   --display: "Bootzy TM", system-ui, sans-serif;
   --serif: "NewPixel", Georgia, serif;
-  --readable: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --readable: "Helvetica Neue";
   --square: "NewPixelSquare", "NewPixel", monospace;
   --mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
@@ -173,7 +173,7 @@
 
 /* Guide articles: readable sans for long-form body copy */
 .page--article .prose {
-  font-family: var(--readable);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
   font-size: clamp(17px, 1.35vw, 20px);
   line-height: 1.62;
   letter-spacing: -0.018em;
@@ -181,7 +181,7 @@
 }
 
 .page--article .back {
-  font-family: var(--readable);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
 }
 
 .page-lead {

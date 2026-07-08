@@ -287,7 +287,7 @@
 }
 
 .home .about-grid p {
-  font-family: var(--serif);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
   font-size: clamp(16px, 1.4vw, 20px);
   line-height: 1.7;
   margin-bottom: 20px;
