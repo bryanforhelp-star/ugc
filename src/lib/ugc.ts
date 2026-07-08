@@ -136,9 +136,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogo: "/ugc/assets/logos/prism.png",
     brandLogoWidth: 108,
     brandLogoHeight: 30,
-    category: "PRODUCT DEMO",
-    angle: "ai workflow shown on a real creative task.",
-    goal: "make the product feel useful in the feed, not like a feature list.",
+    category: "PRODUCT DEMO · HOOK V1",
+    angle: "cutting through tech news noise in 60 seconds.",
+    goal: "drive pro conversions by replacing scattered news feeds with focused AI updates.",
   },
 ];
 
