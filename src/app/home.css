@@ -303,6 +303,23 @@
   padding: clamp(48px, 7vh, 80px) 0;
 }
 
+.home--ugc .ugc-work:first-of-type {
+  padding-top: clamp(32px, 5vh, 56px);
+}
+
+.home--ugc #about {
+  padding-top: clamp(40px, 6vh, 64px);
+  padding-bottom: clamp(40px, 6vh, 64px);
+}
+
+.home--ugc #contact .s-sub {
+  color: var(--ink);
+}
+
+.home--ugc #contact .ugc-work__intro {
+  margin-bottom: clamp(16px, 2vh, 22px);
+}
+
 .home--ugc .ugc-work__grid {
   margin-top: 0;
 }
@@ -311,13 +328,70 @@
   height: clamp(32px, 4.5vw, 48px);
 }
 
-.home--ugc .brands__list {
-  flex-wrap: nowrap;
-  gap: clamp(12px, 2vw, 24px) clamp(16px, 3vw, 32px);
+.home--ugc .brands--marquee {
+  padding: clamp(28px, 4vh, 40px) 0 clamp(32px, 5vh, 48px);
 }
 
-.home--ugc .brands__list li:last-child {
-  margin-left: auto;
+.home--ugc .brands--marquee .brands__eyebrow {
+  margin-bottom: clamp(14px, 2vw, 18px);
+}
+
+.brands-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.brands-marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: clamp(36px, 6vw, 72px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: brands-marquee 42s linear infinite;
+  will-change: transform;
+}
+
+.brands-marquee__track li {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.brands-marquee.is-paused .brands-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes brands-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 36px);
+    padding: 0 clamp(22px, 4vw, 60px);
+  }
+
+  .brands-marquee {
+    mask-image: none;
+  }
 }
 
 .home .about-grid {
@@ -834,14 +908,6 @@
 
   .home .brands__list {
     gap: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 24px);
-  }
-
-  .home--ugc .brands__list {
-    flex-wrap: wrap;
-  }
-
-  .home--ugc .brands__list li:last-child {
-    margin-left: 0;
   }
 
   .home .showcase {

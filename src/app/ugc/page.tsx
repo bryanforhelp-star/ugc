@@ -1,9 +1,9 @@
 import Link from "next/link";
+import { BrandsMarquee } from "@/components/BrandsMarquee";
 import { HomePortrait } from "@/components/HomePortrait";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
-import { TrustedBy } from "@/components/TrustedBy";
 import { UgcAdsGrid, UgcOrganicGrid } from "@/components/ugc/UgcWorkGrid";
 import {
   UGC_BRANDS,
@@ -56,6 +56,22 @@ export default function UgcPage() {
           </header>
         </div>
 
+        <UgcAdsGrid
+          id="ugc-ads"
+          title="ugc ads"
+          intro={UGC_SITE.adsIntro}
+          pieces={UGC_WORK_PIECES}
+        />
+
+        <BrandsMarquee label="worked with" brands={UGC_BRANDS} />
+
+        <UgcOrganicGrid
+          id="organic"
+          title="organic social"
+          intro={UGC_SITE.organicIntro}
+          pieces={UGC_ORGANIC_PIECES}
+        />
+
         <section id="about">
           <div className="wrap">
             <h2 className="s-head">about</h2>
@@ -99,22 +115,6 @@ export default function UgcPage() {
             </div>
           </div>
         </section>
-
-        <TrustedBy label="worked with" brands={UGC_BRANDS} />
-
-        <UgcAdsGrid
-          id="ugc-ads"
-          title="ugc ads"
-          intro={UGC_SITE.adsIntro}
-          pieces={UGC_WORK_PIECES}
-        />
-
-        <UgcOrganicGrid
-          id="organic"
-          title="organic social"
-          intro={UGC_SITE.organicIntro}
-          pieces={UGC_ORGANIC_PIECES}
-        />
 
         <section id="contact">
           <div className="wrap">
