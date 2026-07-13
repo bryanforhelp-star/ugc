@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import type { UgcOrganicPiece, UgcWorkPiece } from "@/lib/ugc";
 
 function pauseOtherUgcVideos(current: HTMLVideoElement) {
@@ -199,7 +205,37 @@ type OrganicGridProps = {
   pieces: UgcOrganicPiece[];
 };
 
+function pauseAllUgcVideos() {
+  document.querySelectorAll<HTMLVideoElement>(".ugc-work__video").forEach((video) => {
+    if (!video.paused) video.pause();
+  });
+}
+
 export function UgcOrganicGrid({ id, title, intro, pieces }: OrganicGridProps) {
+  const [index, setIndex] = useState(0);
+  const [perView, setPerView] = useState(2);
+
+  useEffect(() => {
+    const sync = () => setPerView(window.matchMedia("(max-width: 720px)").matches ? 1 : 2);
+    sync();
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
+  }, []);
+
+  const maxIndex = Math.max(0, pieces.length - perView);
+
+  useEffect(() => {
+    setIndex((current) => Math.min(current, maxIndex));
+  }, [maxIndex]);
+
+  const go = useCallback(
+    (next: number) => {
+      pauseAllUgcVideos();
+      setIndex(Math.max(0, Math.min(next, maxIndex)));
+    },
+    [maxIndex],
+  );
+
   return (
     <section id={id} className="ugc-work ugc-work--organic">
       <div className="wrap">
@@ -207,10 +243,46 @@ export function UgcOrganicGrid({ id, title, intro, pieces }: OrganicGridProps) {
           <h2 className="s-head">{title}</h2>
           {intro ? <p className="s-sub">{intro}</p> : null}
         </div>
-        <div className="ugc-work__grid">
-          {pieces.map((piece) => (
-            <OrganicCard key={piece.id} piece={piece} />
-          ))}
+        <div
+          className="ugc-slider"
+          style={
+            {
+              "--ugc-slider-per-view": perView,
+            } as CSSProperties
+          }
+        >
+          <button
+            type="button"
+            className="ugc-slider__arrow ugc-slider__arrow--prev"
+            aria-label="previous videos"
+            disabled={index <= 0}
+            onClick={() => go(index - 1)}
+          >
+            ←
+          </button>
+          <div className="ugc-slider__viewport">
+            <div
+              className="ugc-slider__track"
+              style={{
+                transform: `translate3d(calc(-${index} * (100% + var(--ugc-slider-gap)) / var(--ugc-slider-per-view)), 0, 0)`,
+              }}
+            >
+              {pieces.map((piece) => (
+                <div key={piece.id} className="ugc-slider__slide">
+                  <OrganicCard piece={piece} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            type="button"
+            className="ugc-slider__arrow ugc-slider__arrow--next"
+            aria-label="next videos"
+            disabled={index >= maxIndex}
+            onClick={() => go(index + 1)}
+          >
+            →
+          </button>
         </div>
       </div>
     </section>
