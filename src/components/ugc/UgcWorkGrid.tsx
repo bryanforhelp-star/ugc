@@ -213,10 +213,10 @@ function pauseAllUgcVideos() {
 
 export function UgcOrganicGrid({ id, title, intro, pieces }: OrganicGridProps) {
   const [index, setIndex] = useState(0);
-  const [perView, setPerView] = useState(2);
+  const [perView, setPerView] = useState(3);
 
   useEffect(() => {
-    const sync = () => setPerView(window.matchMedia("(max-width: 720px)").matches ? 1 : 2);
+    const sync = () => setPerView(window.matchMedia("(max-width: 720px)").matches ? 1 : 3);
     sync();
     window.addEventListener("resize", sync);
     return () => window.removeEventListener("resize", sync);

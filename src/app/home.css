@@ -333,12 +333,12 @@
 
 .home--ugc .ugc-slider {
   --ugc-slider-gap: clamp(18px, 2.4vw, 28px);
-  --ugc-slider-per-view: 2;
+  --ugc-slider-per-view: 3;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: clamp(10px, 1.6vw, 18px);
-  max-width: 820px;
+  max-width: 1100px;
 }
 
 .home--ugc .ugc-slider__viewport {
