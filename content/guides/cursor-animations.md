@@ -1,5 +1,5 @@
 ---
-title: "finish the cut. ask cursor for overlays. drop them in capcut."
+title: "use ai to make animations for your videos"
 description: "Drop the finished video into Cursor, ask for little animations, then put them on top in CapCut. Telling it what you want helps. Showing an example helps more. Just asking also works."
 summary: "Drop your finished video into Cursor, ask for animations, then put them on top in CapCut."
 category: workflow
