@@ -1,7 +1,7 @@
 ---
 title: "use ai to make animations for your videos"
-description: "Drop the finished video into Cursor, ask for little animations, then put them on top in CapCut. Telling it what you want helps. Showing an example helps more. Just asking also works."
-summary: "Drop your finished video into Cursor, ask for animations, then put them on top in CapCut."
+description: "My video is already cut. I just need the little animations on top. I drop it into Cursor, ask for some, then put them over my original in CapCut."
+summary: "Drop your cut video into Cursor, ask for animations, then lay them over your original in CapCut."
 category: workflow
 topics:
   - content
@@ -22,47 +22,35 @@ date: 2026-07-18
 updated: 2026-07-18
 ---
 
-Your video is already edited. It just needs the little floating animations on top.
+My video is already cut. Basically edited. All I need are the little animations on top.
 
-Drop it into Cursor. Ask for animations. Drop those files into CapCut over your original. That is the whole thing.
+I drop the video into Cursor and I'm like, hey I want some animations to this. Sometimes that's it. Sometimes I say I want this kind, this kind, and this kind in these particular spots. Cursor will suggest where things go either way.
 
-## the flow
+A little creative direction helps. You don't have to. It just works better when you give it some.
 
-1. **Drop your finished video into Cursor.** The edit is done. You just need the floating bits.
-2. **Ask for animations.** Even "hey i need some animations for this" works.
-3. **Put them on top in CapCut.** Second track, remove the green, shrink them, tuck into a corner.
+Then I take those files, drop them into CapCut, and lay them over my original video.
 
-## how to ask
+## what i actually say
 
-Bare minimum:
+Sometimes just:
 
 ```
-hey, i need some animations for this video. can you make overlays i can drop into CapCut?
+hey, i want some animations for this. can you make my video a little more interesting?
 ```
 
-Better (still short):
+Sometimes more specific:
 
 ```
 hey, i want some animations for this.
 
-make greenscreen overlays i can put over my talking head in CapCut.
-vibe: [a few words]
-moments i want covered: [hook / process / cta / whatever]
+i want [this kind] here, [this kind] here, and [this kind] near the end.
+a little creative direction: [whatever vibe you're going for]
 ```
 
-Best: show it something. Drop a screenshot, an old animation, or a reel you like and say "more like this."
+Both work. The second one usually lands closer to what I pictured.
 
-Telling it what you want helps. Examples help more. Neither is required to start.
+## then capcut
 
-## in CapCut
+Drop the animation files over your original. Remove the green. Scale them down so they sit in a corner and don't cover your face.
 
-1. Original video on track 1.
-2. Animation file on track 2.
-3. Remove the green background (chroma key).
-4. Shrink to about half size, put it in a corner so your face stays clear.
-
-Export. Done.
-
-## what to do next
-
-Take one finished clip. Drop it into Cursor. Ask for animations. Put whatever comes back on top in CapCut.
+That's it. Comment **animate** if you want this page again later.
