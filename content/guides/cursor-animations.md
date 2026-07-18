@@ -1,7 +1,7 @@
 ---
 title: "finish the cut. ask cursor for overlays. drop them in capcut."
-description: "Drop your edited video into Cursor, ask for animations, then lay them over in CapCut. Direction helps. Examples help more. But even a simple ask works."
-summary: "Drop your edited video into Cursor, ask for animations, then lay the overlays over your clip in CapCut."
+description: "Drop the finished video into Cursor, ask for little animations, then put them on top in CapCut. Telling it what you want helps. Showing an example helps more. Just asking also works."
+summary: "Drop your finished video into Cursor, ask for animations, then put them on top in CapCut."
 category: workflow
 topics:
   - content
@@ -24,13 +24,13 @@ updated: 2026-07-18
 
 Your video is already edited. It just needs the little floating animations on top.
 
-Drop it into Cursor. Ask for overlays. Drop those files into CapCut over your original. That is the whole thing.
+Drop it into Cursor. Ask for animations. Drop those files into CapCut over your original. That is the whole thing.
 
 ## the flow
 
-1. **Drop your edited video into Cursor.** The cut is done. You are only asking for overlays.
-2. **Ask for animations.** Something as simple as "hey i need some animations for this" works.
-3. **Lay them over in CapCut.** Drop the overlay files on a second track, chroma key the green, scale them down, tuck into a corner.
+1. **Drop your finished video into Cursor.** The edit is done. You just need the floating bits.
+2. **Ask for animations.** Even "hey i need some animations for this" works.
+3. **Put them on top in CapCut.** Second track, remove the green, shrink them, tuck into a corner.
 
 ## how to ask
 
@@ -45,24 +45,24 @@ Better (still short):
 ```
 hey, i want some animations for this.
 
-make greenscreen overlays i can lay over my talking head in CapCut.
+make greenscreen overlays i can put over my talking head in CapCut.
 vibe: [a few words]
 moments i want covered: [hook / process / cta / whatever]
 ```
 
-Best: add examples. Drop a screenshot, a past overlay, or a reel you like and say "more like this."
+Best: show it something. Drop a screenshot, an old animation, or a reel you like and say "more like this."
 
-Direction and examples make it sharper. They are not required to start.
+Telling it what you want helps. Examples help more. Neither is required to start.
 
 ## in CapCut
 
 1. Original video on track 1.
-2. Overlay on track 2.
-3. Chroma key the green background.
-4. Scale ~35-50%, put it in a corner so your face stays clear.
+2. Animation file on track 2.
+3. Remove the green background (chroma key).
+4. Shrink to about half size, put it in a corner so your face stays clear.
 
 Export. Done.
 
 ## what to do next
 
-Take one edited clip. Drop it into Cursor. Ask for animations. Stack whatever comes back in CapCut.
+Take one finished clip. Drop it into Cursor. Ask for animations. Put whatever comes back on top in CapCut.
