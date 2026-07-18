@@ -1,7 +1,7 @@
 ---
 title: "use ai to make animations for your videos"
-description: "My video is already cut. I just need the little animations on top. I drop it into Cursor, ask for some, then put them over my original in CapCut."
-summary: "Drop your cut video into Cursor, ask for animations, then put them over your original in CapCut."
+description: "You can animate your videos with AI. I do it in Cursor: drop in a cut video, ask for animations, put them over the original in CapCut."
+summary: "Download Cursor, drop in your cut video, ask for animations, then lay them over your original in CapCut."
 category: workflow
 topics:
   - content
@@ -22,17 +22,26 @@ date: 2026-07-18
 updated: 2026-07-18
 ---
 
-## open cursor and drop the video in
+## what is cursor
 
-New Agent chat. Drag your mp4 into the box. Then ask.
+[Cursor](https://cursor.com) is an app on your computer where you talk to AI in a chat, and it can make files for you. People use it for coding. I use it for a lot of things that are not coding, including these little video animations.
 
-If you don't know what you want yet:
+You do not need to know how to code. You download it, open a chat, drop a file in, and ask for what you want.
+
+Get it here: [cursor.com](https://cursor.com)
+
+## my flow
+
+1. Finish editing your video first. Cut, audio, all of it. You only need the floating animations on top.
+2. Open Cursor. Start a new Agent chat.
+3. Drop your cut video into the chat.
+4. Ask for animations. Something like:
 
 ```
 hey, i want some animations for this. can you make my video a little more interesting?
 ```
 
-If you do know:
+Or get more specific if you already know what you want:
 
 ```
 hey, i want some animations for this.
@@ -40,19 +49,11 @@ hey, i want some animations for this.
 i want [this kind] around [this moment],
 [this kind] when i say [this],
 and [this kind] near the end.
-
-vibe: [a few words on how it should feel]
 ```
 
-Cursor can pick spots on its own. It lands closer when you name the moments and the vibe. You don't have to. It just works better when you do.
+A little creative direction helps. You don't have to give it. Cursor can suggest spots on its own. It just works better when you tell it the vibe or the moments.
 
-If something feels off, say so in the same chat: bigger, smaller, later, different word, more like this screenshot.
+5. Let it make the files. If something is off, keep talking in the same chat: bigger, smaller, later, different word, more like this.
+6. Open CapCut. Put your original video on the bottom. Drop each animation file on a track above it. Remove the green background. Shrink them so they sit in a corner and don't cover your face.
 
-## put them on in CapCut
-
-1. Your original video on the bottom track.
-2. Each animation file on a track above it, lined up to when it should show.
-3. Click the animation → remove the green background (chroma key).
-4. Shrink it so it sits in a corner. Your face stays clear.
-
-Export. Post.
+That's the whole thing. Cut video in, animations out, CapCut on top.
