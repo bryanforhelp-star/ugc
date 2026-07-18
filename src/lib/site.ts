@@ -38,10 +38,10 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
+    "cursor-animations",
     "not-apps",
     "building-ai-loops",
     "claude-voice-setup-skill",
-    "claude-build-or-buy-skill",
   ],
   /** Digital products — add back to nav when something is published */
   kits: {
