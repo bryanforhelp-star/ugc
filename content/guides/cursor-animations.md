@@ -1,5 +1,5 @@
 ---
-title: "get cursor to make little animations for your videos"
+title: "finish the cut. ask cursor for overlays. drop them in capcut."
 description: "Drop your edited video into Cursor, ask for animations, then lay them over in CapCut. Direction helps. Examples help more. But even a simple ask works."
 summary: "Drop your edited video into Cursor, ask for animations, then lay the overlays over your clip in CapCut."
 category: workflow
