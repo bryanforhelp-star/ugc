@@ -71,6 +71,8 @@ Do not use plain indented text for prompts.
 2. Clear `##` sections with tangible steps or steal-this prompts
 3. End with `## what to do next` and one concrete first action
 
+**Do not repeat `description` in the body.** The site already shows `description` as the lead under the title. Body starts with new info: context they need, steps, prompts, CapCut/setup detail. Someone should finish the page knowing how to do the thing.
+
 ## Checklist before publishing
 
 - [ ] `summary` is a direct answer, not a repeat of `description`
