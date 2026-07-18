@@ -67,11 +67,11 @@ Do not use plain indented text for prompts.
 
 ## Content shape
 
-1. Short intro (1–3 paragraphs) before the first `##`
-2. Clear `##` sections with tangible steps or steal-this prompts
-3. End with `## what to do next` and one concrete first action
+1. `description` is the intro. Do not write a second intro in the body.
+2. Body starts with useful `##` sections: steps, prompts, setup. Skip restating the lead.
+3. End with a concrete next action only if it adds something new. Not required.
 
-**Do not repeat `description` in the body.** The site already shows `description` as the lead under the title. Body starts with new info: context they need, steps, prompts, CapCut/setup detail. Someone should finish the page knowing how to do the thing.
+Someone should finish the page knowing how to do the thing.
 
 ## Checklist before publishing
 
