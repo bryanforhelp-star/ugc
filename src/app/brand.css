@@ -164,10 +164,10 @@
 }
 
 .page--article .page-lead {
-  font-family: var(--serif);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
   font-size: clamp(17px, 1.4vw, 21px);
   line-height: 1.55;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.018em;
   color: var(--ink);
 }
 
