@@ -55,7 +55,7 @@
 }
 
 .cover {
-  font-family: var(--square);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
