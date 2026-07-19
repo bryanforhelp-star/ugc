@@ -127,6 +127,11 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
 /** Organic channel content — add videos to public/showcase/ */
 export const UGC_ORGANIC_PIECES: UgcOrganicPiece[] = [
   {
+    id: "05",
+    video: "/showcase/05.mp4",
+    poster: "/showcase/05-poster.jpg",
+  },
+  {
     id: "01",
     video: "/showcase/01.mp4",
     poster: "/showcase/01-poster.jpg",
