@@ -154,7 +154,7 @@ function OrganicCard({ piece }: OrganicCardProps) {
             ref={videoRef}
             className="ugc-work__video"
             src={piece.video}
-            poster={piece.poster}
+            {...(piece.poster ? { poster: piece.poster } : {})}
             controls
             controlsList="nodownload noremoteplayback"
             disablePictureInPicture

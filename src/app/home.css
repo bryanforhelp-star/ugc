@@ -824,8 +824,8 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  background: #e8e8e8;
+  object-fit: contain;
+  background: #000;
 }
 
 .home .ugc-work__meta {
