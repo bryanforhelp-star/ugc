@@ -30,7 +30,6 @@ export function HomePortrait() {
       loop
       muted
       playsInline
-      poster="/hero/kyndall-poster.jpg"
     >
       <source src="/hero/kyndall.mp4" type="video/mp4" />
     </video>
