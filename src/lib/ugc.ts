@@ -90,6 +90,17 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     summary: "creative burnout and phone overstimulation.",
   },
   {
+    id: "preply-testimonial",
+    video: "/ugc/assets/videos/preply-testimonial.mp4",
+    poster: "/ugc/assets/posters/preply-testimonial.jpg",
+    brand: "Preply",
+    brandLogo: "/ugc/assets/logos/preply-wordmark.png",
+    brandLogoWidth: 140,
+    brandLogoHeight: 38,
+    category: "educational testimonial",
+    summary: "structured learning vs scattered apps.",
+  },
+  {
     id: "replit",
     video: "/ugc/assets/videos/replit.mp4",
     poster: "/ugc/assets/posters/replit.jpg",
