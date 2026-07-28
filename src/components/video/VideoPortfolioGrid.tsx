@@ -51,7 +51,7 @@ function VideoCard({ piece }: CardProps) {
   }, []);
 
   return (
-    <article className="video-portfolio__card">
+    <article className="video-portfolio__card" aria-label={piece.title}>
       <div
         ref={frameRef}
         className={`video-portfolio__frame${isPlaying ? " is-playing" : ""}`}
@@ -61,6 +61,7 @@ function VideoCard({ piece }: CardProps) {
           className="video-portfolio__video"
           src={piece.video}
           {...(piece.poster ? { poster: piece.poster } : {})}
+          aria-label={piece.title}
           controls
           controlsList="nodownload noremoteplayback"
           disablePictureInPicture
@@ -72,14 +73,6 @@ function VideoCard({ piece }: CardProps) {
           onEnded={handlePause}
         />
       </div>
-      <footer className="video-portfolio__meta">
-        <p className="video-portfolio__title">{piece.title}</p>
-        <ul className="video-portfolio__tags" aria-label="editing techniques">
-          {piece.edits.map((edit) => (
-            <li key={edit}>{edit}</li>
-          ))}
-        </ul>
-      </footer>
     </article>
   );
 }
