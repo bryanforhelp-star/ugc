@@ -8,7 +8,8 @@ type FadeRect = { left: number; top: number; right: number; bottom: number };
 const MASK_SELECTORS =
   "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .brands, .showcase, .showcase-carousel, .ugc-work, #guides, .guide-card, .foot, .foot-start, .site-copyright, .newsletter, #contact, " +
   ".page-title, .page-lead, .prose, .meta, .back, .guides-hub, " +
-  ".work-section, .work-card, .site-footer__links";
+  ".work-section, .work-card, .site-footer__links, " +
+  ".video-portfolio__intro, .video-portfolio__grid, .video-portfolio__card, .video-portfolio__meta";
 
 /** Bottom-left anchor for inner pages (normalized 0–1) */
 const ANCHOR = { x: 0.2, y: 0.84 };
