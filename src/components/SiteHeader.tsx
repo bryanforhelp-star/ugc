@@ -16,6 +16,7 @@ export function SiteHeader() {
           kyndall
         </Link>
         <nav className="site-nav">
+          <Link href="/video">video</Link>
           <Link href="/guides">{SITE.guides.navLabel}</Link>
           <Link href="/work-with-me">work with me</Link>
         </nav>

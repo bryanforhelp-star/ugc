@@ -1,6 +1,7 @@
 /** UGC portfolio site — copy + work grid for ugc.bykyndall.com */
 
 import type { TrustedBrand } from "@/lib/site";
+import { getUgcOrganicPieces } from "@/lib/video-portfolio";
 
 export type UgcWorkPiece = {
   id: string;
@@ -124,30 +125,5 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
   },
 ];
 
-/** Organic channel content — add videos to public/showcase/ */
-export const UGC_ORGANIC_PIECES: UgcOrganicPiece[] = [
-  {
-    id: "05",
-    video: "/showcase/05.mp4",
-  },
-  {
-    id: "01",
-    video: "/showcase/01.mp4",
-    poster: "/showcase/01-poster.jpg",
-  },
-  {
-    id: "02",
-    video: "/showcase/02.mp4",
-    poster: "/showcase/02-poster.jpg",
-  },
-  {
-    id: "03",
-    video: "/showcase/03.mp4",
-    poster: "/showcase/03-poster.jpg",
-  },
-  {
-    id: "04",
-    video: "/showcase/04.mp4",
-    poster: "/showcase/04-poster.jpg",
-  },
-];
+/** Organic channel content — synced from video-portfolio.ts */
+export const UGC_ORGANIC_PIECES: UgcOrganicPiece[] = getUgcOrganicPieces();

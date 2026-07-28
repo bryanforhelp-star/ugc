@@ -17,6 +17,9 @@ export function SiteFooter() {
       <div className="wrap site-footer__inner">
         <div className="site-footer__start">
           <div className="site-footer__links">
+            <Link href="/video">
+              <span className="arr">↳</span> video
+            </Link>
             <Link href="/guides">
               <span className="arr">↳</span> {SITE.guides.navLabel}
             </Link>
