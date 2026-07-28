@@ -21,7 +21,7 @@ export function ContentShowcase({
         <div className="s-head-row">
           <h2 className="s-head">content</h2>
           <Link href="/video" className="guides-hub-link">
-            see all video
+            see all editing
             <span className="arr">→</span>
           </Link>
         </div>

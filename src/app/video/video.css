@@ -118,25 +118,6 @@
   padding: 0.35rem 0.55rem;
 }
 
-.video-portfolio__hire {
-  margin: clamp(48px, 7vh, 80px) 0 0;
-  padding-top: clamp(24px, 4vh, 36px);
-  border-top: 1px solid var(--hair);
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: clamp(14px, 1vw, 16px);
-  color: var(--soft);
-}
-
-.video-portfolio__hire a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.video-portfolio__hire a:hover {
-  color: var(--pop);
-}
-
 @media (max-width: 960px) {
   .video-portfolio__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

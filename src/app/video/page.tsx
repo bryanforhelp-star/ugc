@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { VideoPortfolioGrid } from "@/components/video/VideoPortfolioGrid";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -43,11 +42,6 @@ export default function VideoPage() {
         </header>
 
         <VideoPortfolioGrid pieces={SOCIAL_VIDEOS} />
-
-        <p className="video-portfolio__hire">
-          available for freelance editing and ugc.{" "}
-          <Link href="/work-with-me">work with me</Link>
-        </p>
       </div>
     </div>
   );

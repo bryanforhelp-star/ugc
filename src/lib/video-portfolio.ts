@@ -12,13 +12,14 @@ export type SocialVideoPiece = {
 };
 
 export const VIDEO_PAGE_INTRO = {
-  scope: "short-form editing for instagram and tiktok.",
+  scope: "short-form video editing for instagram and tiktok.",
   capabilities: [
     "motion type",
     "captions",
     "ui overlays",
     "greenscreen comps",
-    "pacing and sound",
+    "pacing",
+    "sound",
   ],
 } as const;
 

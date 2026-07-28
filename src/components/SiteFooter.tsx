@@ -18,7 +18,7 @@ export function SiteFooter() {
         <div className="site-footer__start">
           <div className="site-footer__links">
             <Link href="/video">
-              <span className="arr">↳</span> video
+              <span className="arr">↳</span> editing
             </Link>
             <Link href="/guides">
               <span className="arr">↳</span> {SITE.guides.navLabel}
