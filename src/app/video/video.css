@@ -1,6 +1,5 @@
-.page--video .page-lead {
-  max-width: 42rem;
-  margin: 0 0 clamp(36px, 5vh, 56px);
+.page--video .page-title {
+  margin-bottom: clamp(28px, 4vh, 44px);
 }
 
 .video-portfolio__grid {
@@ -122,26 +121,8 @@
   border-top: 1px solid var(--hair);
 }
 
-.video-portfolio__follow-title {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 0.95;
-  margin: 0 0 12px;
-  text-transform: lowercase;
-}
-
-.video-portfolio__follow-lead {
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: clamp(16px, 1.2vw, 18px);
-  line-height: 1.5;
-  color: var(--soft);
-  max-width: 34rem;
-  margin: 0 0 20px;
-}
-
 .video-portfolio__work-link {
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   font-family: var(--readable), Helvetica, Arial, sans-serif;
   font-size: clamp(14px, 1vw, 16px);
   color: var(--soft);

@@ -15,9 +15,6 @@ export type SocialVideoPiece = {
   guideSlug?: string;
 };
 
-export const VIDEO_PAGE_INTRO =
-  "short-form edits from my channel. kinetic type, ui overlays, greenscreen comps, and capcut finishing. tap to play with sound.";
-
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
     id: "05",
