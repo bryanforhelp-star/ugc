@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { SocialVideoPiece } from "@/lib/video-portfolio";
 
@@ -75,18 +74,11 @@ function VideoCard({ piece }: CardProps) {
       </div>
       <footer className="video-portfolio__meta">
         <p className="video-portfolio__title">{piece.title}</p>
-        {piece.note ? <p className="video-portfolio__note">{piece.note}</p> : null}
         <ul className="video-portfolio__tags" aria-label="editing techniques">
           {piece.edits.map((edit) => (
             <li key={edit}>{edit}</li>
           ))}
         </ul>
-        {piece.guideSlug ? (
-          <Link className="video-portfolio__guide" href={`/guides/${piece.guideSlug}`}>
-            read the guide
-            <span className="arr">→</span>
-          </Link>
-        ) : null}
       </footer>
     </article>
   );

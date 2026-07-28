@@ -9,11 +9,18 @@ export type SocialVideoPiece = {
   platform: "instagram" | "tiktok";
   /** Editing techniques shown in the piece */
   edits: string[];
-  /** One line on what you did in post */
-  note?: string;
-  /** Related guide on bykyndall.com, if any */
-  guideSlug?: string;
 };
+
+export const VIDEO_PAGE_INTRO = {
+  scope: "short-form editing for instagram and tiktok.",
+  capabilities: [
+    "motion type",
+    "captions",
+    "ui overlays",
+    "greenscreen comps",
+    "pacing and sound",
+  ],
+} as const;
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
@@ -23,8 +30,6 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/05-poster.jpg",
     platform: "instagram",
     edits: ["greenscreen overlays", "cursor ui comps", "capcut layering"],
-    note: "html overlay animations generated in cursor, composited over talking head in capcut.",
-    guideSlug: "cursor-animations",
   },
   {
     id: "04",
@@ -33,7 +38,6 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/04-poster.jpg",
     platform: "instagram",
     edits: ["kinetic hook type", "outdoor talking head", "list pacing"],
-    note: "pink serif hook with drop shadow, tight cuts on a three-item build list.",
   },
   {
     id: "03",
@@ -42,8 +46,6 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/03-poster.jpg",
     platform: "instagram",
     edits: ["branded ui cards", "product logo lockup", "screen-style overlays"],
-    note: "claude project files as floating cards with brand color and logo treatment.",
-    guideSlug: "claude-voice-setup-skill",
   },
   {
     id: "02",
@@ -52,8 +54,6 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/02-poster.jpg",
     platform: "instagram",
     edits: ["kinetic captions", "ui mockup overlays", "comment cta card"],
-    note: "outlined word-by-word captions plus floating not-apps style cards over the a-roll.",
-    guideSlug: "not-apps",
   },
   {
     id: "01",
@@ -62,8 +62,6 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/01-poster.jpg",
     platform: "instagram",
     edits: ["kinetic typography", "talking head", "hook-first pacing"],
-    note: "big kinetic opener type with dji mic a-roll and fast opinion-led cuts.",
-    guideSlug: "building-ai-loops",
   },
 ];
 

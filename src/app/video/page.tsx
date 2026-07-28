@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteSocials } from "@/components/SiteSocials";
 import { VideoPortfolioGrid } from "@/components/video/VideoPortfolioGrid";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
-import { SOCIAL_VIDEOS } from "@/lib/video-portfolio";
+import { SOCIAL_VIDEOS, VIDEO_PAGE_INTRO } from "@/lib/video-portfolio";
 import "./video.css";
 
 const PAGE_TITLE = "editing";
-const PAGE_DESCRIPTION = "Video editing portfolio by Kyndall Ramirez.";
+const PAGE_DESCRIPTION = `${VIDEO_PAGE_INTRO.scope} ${VIDEO_PAGE_INTRO.capabilities.join(", ")}.`;
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -33,16 +32,22 @@ export default function VideoPage() {
   return (
     <div className="page page--video">
       <div className="wrap">
-        <h1 className="page-title">{PAGE_TITLE}</h1>
+        <header className="video-portfolio__intro">
+          <h1 className="page-title">{PAGE_TITLE}</h1>
+          <p className="page-lead">{VIDEO_PAGE_INTRO.scope}</p>
+          <ul className="video-portfolio__capabilities" aria-label="editing scope">
+            {VIDEO_PAGE_INTRO.capabilities.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </header>
+
         <VideoPortfolioGrid pieces={SOCIAL_VIDEOS} />
-        <section className="video-portfolio__follow">
-          <SiteSocials />
-          <p className="video-portfolio__work-link">
-            <Link href="/work-with-me">work with me</Link>
-            {" · "}
-            <Link href="/ugc">ugc portfolio</Link>
-          </p>
-        </section>
+
+        <p className="video-portfolio__hire">
+          available for freelance editing and ugc.{" "}
+          <Link href="/work-with-me">work with me</Link>
+        </p>
       </div>
     </div>
   );
