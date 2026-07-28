@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { HomePortrait } from "@/components/HomePortrait";
 import { VideoPortfolioGrid } from "@/components/video/VideoPortfolioGrid";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
-import { SOCIAL_VIDEOS, VIDEO_PAGE_INTRO } from "@/lib/video-portfolio";
+import {
+  SOCIAL_VIDEOS,
+  VIDEO_PAGE_HERO,
+  VIDEO_PAGE_INTRO,
+} from "@/lib/video-portfolio";
+import "../home.css";
 import "./video.css";
 
 const PAGE_TITLE = "editing";
@@ -29,19 +36,53 @@ export const metadata: Metadata = {
 
 export default function VideoPage() {
   return (
-    <div className="page page--video">
-      <div className="wrap">
-        <header className="video-portfolio__intro">
-          <h1 className="page-title">{PAGE_TITLE}</h1>
-          <p className="page-lead">{VIDEO_PAGE_INTRO.scope}</p>
-          <ul className="video-portfolio__capabilities" aria-label="editing scope">
-            {VIDEO_PAGE_INTRO.capabilities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </header>
+    <div className="home home--video">
+      <div className="layer">
+        <div className="wrap">
+          <nav>
+            <Link href="/">home</Link>
+            <Link href="/guides">{SITE.guides.navLabel}</Link>
+            <Link href="/work-with-me">work with me</Link>
+          </nav>
 
-        <VideoPortfolioGrid pieces={SOCIAL_VIDEOS} />
+          <header className="hero">
+            <div className="h-left">
+              <h1 className="h-name">
+                hi, i&apos;m
+                <br />
+                kyndall.
+              </h1>
+              <p className="h-sub">
+                {VIDEO_PAGE_HERO.sub.map((line, i) => (
+                  <span key={line}>
+                    {i > 0 ? <br /> : null}
+                    {line}
+                  </span>
+                ))}
+              </p>
+            </div>
+            <div className="stage">
+              <HomePortrait />
+            </div>
+            <div className="h-actions">
+              <a className="h-link" href={VIDEO_PAGE_HERO.scrollTarget}>
+                <span className="h-link__text">{VIDEO_PAGE_HERO.scrollLabel}</span>
+                <span className="arr-down">↓</span>
+              </a>
+            </div>
+          </header>
+        </div>
+
+        <section id="work" className="video-portfolio__work">
+          <div className="wrap">
+            <ul className="video-portfolio__capabilities" aria-label="editing scope">
+              {VIDEO_PAGE_INTRO.capabilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <VideoPortfolioGrid pieces={SOCIAL_VIDEOS} />
+          </div>
+        </section>
       </div>
     </div>
   );

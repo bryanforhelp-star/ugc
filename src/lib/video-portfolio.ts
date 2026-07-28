@@ -11,6 +11,15 @@ export type SocialVideoPiece = {
   edits: string[];
 };
 
+export const VIDEO_PAGE_HERO = {
+  sub: [
+    "i edit short-form",
+    "for instagram and tiktok.",
+  ],
+  scrollLabel: "see the work",
+  scrollTarget: "#work",
+} as const;
+
 export const VIDEO_PAGE_INTRO = {
   scope: "short-form video editing for instagram and tiktok.",
   capabilities: [

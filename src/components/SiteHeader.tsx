@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  if (pathname === "/" || isUgcPath(pathname)) return null;
+  if (pathname === "/" || pathname === "/video" || isUgcPath(pathname)) return null;
 
   return (
     <header className="site-header">

@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
   const pathname = usePathname();
-  if (pathname === "/" || isUgcPath(pathname)) return null;
+  if (pathname === "/" || pathname === "/video" || isUgcPath(pathname)) return null;
 
   return (
     <footer className="site-footer">
