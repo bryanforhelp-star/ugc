@@ -17,8 +17,10 @@ export type SocialVideoPiece = {
 
 export const VIDEO_PAGE_HERO = {
   sub: [
-    "i edit short-form",
+    "i'm a content creator",
+    "who edits my own short-form",
     "for instagram and tiktok.",
+    "from talking head to final cut.",
   ],
   scrollLabel: "see the work",
   scrollTarget: "#work",
