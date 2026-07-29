@@ -11,16 +11,14 @@ function pauseOtherVideos(current: HTMLVideoElement) {
 
 type CardProps = {
   piece: SocialVideoPiece;
+  layout?: "column" | "wide";
 };
 
-function aspectClass(aspect: SocialVideoPiece["aspect"]) {
-  return aspect === "16/9" ? " video-portfolio__card--landscape" : "";
-}
-
-function VideoCard({ piece }: CardProps) {
+function VideoCard({ piece, layout = "column" }: CardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const isLandscape = piece.aspect === "16/9";
 
   const handlePlay = useCallback(() => {
     const video = videoRef.current;
@@ -56,12 +54,12 @@ function VideoCard({ piece }: CardProps) {
 
   return (
     <article
-      className={`video-portfolio__card${aspectClass(piece.aspect)}`}
+      className={`video-portfolio__card${isLandscape ? " video-portfolio__card--landscape" : ""}${layout === "wide" ? " video-portfolio__card--wide" : ""}`}
       aria-label={piece.title}
     >
       <div
         ref={frameRef}
-        className={`video-portfolio__frame${piece.aspect === "16/9" ? " video-portfolio__frame--landscape" : ""}${isPlaying ? " is-playing" : ""}`}
+        className={`video-portfolio__frame${isLandscape ? " video-portfolio__frame--landscape" : ""}${isPlaying ? " is-playing" : ""}`}
         style={
           piece.aspect
             ? ({ aspectRatio: piece.aspect.replace("/", " / ") } as CSSProperties)
@@ -94,10 +92,18 @@ type Props = {
 };
 
 export function VideoPortfolioGrid({ pieces }: Props) {
+  const portraits = pieces.filter((piece) => piece.aspect !== "16/9");
+  const landscapes = pieces.filter((piece) => piece.aspect === "16/9");
+
   return (
-    <div className="video-portfolio__grid">
-      {pieces.map((piece) => (
-        <VideoCard key={piece.id} piece={piece} />
+    <div className="video-portfolio__masonry">
+      <div className="video-portfolio__columns">
+        {portraits.map((piece) => (
+          <VideoCard key={piece.id} piece={piece} layout="column" />
+        ))}
+      </div>
+      {landscapes.map((piece) => (
+        <VideoCard key={piece.id} piece={piece} layout="wide" />
       ))}
     </div>
   );

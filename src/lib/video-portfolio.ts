@@ -40,15 +40,6 @@ export const VIDEO_PAGE_INTRO = {
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
-    id: "05",
-    title: "cursor makes little animations for your videos",
-    video: "/showcase/05.mp4",
-    poster: "/showcase/05-poster.jpg",
-    platform: "instagram",
-    edits: ["greenscreen overlays", "cursor ui comps", "capcut layering"],
-    aspect: "16/9",
-  },
-  {
     id: "04",
     title: "3 things i would build this weekend",
     video: "/showcase/04.mp4",
@@ -79,6 +70,15 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/01-poster.jpg",
     platform: "instagram",
     edits: ["kinetic typography", "talking head", "hook-first pacing"],
+  },
+  {
+    id: "05",
+    title: "cursor makes little animations for your videos",
+    video: "/showcase/05.mp4",
+    poster: "/showcase/05-poster.jpg",
+    platform: "instagram",
+    edits: ["greenscreen overlays", "cursor ui comps", "capcut layering"],
+    aspect: "16/9",
   },
 ];
 
