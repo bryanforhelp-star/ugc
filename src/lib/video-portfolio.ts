@@ -1,5 +1,7 @@
 /** Organic social reels — self-hosted exports in public/showcase/ */
 
+export type VideoAspect = "9/16" | "16/9";
+
 export type SocialVideoPiece = {
   id: string;
   /** Reel cover line */
@@ -9,6 +11,8 @@ export type SocialVideoPiece = {
   platform: "instagram" | "tiktok";
   /** Editing techniques shown in the piece */
   edits: string[];
+  /** Player frame aspect — defaults to vertical reel */
+  aspect?: VideoAspect;
 };
 
 export const VIDEO_PAGE_HERO = {
@@ -40,6 +44,7 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
     poster: "/showcase/05-poster.jpg",
     platform: "instagram",
     edits: ["greenscreen overlays", "cursor ui comps", "capcut layering"],
+    aspect: "16/9",
   },
   {
     id: "04",

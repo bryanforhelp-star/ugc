@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import type { SocialVideoPiece } from "@/lib/video-portfolio";
 
 function pauseOtherVideos(current: HTMLVideoElement) {
@@ -12,6 +12,10 @@ function pauseOtherVideos(current: HTMLVideoElement) {
 type CardProps = {
   piece: SocialVideoPiece;
 };
+
+function aspectClass(aspect: SocialVideoPiece["aspect"]) {
+  return aspect === "16/9" ? " video-portfolio__card--landscape" : "";
+}
 
 function VideoCard({ piece }: CardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -51,10 +55,18 @@ function VideoCard({ piece }: CardProps) {
   }, []);
 
   return (
-    <article className="video-portfolio__card" aria-label={piece.title}>
+    <article
+      className={`video-portfolio__card${aspectClass(piece.aspect)}`}
+      aria-label={piece.title}
+    >
       <div
         ref={frameRef}
-        className={`video-portfolio__frame${isPlaying ? " is-playing" : ""}`}
+        className={`video-portfolio__frame${piece.aspect === "16/9" ? " video-portfolio__frame--landscape" : ""}${isPlaying ? " is-playing" : ""}`}
+        style={
+          piece.aspect
+            ? ({ aspectRatio: piece.aspect.replace("/", " / ") } as CSSProperties)
+            : undefined
+        }
       >
         <video
           ref={videoRef}

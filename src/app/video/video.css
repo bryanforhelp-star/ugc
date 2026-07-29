@@ -39,6 +39,14 @@
   background: var(--hair);
 }
 
+.video-portfolio__card--landscape {
+  grid-column: span 2;
+}
+
+.video-portfolio__frame--landscape .video-portfolio__video {
+  object-fit: cover;
+}
+
 .video-portfolio__frame::before,
 .video-portfolio__frame::after {
   content: "";
@@ -77,12 +85,20 @@
   .video-portfolio__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .video-portfolio__card--landscape {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 640px) {
   .video-portfolio__grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-portfolio__card:not(.video-portfolio__card--landscape) {
     max-width: 360px;
     margin-inline: auto;
+    width: 100%;
   }
 }
