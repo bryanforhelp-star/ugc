@@ -53,12 +53,12 @@ function VideoCard({ piece }: CardProps) {
 
   return (
     <article
-      className={`video-portfolio__card${isLandscape ? " video-portfolio__card--landscape" : ""}`}
+      className={`video-portfolio__card${isLandscape ? " video-portfolio__card--landscape" : ""}${isPlaying ? " is-playing" : ""}`}
       aria-label={piece.title}
     >
       <div
         ref={frameRef}
-        className={`video-portfolio__frame${isLandscape ? " video-portfolio__frame--landscape" : ""}${isPlaying ? " is-playing" : ""}`}
+        className={`video-portfolio__frame${isLandscape ? " video-portfolio__frame--landscape" : ""}`}
         style={
           piece.aspect
             ? ({ aspectRatio: piece.aspect.replace("/", " / ") } as CSSProperties)
@@ -81,6 +81,11 @@ function VideoCard({ piece }: CardProps) {
           onPause={handlePause}
           onEnded={handlePause}
         />
+        {!isPlaying ? (
+          <div className="video-portfolio__play" aria-hidden="true">
+            <span className="video-portfolio__play-icon" />
+          </div>
+        ) : null}
       </div>
     </article>
   );
