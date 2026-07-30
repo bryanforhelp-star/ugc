@@ -3,7 +3,6 @@ import Link from "next/link";
 import { HomePortrait } from "@/components/HomePortrait";
 import { VideoPortfolioGrid } from "@/components/video/VideoPortfolioGrid";
 import { absoluteUrl } from "@/lib/seo";
-import { SITE } from "@/lib/site";
 import {
   SOCIAL_VIDEOS,
   VIDEO_PAGE_HERO,
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     url: absoluteUrl("/video"),
-    siteName: SITE.name,
+    siteName: "kyndall",
     images: [{ url: "/showcase/05-poster.jpg", alt: PAGE_TITLE }],
   },
   twitter: {
@@ -41,7 +40,6 @@ export default function VideoPage() {
         <div className="wrap">
           <nav>
             <Link href="/">home</Link>
-            <Link href="/guides">{SITE.guides.navLabel}</Link>
             <Link href="/work-with-me">work with me</Link>
           </nav>
 
