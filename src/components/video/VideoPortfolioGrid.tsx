@@ -11,10 +11,9 @@ function pauseOtherVideos(current: HTMLVideoElement) {
 
 type CardProps = {
   piece: SocialVideoPiece;
-  layout?: "column" | "wide";
 };
 
-function VideoCard({ piece, layout = "column" }: CardProps) {
+function VideoCard({ piece }: CardProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -54,7 +53,7 @@ function VideoCard({ piece, layout = "column" }: CardProps) {
 
   return (
     <article
-      className={`video-portfolio__card${isLandscape ? " video-portfolio__card--landscape" : ""}${layout === "wide" ? " video-portfolio__card--wide" : ""}`}
+      className={`video-portfolio__card${isLandscape ? " video-portfolio__card--landscape" : ""}`}
       aria-label={piece.title}
     >
       <div
@@ -92,18 +91,10 @@ type Props = {
 };
 
 export function VideoPortfolioGrid({ pieces }: Props) {
-  const portraits = pieces.filter((piece) => piece.aspect !== "16/9");
-  const landscapes = pieces.filter((piece) => piece.aspect === "16/9");
-
   return (
-    <div className="video-portfolio__masonry">
-      <div className="video-portfolio__columns">
-        {portraits.map((piece) => (
-          <VideoCard key={piece.id} piece={piece} layout="column" />
-        ))}
-      </div>
-      {landscapes.map((piece) => (
-        <VideoCard key={piece.id} piece={piece} layout="wide" />
+    <div className="video-portfolio__grid">
+      {pieces.map((piece) => (
+        <VideoCard key={piece.id} piece={piece} />
       ))}
     </div>
   );

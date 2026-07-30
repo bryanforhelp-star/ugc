@@ -21,43 +21,35 @@
   padding: 0.35rem 0.55rem;
 }
 
-.video-portfolio__masonry {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(16px, 2.5vw, 28px);
-}
-
-.video-portfolio__columns {
-  columns: 3;
-  column-gap: clamp(16px, 2.5vw, 28px);
+.video-portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 18px);
+  align-items: start;
 }
 
 .video-portfolio__card {
-  break-inside: avoid;
-  margin: 0 0 clamp(16px, 2.5vw, 28px);
   min-width: 0;
 }
 
-/* Pinterest-style stagger on the middle column */
-@media (min-width: 961px) {
-  .video-portfolio__columns .video-portfolio__card:nth-child(3n + 2) {
-    margin-top: clamp(28px, 5vw, 56px);
-  }
+/* Pinterest offset: nudge the center top tile down */
+.video-portfolio__card:nth-child(2) {
+  margin-top: clamp(36px, 6vw, 72px);
+}
+
+.video-portfolio__card--landscape {
+  grid-column: 2 / 4;
 }
 
 .video-portfolio__frame {
   position: relative;
   aspect-ratio: 9 / 16;
-  background: var(--hair);
+  background: #0b0b0c;
+  overflow: hidden;
 }
 
-.video-portfolio__card--wide {
-  width: 100%;
-  margin: 0;
-}
-
-.video-portfolio__frame--landscape .video-portfolio__video {
-  object-fit: cover;
+.video-portfolio__frame--landscape {
+  aspect-ratio: 16 / 9;
 }
 
 .video-portfolio__frame::before,
@@ -90,35 +82,38 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #000;
+  object-fit: cover;
+  background: #0b0b0c;
 }
 
 @media (max-width: 960px) {
-  .video-portfolio__columns {
-    columns: 2;
+  .video-portfolio__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 2vw, 14px);
   }
 
-  .video-portfolio__columns .video-portfolio__card:nth-child(3n + 2) {
-    margin-top: 0;
+  .video-portfolio__card:nth-child(2) {
+    margin-top: clamp(24px, 5vw, 40px);
   }
 
-  .video-portfolio__columns .video-portfolio__card:nth-child(2n) {
-    margin-top: clamp(20px, 4vw, 36px);
+  .video-portfolio__card--landscape {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 640px) {
-  .video-portfolio__columns {
-    columns: 1;
+  .video-portfolio__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    max-width: 380px;
+    margin-inline: auto;
   }
 
-  .video-portfolio__columns .video-portfolio__card:nth-child(2n) {
+  .video-portfolio__card:nth-child(2) {
     margin-top: 0;
   }
 
-  .video-portfolio__columns .video-portfolio__card {
-    max-width: 360px;
-    margin-inline: auto;
+  .video-portfolio__card--landscape {
+    grid-column: auto;
   }
 }
