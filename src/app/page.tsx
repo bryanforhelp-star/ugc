@@ -32,13 +32,13 @@ export default function HomePage() {
                 kyndall.
               </h1>
               <p className="h-sub">
-                i make content that
+                making ai feel
                 <br />
-                helps people use ai to make
+                more creative.
                 <br />
-                things, solve problems, and
+                building things and
                 <br />
-                play with what&apos;s possible.
+                bringing you along.
               </p>
             </div>
             <div className="stage">
