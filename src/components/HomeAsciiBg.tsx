@@ -138,7 +138,9 @@ export function HomeAsciiBg() {
       maskRaf = requestAnimationFrame(() => {
         if (cols > 0 && rows > 0) {
           buildFadeGrid();
-          if (!isHome) draw(0);
+          // Without the animation loop nothing else repaints, so a rebuilt
+          // mask would never reach the canvas.
+          if (!animateBlob) draw(0);
         }
       });
     }
@@ -244,17 +246,23 @@ export function HomeAsciiBg() {
     addEventListener("resize", onResize);
     addEventListener("scroll", onScroll, { passive: true });
 
+    // Late-loading media and fonts reflow the page without a scroll or resize
+    // event, which would leave the mask pointing at stale positions.
+    const reflow = new ResizeObserver(() => scheduleMaskUpdate());
+    reflow.observe(document.body);
+
     size();
 
-    if (!isHome || reduce || !animateBlob) {
-      draw(0);
-    } else {
+    if (animateBlob) {
       raf = requestAnimationFrame(loop);
+    } else {
+      draw(0);
     }
 
     return () => {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(maskRaf);
+      reflow.disconnect();
       removeEventListener("pointermove", onPointerMove);
       removeEventListener("pointerleave", onPointerLeave);
       removeEventListener("resize", onResize);
