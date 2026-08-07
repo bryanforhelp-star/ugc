@@ -36,8 +36,7 @@ export const UGC_SITE = {
   ],
   organicIntro:
     "content from my channel. ai, building, and real problems.",
-  adsIntro:
-    "paid social hooks and variation packages for brands testing before they scale.",
+  adsIntro: "short-form ads for brands running paid social.",
   workWithMeLead:
     "paid ads and organic content for brands that want to show up native in the feed.",
   services: [
