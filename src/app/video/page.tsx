@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     description: PAGE_DESCRIPTION,
     url: absoluteUrl("/video"),
     siteName: "kyndall",
-    images: [{ url: "/showcase/05-poster.jpg", alt: PAGE_TITLE }],
+    images: [{ url: "/og/video.jpg", width: 1200, height: 630, alt: PAGE_TITLE }],
   },
   twitter: {
     card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
-    images: ["/showcase/05-poster.jpg"],
+    images: ["/og/video.jpg"],
   },
 };
 

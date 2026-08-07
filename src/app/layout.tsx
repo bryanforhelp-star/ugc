@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: SITE.name,
-    template: `%s — ${SITE.name}`,
+    template: `%s · ${SITE.name}`,
   },
   description: SITE.seoDescription,
   openGraph: {
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/hero/kyndall-poster.jpg",
+        url: "/og/home.jpg",
         width: 1200,
-        height: 1600,
+        height: 630,
         alt: SITE.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/hero/kyndall-poster.jpg"],
+    images: ["/og/home.jpg"],
   },
 };
 
