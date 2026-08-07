@@ -40,6 +40,14 @@ export const VIDEO_PAGE_INTRO = {
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
+    id: "06",
+    title: "i quit my job 6 months ago",
+    video: "/showcase/06.mp4",
+    poster: "/showcase/06-poster.jpg",
+    platform: "instagram",
+    edits: ["meme cutaway inserts", "kinetic captions", "hook-first pacing"],
+  },
+  {
     id: "04",
     title: "3 things i would build this weekend",
     video: "/showcase/04.mp4",
