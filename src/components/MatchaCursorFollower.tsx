@@ -1,5 +1,7 @@
 "use client";
 
+import { isLinksPath } from "@/lib/site-mode";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 const HIDE_SELECTORS =
@@ -9,9 +11,12 @@ const OFFSET_X = 8;
 const OFFSET_Y = 10;
 
 export function MatchaCursorFollower() {
+  const pathname = usePathname();
   const mugRef = useRef<HTMLImageElement>(null);
+  const hidden = isLinksPath(pathname);
 
   useEffect(() => {
+    if (hidden) return;
     if (!matchMedia("(pointer: fine)").matches) return;
 
     const el = mugRef.current;
@@ -54,7 +59,9 @@ export function MatchaCursorFollower() {
       document.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
     };
-  }, []);
+  }, [hidden]);
+
+  if (hidden) return null;
 
   return (
     <img

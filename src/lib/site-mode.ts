@@ -3,3 +3,17 @@
 export function isUgcPath(pathname: string) {
   return pathname === "/ugc" || pathname.startsWith("/ugc/");
 }
+
+export function isLinksPath(pathname: string) {
+  return pathname === "/links";
+}
+
+/** Homepage, dedicated portfolios, and the link-in-bio page carry their own chrome. */
+export function hidesSiteChrome(pathname: string) {
+  return (
+    pathname === "/" ||
+    pathname === "/video" ||
+    isLinksPath(pathname) ||
+    isUgcPath(pathname)
+  );
+}

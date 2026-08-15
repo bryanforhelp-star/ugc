@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { isLinksPath } from "@/lib/site-mode";
 import { usePathname } from "next/navigation";
 
 type FadeRect = { left: number; top: number; right: number; bottom: number };
@@ -17,8 +18,10 @@ const ANCHOR = { x: 0.2, y: 0.84 };
 export function HomeAsciiBg() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const hide = isLinksPath(pathname);
 
   useEffect(() => {
+    if (hide) return;
     const canvas = document.getElementById("bg") as HTMLCanvasElement | null;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -268,7 +271,9 @@ export function HomeAsciiBg() {
       removeEventListener("resize", onResize);
       removeEventListener("scroll", onScroll);
     };
-  }, [isHome, pathname]);
+  }, [isHome, pathname, hide]);
+
+  if (hide) return null;
 
   return <canvas id="bg" aria-hidden="true" />;
 }

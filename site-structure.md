@@ -4,10 +4,20 @@
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Homepage — featured guides in "free things" |
+| `/` | Homepage — featured guides in "free things", trust marquee, showcase |
 | `/guides` | All published guides |
 | `/guides/[slug]` | Single guide (ManyChat DM destination) |
-| `/work-with-me` | Portfolio / contact |
+| `/work-with-me` | Contact — brand partnerships + general enquiries |
+| `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
+| `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
+| `/kits` | Digital products. Live but empty, and pulled from nav until something publishes |
+| `/links` | Link in bio. Stan Store replacement. Edit copy and destinations in `src/lib/links.ts` |
+
+Live keyword CTAs and which guide each maps to: `brands/kyndall/accounts.md`.
+
+**Known gaps:** `/ugc` and `/kits` are missing from `src/app/sitemap.ts`. `ugc.ts` and
+`site-mode.ts` reference a `ugc.bykyndall.com` subdomain, but `next.config.ts` has no rewrite,
+so UGC only renders at the `/ugc` path.
 
 ## Add a new guide (5 minutes)
 
@@ -42,7 +52,7 @@
    ```
    https://yoursite.com/guides/your-slug
    ```
-   Set `NEXT_PUBLIC_SITE_URL` in `.env` to your real domain.
+   Set `NEXT_PUBLIC_SITE_URL` in `.env` to `https://bykyndall.com`.
 
 ## Homepage featured guides
 

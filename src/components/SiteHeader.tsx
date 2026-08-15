@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { isUgcPath } from "@/lib/site-mode";
+import { hidesSiteChrome } from "@/lib/site-mode";
 import { SITE } from "@/lib/site";
 import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname === "/video" || isUgcPath(pathname)) return null;
+  if (hidesSiteChrome(pathname)) return null;
 
   return (
     <header className="site-header">
