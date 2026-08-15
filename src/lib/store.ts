@@ -135,7 +135,7 @@ export const STORE_COPY = {
   shopLabel: "the shop",
   affiliatesLabel: "tools i actually use",
   disclosure:
-    "some of these are affiliate links. i only list what i pay for and use.",
+    "Some of these are affiliate links. I only list the things I actually love.",
   comingSoonCta: "notify me",
   waitlistHref: substackSubscribeUrl(SITE.newsletter.substackUrl),
 };
