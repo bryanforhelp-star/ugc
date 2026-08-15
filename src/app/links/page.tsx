@@ -1,8 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
+import type { ComponentType } from "react";
+import {
+  EmailIcon,
+  InstagramIcon,
+  TikTokIcon,
+  YouTubeIcon,
+} from "@/components/SocialIcons";
 import { CheckoutButton } from "@/components/store/CheckoutButton";
 import { StoreLink } from "@/components/store/StoreLink";
-import { liveButtons, LINKS_PAGE } from "@/lib/links";
+import { liveButtons, LINKS_PAGE, type LinksSocial } from "@/lib/links";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { canCheckout, getDisplayPrice } from "@/lib/stripe";
@@ -17,6 +24,16 @@ import "./links.css";
 export const dynamic = "force-dynamic";
 
 const PAGE_URL = "/links";
+
+const SOCIAL_ICONS: Record<
+  LinksSocial["label"],
+  ComponentType<{ className?: string }>
+> = {
+  instagram: InstagramIcon,
+  tiktok: TikTokIcon,
+  youtube: YouTubeIcon,
+  email: EmailIcon,
+};
 
 export const metadata: Metadata = {
   title: { absolute: LINKS_PAGE.title },
@@ -84,6 +101,11 @@ export default async function LinksPage() {
 
       {buttons.map((button) => (
         <StoreLink key={button.title} href={button.href} className="links-btn">
+          {button.emoji ? (
+            <span className="links-btn-emoji" aria-hidden="true">
+              {button.emoji}
+            </span>
+          ) : null}
           <div className="links-btn-text">
             <div className="links-btn-title">{button.title}</div>
             <div className="links-btn-sub">{button.sub}</div>
@@ -177,16 +199,19 @@ export default async function LinksPage() {
 
       <footer className="links-footer">
         <div className="links-social">
-          {LINKS_PAGE.social.map((item) => (
-            <StoreLink
-              key={item.label}
-              href={item.href}
-              className="links-social-link"
-              aria-label={item.label}
-            >
-              {item.short}
-            </StoreLink>
-          ))}
+          {LINKS_PAGE.social.map((item) => {
+            const Icon = SOCIAL_ICONS[item.label];
+            return (
+              <StoreLink
+                key={item.label}
+                href={item.href}
+                className="links-social-link"
+                aria-label={item.label}
+              >
+                <Icon />
+              </StoreLink>
+            );
+          })}
         </div>
         <div className="links-copy">
           © {year} {SITE.name}

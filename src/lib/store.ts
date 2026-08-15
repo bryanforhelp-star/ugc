@@ -123,7 +123,7 @@ export function getAffiliates(): StoreLinkItem[] {
       affiliate: true,
     },
     {
-      name: "bento",
+      name: "on bento",
       href: envUrl("AFFILIATE_BENTO", "https://app.onbento.com/?acode=kyndall"),
       perk: "email",
       affiliate: true,

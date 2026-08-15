@@ -4,8 +4,14 @@ export type LinksButton = {
   title: string;
   sub: string;
   href: string;
+  emoji?: string;
   /** Omit or true to show. Needs a real href. */
   published?: boolean;
+};
+
+export type LinksSocial = {
+  href: string;
+  label: "instagram" | "tiktok" | "youtube" | "email";
 };
 
 /**
@@ -20,14 +26,16 @@ export const LINKS_PAGE = {
   avatar: "/links/avatar.jpg",
   buttons: [
     {
-      title: "work with me",
+      title: "book a one-on-one with me",
       sub: "1:1 sessions. editing, content strategy, and more",
       href: "/work-with-me",
+      emoji: "🧚",
     },
     {
       title: "see my ugc portfolio",
       sub: "recent brand work and edits",
       href: "/ugc",
+      emoji: "📸",
     },
     {
       title: "subscribe to my substack",
@@ -41,11 +49,11 @@ export const LINKS_PAGE = {
     },
   ] satisfies LinksButton[],
   social: [
-    { href: SITE.social.instagram, label: "instagram", short: "ig" },
-    { href: SITE.social.tiktok, label: "tiktok", short: "tt" },
-    { href: SITE.social.youtube, label: "youtube", short: "yt" },
-    { href: SITE.social.email, label: "email", short: "@" },
-  ],
+    { href: SITE.social.instagram, label: "instagram" },
+    { href: SITE.social.tiktok, label: "tiktok" },
+    { href: SITE.social.youtube, label: "youtube" },
+    { href: SITE.social.email, label: "email" },
+  ] satisfies LinksSocial[],
 } as const;
 
 export function liveButtons() {
