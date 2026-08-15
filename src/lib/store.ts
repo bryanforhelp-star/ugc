@@ -93,6 +93,7 @@ export const COFFEE: StoreProduct = {
   priceLabel: "$5",
   stripePriceEnv: "STRIPE_PRICE_COFFEE",
   amountCents: 500,
+  image: "/cursors/matcha-cutout.png",
   forSale: true,
   listed: false,
 };

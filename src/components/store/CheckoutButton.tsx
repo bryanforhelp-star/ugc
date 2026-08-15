@@ -7,12 +7,14 @@ export function CheckoutButton({
   label,
   price,
   sub,
+  emoji,
   className = "links-product-buy",
 }: {
   productId: string;
   label: string;
   price?: string | null;
   sub?: string;
+  emoji?: string;
   className?: string;
 }) {
   const [busy, setBusy] = useState(false);
@@ -51,6 +53,11 @@ export function CheckoutButton({
       >
         {row ? (
           <>
+            {emoji ? (
+              <span className="links-btn-emoji" aria-hidden="true">
+                {emoji}
+              </span>
+            ) : null}
             <div className="links-btn-text">
               <div className="links-btn-title">
                 {busy ? "sending you to checkout" : label}

@@ -178,14 +178,18 @@ export default async function LinksPage() {
           productId={COFFEE.id}
           label={COFFEE.title}
           sub={COFFEE.description}
+          emoji="🍵"
           price={coffee.price}
           className="links-btn"
         />
       ) : (
         <StoreLink
-          href={`mailto:${SITE.workWithMe.email}?subject=${encodeURIComponent("coffee")}`}
+          href={`mailto:${SITE.workWithMe.email}?subject=${encodeURIComponent("matcha")}`}
           className="links-btn"
         >
+          <span className="links-btn-emoji" aria-hidden="true">
+            🍵
+          </span>
           <div className="links-btn-text">
             <div className="links-btn-title">{COFFEE.title}</div>
             <div className="links-btn-sub">{COFFEE.description}</div>

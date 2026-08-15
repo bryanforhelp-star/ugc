@@ -44,11 +44,23 @@ export async function POST(request: Request) {
     );
   }
 
+  const coffee = product.id === "coffee";
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: lineItems,
-    allow_promotion_codes: true,
-    billing_address_collection: "auto",
+    allow_promotion_codes: !coffee,
+    ...(coffee
+      ? {
+          submit_type: "pay" as const,
+          custom_text: {
+            submit: {
+              message: "for a little matcha. thank you.",
+            },
+          },
+        }
+      : {
+          billing_address_collection: "auto" as const,
+        }),
     metadata: {
       productId: product.id,
       kind: product.kind,

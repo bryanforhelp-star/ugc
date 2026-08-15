@@ -47,6 +47,7 @@ export async function POST(request: Request) {
     allow_promotion_codes: true,
     billing_address_collection: "auto",
     expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
+    submit_type: "book",
     metadata: {
       productId: SESSION.id,
       kind: "booking",

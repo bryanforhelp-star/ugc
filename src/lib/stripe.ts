@@ -21,14 +21,22 @@ export function lineItemsForProduct(product: StoreProduct) {
   const priceId = getStripePriceId(product);
   if (priceId) return [{ price: priceId, quantity: 1 }];
   if (product.amountCents && product.amountCents > 0) {
+    const image = product.image?.startsWith("http")
+      ? product.image
+      : product.image
+        ? storeUrl(product.image)
+        : null;
+    const name =
+      product.id === "coffee" ? "a matcha 🍵" : product.title;
     return [
       {
         price_data: {
           currency: "usd" as const,
           unit_amount: product.amountCents,
           product_data: {
-            name: product.title,
+            name,
             description: product.description,
+            ...(image ? { images: [image] } : {}),
           },
         },
         quantity: 1,
