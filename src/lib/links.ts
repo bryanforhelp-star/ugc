@@ -41,11 +41,13 @@ export const LINKS_PAGE = {
       title: "subscribe to my substack",
       sub: "human.md, field notes on ai and creativity",
       href: substackSubscribeUrl(SITE.newsletter.substackUrl),
+      emoji: "💌",
     },
     {
-      title: "explore my free guides",
+      title: "get my free guides",
       sub: "templates and workflows on bykyndall.com",
       href: "/guides",
+      emoji: "📖",
     },
   ] satisfies LinksButton[],
   social: [
