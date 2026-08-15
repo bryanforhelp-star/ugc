@@ -21,7 +21,7 @@ export const LINKS_PAGE = {
   buttons: [
     {
       title: "work with me",
-      sub: "1:1 sessions. content strategy, ai, and more",
+      sub: "1:1 sessions. editing, content strategy, and more",
       href: "/work-with-me",
     },
     {

@@ -8,12 +8,10 @@ export type StoreProduct = {
   title: string;
   description: string;
   cta: string;
-  /** Display price. For a live 1:1, Stripe is the source of truth once a price id is set. */
   priceLabel: string;
   stripePriceEnv: string;
-  /** When false, the card shows but checkout is off. Notify-me instead of take payment. */
   forSale: boolean;
-  /** Server env that holds this session's calendar URL. Booking only. */
+  listed?: boolean;
   calEnv?: string;
   image?: string;
   photoLabel?: string;
@@ -26,6 +24,11 @@ export type StoreLinkItem = {
   affiliate?: boolean;
 };
 
+export type SessionTopic = {
+  name: string;
+  blurb: string;
+};
+
 function envUrl(name: string, fallback: string) {
   const value = process.env[name]?.trim();
   if (value?.startsWith("http")) return value;
@@ -33,60 +36,44 @@ function envUrl(name: string, fallback: string) {
 }
 
 /**
- * Paid 1:1 sessions. Add another object here to offer a new type.
- * Checkout goes live when that session's STRIPE_PRICE_* and CAL_URL_* env are set.
+ * One hour, $250. What you spend it on is listed as topics, not separate SKUs.
+ * Payment happens on the calendar (Cal.com + Stripe), Stan-style: pick a time, pay there.
  */
-export const SESSIONS: StoreProduct[] = [
-  {
-    id: "content-strategy",
-    kind: "booking",
-    title: "content strategy",
-    description:
-      "a 1:1 on what you're making, why it's stalling, and what to do next.",
-    cta: "pay to book",
-    priceLabel: "",
-    stripePriceEnv: "STRIPE_PRICE_CONTENT_STRATEGY",
-    calEnv: "CAL_URL_CONTENT_STRATEGY",
-    forSale: true,
-  },
-  {
-    id: "ai-integrations",
-    kind: "booking",
-    title: "ai integrations",
-    description:
-      "a 1:1 on putting ai into the work you already do. workflows, not a tool dump.",
-    cta: "pay to book",
-    priceLabel: "",
-    stripePriceEnv: "STRIPE_PRICE_AI_INTEGRATIONS",
-    calEnv: "CAL_URL_AI_INTEGRATIONS",
-    forSale: true,
-  },
-];
+export const SESSION = {
+  priceLabel: "$250 / hour",
+  kicker: "1:1 sessions",
+  headline: "work with me.",
+  lead: "pick a time. pay on the calendar. we spend the hour on the actual thing.",
+  topics: [
+    {
+      name: "editing",
+      blurb: "the cut, the captions, the thing that makes a talking head hold.",
+    },
+    {
+      name: "content strategy",
+      blurb: "what you're making, why it's stalling, what to do next.",
+    },
+    {
+      name: "and more",
+      blurb: "a workflow, a page, a build. bring what's actually on your plate.",
+    },
+  ] satisfies SessionTopic[],
+};
 
+/** Kept for a later checkout, not shown until the product is actually worth selling. */
 export const DIGITAL_PRODUCTS: StoreProduct[] = [
   {
-    id: "editing-mini-guide",
+    id: "editing-mini-course",
     kind: "digital",
-    title: "editing mini guide",
+    title: "editing mini course",
     description:
-      "how i cut, caption, and animate a talking head clip. instant download.",
-    cta: "get the guide",
-    priceLabel: "$19",
-    stripePriceEnv: "STRIPE_PRICE_EDITING_GUIDE",
+      "how i cut a talking head so it holds. not a pdf dump. not listed until it's ready.",
+    cta: "get the course",
+    priceLabel: "",
+    stripePriceEnv: "STRIPE_PRICE_EDITING_COURSE",
     forSale: false,
-    photoLabel: "guide photo",
-  },
-  {
-    id: "ugc-starter-kit",
-    kind: "digital",
-    title: "ugc starter kit",
-    description:
-      "rate card, pitch templates, and the outreach tracker i use to land brand deals.",
-    cta: "get the kit",
-    priceLabel: "$39",
-    stripePriceEnv: "STRIPE_PRICE_UGC_KIT",
-    forSale: false,
-    photoLabel: "kit photo",
+    listed: false,
+    photoLabel: "course",
   },
 ];
 
@@ -104,46 +91,44 @@ export function getAffiliates(): StoreLinkItem[] {
       perk: "email",
       affiliate: true,
     },
+    {
+      name: "cursor",
+      href: envUrl("AFFILIATE_CURSOR", "https://cursor.com"),
+      perk: "where i build",
+      affiliate: true,
+    },
   ];
 }
 
-export const RESOURCES: StoreLinkItem[] = [
-  {
-    name: "cursor",
-    href: "https://cursor.com",
-    perk: "where i build",
-  },
-  {
-    name: "claude",
-    href: "https://claude.ai",
-    perk: "where i think",
-  },
-  {
-    name: "free guides",
-    href: "/guides",
-    perk: "steal these",
-  },
-];
-
 export const STORE_COPY = {
-  sessionsLabel: "1:1 sessions",
   shopLabel: "the shop",
   affiliatesLabel: "tools i actually use",
-  resourcesLabel: "more resources",
   disclosure:
     "some of these are affiliate links. i only list what i pay for and use.",
   comingSoonCta: "notify me",
   waitlistHref: substackSubscribeUrl(SITE.newsletter.substackUrl),
-  sessionsLead:
-    "pick the kind of 1:1 you want. you pay first, then you pick a time.",
-  sessionsPending:
-    "paid booking is wired up. each session goes live once its stripe price and calendar link are connected.",
+  calendarPending:
+    "the calendar goes live once a booking link is connected. same flow as stan: pick a date, pay there.",
 };
 
+export function listedDigitalProducts() {
+  return DIGITAL_PRODUCTS.filter((product) => product.listed);
+}
+
 export function allStoreProducts(): StoreProduct[] {
-  return [...SESSIONS, ...DIGITAL_PRODUCTS];
+  return [...DIGITAL_PRODUCTS];
 }
 
 export function getStoreProduct(id: string) {
   return allStoreProducts().find((product) => product.id === id) ?? null;
+}
+
+export function getBookingCalendarUrl() {
+  const base = process.env.CAL_URL?.trim().replace(/\/$/, "");
+  if (!base?.startsWith("http")) return null;
+  const url = new URL(base);
+  if (url.hostname.includes("cal.com") && !url.searchParams.has("embed")) {
+    url.searchParams.set("embed", "true");
+  }
+  return url.toString();
 }

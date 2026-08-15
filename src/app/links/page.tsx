@@ -7,10 +7,9 @@ import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { canCheckout, getDisplayPrice } from "@/lib/stripe";
 import {
-  DIGITAL_PRODUCTS,
-  RESOURCES,
   STORE_COPY,
   getAffiliates,
+  listedDigitalProducts,
 } from "@/lib/store";
 import "./links.css";
 
@@ -54,7 +53,7 @@ export const viewport: Viewport = {
 export default async function LinksPage() {
   const buttons = liveButtons();
   const products = await Promise.all(
-    DIGITAL_PRODUCTS.map(async (product) => ({
+    listedDigitalProducts().map(async (product) => ({
       product,
       price: await getDisplayPrice(product),
       live: canCheckout(product),
@@ -90,44 +89,48 @@ export default async function LinksPage() {
         </StoreLink>
       ))}
 
-      <div className="links-label">{STORE_COPY.shopLabel}</div>
-      {products.map(({ product, price, live }) => (
-        <section key={product.id} className="links-product">
-          <div
-            className={
-              product.image
-                ? "links-product-photo has-photo"
-                : "links-product-photo"
-            }
-            style={
-              product.image
-                ? { backgroundImage: `url('${product.image}')` }
-                : undefined
-            }
-          >
-            {product.image ? "" : product.photoLabel || "photo"}
-          </div>
-          <div className="links-product-body">
-            <h2 className="links-product-title">{product.title}</h2>
-            <p className="links-product-desc">{product.description}</p>
-            {live ? (
-              <CheckoutButton
-                productId={product.id}
-                label={product.cta}
-                price={price}
-              />
-            ) : (
-              <StoreLink
-                href={STORE_COPY.waitlistHref}
-                className="links-product-buy links-product-soon"
+      {products.length > 0 ? (
+        <>
+          <div className="links-label">{STORE_COPY.shopLabel}</div>
+          {products.map(({ product, price, live }) => (
+            <section key={product.id} className="links-product">
+              <div
+                className={
+                  product.image
+                    ? "links-product-photo has-photo"
+                    : "links-product-photo"
+                }
+                style={
+                  product.image
+                    ? { backgroundImage: `url('${product.image}')` }
+                    : undefined
+                }
               >
-                <span>{STORE_COPY.comingSoonCta}</span>
-                {price ? <span className="links-price">{price}</span> : null}
-              </StoreLink>
-            )}
-          </div>
-        </section>
-      ))}
+                {product.image ? "" : product.photoLabel || "photo"}
+              </div>
+              <div className="links-product-body">
+                <h2 className="links-product-title">{product.title}</h2>
+                <p className="links-product-desc">{product.description}</p>
+                {live ? (
+                  <CheckoutButton
+                    productId={product.id}
+                    label={product.cta}
+                    price={price}
+                  />
+                ) : (
+                  <StoreLink
+                    href={STORE_COPY.waitlistHref}
+                    className="links-product-buy links-product-soon"
+                  >
+                    <span>{STORE_COPY.comingSoonCta}</span>
+                    {price ? <span className="links-price">{price}</span> : null}
+                  </StoreLink>
+                )}
+              </div>
+            </section>
+          ))}
+        </>
+      ) : null}
 
       <div className="links-label">{STORE_COPY.affiliatesLabel}</div>
       {getAffiliates().map((aff) => (
@@ -142,14 +145,6 @@ export default async function LinksPage() {
         </StoreLink>
       ))}
       <p className="links-disclosure">{STORE_COPY.disclosure}</p>
-
-      <div className="links-label">{STORE_COPY.resourcesLabel}</div>
-      {RESOURCES.map((item) => (
-        <StoreLink key={item.name} href={item.href} className="links-aff">
-          <span className="links-aff-name">{item.name}</span>
-          {item.perk ? <span className="links-aff-perk">{item.perk}</span> : null}
-        </StoreLink>
-      ))}
 
       <footer className="links-footer">
         <div className="links-social">

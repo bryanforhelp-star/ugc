@@ -1,78 +1,80 @@
 import type { Metadata } from "next";
-import { CheckoutButton } from "@/components/store/CheckoutButton";
 import { StoreLink } from "@/components/store/StoreLink";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
-import { canCheckout, getDisplayPrice } from "@/lib/stripe";
-import { SESSIONS, STORE_COPY } from "@/lib/store";
+import {
+  SESSION,
+  STORE_COPY,
+  getBookingCalendarUrl,
+} from "@/lib/store";
 import "../links/links.css";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "work with me",
-  description: STORE_COPY.sessionsLead,
+  description: `1:1 sessions, ${SESSION.priceLabel}. editing, content strategy, and more.`,
   alternates: { canonical: absoluteUrl("/work-with-me") },
 };
 
-export default async function WorkWithMePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ error?: string }>;
-}) {
-  const { error } = await searchParams;
-  const unpaid = error === "unpaid";
-  const sessions = await Promise.all(
-    SESSIONS.map(async (session) => ({
-      session,
-      price: await getDisplayPrice(session),
-      live: canCheckout(session),
-    })),
-  );
-  const anyLive = sessions.some((item) => item.live);
+export default function WorkWithMePage() {
+  const calendar = getBookingCalendarUrl();
 
   return (
-    <div className="links-store">
-      <section className="links-profile">
-        <p className="links-kicker">{STORE_COPY.sessionsLabel}</p>
-        <h1 className="links-name">work with me.</h1>
-        <p className="links-tagline">{STORE_COPY.sessionsLead}</p>
-      </section>
+    <div className="links-store links-store--book">
+      <div className="links-book">
+        <section className="links-book-copy">
+          <p className="links-kicker">{SESSION.kicker}</p>
+          <h1 className="links-name">{SESSION.headline}</h1>
+          <p className="links-book-price">{SESSION.priceLabel}</p>
+          <p className="links-tagline">{SESSION.lead}</p>
 
-      {unpaid ? (
-        <p className="links-checkout-error">
-          payment didn&apos;t come through. try again.
-        </p>
-      ) : null}
+          <ul className="links-book-topics">
+            {SESSION.topics.map((topic) => (
+              <li key={topic.name}>
+                <span className="links-book-topic-name">{topic.name}</span>
+                <span className="links-book-topic-blurb">{topic.blurb}</span>
+              </li>
+            ))}
+          </ul>
 
-      {!anyLive ? (
-        <p className="links-book-pending">{STORE_COPY.sessionsPending}</p>
-      ) : null}
-
-      {sessions.map(({ session, price, live }) => (
-        <section key={session.id} className="links-product">
-          <div className="links-product-body">
-            <h2 className="links-product-title">{session.title}</h2>
-            <p className="links-product-desc">{session.description}</p>
-            {live ? (
-              <CheckoutButton
-                productId={session.id}
-                label={session.cta}
-                price={price}
-              />
-            ) : anyLive ? (
-              <p className="links-book-pending">
-                this one isn&apos;t open for checkout yet.
-              </p>
-            ) : null}
-          </div>
+          <p className="links-disclosure">
+            brands and ugc:{" "}
+            <a href={`mailto:${SITE.workWithMe.email}`}>
+              {SITE.workWithMe.email}
+            </a>
+          </p>
         </section>
-      ))}
 
-      <p className="links-disclosure">
-        brands and ugc:{" "}
-        <a href={`mailto:${SITE.workWithMe.email}`}>{SITE.workWithMe.email}</a>
-      </p>
+        <section className="links-book-cal">
+          {calendar ? (
+            <>
+              <iframe
+                title="pick a time"
+                src={calendar}
+                className="links-cal-frame"
+                allow="payment"
+              />
+              <StoreLink href={calendar} className="links-btn">
+                <div className="links-btn-text">
+                  <div className="links-btn-title">open calendar</div>
+                  <div className="links-btn-sub">if the embed is being weird</div>
+                </div>
+                <span className="links-chev" aria-hidden="true">
+                  →
+                </span>
+              </StoreLink>
+            </>
+          ) : (
+            <div className="links-product">
+              <div className="links-product-body">
+                <h2 className="links-product-title">pick a time</h2>
+                <p className="links-product-desc">{STORE_COPY.calendarPending}</p>
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
 
       <StoreLink href="/links" className="links-back">
         back to links

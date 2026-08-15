@@ -38,11 +38,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const successPath =
-    product.kind === "booking"
-      ? "/book/schedule"
-      : "/thanks";
-
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [{ price: priceId, quantity: 1 }],
@@ -52,8 +47,8 @@ export async function POST(request: Request) {
       productId: product.id,
       kind: product.kind,
     },
-    success_url: `${storeUrl(successPath)}?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: storeUrl(product.kind === "booking" ? "/work-with-me" : "/links"),
+    success_url: `${storeUrl("/thanks")}?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: storeUrl("/links"),
   });
 
   if (!session.url) {

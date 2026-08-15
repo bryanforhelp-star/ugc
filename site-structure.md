@@ -7,14 +7,13 @@
 | `/` | Homepage — featured guides in "free things", trust marquee, showcase |
 | `/guides` | All published guides |
 | `/guides/[slug]` | Single guide (ManyChat DM destination) |
-| `/work-with-me` | Paid 1:1 sessions (content strategy, ai integrations). Session list in `src/lib/store.ts` |
+| `/work-with-me` | 1:1 booking. $250/hour. Pick a time, pay on the calendar. Copy in `src/lib/store.ts` (`SESSION`) |
 | `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
 | `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
 | `/kits` | Digital products. Live but empty, and pulled from nav until something publishes |
-| `/links` | Link in bio / store. Profile, work with me, shop, affiliates. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
+| `/links` | Link in bio / store. Profile, work with me, tools. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
 | `/book` | Redirects to `/work-with-me` |
-| `/book/schedule` | Calendar unlock after a paid session checkout. Noindex. |
-| `/book/schedule` | Calendar unlock. Requires a paid Stripe session. Noindex. |
+| `/book/schedule` | Redirects to `/work-with-me` |
 | `/thanks` | Digital product receipt. Requires a paid Stripe session. Noindex. |
 
 Live keyword CTAs and which guide each maps to: `brands/kyndall/accounts.md`.
