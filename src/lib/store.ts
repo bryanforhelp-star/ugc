@@ -81,13 +81,13 @@ export function getAffiliates(): StoreLinkItem[] {
   return [
     {
       name: "wispr flow",
-      href: envUrl("AFFILIATE_WISPR", "https://wisprflow.ai"),
+      href: envUrl("AFFILIATE_WISPR", "https://wisprflow.ai/r?KYNDALL8"),
       perk: "voice typing",
       affiliate: true,
     },
     {
       name: "bento",
-      href: envUrl("AFFILIATE_BENTO", "https://www.bentonow.com"),
+      href: envUrl("AFFILIATE_BENTO", "https://app.onbento.com/?acode=kyndall"),
       perk: "email",
       affiliate: true,
     },
