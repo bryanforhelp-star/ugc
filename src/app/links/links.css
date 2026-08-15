@@ -368,10 +368,10 @@ button.links-aff:disabled {
   background: var(--links-card);
   border-radius: var(--links-radius);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-  padding: 18px;
+  padding: 18px 16px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .links-native-cal-kicker {
@@ -383,62 +383,163 @@ button.links-aff:disabled {
   margin: 0;
 }
 
-.links-day-row {
+.links-cal-split {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-  margin: 0 -4px;
-  padding-inline: 4px;
-  -webkit-overflow-scrolling: touch;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.links-day-chip,
-.links-time-chip {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+.links-cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.links-cal-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.links-cal-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.links-cal-arrow {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
   background: #f7f6f2;
   color: inherit;
+  font-size: 20px;
+  line-height: 1;
   cursor: pointer;
-  font: inherit;
   appearance: none;
 }
 
-.links-day-chip {
-  flex: none;
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-family: var(--serif);
-  font-size: 13.5px;
-  white-space: nowrap;
+.links-cal-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
-.links-time-grid {
+.links-cal-arrow:focus-visible {
+  outline: 3px solid var(--links-accent);
+  outline-offset: 2px;
+}
+
+.links-cal-weekdays,
+.links-cal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.links-cal-weekdays {
+  margin-bottom: 6px;
+}
+
+.links-cal-weekdays span {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--links-muted);
+  padding: 4px 0;
+}
+
+.links-cal-cell,
+.links-cal-day {
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 42px;
+  margin: 2px auto;
+}
+
+.links-cal-day {
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #c4c2ba;
+  font: inherit;
+  font-size: 14px;
+  cursor: default;
+  appearance: none;
+}
+
+.links-cal-day.is-open {
+  background: color-mix(in srgb, var(--links-accent) 16%, white);
+  color: var(--links-ink);
+  cursor: pointer;
+}
+
+.links-cal-day.is-on {
+  background: var(--links-accent);
+  color: var(--links-accent-text);
+  cursor: pointer;
+}
+
+.links-cal-day.is-open:hover {
+  background: color-mix(in srgb, var(--links-accent) 28%, white);
+}
+
+.links-cal-day:focus-visible {
+  outline: 3px solid var(--links-accent);
+  outline-offset: 2px;
+}
+
+.links-cal-times-label {
+  font-family: var(--serif);
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+
+.links-cal-times-empty {
+  font-size: 13.5px;
+  color: var(--links-muted);
+  margin: 0;
+  padding: 8px 0 4px;
+}
+
+.links-time-list {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
 }
 
 .links-time-chip {
+  width: 100%;
   min-height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+  background: #f7f6f2;
+  color: inherit;
+  font: inherit;
   font-size: 14.5px;
+  cursor: pointer;
+  appearance: none;
 }
 
-.links-day-chip.is-on,
 .links-time-chip.is-on {
   background: var(--links-accent);
   color: var(--links-accent-text);
   border-color: transparent;
 }
 
-.links-day-chip:focus-visible,
 .links-time-chip:focus-visible {
   outline: 3px solid var(--links-accent);
   outline-offset: 2px;
 }
 
 .links-native-cal .links-product-buy {
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .links-native-cal-note {
@@ -447,9 +548,16 @@ button.links-aff:disabled {
   margin: 0;
 }
 
-@media (min-width: 520px) {
-  .links-time-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (min-width: 760px) {
+  .links-cal-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(140px, 0.85fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .links-time-list {
+    max-height: 320px;
   }
 }
 
