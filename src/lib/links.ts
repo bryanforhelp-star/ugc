@@ -20,19 +20,14 @@ export const LINKS_PAGE = {
   avatar: "/links/avatar.jpg",
   buttons: [
     {
-      title: "book a 1:1 with me",
-      sub: "30 min. pay first, then pick a time",
-      href: "/book",
+      title: "work with me",
+      sub: "1:1 sessions. content strategy, ai, and more",
+      href: "/work-with-me",
     },
     {
       title: "see my ugc portfolio",
       sub: "recent brand work and edits",
       href: "/ugc",
-    },
-    {
-      title: "work with me",
-      sub: "brands and collabs, not a 1:1",
-      href: "/work-with-me",
     },
     {
       title: "subscribe to my substack",

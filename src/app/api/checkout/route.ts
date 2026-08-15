@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       kind: product.kind,
     },
     success_url: `${storeUrl(successPath)}?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: storeUrl(product.kind === "booking" ? "/book" : "/links"),
+    cancel_url: storeUrl(product.kind === "booking" ? "/work-with-me" : "/links"),
   });
 
   if (!session.url) {

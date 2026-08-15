@@ -13,6 +13,8 @@ export type StoreProduct = {
   stripePriceEnv: string;
   /** When false, the card shows but checkout is off. Notify-me instead of take payment. */
   forSale: boolean;
+  /** Server env that holds this session's calendar URL. Booking only. */
+  calEnv?: string;
   image?: string;
   photoLabel?: string;
 };
@@ -31,23 +33,35 @@ function envUrl(name: string, fallback: string) {
 }
 
 /**
- * Paid store on /links. Copy lives here.
- *
- * Checkout needs Stripe price ids in env. Products stay visible as coming soon
- * until forSale is true AND the matching STRIPE_PRICE_* env is set. That way
- * nobody pays for a file that is not ready.
+ * Paid 1:1 sessions. Add another object here to offer a new type.
+ * Checkout goes live when that session's STRIPE_PRICE_* and CAL_URL_* env are set.
  */
-export const BOOKING: StoreProduct = {
-  id: "booking",
-  kind: "booking",
-  title: "book a 1:1 with me",
-  description:
-    "30 min on content, workflow, or ai. you pay first, then you pick a time. this is not a brand deal call.",
-  cta: "pay to book",
-  priceLabel: "",
-  stripePriceEnv: "STRIPE_PRICE_BOOKING",
-  forSale: true,
-};
+export const SESSIONS: StoreProduct[] = [
+  {
+    id: "content-strategy",
+    kind: "booking",
+    title: "content strategy",
+    description:
+      "a 1:1 on what you're making, why it's stalling, and what to do next.",
+    cta: "pay to book",
+    priceLabel: "",
+    stripePriceEnv: "STRIPE_PRICE_CONTENT_STRATEGY",
+    calEnv: "CAL_URL_CONTENT_STRATEGY",
+    forSale: true,
+  },
+  {
+    id: "ai-integrations",
+    kind: "booking",
+    title: "ai integrations",
+    description:
+      "a 1:1 on putting ai into the work you already do. workflows, not a tool dump.",
+    cta: "pay to book",
+    priceLabel: "",
+    stripePriceEnv: "STRIPE_PRICE_AI_INTEGRATIONS",
+    calEnv: "CAL_URL_AI_INTEGRATIONS",
+    forSale: true,
+  },
+];
 
 export const DIGITAL_PRODUCTS: StoreProduct[] = [
   {
@@ -112,6 +126,7 @@ export const RESOURCES: StoreLinkItem[] = [
 ];
 
 export const STORE_COPY = {
+  sessionsLabel: "1:1 sessions",
   shopLabel: "the shop",
   affiliatesLabel: "tools i actually use",
   resourcesLabel: "more resources",
@@ -119,10 +134,14 @@ export const STORE_COPY = {
     "some of these are affiliate links. i only list what i pay for and use.",
   comingSoonCta: "notify me",
   waitlistHref: substackSubscribeUrl(SITE.newsletter.substackUrl),
+  sessionsLead:
+    "pick the kind of 1:1 you want. you pay first, then you pick a time.",
+  sessionsPending:
+    "paid booking is wired up. each session goes live once its stripe price and calendar link are connected.",
 };
 
 export function allStoreProducts(): StoreProduct[] {
-  return [BOOKING, ...DIGITAL_PRODUCTS];
+  return [...SESSIONS, ...DIGITAL_PRODUCTS];
 }
 
 export function getStoreProduct(id: string) {

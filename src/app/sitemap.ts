@@ -28,19 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl("/work-with-me"),
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.8,
     },
     {
       url: absoluteUrl("/links"),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    {
-      url: absoluteUrl("/book"),
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
     },
     ...guides.map((guide) => ({
       url: absoluteUrl(`/guides/${guide.slug}`),

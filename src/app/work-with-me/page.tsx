@@ -1,37 +1,82 @@
+import type { Metadata } from "next";
+import { CheckoutButton } from "@/components/store/CheckoutButton";
+import { StoreLink } from "@/components/store/StoreLink";
+import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { canCheckout, getDisplayPrice } from "@/lib/stripe";
+import { SESSIONS, STORE_COPY } from "@/lib/store";
+import "../links/links.css";
 
-export const metadata = { title: "Work with me" };
+export const dynamic = "force-dynamic";
 
-const EMAIL = SITE.workWithMe.email;
+export const metadata: Metadata = {
+  title: "work with me",
+  description: STORE_COPY.sessionsLead,
+  alternates: { canonical: absoluteUrl("/work-with-me") },
+};
 
-export default function WorkWithMePage() {
+export default async function WorkWithMePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
+  const unpaid = error === "unpaid";
+  const sessions = await Promise.all(
+    SESSIONS.map(async (session) => ({
+      session,
+      price: await getDisplayPrice(session),
+      live: canCheckout(session),
+    })),
+  );
+  const anyLive = sessions.some((item) => item.live);
+
   return (
-    <div className="page">
-      <div className="wrap">
-        <h1 className="page-title">work with me</h1>
+    <div className="links-store">
+      <section className="links-profile">
+        <p className="links-kicker">{STORE_COPY.sessionsLabel}</p>
+        <h1 className="links-name">work with me.</h1>
+        <p className="links-tagline">{STORE_COPY.sessionsLead}</p>
+      </section>
 
-        <section className="work-section">
-          <h2>brands &amp; partnerships</h2>
-          <p className="work-block">
-            for brand deals, collaborations, sponsored content, or partnerships,
-            email:
-          </p>
-          <a className="work-email" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </section>
+      {unpaid ? (
+        <p className="links-checkout-error">
+          payment didn&apos;t come through. try again.
+        </p>
+      ) : null}
 
-        <section className="work-section">
-          <h2>want to work together?</h2>
-          <p className="work-block">
-            for ai workflows, marketing, content, creative projects, or anything
-            i&apos;m building, reach me here:
-          </p>
-          <a className="work-email" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
+      {!anyLive ? (
+        <p className="links-book-pending">{STORE_COPY.sessionsPending}</p>
+      ) : null}
+
+      {sessions.map(({ session, price, live }) => (
+        <section key={session.id} className="links-product">
+          <div className="links-product-body">
+            <h2 className="links-product-title">{session.title}</h2>
+            <p className="links-product-desc">{session.description}</p>
+            {live ? (
+              <CheckoutButton
+                productId={session.id}
+                label={session.cta}
+                price={price}
+              />
+            ) : anyLive ? (
+              <p className="links-book-pending">
+                this one isn&apos;t open for checkout yet.
+              </p>
+            ) : null}
+          </div>
         </section>
-      </div>
+      ))}
+
+      <p className="links-disclosure">
+        brands and ugc:{" "}
+        <a href={`mailto:${SITE.workWithMe.email}`}>{SITE.workWithMe.email}</a>
+      </p>
+
+      <StoreLink href="/links" className="links-back">
+        back to links
+      </StoreLink>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { BOOKING, type StoreProduct } from "./store";
+import { SESSIONS, type StoreProduct } from "./store";
 
 let client: Stripe | null | undefined;
 
@@ -22,7 +22,28 @@ export function canCheckout(product: StoreProduct) {
 }
 
 export function isBookingLive() {
-  return canCheckout(BOOKING);
+  return SESSIONS.some(canCheckout);
+}
+
+export function getSessionCalendarUrl(
+  product: StoreProduct,
+  email?: string | null,
+) {
+  const fromSession = product.calEnv
+    ? process.env[product.calEnv]?.replace(/\/$/, "")
+    : "";
+  const fallback = process.env.CAL_URL?.replace(/\/$/, "") ?? "";
+  const base = fromSession || fallback;
+  if (!base) return null;
+
+  const url = new URL(base);
+  if (email && !url.searchParams.has("email")) {
+    url.searchParams.set("email", email);
+  }
+  if (url.hostname.includes("cal.com") && !url.searchParams.has("embed")) {
+    url.searchParams.set("embed", "true");
+  }
+  return url.toString();
 }
 
 function formatAmount(unitAmount: number, currency: string) {

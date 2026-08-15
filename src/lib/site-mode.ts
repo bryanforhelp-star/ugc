@@ -7,6 +7,7 @@ export function isUgcPath(pathname: string) {
 export function isLinksPath(pathname: string) {
   return (
     pathname === "/links" ||
+    pathname === "/work-with-me" ||
     pathname === "/book" ||
     pathname.startsWith("/book/") ||
     pathname === "/thanks"
