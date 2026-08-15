@@ -3,7 +3,7 @@ import { getStoreProduct } from "@/lib/store";
 import {
   canCheckout,
   getStripe,
-  getStripePriceId,
+  lineItemsForProduct,
   storeUrl,
 } from "@/lib/stripe";
 
@@ -22,6 +22,12 @@ export async function POST(request: Request) {
   if (!product) {
     return NextResponse.json({ error: "unknown product" }, { status: 404 });
   }
+  if (product.kind === "booking") {
+    return NextResponse.json(
+      { error: "book a time on /work-with-me" },
+      { status: 409 },
+    );
+  }
   if (!canCheckout(product)) {
     return NextResponse.json(
       { error: "checkout is not live for this yet" },
@@ -30,8 +36,8 @@ export async function POST(request: Request) {
   }
 
   const stripe = getStripe();
-  const priceId = getStripePriceId(product);
-  if (!stripe || !priceId) {
+  const lineItems = lineItemsForProduct(product);
+  if (!stripe || !lineItems) {
     return NextResponse.json(
       { error: "checkout is not connected" },
       { status: 503 },
@@ -40,7 +46,7 @@ export async function POST(request: Request) {
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
-    line_items: [{ price: priceId, quantity: 1 }],
+    line_items: lineItems,
     allow_promotion_codes: true,
     billing_address_collection: "auto",
     metadata: {

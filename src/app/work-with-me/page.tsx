@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
+import { BookingCalendar } from "@/components/store/BookingCalendar";
 import { StoreLink } from "@/components/store/StoreLink";
+import { buildOpenSlots } from "@/lib/booking";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
-import {
-  SESSION,
-  STORE_COPY,
-  getBookingCalendarUrl,
-} from "@/lib/store";
+import { canTakePayments, getHeldBookingStarts } from "@/lib/stripe";
+import { SESSION } from "@/lib/store";
 import "../links/links.css";
 
 export const dynamic = "force-dynamic";
@@ -17,8 +16,9 @@ export const metadata: Metadata = {
   alternates: { canonical: absoluteUrl("/work-with-me") },
 };
 
-export default function WorkWithMePage() {
-  const calendar = getBookingCalendarUrl();
+export default async function WorkWithMePage() {
+  const held = await getHeldBookingStarts();
+  const slots = buildOpenSlots(held);
 
   return (
     <div className="links-store links-store--book">
@@ -47,32 +47,10 @@ export default function WorkWithMePage() {
         </section>
 
         <section className="links-book-cal">
-          {calendar ? (
-            <>
-              <iframe
-                title="pick a time"
-                src={calendar}
-                className="links-cal-frame"
-                allow="payment"
-              />
-              <StoreLink href={calendar} className="links-btn">
-                <div className="links-btn-text">
-                  <div className="links-btn-title">open calendar</div>
-                  <div className="links-btn-sub">if the embed is being weird</div>
-                </div>
-                <span className="links-chev" aria-hidden="true">
-                  →
-                </span>
-              </StoreLink>
-            </>
-          ) : (
-            <div className="links-product">
-              <div className="links-product-body">
-                <h2 className="links-product-title">pick a time</h2>
-                <p className="links-product-desc">{STORE_COPY.calendarPending}</p>
-              </div>
-            </div>
-          )}
+          <BookingCalendar
+            initialSlots={slots}
+            bookable={canTakePayments()}
+          />
         </section>
       </div>
 

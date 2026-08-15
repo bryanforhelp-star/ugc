@@ -6,15 +6,18 @@ export function CheckoutButton({
   productId,
   label,
   price,
+  sub,
   className = "links-product-buy",
 }: {
   productId: string;
   label: string;
   price?: string | null;
+  sub?: string;
   className?: string;
 }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const row = className.includes("links-btn");
 
   async function checkout() {
     setBusy(true);
@@ -39,15 +42,32 @@ export function CheckoutButton({
   }
 
   return (
-    <div className="links-checkout">
+    <div className={row ? "links-checkout links-checkout--row" : "links-checkout"}>
       <button
         type="button"
         className={className}
         onClick={checkout}
         disabled={busy}
       >
-        <span>{busy ? "sending you to checkout" : label}</span>
-        {price ? <span className="links-price">{price}</span> : null}
+        {row ? (
+          <>
+            <div className="links-btn-text">
+              <div className="links-btn-title">
+                {busy ? "sending you to checkout" : label}
+              </div>
+              {sub ? <div className="links-btn-sub">{sub}</div> : null}
+            </div>
+            {price ? <span className="links-aff-perk">{price}</span> : null}
+            <span className="links-chev" aria-hidden="true">
+              →
+            </span>
+          </>
+        ) : (
+          <>
+            <span>{busy ? "sending you to checkout" : label}</span>
+            {price ? <span className="links-price">{price}</span> : null}
+          </>
+        )}
       </button>
       {error ? <p className="links-checkout-error">{error}</p> : null}
     </div>

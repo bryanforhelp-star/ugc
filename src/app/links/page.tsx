@@ -7,6 +7,7 @@ import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { canCheckout, getDisplayPrice } from "@/lib/stripe";
 import {
+  COFFEE,
   STORE_COPY,
   getAffiliates,
   listedDigitalProducts,
@@ -59,6 +60,10 @@ export default async function LinksPage() {
       live: canCheckout(product),
     })),
   );
+  const coffee = {
+    live: canCheckout(COFFEE),
+    price: (await getDisplayPrice(COFFEE)) ?? COFFEE.priceLabel,
+  };
   const year = new Date().getFullYear();
 
   return (
@@ -145,6 +150,30 @@ export default async function LinksPage() {
         </StoreLink>
       ))}
       <p className="links-disclosure">{STORE_COPY.disclosure}</p>
+
+      {coffee.live ? (
+        <CheckoutButton
+          productId={COFFEE.id}
+          label={COFFEE.title}
+          sub={COFFEE.description}
+          price={coffee.price}
+          className="links-btn"
+        />
+      ) : (
+        <StoreLink
+          href={`mailto:${SITE.workWithMe.email}?subject=${encodeURIComponent("coffee")}`}
+          className="links-btn"
+        >
+          <div className="links-btn-text">
+            <div className="links-btn-title">{COFFEE.title}</div>
+            <div className="links-btn-sub">{COFFEE.description}</div>
+          </div>
+          <span className="links-aff-perk">{COFFEE.priceLabel}</span>
+          <span className="links-chev" aria-hidden="true">
+            →
+          </span>
+        </StoreLink>
+      )}
 
       <footer className="links-footer">
         <div className="links-social">

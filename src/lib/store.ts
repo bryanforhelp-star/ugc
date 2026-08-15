@@ -9,10 +9,11 @@ export type StoreProduct = {
   description: string;
   cta: string;
   priceLabel: string;
-  stripePriceEnv: string;
+  stripePriceEnv?: string;
+  /** Used when no Stripe Price object exists yet. Stripe still takes its cut. */
+  amountCents?: number;
   forSale: boolean;
   listed?: boolean;
-  calEnv?: string;
   image?: string;
   photoLabel?: string;
 };
@@ -36,14 +37,25 @@ function envUrl(name: string, fallback: string) {
 }
 
 /**
- * One hour, $250. What you spend it on is listed as topics, not separate SKUs.
- * Payment happens on the calendar (Cal.com + Stripe), Stan-style: pick a time, pay there.
+ * One hour, $250. Pick a time on the site, pay through Stripe. No Calendly.
+ * Hours and timezone live here so we can change them without another tool.
  */
 export const SESSION = {
+  id: "session-hour",
   priceLabel: "$250 / hour",
+  amountCents: 25_000,
+  durationMin: 60,
+  timezone: "America/Los_Angeles",
+  timezoneLabel: "pacific",
+  /** 0 = Sun. Default: weekdays. */
+  days: [1, 2, 3, 4, 5],
+  startHour: 10,
+  endHour: 16,
+  minNoticeHours: 24,
+  daysAhead: 21,
   kicker: "1:1 sessions",
   headline: "work with me.",
-  lead: "pick a time. pay on the calendar. we spend the hour on the actual thing.",
+  lead: "pick a time. pay here. we spend the hour on the actual thing.",
   topics: [
     {
       name: "editing",
@@ -58,6 +70,31 @@ export const SESSION = {
       blurb: "a workflow, a page, a build. bring what's actually on your plate.",
     },
   ] satisfies SessionTopic[],
+};
+
+export const SESSION_PRODUCT: StoreProduct = {
+  id: SESSION.id,
+  kind: "booking",
+  title: "1:1 session",
+  description: "one hour. editing, content strategy, or whatever you bring.",
+  cta: "pay for this hour",
+  priceLabel: SESSION.priceLabel,
+  stripePriceEnv: "STRIPE_PRICE_SESSION",
+  amountCents: SESSION.amountCents,
+  forSale: true,
+};
+
+export const COFFEE: StoreProduct = {
+  id: "coffee",
+  kind: "digital",
+  title: "buy me a coffee",
+  description: "if the free stuff helped.",
+  cta: "buy me a coffee",
+  priceLabel: "$5",
+  stripePriceEnv: "STRIPE_PRICE_COFFEE",
+  amountCents: 500,
+  forSale: true,
+  listed: false,
 };
 
 /** Kept for a later checkout, not shown until the product is actually worth selling. */
@@ -91,12 +128,6 @@ export function getAffiliates(): StoreLinkItem[] {
       perk: "email",
       affiliate: true,
     },
-    {
-      name: "cursor",
-      href: envUrl("AFFILIATE_CURSOR", "https://cursor.com"),
-      perk: "where i build",
-      affiliate: true,
-    },
   ];
 }
 
@@ -107,8 +138,6 @@ export const STORE_COPY = {
     "some of these are affiliate links. i only list what i pay for and use.",
   comingSoonCta: "notify me",
   waitlistHref: substackSubscribeUrl(SITE.newsletter.substackUrl),
-  calendarPending:
-    "the calendar goes live once a booking link is connected. same flow as stan: pick a date, pay there.",
 };
 
 export function listedDigitalProducts() {
@@ -116,19 +145,10 @@ export function listedDigitalProducts() {
 }
 
 export function allStoreProducts(): StoreProduct[] {
-  return [...DIGITAL_PRODUCTS];
+  return [...DIGITAL_PRODUCTS, SESSION_PRODUCT, COFFEE];
 }
 
 export function getStoreProduct(id: string) {
   return allStoreProducts().find((product) => product.id === id) ?? null;
 }
 
-export function getBookingCalendarUrl() {
-  const base = process.env.CAL_URL?.trim().replace(/\/$/, "");
-  if (!base?.startsWith("http")) return null;
-  const url = new URL(base);
-  if (url.hostname.includes("cal.com") && !url.searchParams.has("embed")) {
-    url.searchParams.set("embed", "true");
-  }
-  return url.toString();
-}
