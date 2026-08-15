@@ -11,7 +11,10 @@
 | `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
 | `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
 | `/kits` | Digital products. Live but empty, and pulled from nav until something publishes |
-| `/links` | Link in bio. Stan Store replacement. Edit copy and destinations in `src/lib/links.ts` |
+| `/links` | Link in bio / store. Profile, paid 1:1, shop, affiliates. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
+| `/book` | Paid 1:1. Stripe Checkout first, calendar only after payment |
+| `/book/schedule` | Calendar unlock. Requires a paid Stripe session. Noindex. |
+| `/thanks` | Digital product receipt. Requires a paid Stripe session. Noindex. |
 
 Live keyword CTAs and which guide each maps to: `brands/kyndall/accounts.md`.
 

@@ -5,7 +5,12 @@ export function isUgcPath(pathname: string) {
 }
 
 export function isLinksPath(pathname: string) {
-  return pathname === "/links";
+  return (
+    pathname === "/links" ||
+    pathname === "/book" ||
+    pathname.startsWith("/book/") ||
+    pathname === "/thanks"
+  );
 }
 
 /** Homepage, dedicated portfolios, and the link-in-bio page carry their own chrome. */

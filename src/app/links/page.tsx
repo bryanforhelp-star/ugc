@@ -1,15 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  LINKS_PAGE,
-  liveAffiliates,
-  liveButtons,
-  liveProducts,
-} from "@/lib/links";
+import { CheckoutButton } from "@/components/store/CheckoutButton";
+import { StoreLink } from "@/components/store/StoreLink";
+import { liveButtons, LINKS_PAGE } from "@/lib/links";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { canCheckout, getDisplayPrice } from "@/lib/stripe";
+import {
+  DIGITAL_PRODUCTS,
+  RESOURCES,
+  STORE_COPY,
+  getAffiliates,
+} from "@/lib/store";
 import "./links.css";
+
+export const dynamic = "force-dynamic";
 
 const PAGE_URL = "/links";
 
@@ -46,52 +51,15 @@ export const viewport: Viewport = {
   themeColor: "#eceae4",
 };
 
-function isExternal(href: string) {
-  return /^(https?:|mailto:)/.test(href);
-}
-
-function StoreLink({
-  href,
-  className,
-  children,
-  ...rest
-}: {
-  href: string;
-  className?: string;
-  children: React.ReactNode;
-} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">) {
-  if (isExternal(href)) {
-    const mailto = href.startsWith("mailto:");
-    const sponsored =
-      typeof rest.rel === "string" && rest.rel.includes("sponsored");
-    return (
-      <a
-        {...rest}
-        href={href}
-        className={className}
-        {...(mailto
-          ? {}
-          : {
-              target: "_blank",
-              rel: sponsored ? "sponsored noopener noreferrer" : "noreferrer",
-            })}
-      >
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className={className} {...rest}>
-      {children}
-    </Link>
-  );
-}
-
-export default function LinksPage() {
+export default async function LinksPage() {
   const buttons = liveButtons();
-  const products = liveProducts();
-  const affiliates = liveAffiliates();
+  const products = await Promise.all(
+    DIGITAL_PRODUCTS.map(async (product) => ({
+      product,
+      price: await getDisplayPrice(product),
+      live: canCheckout(product),
+    })),
+  );
   const year = new Date().getFullYear();
 
   return (
@@ -122,57 +90,66 @@ export default function LinksPage() {
         </StoreLink>
       ))}
 
-      {products.length > 0 ? (
-        <>
-          <div className="links-label">the shop</div>
-          {products.map((product) => (
-            <section key={product.id} className="links-product">
-              <div
-                className={
-                  product.image
-                    ? "links-product-photo has-photo"
-                    : "links-product-photo"
-                }
-                style={
-                  product.image
-                    ? { backgroundImage: `url('${product.image}')` }
-                    : undefined
-                }
+      <div className="links-label">{STORE_COPY.shopLabel}</div>
+      {products.map(({ product, price, live }) => (
+        <section key={product.id} className="links-product">
+          <div
+            className={
+              product.image
+                ? "links-product-photo has-photo"
+                : "links-product-photo"
+            }
+            style={
+              product.image
+                ? { backgroundImage: `url('${product.image}')` }
+                : undefined
+            }
+          >
+            {product.image ? "" : product.photoLabel || "photo"}
+          </div>
+          <div className="links-product-body">
+            <h2 className="links-product-title">{product.title}</h2>
+            <p className="links-product-desc">{product.description}</p>
+            {live ? (
+              <CheckoutButton
+                productId={product.id}
+                label={product.cta}
+                price={price}
+              />
+            ) : (
+              <StoreLink
+                href={STORE_COPY.waitlistHref}
+                className="links-product-buy links-product-soon"
               >
-                {product.image ? "" : "photo"}
-              </div>
-              <div className="links-product-body">
-                <h2 className="links-product-title">{product.title}</h2>
-                <p className="links-product-desc">{product.description}</p>
-                <StoreLink href={product.href} className="links-product-buy">
-                  <span>{product.cta}</span>
-                  <span className="links-price">{product.price}</span>
-                </StoreLink>
-              </div>
-            </section>
-          ))}
-        </>
-      ) : null}
+                <span>{STORE_COPY.comingSoonCta}</span>
+                {price ? <span className="links-price">{price}</span> : null}
+              </StoreLink>
+            )}
+          </div>
+        </section>
+      ))}
 
-      {affiliates.length > 0 ? (
-        <>
-          <div className="links-label">tools i actually use</div>
-          {affiliates.map((aff) => (
-            <StoreLink
-              key={aff.name}
-              href={aff.href}
-              className="links-aff"
-              rel="sponsored"
-            >
-              <span className="links-aff-name">{aff.name}</span>
-              {aff.perk ? (
-                <span className="links-aff-perk">{aff.perk}</span>
-              ) : null}
-            </StoreLink>
-          ))}
-          <p className="links-disclosure">{LINKS_PAGE.disclosure}</p>
-        </>
-      ) : null}
+      <div className="links-label">{STORE_COPY.affiliatesLabel}</div>
+      {getAffiliates().map((aff) => (
+        <StoreLink
+          key={aff.name}
+          href={aff.href}
+          className="links-aff"
+          rel={aff.affiliate ? "sponsored" : undefined}
+        >
+          <span className="links-aff-name">{aff.name}</span>
+          {aff.perk ? <span className="links-aff-perk">{aff.perk}</span> : null}
+        </StoreLink>
+      ))}
+      <p className="links-disclosure">{STORE_COPY.disclosure}</p>
+
+      <div className="links-label">{STORE_COPY.resourcesLabel}</div>
+      {RESOURCES.map((item) => (
+        <StoreLink key={item.name} href={item.href} className="links-aff">
+          <span className="links-aff-name">{item.name}</span>
+          {item.perk ? <span className="links-aff-perk">{item.perk}</span> : null}
+        </StoreLink>
+      ))}
 
       <footer className="links-footer">
         <div className="links-social">
@@ -187,7 +164,9 @@ export default function LinksPage() {
             </StoreLink>
           ))}
         </div>
-        <div className="links-copy">© {year} {SITE.name}</div>
+        <div className="links-copy">
+          © {year} {SITE.name}
+        </div>
       </footer>
     </div>
   );

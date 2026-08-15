@@ -8,29 +8,9 @@ export type LinksButton = {
   published?: boolean;
 };
 
-export type LinksProduct = {
-  id: string;
-  title: string;
-  description: string;
-  cta: string;
-  price: string;
-  href: string;
-  image?: string;
-  published?: boolean;
-};
-
-export type LinksAffiliate = {
-  name: string;
-  perk: string;
-  href: string;
-  published?: boolean;
-};
-
 /**
- * Link in bio at /links. Edit this file to change copy and destinations.
- *
- * Products and affiliates only render when published: true and href is a
- * real URL (stripe payment link, referral link, etc).
+ * Link in bio at /links. Buttons and profile live here.
+ * Shop, booking, affiliates: `src/lib/store.ts`.
  */
 export const LINKS_PAGE = {
   title: "kyndall",
@@ -40,20 +20,19 @@ export const LINKS_PAGE = {
   avatar: "/links/avatar.jpg",
   buttons: [
     {
+      title: "book a 1:1 with me",
+      sub: "30 min. pay first, then pick a time",
+      href: "/book",
+    },
+    {
       title: "see my ugc portfolio",
       sub: "recent brand work and edits",
       href: "/ugc",
     },
     {
       title: "work with me",
-      sub: "brands, collabs, content, or a 1:1",
+      sub: "brands and collabs, not a 1:1",
       href: "/work-with-me",
-    },
-    {
-      title: "book a 1:1 with me",
-      sub: "30 min on content, workflow, or ai",
-      href: "",
-      published: false,
     },
     {
       title: "subscribe to my substack",
@@ -66,46 +45,6 @@ export const LINKS_PAGE = {
       href: "/guides",
     },
   ] satisfies LinksButton[],
-  products: [
-    {
-      id: "editing-mini-guide",
-      title: "editing mini guide",
-      description:
-        "how i cut, caption, and animate a talking head clip. instant download.",
-      cta: "get the guide",
-      price: "$19",
-      href: "",
-      image: "",
-      published: false,
-    },
-    {
-      id: "ugc-starter-kit",
-      title: "ugc starter kit",
-      description:
-        "rate card, pitch templates, and the outreach tracker i use to land brand deals.",
-      cta: "get the kit",
-      price: "$39",
-      href: "",
-      image: "",
-      published: false,
-    },
-  ] satisfies LinksProduct[],
-  affiliates: [
-    {
-      name: "wispr flow",
-      perk: "1 month free",
-      href: "",
-      published: false,
-    },
-    {
-      name: "bento",
-      perk: "",
-      href: "",
-      published: false,
-    },
-  ] satisfies LinksAffiliate[],
-  disclosure:
-    "some of these are affiliate links. i only list what i pay for and use.",
   social: [
     { href: SITE.social.instagram, label: "instagram", short: "ig" },
     { href: SITE.social.tiktok, label: "tiktok", short: "tt" },
@@ -114,24 +53,8 @@ export const LINKS_PAGE = {
   ],
 } as const;
 
-function isLiveHref(href: string) {
-  return Boolean(href) && !href.startsWith("#");
-}
-
 export function liveButtons() {
   return LINKS_PAGE.buttons.filter(
-    vis => vis.published !== false && isLiveHref(vis.href),
-  );
-}
-
-export function liveProducts() {
-  return LINKS_PAGE.products.filter(
-    vis => vis.published !== false && isLiveHref(vis.href),
-  );
-}
-
-export function liveAffiliates() {
-  return LINKS_PAGE.affiliates.filter(
-    vis => vis.published !== false && isLiveHref(vis.href),
+    (button) => Boolean(button.href) && !button.href.startsWith("#"),
   );
 }
