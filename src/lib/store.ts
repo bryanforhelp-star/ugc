@@ -87,9 +87,9 @@ export const SESSION_PRODUCT: StoreProduct = {
 export const COFFEE: StoreProduct = {
   id: "coffee",
   kind: "digital",
-  title: "buy me a coffee",
-  description: "if the free stuff helped.",
-  cta: "buy me a coffee",
+  title: "buy me a matcha",
+  description: "support my work.",
+  cta: "buy me a matcha",
   priceLabel: "$5",
   stripePriceEnv: "STRIPE_PRICE_COFFEE",
   amountCents: 500,
