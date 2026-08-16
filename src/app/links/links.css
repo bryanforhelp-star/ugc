@@ -175,7 +175,7 @@ a.links-product:focus-visible {
 
 .links-product-photo {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
   background: #f1f0ec center / cover no-repeat;
   display: grid;
   place-items: center;

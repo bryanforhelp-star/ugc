@@ -160,7 +160,7 @@ export const EDITING_GUIDE_PRODUCT: StoreProduct = {
   forSale: true,
   listed: true,
   status: "presale",
-  image: "/shop/edit-my-yaps.png",
+  image: "/shop/edit-my-yaps.jpg",
   photoLabel: "guide",
   cardCta: EDITING_GUIDE.cardCta,
 };
