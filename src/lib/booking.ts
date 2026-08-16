@@ -136,15 +136,20 @@ export function buildOpenSlots(booked: Set<string>, from = new Date()) {
     days,
     startHour,
     endHour,
-    minNoticeHours,
+    minNoticeDays,
     daysAhead,
   } = SESSION;
-  const noticeMs = minNoticeHours * 60 * 60 * 1000;
   const last = from.getTime() + daysAhead * 24 * 60 * 60 * 1000;
   const startParts = tzParts(from, timezone);
   let year = startParts.year;
   let month = startParts.month;
   let day = startParts.day;
+  for (let skip = 0; skip < minNoticeDays; skip += 1) {
+    const next = nextCalendarDay(year, month, day);
+    year = next.year;
+    month = next.month;
+    day = next.day;
+  }
   const slots: BookingSlot[] = [];
 
   for (let i = 0; i <= daysAhead + 1; i += 1) {
@@ -153,7 +158,6 @@ export function buildOpenSlots(booked: Set<string>, from = new Date()) {
       for (let hour = startHour; hour < endHour; hour += 1) {
         const start = zonedDate(timezone, year, month, day, hour, 0);
         if (start.getTime() > last) break;
-        if (start.getTime() < from.getTime() + noticeMs) continue;
         const startISO = start.toISOString();
         if (booked.has(startISO)) continue;
         slots.push({

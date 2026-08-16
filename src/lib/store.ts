@@ -52,7 +52,8 @@ export const SESSION = {
   startHour: 8,
   /** Exclusive. Last session starts at 6pm bali and ends at 7pm. */
   endHour: 19,
-  minNoticeHours: 24,
+  /** Today and tomorrow are closed. Earliest bookable is the day after tomorrow, bali time. */
+  minNoticeDays: 2,
   daysAhead: 21,
   kicker: "1:1 sessions",
   headline: "work with me.",
