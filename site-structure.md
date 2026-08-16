@@ -7,7 +7,7 @@
 | `/` | Homepage — featured guides in "free things", trust marquee, showcase |
 | `/guides` | All published guides |
 | `/guides/[slug]` | Single guide (ManyChat DM destination) |
-| `/work-with-me` | 1:1 booking. $250/hour. Native calendar plus Stripe checkout. Copy and hours in `src/lib/store.ts` (`SESSION`) |
+| `/work-with-me` | 1:1 booking. $200/hour. Native calendar plus Stripe checkout. Hours in Bali time, shown in the visitor's timezone. Copy in `src/lib/store.ts` (`SESSION`) |
 | `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
 | `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
 | `/kits` | Digital products. Live but empty, and pulled from nav until something publishes |

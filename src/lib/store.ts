@@ -37,20 +37,21 @@ function envUrl(name: string, fallback: string) {
 }
 
 /**
- * One hour, $250. Pick a time on the site, pay through Stripe. No Calendly.
- * Hours and timezone live here so we can change them without another tool.
+ * One hour, $200. Pick a time on the site, pay through Stripe. No Calendly.
+ * Hours are Bali (WITA, no DST). The calendar shows them in the visitor's timezone.
  */
 export const SESSION = {
   id: "session-hour",
-  priceLabel: "$250 / hour",
-  amountCents: 25_000,
+  priceLabel: "$200 / hour",
+  amountCents: 20_000,
   durationMin: 60,
-  timezone: "America/Los_Angeles",
-  timezoneLabel: "pacific",
-  /** 0 = Sun. Default: weekdays. */
+  timezone: "Asia/Makassar",
+  timezoneLabel: "bali",
+  /** 0 = Sun. Weekdays. */
   days: [1, 2, 3, 4, 5],
-  startHour: 10,
-  endHour: 16,
+  startHour: 8,
+  /** Exclusive. Last session starts at 6pm bali and ends at 7pm. */
+  endHour: 19,
   minNoticeHours: 24,
   daysAhead: 21,
   kicker: "1:1 sessions",

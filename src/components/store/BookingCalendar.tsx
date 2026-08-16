@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { BookingSlot } from "@/lib/booking";
 import { SESSION } from "@/lib/store";
 
@@ -20,35 +20,35 @@ function parseKey(key: string) {
 }
 
 function weekdayFromKey(key: string) {
-  return new Date(`${key}T12:00:00Z`).getUTCDay();
+  const { year, month, day } = parseKey(key);
+  return new Date(year, month - 1, day).getDay();
 }
 
 function daysInMonth(year: number, month: number) {
-  return new Date(Date.UTC(year, month, 0)).getUTCDate();
+  return new Date(year, month, 0).getDate();
 }
 
 function monthLabel(year: number, month: number) {
-  return new Date(Date.UTC(year, month - 1, 1)).toLocaleDateString("en-US", {
+  return new Date(year, month - 1, 1).toLocaleDateString(undefined, {
     month: "long",
     year: "numeric",
-    timeZone: "UTC",
   });
 }
 
 function prettyDate(key: string) {
-  return new Date(`${key}T12:00:00Z`)
-    .toLocaleDateString("en-US", {
+  const { year, month, day } = parseKey(key);
+  return new Date(year, month - 1, day)
+    .toLocaleDateString(undefined, {
       weekday: "long",
       month: "long",
       day: "numeric",
-      timeZone: "UTC",
     })
     .toLowerCase();
 }
 
 function shiftMonth(year: number, month: number, delta: number) {
-  const date = new Date(Date.UTC(year, month - 1 + delta, 1));
-  return { year: date.getUTCFullYear(), month: date.getUTCMonth() + 1 };
+  const date = new Date(year, month - 1 + delta, 1);
+  return { year: date.getFullYear(), month: date.getMonth() + 1 };
 }
 
 function monthGrid(year: number, month: number) {
@@ -63,6 +63,41 @@ function monthGrid(year: number, month: number) {
   return cells;
 }
 
+function partsInZone(iso: string, timeZone: string) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "2-digit",
+  }).formatToParts(new Date(iso));
+  const get = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+  return {
+    year: Number(get("year")),
+    month: Number(get("month")),
+    day: Number(get("day")),
+    timeLabel: new Intl.DateTimeFormat(undefined, {
+      timeZone,
+      hour: "numeric",
+      minute: "2-digit",
+    }).format(new Date(iso)),
+    dayKey: `${get("year")}-${get("month")}-${get("day")}`,
+  };
+}
+
+function tzShort(timeZone: string) {
+  const label = new Intl.DateTimeFormat(undefined, {
+    timeZone,
+    timeZoneName: "short",
+    hour: "numeric",
+  })
+    .formatToParts(new Date())
+    .find((part) => part.type === "timeZoneName")?.value;
+  return label ?? timeZone;
+}
+
 export function BookingCalendar({
   initialSlots,
   bookable,
@@ -71,31 +106,47 @@ export function BookingCalendar({
   bookable: boolean;
 }) {
   const [slots, setSlots] = useState(initialSlots);
-  const byDay = useMemo(() => {
-    const map = new Map<string, BookingSlot[]>();
-    for (const slot of slots) {
-      const list = map.get(slot.dayKey) ?? [];
-      list.push(slot);
-      map.set(slot.dayKey, list);
-    }
-    return map;
-  }, [slots]);
-
-  const openDays = useMemo(() => new Set(byDay.keys()), [byDay]);
-  const firstOpen = slots[0]?.dayKey;
-  const lastOpen = slots[slots.length - 1]?.dayKey;
-  const firstParts = firstOpen ? parseKey(firstOpen) : null;
-  const lastParts = lastOpen ? parseKey(lastOpen) : null;
-
-  const [view, setView] = useState(() =>
-    firstParts
-      ? { year: firstParts.year, month: firstParts.month }
-      : { year: new Date().getFullYear(), month: new Date().getMonth() + 1 },
-  );
+  const [viewerTz, setViewerTz] = useState<string | null>(null);
   const [dayKeyState, setDayKey] = useState("");
   const [startISO, setStartISO] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setViewerTz(Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC");
+  }, []);
+
+  const byDay = useMemo(() => {
+    if (!viewerTz) return new Map<string, BookingSlot[]>();
+    const map = new Map<string, BookingSlot[]>();
+    for (const slot of slots) {
+      const key = partsInZone(slot.startISO, viewerTz).dayKey;
+      const list = map.get(key) ?? [];
+      list.push(slot);
+      map.set(key, list);
+    }
+    return map;
+  }, [slots, viewerTz]);
+
+  const openDays = useMemo(() => new Set(byDay.keys()), [byDay]);
+  const firstParts = useMemo(() => {
+    if (!viewerTz || slots.length === 0) return null;
+    return parseKey(partsInZone(slots[0].startISO, viewerTz).dayKey);
+  }, [slots, viewerTz]);
+  const lastParts = useMemo(() => {
+    if (!viewerTz || slots.length === 0) return null;
+    return parseKey(partsInZone(slots[slots.length - 1].startISO, viewerTz).dayKey);
+  }, [slots, viewerTz]);
+
+  const [view, setView] = useState({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth() + 1,
+  });
+
+  useEffect(() => {
+    if (!firstParts) return;
+    setView({ year: firstParts.year, month: firstParts.month });
+  }, [firstParts?.year, firstParts?.month]);
 
   const cells = monthGrid(view.year, view.month);
   const times = dayKeyState ? (byDay.get(dayKeyState) ?? []) : [];
@@ -146,6 +197,15 @@ export function BookingCalendar({
     }
   }
 
+  if (!viewerTz) {
+    return (
+      <div className="links-native-cal">
+        <p className="links-native-cal-kicker">{SESSION.durationMin} min</p>
+        <p className="links-cal-times-empty">loading times</p>
+      </div>
+    );
+  }
+
   if (openDays.size === 0) {
     return (
       <div className="links-product">
@@ -162,7 +222,7 @@ export function BookingCalendar({
   return (
     <div className="links-native-cal">
       <p className="links-native-cal-kicker">
-        {SESSION.durationMin} min · {SESSION.timezoneLabel} time
+        {SESSION.durationMin} min · {tzShort(viewerTz)}
       </p>
       <div className="links-cal-split">
         <div className="links-cal-month">
@@ -248,7 +308,7 @@ export function BookingCalendar({
                       setError("");
                     }}
                   >
-                    {slot.timeLabel}
+                    {partsInZone(slot.startISO, viewerTz).timeLabel}
                   </button>
                 ))}
               </div>
@@ -274,6 +334,9 @@ export function BookingCalendar({
                 : "pick a day"}
         </span>
       </button>
+      <p className="links-native-cal-note">
+        times are in your timezone. she is in bali, so some days shift by a night.
+      </p>
       {error ? <p className="links-checkout-error">{error}</p> : null}
       {!bookable ? (
         <p className="links-native-cal-note">

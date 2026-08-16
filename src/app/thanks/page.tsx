@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocalWhen } from "@/components/store/LocalWhen";
 import { StoreLink } from "@/components/store/StoreLink";
 import { bookingIcs } from "@/lib/booking";
 import { getPaidCheckoutSession } from "@/lib/stripe";
@@ -57,6 +58,7 @@ export default async function ThanksPage({
       <section className="links-profile">
         <p className="links-kicker">{kicker}</p>
         <h1 className="links-name">{title}</h1>
+        {booked && startISO ? <LocalWhen startISO={startISO} /> : null}
         <p className="links-tagline">{tagline}</p>
       </section>
 
