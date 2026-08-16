@@ -40,6 +40,22 @@ export const VIDEO_PAGE_INTRO = {
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
+    id: "08",
+    title: "i hired an assistant (i built her)",
+    video: "/showcase/08.mp4",
+    poster: "/showcase/08-poster.jpg",
+    platform: "instagram",
+    edits: ["ui overlays", "meme cutaway inserts", "talking head"],
+  },
+  {
+    id: "07",
+    title: "somewhere in between: making cool shit",
+    video: "/showcase/07.mp4",
+    poster: "/showcase/07-poster.jpg",
+    platform: "instagram",
+    edits: ["kinetic captions", "outdoor talking head", "list pacing"],
+  },
+  {
     id: "06",
     title: "i quit my job 6 months ago",
     video: "/showcase/06.mp4",
@@ -90,8 +106,8 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   },
 ];
 
-/** Homepage marquee — stable order, newest excluded if you want a tighter row */
-export const HOMEPAGE_SHOWCASE_IDS = ["01", "02", "03", "04"] as const;
+/** Homepage marquee — newest first */
+export const HOMEPAGE_SHOWCASE_IDS = ["08", "07", "06", "02"] as const;
 
 export function getHomepageShowcasePieces() {
   const byId = new Map(SOCIAL_VIDEOS.map((piece) => [piece.id, piece]));
