@@ -47,8 +47,8 @@ export const SESSION = {
   durationMin: 60,
   timezone: "Asia/Makassar",
   timezoneLabel: "bali",
-  /** 0 = Sun. Weekdays. */
-  days: [1, 2, 3, 4, 5],
+  /** 0 = Sun. Monday through Thursday. */
+  days: [1, 2, 3, 4],
   startHour: 8,
   /** Exclusive. Last session starts at 6pm bali and ends at 7pm. */
   endHour: 19,
