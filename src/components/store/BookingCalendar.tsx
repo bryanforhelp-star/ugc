@@ -220,30 +220,8 @@ export function BookingCalendar({
     setError("");
   }
 
-  if (!viewerTz) {
+  function intakeFields() {
     return (
-      <div className="links-native-cal">
-        <p className="links-native-cal-kicker">{SESSION.durationMin} min</p>
-        <p className="links-cal-times-empty">loading times</p>
-      </div>
-    );
-  }
-
-  if (openDays.size === 0) {
-    return (
-      <div className="links-product">
-        <div className="links-product-body">
-          <h2 className="links-product-title">pick a time</h2>
-          <p className="links-product-desc">
-            no open hours in the next few weeks. email me and we will find one.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="links-native-cal">
       <div className="links-intake">
         <p className="links-native-cal-kicker">who you are</p>
         <label className="links-intake-field">
@@ -301,6 +279,34 @@ export function BookingCalendar({
           />
         </label>
       </div>
+    );
+  }
+
+  if (!viewerTz) {
+    return (
+      <div className="links-native-cal">
+        {intakeFields()}
+        <p className="links-cal-times-empty">loading times</p>
+      </div>
+    );
+  }
+
+  if (openDays.size === 0) {
+    return (
+      <div className="links-product">
+        <div className="links-product-body">
+          <h2 className="links-product-title">pick a time</h2>
+          <p className="links-product-desc">
+            no open hours in the next few weeks. email me and we will find one.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="links-native-cal">
+      {intakeFields()}
       <p className="links-native-cal-kicker">
         select a date · {tzShort(viewerTz)}
       </p>
