@@ -26,6 +26,7 @@ export type StoreLinkItem = {
   href: string;
   perk?: string;
   affiliate?: boolean;
+  logo?: string;
 };
 
 export type SessionTopic = {
@@ -176,12 +177,14 @@ export function getAffiliates(): StoreLinkItem[] {
       name: "wispr flow",
       href: envUrl("AFFILIATE_WISPR", "https://wisprflow.ai/r?KYNDALL8"),
       perk: "voice typing",
+      logo: "/links/logos/wispr.png",
       affiliate: true,
     },
     {
       name: "on bento",
       href: envUrl("AFFILIATE_BENTO", "https://app.onbento.com/?acode=kyndall"),
-      perk: "email",
+      perk: "UGC outreach",
+      logo: "/links/logos/bento.png",
       affiliate: true,
     },
   ];

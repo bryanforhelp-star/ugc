@@ -179,6 +179,15 @@ export default async function LinksPage() {
           className="links-aff"
           rel={aff.affiliate ? "sponsored" : undefined}
         >
+          {aff.logo ? (
+            <Image
+              src={aff.logo}
+              alt=""
+              width={36}
+              height={36}
+              className="links-aff-logo"
+            />
+          ) : null}
           <span className="links-aff-name">{aff.name}</span>
           {aff.perk ? <span className="links-aff-perk">{aff.perk}</span> : null}
         </StoreLink>
