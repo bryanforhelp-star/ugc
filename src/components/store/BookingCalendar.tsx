@@ -274,7 +274,6 @@ export function BookingCalendar({
             rows={4}
             value={need}
             disabled={busy}
-            placeholder="a reel that will not sit still. a page. whatever is actually on your plate."
             onChange={(event) => setNeed(event.target.value)}
           />
         </label>
