@@ -153,6 +153,26 @@ export const EDITING_GUIDE = {
       name: "the extra bits",
       blurb: "overlays and greenscreen that sit in the frame without taking over.",
     },
+    {
+      name: "transitions and keyframes",
+      blurb: "how a clip actually moves. not 40 random packs.",
+    },
+    {
+      name: "movements",
+      blurb: "the bump, the zoom, the tiny push that makes it feel cut by a person.",
+    },
+    {
+      name: "sound effects",
+      blurb: "the exact ones i use. not a folder of 400 whooshes.",
+    },
+    {
+      name: "pinterest board",
+      blurb: "my favorite on-screen elements, in one board you can steal from.",
+    },
+    {
+      name: "LUTs",
+      blurb: "the looks i actually put on my yaps.",
+    },
   ] satisfies SessionTopic[],
 };
 
