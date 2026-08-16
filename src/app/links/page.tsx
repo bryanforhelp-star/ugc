@@ -93,7 +93,6 @@ export default async function LinksPage() {
           />
         </div>
         <h1 className="links-name">{LINKS_PAGE.name}</h1>
-        <p className="links-tagline">{LINKS_PAGE.tagline}</p>
       </section>
 
       {buttons.map((button) => (

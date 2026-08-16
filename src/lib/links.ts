@@ -20,9 +20,8 @@ export type LinksSocial = {
  */
 export const LINKS_PAGE = {
   title: "kyndall",
-  description: "everything i make, in one place.",
+  description: "hi, i'm kyndall.",
   name: "hi, i'm kyndall.",
-  tagline: "making ai feel more creative. everything i make, in one place.",
   avatar: "/links/avatar.jpg",
   buttons: [
     {
