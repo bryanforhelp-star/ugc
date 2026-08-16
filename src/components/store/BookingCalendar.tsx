@@ -222,7 +222,7 @@ export function BookingCalendar({
   return (
     <div className="links-native-cal">
       <p className="links-native-cal-kicker">
-        {SESSION.durationMin} min · {tzShort(viewerTz)}
+        select a date · {tzShort(viewerTz)}
       </p>
       <div className="links-cal-split">
         <div className="links-cal-month">
@@ -309,6 +309,7 @@ export function BookingCalendar({
                     }}
                   >
                     {partsInZone(slot.startISO, viewerTz).timeLabel}
+                    <span className="links-time-chip-dur">{SESSION.durationMin} min</span>
                   </button>
                 ))}
               </div>

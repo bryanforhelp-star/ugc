@@ -366,27 +366,28 @@ button.links-aff:disabled {
 
 .links-native-cal {
   background: var(--links-card);
-  border-radius: var(--links-radius);
+  border-radius: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-  padding: 18px 16px 16px;
+  padding: 18px 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .links-native-cal-kicker {
   font-family: var(--serif);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--links-muted);
   margin: 0;
+  text-align: center;
 }
 
 .links-cal-split {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .links-cal-head {
@@ -394,37 +395,38 @@ button.links-aff:disabled {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  padding: 0 6px;
+  margin-bottom: 8px;
 }
 
 .links-cal-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
 .links-cal-nav {
   display: flex;
-  gap: 4px;
+  gap: 2px;
 }
 
 .links-cal-arrow {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: 0;
   border-radius: 50%;
-  background: #f7f6f2;
-  color: inherit;
-  font-size: 20px;
+  background: transparent;
+  color: var(--links-ink);
+  font-size: 26px;
   line-height: 1;
   cursor: pointer;
   appearance: none;
 }
 
 .links-cal-arrow:disabled {
-  opacity: 0.35;
+  opacity: 0.28;
   cursor: default;
 }
 
@@ -440,25 +442,24 @@ button.links-aff:disabled {
 }
 
 .links-cal-weekdays {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .links-cal-weekdays span {
   text-align: center;
-  font-family: var(--serif);
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--links-muted);
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
 .links-cal-cell,
 .links-cal-day {
-  aspect-ratio: 1;
   width: 100%;
-  max-width: 42px;
-  margin: 2px auto;
+  aspect-ratio: 1;
+  margin: 1px auto;
+  max-width: 48px;
 }
 
 .links-cal-day {
@@ -467,25 +468,26 @@ button.links-aff:disabled {
   background: transparent;
   color: #c4c2ba;
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   cursor: default;
   appearance: none;
 }
 
 .links-cal-day.is-open {
-  background: color-mix(in srgb, var(--links-accent) 16%, white);
-  color: var(--links-ink);
-  cursor: pointer;
-}
-
-.links-cal-day.is-on {
   background: var(--links-accent);
   color: var(--links-accent-text);
   cursor: pointer;
 }
 
+.links-cal-day.is-on {
+  background: var(--links-ink);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--links-accent) 45%, white);
+}
+
 .links-cal-day.is-open:hover {
-  background: color-mix(in srgb, var(--links-accent) 28%, white);
+  filter: brightness(0.94);
 }
 
 .links-cal-day:focus-visible {
@@ -495,36 +497,47 @@ button.links-aff:disabled {
 
 .links-cal-times-label {
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 16px;
   margin: 0 0 10px;
+  text-align: center;
 }
 
 .links-cal-times-empty {
   font-size: 13.5px;
   color: var(--links-muted);
   margin: 0;
-  padding: 8px 0 4px;
+  padding: 4px 8px 2px;
+  text-align: center;
 }
 
 .links-time-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  max-height: 280px;
-  overflow-y: auto;
+  gap: 10px;
 }
 
 .links-time-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  min-height: 44px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  background: #f7f6f2;
+  min-height: 52px;
+  padding: 0 18px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  background: #fff;
   color: inherit;
   font: inherit;
-  font-size: 14.5px;
+  font-size: 16px;
   cursor: pointer;
   appearance: none;
+}
+
+.links-time-chip-dur {
+  font-size: 12px;
+  color: var(--links-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .links-time-chip.is-on {
@@ -533,32 +546,28 @@ button.links-aff:disabled {
   border-color: transparent;
 }
 
+.links-time-chip.is-on .links-time-chip-dur {
+  color: inherit;
+  opacity: 0.85;
+}
+
 .links-time-chip:focus-visible {
   outline: 3px solid var(--links-accent);
   outline-offset: 2px;
 }
 
 .links-native-cal .links-product-buy {
-  margin-top: 0;
+  margin-top: 2px;
+  border-radius: 999px;
+  min-height: 54px;
 }
 
 .links-native-cal-note {
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--links-muted);
   margin: 0;
-}
-
-@media (min-width: 760px) {
-  .links-cal-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(140px, 0.85fr);
-    gap: 22px;
-    align-items: start;
-  }
-
-  .links-time-list {
-    max-height: 320px;
-  }
+  text-align: center;
+  line-height: 1.4;
 }
 
 .links-product-soon {
@@ -637,22 +646,20 @@ button.links-aff:disabled {
 }
 
 .links-store--book {
-  max-width: 880px;
+  max-width: 440px;
 }
 
-.links-book {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.links-book-copy {
+  text-align: center;
+  margin-bottom: 4px;
 }
 
 .links-book-copy .links-name,
 .links-book-copy .links-tagline,
 .links-book-copy .links-kicker,
 .links-book-copy .links-disclosure {
-  text-align: left;
-  margin-inline: 0;
-  max-width: none;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .links-book-price {
@@ -660,15 +667,16 @@ button.links-aff:disabled {
   font-size: 22px;
   color: var(--links-accent);
   margin: 8px 0 0;
+  text-align: center;
 }
 
 .links-book-topics {
   list-style: none;
-  margin: 18px 0 0;
-  padding: 0;
+  margin: 6px 0 0;
+  padding: 8px 4px 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .links-book-topics li {
@@ -679,7 +687,7 @@ button.links-aff:disabled {
 
 .links-book-topic-name {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .links-book-topic-blurb {
@@ -691,20 +699,6 @@ button.links-aff:disabled {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-@media (min-width: 760px) {
-  .links-book {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 28px;
-    align-items: start;
-  }
-
-  .links-book-copy {
-    position: sticky;
-    top: 24px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

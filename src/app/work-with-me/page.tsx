@@ -21,38 +21,34 @@ export default async function WorkWithMePage() {
   const slots = buildOpenSlots(held);
 
   return (
-    <div className="links-store links-store--book">
-      <div className="links-book">
-        <section className="links-book-copy">
-          <p className="links-kicker">{SESSION.kicker}</p>
-          <h1 className="links-name">{SESSION.headline}</h1>
-          <p className="links-book-price">{SESSION.priceLabel}</p>
-          <p className="links-tagline">{SESSION.lead}</p>
+    <div className="links-store">
+      <section className="links-book-copy">
+        <p className="links-kicker">{SESSION.kicker}</p>
+        <h1 className="links-name">{SESSION.headline}</h1>
+        <p className="links-book-price">{SESSION.priceLabel}</p>
+        <p className="links-tagline">{SESSION.lead}</p>
+      </section>
 
-          <ul className="links-book-topics">
-            {SESSION.topics.map((topic) => (
-              <li key={topic.name}>
-                <span className="links-book-topic-name">{topic.name}</span>
-                <span className="links-book-topic-blurb">{topic.blurb}</span>
-              </li>
-            ))}
-          </ul>
+      <BookingCalendar
+        initialSlots={slots}
+        bookable={canTakePayments()}
+      />
 
-          <p className="links-disclosure">
-            brands and ugc:{" "}
-            <a href={`mailto:${SITE.workWithMe.email}`}>
-              {SITE.workWithMe.email}
-            </a>
-          </p>
-        </section>
+      <ul className="links-book-topics">
+        {SESSION.topics.map((topic) => (
+          <li key={topic.name}>
+            <span className="links-book-topic-name">{topic.name}</span>
+            <span className="links-book-topic-blurb">{topic.blurb}</span>
+          </li>
+        ))}
+      </ul>
 
-        <section className="links-book-cal">
-          <BookingCalendar
-            initialSlots={slots}
-            bookable={canTakePayments()}
-          />
-        </section>
-      </div>
+      <p className="links-disclosure">
+        brands and ugc:{" "}
+        <a href={`mailto:${SITE.workWithMe.email}`}>
+          {SITE.workWithMe.email}
+        </a>
+      </p>
 
       <StoreLink href="/links" className="links-back">
         back to links
