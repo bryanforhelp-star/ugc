@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { BookingSlot } from "@/lib/booking";
+import { parseBookingIntake, type BookingSlot } from "@/lib/booking";
 import { SESSION } from "@/lib/store";
 
 const WEEKDAYS = ["s", "m", "t", "w", "t", "f", "s"];
@@ -111,6 +111,10 @@ export function BookingCalendar({
   const [startISO, setStartISO] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [reasons, setReasons] = useState<string[]>([]);
+  const [need, setNeed] = useState("");
 
   useEffect(() => {
     setViewerTz(Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC");
@@ -167,6 +171,11 @@ export function BookingCalendar({
   }
 
   async function pay() {
+    const intake = parseBookingIntake({ firstName, email, reasons, need });
+    if (!intake.ok) {
+      setError(intake.error);
+      return;
+    }
     if (!selected) {
       setError("pick a day and a time first.");
       return;
@@ -181,7 +190,13 @@ export function BookingCalendar({
       const response = await fetch("/api/booking/checkout", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ startISO: selected.startISO }),
+        body: JSON.stringify({
+          startISO: selected.startISO,
+          firstName: intake.intake.firstName,
+          email: intake.intake.email,
+          reasons: intake.intake.reasons,
+          need: intake.intake.need,
+        }),
       });
       const data = (await response.json()) as { url?: string; error?: string };
       if (!response.ok || !data.url) {
@@ -195,6 +210,14 @@ export function BookingCalendar({
       setError("checkout did not start");
       setBusy(false);
     }
+  }
+
+  function toggleReason(reason: string) {
+    const on = reasons.includes(reason);
+    setReasons(
+      on ? reasons.filter((item) => item !== reason) : [...reasons, reason],
+    );
+    setError("");
   }
 
   if (!viewerTz) {
@@ -221,6 +244,63 @@ export function BookingCalendar({
 
   return (
     <div className="links-native-cal">
+      <div className="links-intake">
+        <p className="links-native-cal-kicker">who you are</p>
+        <label className="links-intake-field">
+          <span>first name</span>
+          <input
+            type="text"
+            autoComplete="given-name"
+            name="given-name"
+            value={firstName}
+            disabled={busy}
+            onChange={(event) => setFirstName(event.target.value)}
+          />
+        </label>
+        <label className="links-intake-field">
+          <span>email</span>
+          <input
+            type="email"
+            autoComplete="email"
+            inputMode="email"
+            name="email"
+            value={email}
+            disabled={busy}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+        <div className="links-intake-field">
+          <span>what is this for</span>
+          <div className="links-intake-chips" role="group" aria-label="what this is for">
+            {SESSION.reasons.map((reason) => {
+              const on = reasons.includes(reason);
+              return (
+                <button
+                  key={reason}
+                  type="button"
+                  className={on ? "links-intake-chip is-on" : "links-intake-chip"}
+                  aria-pressed={on}
+                  disabled={busy}
+                  onClick={() => toggleReason(reason)}
+                >
+                  {reason}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+        <label className="links-intake-field">
+          <span>what do you need help with</span>
+          <textarea
+            name="need"
+            rows={4}
+            value={need}
+            disabled={busy}
+            placeholder="a reel that will not sit still. a page. whatever is actually on your plate."
+            onChange={(event) => setNeed(event.target.value)}
+          />
+        </label>
+      </div>
       <p className="links-native-cal-kicker">
         select a date · {tzShort(viewerTz)}
       </p>

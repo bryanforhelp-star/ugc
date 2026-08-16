@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { formatSlotRange, isBookableSlot } from "@/lib/booking";
+import { formatSlotRange, isBookableSlot, parseBookingIntake, stripeMeta } from "@/lib/booking";
 import { SESSION, SESSION_PRODUCT } from "@/lib/store";
 import {
   getHeldBookingStarts,
@@ -12,9 +12,22 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   let startISO = "";
+  let rawIntake: {
+    firstName?: unknown;
+    email?: unknown;
+    reasons?: unknown;
+    need?: unknown;
+  } = {};
   try {
-    const body = (await request.json()) as { startISO?: string };
+    const body = (await request.json()) as {
+      startISO?: string;
+      firstName?: unknown;
+      email?: unknown;
+      reasons?: unknown;
+      need?: unknown;
+    };
     startISO = body.startISO?.trim() ?? "";
+    rawIntake = body;
   } catch {
     return NextResponse.json({ error: "bad request" }, { status: 400 });
   }
@@ -22,6 +35,13 @@ export async function POST(request: Request) {
   if (!startISO) {
     return NextResponse.json({ error: "pick a time first" }, { status: 400 });
   }
+
+  const parsed = parseBookingIntake(rawIntake);
+  if (!parsed.ok) {
+    return NextResponse.json({ error: parsed.error }, { status: 400 });
+  }
+  const { firstName, email, reasons, need } = parsed.intake;
+  const bookingFor = reasons.join(", ");
 
   const stripe = getStripe();
   const lineItems = lineItemsForProduct(SESSION_PRODUCT);
@@ -46,6 +66,7 @@ export async function POST(request: Request) {
     line_items: lineItems,
     allow_promotion_codes: true,
     billing_address_collection: "auto",
+    customer_email: email,
     expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
     submit_type: "book",
     metadata: {
@@ -53,9 +74,20 @@ export async function POST(request: Request) {
       kind: "booking",
       startISO,
       when,
+      firstName: stripeMeta(firstName),
+      guestEmail: stripeMeta(email),
+      bookingFor: stripeMeta(bookingFor),
+      need: stripeMeta(need),
     },
     payment_intent_data: {
-      description: `1:1 with kyndall. ${when}`,
+      description: `1:1 with kyndall. ${firstName}. ${bookingFor || "the hour"}. ${when}`,
+      metadata: {
+        firstName: stripeMeta(firstName),
+        guestEmail: stripeMeta(email),
+        bookingFor: stripeMeta(bookingFor),
+        need: stripeMeta(need),
+        startISO,
+      },
     },
     custom_text: {
       submit: {

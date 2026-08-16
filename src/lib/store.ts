@@ -61,7 +61,14 @@ export const SESSION = {
   daysAhead: 21,
   kicker: "1:1 sessions",
   headline: "work with me.",
-  lead: "pick a time. pay here. we spend the hour on the actual thing.",
+  lead: "pick a time here. we spend the hour going through what you need.",
+  reasons: [
+    "editing",
+    "content strategy",
+    "ugc",
+    "a build",
+    "something else",
+  ],
   topics: [
     {
       name: "editing",

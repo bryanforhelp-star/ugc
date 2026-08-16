@@ -34,15 +34,6 @@ export default async function WorkWithMePage() {
         bookable={canTakePayments()}
       />
 
-      <ul className="links-book-topics">
-        {SESSION.topics.map((topic) => (
-          <li key={topic.name}>
-            <span className="links-book-topic-name">{topic.name}</span>
-            <span className="links-book-topic-blurb">{topic.blurb}</span>
-          </li>
-        ))}
-      </ul>
-
       <p className="links-disclosure">
         brands and ugc:{" "}
         <a href={`mailto:${SITE.workWithMe.email}`}>

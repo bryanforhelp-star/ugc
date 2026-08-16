@@ -8,6 +8,59 @@ export type BookingSlot = {
   timeLabel: string;
 };
 
+export type BookingIntake = {
+  firstName: string;
+  email: string;
+  reasons: string[];
+  need: string;
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const META_MAX = 500;
+
+export function parseBookingIntake(raw: {
+  firstName?: unknown;
+  email?: unknown;
+  reasons?: unknown;
+  need?: unknown;
+}): { ok: true; intake: BookingIntake } | { ok: false; error: string } {
+  const firstName =
+    typeof raw.firstName === "string" ? raw.firstName.trim().slice(0, 80) : "";
+  const email =
+    typeof raw.email === "string"
+      ? raw.email.trim().toLowerCase().slice(0, 120)
+      : "";
+  const reasons = Array.isArray(raw.reasons)
+    ? raw.reasons
+        .filter(
+          (reason): reason is string =>
+            typeof reason === "string" &&
+            (SESSION.reasons as readonly string[]).includes(reason),
+        )
+        .slice(0, SESSION.reasons.length)
+    : [];
+  const need = typeof raw.need === "string" ? raw.need.trim().slice(0, 800) : "";
+
+  if (firstName.length < 2) {
+    return { ok: false, error: "add your first name" };
+  }
+  if (!EMAIL_RE.test(email)) {
+    return { ok: false, error: "add a real email" };
+  }
+  if (reasons.length === 0 && !need) {
+    return {
+      ok: false,
+      error: "click what this is for, or write a bit about what you need",
+    };
+  }
+
+  return { ok: true, intake: { firstName, email, reasons, need } };
+}
+
+export function stripeMeta(value: string) {
+  return value.slice(0, META_MAX);
+}
+
 const WEEKDAYS: Record<string, number> = {
   Sun: 0,
   Mon: 1,

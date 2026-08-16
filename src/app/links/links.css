@@ -686,6 +686,82 @@ button.links-aff:disabled {
   outline-offset: 2px;
 }
 
+.links-intake {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 2px;
+}
+
+.links-intake-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: var(--links-muted);
+}
+
+.links-intake-field input,
+.links-intake-field textarea {
+  width: 100%;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--links-ink);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding: 12px 14px;
+  appearance: none;
+  resize: vertical;
+}
+
+.links-intake-field textarea {
+  min-height: 96px;
+  line-height: 1.4;
+}
+
+.links-intake-field input:focus,
+.links-intake-field textarea:focus {
+  outline: 3px solid var(--links-accent);
+  outline-offset: 2px;
+}
+
+.links-intake-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.links-intake-chip {
+  border: 1px solid var(--links-accent);
+  border-radius: 99px;
+  background: transparent;
+  color: var(--links-accent);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 13.5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  appearance: none;
+}
+
+.links-intake-chip.is-on {
+  background: var(--links-accent);
+  color: var(--links-accent-text);
+}
+
+.links-intake-chip:focus-visible {
+  outline: 3px solid var(--links-ink);
+  outline-offset: 3px;
+}
+
+.links-intake-chip:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 .links-native-cal .links-product-buy {
   margin-top: 2px;
   border-radius: 999px;
