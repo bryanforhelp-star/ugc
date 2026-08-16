@@ -47,10 +47,10 @@ export const SITE = {
   kits: {
     label: "Shop",
     navLabel: "shop",
-    homepageLead: "a mini course you can preorder. more later.",
-    hubLinkLabel: "see the shop",
-    description:
-      "mini courses and paid guides. first up: the editing mini course, in presale.",
+  homepageLead: "a mini guide you can preorder. more later.",
+  hubLinkLabel: "see the shop",
+  description:
+    "paid guides. first up: how i edit my yaps, in presale.",
     emptyMessage:
       "nothing here yet. follow on instagram if you want a heads up.",
   },

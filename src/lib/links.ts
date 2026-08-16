@@ -31,9 +31,9 @@ export const LINKS_PAGE = {
       emoji: "🧚",
     },
     {
-      title: "editing mini course",
-      sub: "presale. launches september 1",
-      href: "/kits/editing-mini-course",
+      title: "editing mini guide",
+      sub: "how i edit my yaps. $25",
+      href: "/kits/editing-mini-guide",
       emoji: "✂️",
     },
     {

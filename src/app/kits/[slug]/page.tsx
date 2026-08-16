@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 import { canCheckout, getDisplayPrice } from "@/lib/stripe";
 import {
   DIGITAL_PRODUCTS,
-  EDITING_COURSE,
+  EDITING_GUIDE,
   STORE_COPY,
   getDigitalProduct,
   productPath,
@@ -47,6 +47,17 @@ export async function generateMetadata({
       description,
       url,
       siteName: SITE.name,
+      ...(product.image
+        ? {
+            images: [
+              {
+                url: product.image.startsWith("http")
+                  ? product.image
+                  : absoluteUrl(product.image),
+              },
+            ],
+          }
+        : {}),
     },
   };
 }
@@ -63,12 +74,12 @@ export default async function ShopProductPage({
   const live = canCheckout(product);
   const price = (await getDisplayPrice(product)) ?? product.priceLabel;
   const presale = product.status === "presale";
-  const course = product.id === EDITING_COURSE.id ? EDITING_COURSE : null;
-  const kicker = course?.kicker ?? product.status ?? "shop";
-  const headline = course?.headline ?? `${product.title}.`;
-  const lead = course?.lead ?? product.description;
-  const includes = course?.includes ?? [];
-  const launchLabel = course?.launchLabel;
+  const guide = product.id === EDITING_GUIDE.id ? EDITING_GUIDE : null;
+  const kicker = guide?.kicker ?? product.status ?? "shop";
+  const headline = guide?.headline ?? `${product.title}.`;
+  const lead = guide?.lead ?? product.description;
+  const includes = guide?.includes ?? [];
+  const launchLabel = guide?.launchLabel;
   const href = productPath(product);
 
   const jsonLd: Record<string, unknown> = {
@@ -77,6 +88,11 @@ export default async function ShopProductPage({
     name: product.title,
     description: product.description,
     brand: { "@type": "Person", name: SITE.name },
+    image: product.image
+      ? product.image.startsWith("http")
+        ? product.image
+        : absoluteUrl(product.image)
+      : undefined,
     offers: {
       "@type": "Offer",
       url: absoluteUrl(href),
@@ -87,7 +103,7 @@ export default async function ShopProductPage({
       availability: presale
         ? "https://schema.org/PreOrder"
         : "https://schema.org/InStock",
-      ...(course?.launchDate ? { availabilityStarts: course.launchDate } : {}),
+      ...(guide?.launchDate ? { availabilityStarts: guide.launchDate } : {}),
     },
   };
 
@@ -115,7 +131,7 @@ export default async function ShopProductPage({
               : undefined
           }
         >
-          {product.image ? "" : product.photoLabel || "course"}
+          {product.image ? "" : product.photoLabel || "photo"}
         </div>
         <div className="links-product-body">
           <h2 className="links-product-title">{product.title}</h2>

@@ -10,7 +10,7 @@
 | `/work-with-me` | 1:1 booking. $200/hour. Native calendar plus Stripe checkout. Hours in Bali time, shown in the visitor's timezone. Copy in `src/lib/store.ts` (`SESSION`) |
 | `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
 | `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
-| `/kits` | Shop. Digital products. Copy in `src/lib/store.ts`. First listing is the editing mini course presale |
+| `/kits` | Shop. Digital products. Copy in `src/lib/store.ts`. First listing is the editing mini guide presale |
 | `/kits/[id]` | Stand-style sales page for a listed digital product. Stripe preorder / checkout |
 | `/links` | Link in bio / store. Profile, work with me, shop, tools. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
 | `/book` | Redirects to `/work-with-me` |

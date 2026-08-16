@@ -18,6 +18,7 @@ export type StoreProduct = {
   status?: DigitalStatus;
   image?: string;
   photoLabel?: string;
+  cardCta?: string;
 };
 
 export type StoreLinkItem = {
@@ -113,56 +114,57 @@ export const MATCHA_TIPS = {
 } as const;
 
 /**
- * Video editing mini course. Presale until September 1, 2026.
- * Price fallback is $49 until STRIPE_PRICE_EDITING_COURSE is set.
+ * Editing mini guide. Presale until September 1, 2026.
+ * Checkout uses $25 from amountCents. Ignore any leftover $49 Stripe Price.
  */
-export const EDITING_COURSE = {
-  id: "editing-mini-course",
+export const EDITING_GUIDE = {
+  id: "editing-mini-guide",
   kicker: "presale",
-  title: "editing mini course",
-  headline: "the editing mini course.",
+  title: "editing mini guide",
+  headline: "how i edit my yaps.",
   description:
-    "how i cut a talking head so it holds. not a pdf dump. the edit room, as a course.",
-  lead: "preorder now. you get it when it launches september 1.",
-  launchLabel: "launches september 1",
+    "how i edit my yaps. the cuts, the captions, the little bits that make it hold.",
+  lead: "preorder now. you get it when it drops september 1. a short guide, not a course.",
+  launchLabel: "you get it september 1",
   launchDate: "2026-09-01",
-  priceLabel: "$49",
-  amountCents: 4_900,
+  priceLabel: "$25",
+  amountCents: 2_500,
   cta: "preorder",
-  checkoutMessage: "preorder. you get the course on september 1.",
+  cardCta: "see the guide",
+  checkoutMessage: "preorder. you get the guide on september 1.",
   includes: [
     {
-      name: "the talking head",
-      blurb: "the cut, the breaths, the part people keep asking about.",
+      name: "the cuts",
+      blurb: "what stays in a yap, what gets thrown, where it actually starts.",
     },
     {
-      name: "the layer on top",
-      blurb: "captions, overlays, greenscreen. sitting in the frame without burying your face.",
+      name: "the words",
+      blurb: "captions that read like you, not like a tutorial.",
     },
     {
-      name: "the small moves",
-      blurb:
-        "editing is a work of art, and it doesn't have to be complicated.",
+      name: "the extra bits",
+      blurb: "overlays and greenscreen that sit in the frame without taking over.",
     },
   ] satisfies SessionTopic[],
 };
 
-export const EDITING_COURSE_PRODUCT: StoreProduct = {
-  id: EDITING_COURSE.id,
+export const EDITING_GUIDE_PRODUCT: StoreProduct = {
+  id: EDITING_GUIDE.id,
   kind: "digital",
-  title: EDITING_COURSE.title,
-  description: EDITING_COURSE.description,
-  cta: EDITING_COURSE.cta,
-  priceLabel: EDITING_COURSE.priceLabel,
-  stripePriceEnv: "STRIPE_PRICE_EDITING_COURSE",
-  amountCents: EDITING_COURSE.amountCents,
+  title: EDITING_GUIDE.title,
+  description: EDITING_GUIDE.description,
+  cta: EDITING_GUIDE.cta,
+  priceLabel: EDITING_GUIDE.priceLabel,
+  amountCents: EDITING_GUIDE.amountCents,
   forSale: true,
   listed: true,
   status: "presale",
-  photoLabel: "course",
+  image: "/shop/edit-my-yaps.png",
+  photoLabel: "guide",
+  cardCta: EDITING_GUIDE.cardCta,
 };
 
-export const DIGITAL_PRODUCTS: StoreProduct[] = [EDITING_COURSE_PRODUCT];
+export const DIGITAL_PRODUCTS: StoreProduct[] = [EDITING_GUIDE_PRODUCT];
 
 export function productPath(product: StoreProduct) {
   return `/kits/${product.id}`;

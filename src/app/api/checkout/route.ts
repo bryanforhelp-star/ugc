@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  EDITING_COURSE,
+  EDITING_GUIDE,
   MATCHA_TIPS,
   getStoreProduct,
   productPath,
@@ -102,8 +102,8 @@ export async function POST(request: Request) {
                 custom_text: {
                   submit: {
                     message:
-                      product.id === EDITING_COURSE.id
-                        ? EDITING_COURSE.checkoutMessage
+                      product.id === EDITING_GUIDE.id
+                        ? EDITING_GUIDE.checkoutMessage
                         : "preorder. you get access when it launches.",
                   },
                 },

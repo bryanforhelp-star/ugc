@@ -3,7 +3,7 @@ import { LocalWhen } from "@/components/store/LocalWhen";
 import { StoreLink } from "@/components/store/StoreLink";
 import { bookingIcs } from "@/lib/booking";
 import { getPaidCheckoutSession } from "@/lib/stripe";
-import { COFFEE, EDITING_COURSE, getStoreProduct, productPath } from "@/lib/store";
+import { COFFEE, EDITING_GUIDE, getStoreProduct, productPath } from "@/lib/store";
 import "../links/links.css";
 
 export const dynamic = "force-dynamic";
@@ -51,7 +51,7 @@ export default async function ThanksPage({
   } else if (presale) {
     kicker = "presale";
     title = "you're in.";
-    tagline = `the ${product?.title ?? "course"} launches ${product?.id === EDITING_COURSE.id ? "september 1" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
+    tagline = `the ${product?.title ?? "guide"} lands ${product?.id === EDITING_GUIDE.id ? "september 1" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
   } else if (digital) {
     kicker = "paid";
     title = "i'll send it over.";

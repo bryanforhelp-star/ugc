@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/link", destination: "/links", permanent: true },
+      {
+        source: "/kits/editing-mini-course",
+        destination: "/kits/editing-mini-guide",
+        permanent: true,
+      },
     ];
   },
   images: {

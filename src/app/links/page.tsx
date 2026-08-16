@@ -140,7 +140,7 @@ export default async function LinksPage() {
                 <p className="links-product-desc">{product.description}</p>
                 <span className="links-product-buy">
                   <span>
-                    {product.status === "presale" ? "see the course" : "get it"}
+                    {product.status === "presale" ? "see the guide" : "get it"}
                   </span>
                   {price ? <span className="links-price">{price}</span> : null}
                 </span>

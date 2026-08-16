@@ -24,7 +24,7 @@ export function ShopCard({ product, variant = "hub" }: Props) {
           ) : null}
           <div className="guide-card__row">
             <Link href={href} className="glass-pill">
-              see the course
+              {product.cardCta ?? product.cta}
             </Link>
           </div>
         </div>
@@ -41,7 +41,9 @@ export function ShopCard({ product, variant = "hub" }: Props) {
         {product.priceLabel ? (
           <p className="product-card__price">{product.priceLabel}</p>
         ) : null}
-        <span className="guide-card__arrow">see the course</span>
+        <span className="guide-card__arrow">
+          {product.cardCta ?? product.cta}
+        </span>
       </Link>
     </article>
   );
