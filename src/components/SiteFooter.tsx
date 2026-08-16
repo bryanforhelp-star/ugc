@@ -20,6 +20,9 @@ export function SiteFooter() {
             <Link href="/video">
               <span className="arr">↳</span> editing
             </Link>
+            <Link href="/kits">
+              <span className="arr">↳</span> {SITE.kits.navLabel}
+            </Link>
             <Link href="/guides">
               <span className="arr">↳</span> {SITE.guides.navLabel}
             </Link>

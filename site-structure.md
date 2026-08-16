@@ -4,21 +4,22 @@
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Homepage — featured guides in "free things", trust marquee, showcase |
+| `/` | Homepage — shop, featured guides, trust marquee, showcase |
 | `/guides` | All published guides |
 | `/guides/[slug]` | Single guide (ManyChat DM destination) |
 | `/work-with-me` | 1:1 booking. $200/hour. Native calendar plus Stripe checkout. Hours in Bali time, shown in the visitor's timezone. Copy in `src/lib/store.ts` (`SESSION`) |
 | `/ugc` | Paid UGC portfolio (grid, brand marquee, services). Config in `src/lib/ugc.ts` |
 | `/video` | Editing portfolio for organic reels. Clips in `public/showcase/` |
-| `/kits` | Digital products. Live but empty, and pulled from nav until something publishes |
-| `/links` | Link in bio / store. Profile, work with me, tools. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
+| `/kits` | Shop. Digital products. Copy in `src/lib/store.ts`. First listing is the editing mini course presale |
+| `/kits/[id]` | Stand-style sales page for a listed digital product. Stripe preorder / checkout |
+| `/links` | Link in bio / store. Profile, work with me, shop, tools. Copy in `src/lib/links.ts` and `src/lib/store.ts` |
 | `/book` | Redirects to `/work-with-me` |
 | `/book/schedule` | Redirects to `/work-with-me` |
 | `/thanks` | Digital product receipt. Requires a paid Stripe session. Noindex. |
 
 Live keyword CTAs and which guide each maps to: `brands/kyndall/accounts.md`.
 
-**Known gaps:** `/ugc` and `/kits` are missing from `src/app/sitemap.ts`. `ugc.ts` and
+**Known gaps:** `/ugc` is missing from `src/app/sitemap.ts`. `ugc.ts` and
 `site-mode.ts` reference a `ugc.bykyndall.com` subdomain, but `next.config.ts` has no rewrite,
 so UGC only renders at the `/ugc` path.
 

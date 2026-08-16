@@ -7,7 +7,7 @@ import {
   TikTokIcon,
   YouTubeIcon,
 } from "@/components/SocialIcons";
-import { CheckoutButton } from "@/components/store/CheckoutButton";
+import { MatchaSupport } from "@/components/store/MatchaSupport";
 import { StoreLink } from "@/components/store/StoreLink";
 import { liveButtons, LINKS_PAGE, type LinksSocial } from "@/lib/links";
 import { absoluteUrl } from "@/lib/seo";
@@ -18,6 +18,7 @@ import {
   STORE_COPY,
   getAffiliates,
   listedDigitalProducts,
+  productPath,
 } from "@/lib/store";
 import "./links.css";
 
@@ -74,13 +75,9 @@ export default async function LinksPage() {
     listedDigitalProducts().map(async (product) => ({
       product,
       price: await getDisplayPrice(product),
-      live: canCheckout(product),
     })),
   );
-  const coffee = {
-    live: canCheckout(COFFEE),
-    price: (await getDisplayPrice(COFFEE)) ?? COFFEE.priceLabel,
-  };
+  const coffeeLive = canCheckout(COFFEE);
   const year = new Date().getFullYear();
 
   return (
@@ -119,8 +116,12 @@ export default async function LinksPage() {
       {products.length > 0 ? (
         <>
           <div className="links-label">{STORE_COPY.shopLabel}</div>
-          {products.map(({ product, price, live }) => (
-            <section key={product.id} className="links-product">
+          {products.map(({ product, price }) => (
+            <StoreLink
+              key={product.id}
+              href={productPath(product)}
+              className="links-product"
+            >
               <div
                 className={
                   product.image
@@ -138,50 +139,20 @@ export default async function LinksPage() {
               <div className="links-product-body">
                 <h2 className="links-product-title">{product.title}</h2>
                 <p className="links-product-desc">{product.description}</p>
-                {live ? (
-                  <CheckoutButton
-                    productId={product.id}
-                    label={product.cta}
-                    price={price}
-                  />
-                ) : (
-                  <StoreLink
-                    href={STORE_COPY.waitlistHref}
-                    className="links-product-buy links-product-soon"
-                  >
-                    <span>{STORE_COPY.comingSoonCta}</span>
-                    {price ? <span className="links-price">{price}</span> : null}
-                  </StoreLink>
-                )}
+                <span className="links-product-buy">
+                  <span>
+                    {product.status === "presale" ? "see the course" : "get it"}
+                  </span>
+                  {price ? <span className="links-price">{price}</span> : null}
+                </span>
               </div>
-            </section>
+            </StoreLink>
           ))}
         </>
       ) : null}
 
-      <div className="links-label">{STORE_COPY.affiliatesLabel}</div>
-      {getAffiliates().map((aff) => (
-        <StoreLink
-          key={aff.name}
-          href={aff.href}
-          className="links-aff"
-          rel={aff.affiliate ? "sponsored" : undefined}
-        >
-          <span className="links-aff-name">{aff.name}</span>
-          {aff.perk ? <span className="links-aff-perk">{aff.perk}</span> : null}
-        </StoreLink>
-      ))}
-      <p className="links-disclosure">{STORE_COPY.disclosure}</p>
-
-      {coffee.live ? (
-        <CheckoutButton
-          productId={COFFEE.id}
-          label={COFFEE.title}
-          sub={COFFEE.description}
-          emoji="🍵"
-          price={coffee.price}
-          className="links-btn"
-        />
+      {coffeeLive ? (
+        <MatchaSupport />
       ) : (
         <StoreLink
           href={`mailto:${SITE.workWithMe.email}?subject=${encodeURIComponent("matcha")}`}
@@ -200,6 +171,20 @@ export default async function LinksPage() {
           </span>
         </StoreLink>
       )}
+
+      <div className="links-label">{STORE_COPY.affiliatesLabel}</div>
+      {getAffiliates().map((aff) => (
+        <StoreLink
+          key={aff.name}
+          href={aff.href}
+          className="links-aff"
+          rel={aff.affiliate ? "sponsored" : undefined}
+        >
+          <span className="links-aff-name">{aff.name}</span>
+          {aff.perk ? <span className="links-aff-perk">{aff.perk}</span> : null}
+        </StoreLink>
+      ))}
+      <p className="links-disclosure">{STORE_COPY.disclosure}</p>
 
       <footer className="links-footer">
         <div className="links-social">

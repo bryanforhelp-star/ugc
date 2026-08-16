@@ -32,6 +32,12 @@ export const LINKS_PAGE = {
       emoji: "🧚",
     },
     {
+      title: "editing mini course",
+      sub: "presale. launches september 1",
+      href: "/kits/editing-mini-course",
+      emoji: "✂️",
+    },
+    {
       title: "see my ugc portfolio",
       sub: "recent brand work and edits",
       href: "/ugc",

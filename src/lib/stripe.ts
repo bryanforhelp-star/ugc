@@ -17,22 +17,29 @@ export function getStripePriceId(product: StoreProduct) {
   return id?.startsWith("price_") ? id : null;
 }
 
-export function lineItemsForProduct(product: StoreProduct) {
-  const priceId = getStripePriceId(product);
+export function lineItemsForProduct(
+  product: StoreProduct,
+  amountCents = product.amountCents,
+) {
+  const priceId = product.id === "coffee" ? null : getStripePriceId(product);
   if (priceId) return [{ price: priceId, quantity: 1 }];
-  if (product.amountCents && product.amountCents > 0) {
+  if (amountCents && amountCents > 0) {
     const image = product.image?.startsWith("http")
       ? product.image
       : product.image
         ? storeUrl(product.image)
         : null;
     const name =
-      product.id === "coffee" ? "a matcha 🍵" : product.title;
+      product.id === "coffee"
+        ? "a matcha 🍵"
+        : product.status === "presale"
+          ? `${product.title} (presale)`
+          : product.title;
     return [
       {
         price_data: {
           currency: "usd" as const,
-          unit_amount: product.amountCents,
+          unit_amount: amountCents,
           product_data: {
             name,
             description: product.description,
@@ -47,6 +54,9 @@ export function lineItemsForProduct(product: StoreProduct) {
 }
 
 export function canCheckout(product: StoreProduct) {
+  if (product.id === "coffee") {
+    return Boolean(product.forSale && getStripe());
+  }
   return Boolean(product.forSale && getStripe() && lineItemsForProduct(product));
 }
 

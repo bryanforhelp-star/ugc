@@ -4,13 +4,18 @@ export function isUgcPath(pathname: string) {
   return pathname === "/ugc" || pathname.startsWith("/ugc/");
 }
 
+export function isShopProductPath(pathname: string) {
+  return pathname.startsWith("/kits/") && pathname !== "/kits/";
+}
+
 export function isLinksPath(pathname: string) {
   return (
     pathname === "/links" ||
     pathname === "/work-with-me" ||
     pathname === "/book" ||
     pathname.startsWith("/book/") ||
-    pathname === "/thanks"
+    pathname === "/thanks" ||
+    isShopProductPath(pathname)
   );
 }
 

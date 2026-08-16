@@ -43,14 +43,16 @@ export const SITE = {
     "building-ai-loops",
     "claude-voice-setup-skill",
   ],
-  /** Digital products — add back to nav when something is published */
+  /** Digital products. `/kits` is the shop hub; product pages are stand-style. */
   kits: {
-    label: "Kits",
-    navLabel: "kits",
+    label: "Shop",
+    navLabel: "shop",
+    homepageLead: "a mini course you can preorder. more later.",
+    hubLinkLabel: "see the shop",
     description:
-      "workflows, agents, and templates you can actually run. the full versions of what i tease in reels.",
+      "mini courses and paid guides. first up: the editing mini course, in presale.",
     emptyMessage:
-      "nothing here yet. first kit coming soon. follow on instagram if you want a heads up.",
+      "nothing here yet. follow on instagram if you want a heads up.",
   },
   workWithMe: {
     label: "Work with me",

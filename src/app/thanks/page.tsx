@@ -3,7 +3,7 @@ import { LocalWhen } from "@/components/store/LocalWhen";
 import { StoreLink } from "@/components/store/StoreLink";
 import { bookingIcs } from "@/lib/booking";
 import { getPaidCheckoutSession } from "@/lib/stripe";
-import { COFFEE, getStoreProduct } from "@/lib/store";
+import { COFFEE, EDITING_COURSE, getStoreProduct, productPath } from "@/lib/store";
 import "../links/links.css";
 
 export const dynamic = "force-dynamic";
@@ -28,6 +28,7 @@ export default async function ThanksPage({
   const startISO = session?.metadata?.startISO;
   const booked = kind === "booking" && Boolean(when);
   const coffee = product?.id === COFFEE.id;
+  const presale = product?.status === "presale";
   const digital = Boolean(session && product?.kind === "digital" && !coffee);
   const ics =
     booked && startISO
@@ -47,6 +48,10 @@ export default async function ThanksPage({
     kicker = "thank you";
     title = "that's kind.";
     tagline = "it actually helps. truly.";
+  } else if (presale) {
+    kicker = "presale";
+    title = "you're in.";
+    tagline = `the ${product?.title ?? "course"} launches ${product?.id === EDITING_COURSE.id ? "september 1" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
   } else if (digital) {
     kicker = "paid";
     title = "i'll send it over.";
@@ -72,6 +77,18 @@ export default async function ThanksPage({
             →
           </span>
         </a>
+      ) : null}
+
+      {product && product.kind === "digital" && !coffee ? (
+        <StoreLink href={productPath(product)} className="links-btn">
+          <div className="links-btn-text">
+            <div className="links-btn-title">back to the course</div>
+            <div className="links-btn-sub">{product.title}</div>
+          </div>
+          <span className="links-chev" aria-hidden="true">
+            →
+          </span>
+        </StoreLink>
       ) : null}
 
       <StoreLink href="/links" className="links-btn">

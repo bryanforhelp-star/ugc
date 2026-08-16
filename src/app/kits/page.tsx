@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { ProductCard } from "@/components/ProductCard";
-import { getPublishedProducts } from "@/lib/products";
+import { ShopCard } from "@/components/ShopCard";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { listedDigitalProducts } from "@/lib/store";
 
 export const metadata: Metadata = {
   title: SITE.kits.label,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function KitsPage() {
-  const products = getPublishedProducts();
+  const products = listedDigitalProducts();
 
   return (
     <div className="page">
@@ -28,7 +28,7 @@ export default function KitsPage() {
         {products.length > 0 ? (
           <div className="guide-grid">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ShopCard key={product.id} product={product} />
             ))}
           </div>
         ) : (

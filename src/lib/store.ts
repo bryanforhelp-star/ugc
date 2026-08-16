@@ -1,6 +1,7 @@
 import { SITE, substackSubscribeUrl } from "./site";
 
 export type StoreKind = "booking" | "digital";
+export type DigitalStatus = "presale" | "live";
 
 export type StoreProduct = {
   id: string;
@@ -14,6 +15,7 @@ export type StoreProduct = {
   amountCents?: number;
   forSale: boolean;
   listed?: boolean;
+  status?: DigitalStatus;
   image?: string;
   photoLabel?: string;
 };
@@ -100,22 +102,71 @@ export const COFFEE: StoreProduct = {
   listed: false,
 };
 
-/** Kept for a later checkout, not shown until the product is actually worth selling. */
-export const DIGITAL_PRODUCTS: StoreProduct[] = [
-  {
-    id: "editing-mini-course",
-    kind: "digital",
-    title: "editing mini course",
-    description:
-      "how i cut a talking head so it holds. not a pdf dump. not listed until it's ready.",
-    cta: "get the course",
-    priceLabel: "",
-    stripePriceEnv: "STRIPE_PRICE_EDITING_COURSE",
-    forSale: false,
-    listed: false,
-    photoLabel: "course",
-  },
-];
+export const MATCHA_TIPS = {
+  amounts: [
+    { label: "$5", cents: 500 },
+    { label: "$10", cents: 1000 },
+  ],
+  customLabel: "custom",
+  minCents: 100,
+  maxCents: 50_000,
+} as const;
+
+/**
+ * Video editing mini course. Presale until September 1, 2026.
+ * Price fallback is $49 until STRIPE_PRICE_EDITING_COURSE is set.
+ */
+export const EDITING_COURSE = {
+  id: "editing-mini-course",
+  kicker: "presale",
+  title: "editing mini course",
+  headline: "the editing mini course.",
+  description:
+    "how i cut a talking head so it holds. not a pdf dump. the edit room, as a course.",
+  lead: "preorder now. you get it when it launches september 1.",
+  launchLabel: "launches september 1",
+  launchDate: "2026-09-01",
+  priceLabel: "$49",
+  amountCents: 4_900,
+  cta: "preorder",
+  checkoutMessage: "preorder. you get the course on september 1.",
+  includes: [
+    {
+      name: "the talking head",
+      blurb: "the cut, the breaths, the part people keep asking about.",
+    },
+    {
+      name: "the layer on top",
+      blurb: "captions, overlays, greenscreen. sitting in the frame without burying your face.",
+    },
+    {
+      name: "the small moves",
+      blurb:
+        "editing is a work of art, and it doesn't have to be complicated.",
+    },
+  ] satisfies SessionTopic[],
+};
+
+export const EDITING_COURSE_PRODUCT: StoreProduct = {
+  id: EDITING_COURSE.id,
+  kind: "digital",
+  title: EDITING_COURSE.title,
+  description: EDITING_COURSE.description,
+  cta: EDITING_COURSE.cta,
+  priceLabel: EDITING_COURSE.priceLabel,
+  stripePriceEnv: "STRIPE_PRICE_EDITING_COURSE",
+  amountCents: EDITING_COURSE.amountCents,
+  forSale: true,
+  listed: false,
+  status: "presale",
+  photoLabel: "course",
+};
+
+export const DIGITAL_PRODUCTS: StoreProduct[] = [EDITING_COURSE_PRODUCT];
+
+export function productPath(product: StoreProduct) {
+  return `/kits/${product.id}`;
+}
 
 export function getAffiliates(): StoreLinkItem[] {
   return [
@@ -153,5 +204,9 @@ export function allStoreProducts(): StoreProduct[] {
 
 export function getStoreProduct(id: string) {
   return allStoreProducts().find((product) => product.id === id) ?? null;
+}
+
+export function getListedDigitalProduct(id: string) {
+  return listedDigitalProducts().find((product) => product.id === id) ?? null;
 }
 

@@ -223,6 +223,11 @@ main {
 .guide-grid {
   display: grid;
   gap: clamp(28px, 4vw, 44px);
+  margin-top: clamp(32px, 5vh, 48px);
+}
+
+.guide-card--hub .product-card__price {
+  margin: 0;
 }
 
 .guide-card {
