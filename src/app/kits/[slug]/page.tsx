@@ -10,7 +10,7 @@ import {
   DIGITAL_PRODUCTS,
   EDITING_COURSE,
   STORE_COPY,
-  getListedDigitalProduct,
+  getDigitalProduct,
   productPath,
 } from "@/lib/store";
 import "../../links/links.css";
@@ -20,7 +20,7 @@ export const dynamic = "force-dynamic";
 type Params = { slug: string };
 
 export function generateStaticParams() {
-  return DIGITAL_PRODUCTS.filter((product) => product.listed).map((product) => ({
+  return DIGITAL_PRODUCTS.map((product) => ({
     slug: product.id,
   }));
 }
@@ -31,7 +31,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getListedDigitalProduct(slug);
+  const product = getDigitalProduct(slug);
   if (!product) return {};
 
   const url = absoluteUrl(productPath(product));
@@ -57,7 +57,7 @@ export default async function ShopProductPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const product = getListedDigitalProduct(slug);
+  const product = getDigitalProduct(slug);
   if (!product) notFound();
 
   const live = canCheckout(product);

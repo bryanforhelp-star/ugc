@@ -157,7 +157,7 @@ export const EDITING_COURSE_PRODUCT: StoreProduct = {
   stripePriceEnv: "STRIPE_PRICE_EDITING_COURSE",
   amountCents: EDITING_COURSE.amountCents,
   forSale: true,
-  listed: false,
+  listed: true,
   status: "presale",
   photoLabel: "course",
 };
@@ -204,6 +204,10 @@ export function allStoreProducts(): StoreProduct[] {
 
 export function getStoreProduct(id: string) {
   return allStoreProducts().find((product) => product.id === id) ?? null;
+}
+
+export function getDigitalProduct(id: string) {
+  return DIGITAL_PRODUCTS.find((product) => product.id === id) ?? null;
 }
 
 export function getListedDigitalProduct(id: string) {
