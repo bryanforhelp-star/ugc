@@ -76,7 +76,7 @@ export function MatchaSupport() {
               void checkout(amount.cents);
             }}
           >
-            ({amount.label})
+            {amount.label}
           </button>
         ))}
         <button
@@ -88,7 +88,7 @@ export function MatchaSupport() {
           aria-expanded={customOpen}
           onClick={chooseCustom}
         >
-          ({MATCHA_TIPS.customLabel})
+          {MATCHA_TIPS.customLabel}
         </button>
       </div>
       {customOpen ? (
