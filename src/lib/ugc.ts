@@ -3,6 +3,16 @@
 import type { TrustedBrand } from "@/lib/site";
 import { getUgcOrganicPieces } from "@/lib/video-portfolio";
 
+export const UGC_TAGS = [
+  "apps",
+  "tech",
+  "education",
+  "software",
+  "SaaS",
+] as const;
+
+export type UgcTag = (typeof UGC_TAGS)[number];
+
 export type UgcWorkPiece = {
   id: string;
   video: string;
@@ -13,6 +23,8 @@ export type UgcWorkPiece = {
   brandLogoHeight?: number;
   /** short format label, e.g. "variation testing" */
   category?: string;
+  /** vertical tags shown on the card and used to filter the grid */
+  tags: UgcTag[];
   /** one line under the video */
   summary?: string;
 };
@@ -26,7 +38,7 @@ export type UgcOrganicPiece = {
 export const UGC_SITE = {
   title: "kyndall",
   seoDescription:
-    "Kyndall Ramirez. UGC creator and creative strategist for apps, tech and SaaS. Short-form video that feels human and built to perform.",
+    "Kyndall Ramirez. UGC creator and creative strategist for apps, tech, education, software and SaaS. Short-form video that feels human and built to perform.",
   email: "kyn@bykyndall.com",
   heroSub: [
     "i create content that",
@@ -65,6 +77,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 120,
     brandLogoHeight: 34,
     category: "variation testing",
+    tags: ["tech", "software", "SaaS"],
     summary: "hook A from a multi-hook package built to test before scaling.",
   },
   {
@@ -76,6 +89,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 120,
     brandLogoHeight: 34,
     category: "variation testing",
+    tags: ["tech", "software", "SaaS"],
     summary: "hook B, same offer, built to run against hook A.",
   },
   {
@@ -87,6 +101,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 130,
     brandLogoHeight: 61,
     category: "problem / solution",
+    tags: ["apps", "tech"],
     summary: "creative burnout and phone overstimulation.",
   },
   {
@@ -98,6 +113,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 140,
     brandLogoHeight: 38,
     category: "educational testimonial",
+    tags: ["apps", "education"],
     summary: "structured learning vs scattered apps.",
   },
   {
@@ -109,6 +125,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 128,
     brandLogoHeight: 32,
     category: "product demo",
+    tags: ["apps", "software", "SaaS"],
     summary: "real-time app build from a relatable problem.",
   },
   {
@@ -120,6 +137,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 108,
     brandLogoHeight: 30,
     category: "product demo",
+    tags: ["apps", "tech"],
     summary: "60-second hook on cutting through tech news noise.",
   },
 ];

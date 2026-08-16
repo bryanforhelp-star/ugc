@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
-import type { UgcOrganicPiece, UgcWorkPiece } from "@/lib/ugc";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { UGC_TAGS, type UgcOrganicPiece, type UgcTag, type UgcWorkPiece } from "@/lib/ugc";
 
 function pauseOtherUgcVideos(current: HTMLVideoElement) {
   document.querySelectorAll<HTMLVideoElement>(".ugc-work__video").forEach((video) => {
@@ -94,6 +94,15 @@ function AdCard({ piece }: AdCardProps) {
         {piece.summary ? (
           <p className="ugc-work__summary">{piece.summary}</p>
         ) : null}
+        {piece.tags.length > 0 ? (
+          <ul className="ugc-work__tags" aria-label="categories">
+            {piece.tags.map((tag) => (
+              <li key={tag} className="ugc-work__tag">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </footer>
     </article>
   );
@@ -175,6 +184,17 @@ type AdsGridProps = {
 };
 
 export function UgcAdsGrid({ id, title, intro, pieces }: AdsGridProps) {
+  const [activeTag, setActiveTag] = useState<UgcTag | null>(null);
+
+  const tags = useMemo(
+    () => UGC_TAGS.filter((tag) => pieces.some((piece) => piece.tags.includes(tag))),
+    [pieces],
+  );
+
+  const visible = activeTag
+    ? pieces.filter((piece) => piece.tags.includes(activeTag))
+    : pieces;
+
   return (
     <section id={id} className="ugc-work">
       <div className="wrap">
@@ -182,8 +202,31 @@ export function UgcAdsGrid({ id, title, intro, pieces }: AdsGridProps) {
           <h2 className="s-head">{title}</h2>
           {intro ? <p className="s-sub">{intro}</p> : null}
         </div>
+        {tags.length > 0 ? (
+          <div className="ugc-work__filters" role="toolbar" aria-label="filter by category">
+            <button
+              type="button"
+              className={`ugc-work__filter${activeTag === null ? " is-active" : ""}`}
+              aria-pressed={activeTag === null}
+              onClick={() => setActiveTag(null)}
+            >
+              all
+            </button>
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                className={`ugc-work__filter${activeTag === tag ? " is-active" : ""}`}
+                aria-pressed={activeTag === tag}
+                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        ) : null}
         <div className="ugc-work__grid">
-          {pieces.map((piece) => (
+          {visible.map((piece) => (
             <AdCard key={piece.id} piece={piece} />
           ))}
         </div>
