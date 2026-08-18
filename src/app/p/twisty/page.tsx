@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
 import {
-  CadenceMock,
-  CommunityOpsMock,
-  DropMock,
   FormatMock,
   NetworkMock,
   OnboardingMock,
   PerformanceMock,
   ReportMock,
-  ReviewLoopMock,
   ReviewMock,
-  RosterMock,
   ScaleMock,
   SourcingMock,
   TrialMock,
+  WeekBoardMock,
 } from "@/components/proposal/twisty-mocks";
 import "./proposal.css";
 
@@ -74,49 +70,10 @@ const SYSTEMS = [
   },
 ];
 
-const OPS = [
-  {
-    id: "p2-drop",
-    name: "weekly format drop",
-    body: "5 to 8 briefs every week. formats pulled from what is hitting, rewritten so a creator can execute them in twisty the same day.",
-    mock: <DropMock />,
-  },
-  {
-    id: "p2-review",
-    name: "live review",
-    body: "every submission gets notes. 48-hour weekday turnaround, so posting never sits in a pile.",
-    mock: <ReviewLoopMock />,
-  },
-  {
-    id: "p2-community",
-    name: "community ops",
-    body: "the discord or slack stays live. briefs posted, questions answered, roster held at target headcount.",
-    mock: <CommunityOpsMock />,
-  },
-  {
-    id: "p2-roster",
-    name: "roster replacement",
-    body: "when someone is cut or drops, a replacement is already in the pipeline. sourced, onboarded, trialed, in.",
-    mock: <RosterMock />,
-  },
-  {
-    id: "p2-accounts",
-    name: "account reviews",
-    body: "cadence and hygiene checked every week. what is posting, what is slipping, what gets scaled or killed.",
-    mock: <CadenceMock />,
-  },
-  {
-    id: "p2-scale",
-    name: "scale loop",
-    body: "when a concept hits, it gets rebuilt across every account until it stops working. one winner becomes a week of volume.",
-    mock: <ScaleMock />,
-  },
-  {
-    id: "p2-reporting",
-    name: "reporting",
-    body: "weekly performance report plus a monthly strategy review. what doubled down, what died, what the next cohort looks like.",
-    mock: <ReportMock />,
-  },
+const RUN = [
+  { id: "p2-week", name: "the week" },
+  { id: "p2-scale", name: "the scale loop" },
+  { id: "p2-month", name: "the month" },
 ];
 
 export default function TwistyProposalPage() {
@@ -203,16 +160,16 @@ export default function TwistyProposalPage() {
           <div className="wrap prop-shell">
             <h2 className="prop-head">phase 2: running the program</h2>
             <p className="prop-copy">
-              the same systems, run every week. briefs dropped, submissions
-              reviewed, roster held at 10 to 15, winners rebuilt across accounts
-              until they stop working.
+              phase 1 is the stack. this is the calendar it runs on. not seven
+              more systems. one operating week, a scale move when something
+              hits, and a monthly read so we know what to double.
             </p>
             <ul className="prop-index">
-              {OPS.map((system, i) => (
-                <li key={system.id}>
-                  <a href={`#${system.id}`}>
+              {RUN.map((item, i) => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`}>
                     <span className="prop-num">{i + 1}</span>
-                    {system.name}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -220,20 +177,78 @@ export default function TwistyProposalPage() {
           </div>
         </section>
 
-        {OPS.map((system, i) => (
-          <section key={system.id} id={system.id} className="prop-product">
-            <div className="wrap prop-shell prop-product__grid">
-              <div className="prop-product__copy">
-                <h3 className="prop-product__name">
-                  <span className="prop-num">{i + 1}</span>
-                  {system.name}
-                </h3>
-                <p>{system.body}</p>
-              </div>
-              <div className="prop-product__mock">{system.mock}</div>
+        <section id="p2-week" className="prop-run">
+          <div className="wrap prop-shell">
+            <h3 className="prop-product__name">
+              <span className="prop-num">1</span>
+              the week
+            </h3>
+            <p className="prop-copy">
+              every system from phase 1 has a day it actually runs. this is
+              that week, repeated, so the roster posts, reviews come back in
+              48 hours, and open seats are already being filled.
+            </p>
+            <ul className="prop-spec">
+              <li>
+                monday: 5 to 8 briefs. pulled from what is hitting, written so
+                a creator can execute them in twisty that day.
+              </li>
+              <li>
+                tue to thu: every submission gets notes. 48-hour weekday
+                turnaround, so posting never sits in a pile.
+              </li>
+              <li>
+                all week: community stays live. roster held at 10 to 15. if
+                someone is cut, a replacement is already in trial.
+              </li>
+              <li>
+                friday: cadence and hygiene. who posted, who slipped, what
+                gets scaled or killed.
+              </li>
+            </ul>
+            <div className="prop-run__board">
+              <WeekBoardMock />
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
+
+        <section id="p2-scale" className="prop-product">
+          <div className="wrap prop-shell prop-product__grid">
+            <div className="prop-product__copy">
+              <h3 className="prop-product__name">
+                <span className="prop-num">2</span>
+                the scale loop
+              </h3>
+              <p>
+                the week tells you what worked. this is what we do with it. a
+                concept that hits gets rebuilt across every account until it
+                dies. one winner becomes a week of volume.
+              </p>
+            </div>
+            <div className="prop-product__mock">
+              <ScaleMock />
+            </div>
+          </div>
+        </section>
+
+        <section id="p2-month" className="prop-product">
+          <div className="wrap prop-shell prop-product__grid">
+            <div className="prop-product__copy">
+              <h3 className="prop-product__name">
+                <span className="prop-num">3</span>
+                the month
+              </h3>
+              <p>
+                monday you get the week in writing: views, posts, roster, what
+                scaled, what died. once a month we sit on it: what to double,
+                what to kill, who to pull into the next seats.
+              </p>
+            </div>
+            <div className="prop-product__mock">
+              <ReportMock />
+            </div>
+          </div>
+        </section>
       </div>
 
       <section id="fee" className="prop-band prop-fee">

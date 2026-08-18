@@ -41,29 +41,22 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 
 ## phase 2: running the program
 
-the same systems, run every week. briefs dropped, submissions reviewed, roster held at 10 to 15, winners rebuilt across accounts until they stop working.
+phase 1 is the stack. this is the calendar it runs on. not seven more systems. one operating week, a scale move when something hits, and a monthly read so we know what to double.
 
-- weekly format drop
-- live review
-- community ops
-- roster replacement
-- account reviews
-- scale loop
-- reporting
+- the week
+- the scale loop
+- the month
 
-**weekly format drop.** 5 to 8 briefs every week. formats pulled from what is hitting, rewritten so a creator can execute them in twisty the same day.
+**the week.** every system from phase 1 has a day it actually runs. this is that week, repeated, so the roster posts, reviews come back in 48 hours, and open seats are already being filled.
 
-**live review.** every submission gets notes. 48-hour weekday turnaround, so posting never sits in a pile.
+- monday: 5 to 8 briefs. pulled from what is hitting, written so a creator can execute them in twisty that day.
+- tue to thu: every submission gets notes. 48-hour weekday turnaround, so posting never sits in a pile.
+- all week: community stays live. roster held at 10 to 15. if someone is cut, a replacement is already in trial.
+- friday: cadence and hygiene. who posted, who slipped, what gets scaled or killed.
 
-**community ops.** the discord or slack stays live. briefs posted, questions answered, roster held at target headcount.
+**the scale loop.** the week tells you what worked. this is what we do with it. a concept that hits gets rebuilt across every account until it dies. one winner becomes a week of volume.
 
-**roster replacement.** when someone is cut or drops, a replacement is already in the pipeline. sourced, onboarded, trialed, in.
-
-**account reviews.** cadence and hygiene checked every week. what is posting, what is slipping, what gets scaled or killed.
-
-**scale loop.** when a concept hits, it gets rebuilt across every account until it stops working. one winner becomes a week of volume.
-
-**reporting.** weekly performance report plus a monthly strategy review. what doubled down, what died, what the next cohort looks like.
+**the month.** monday you get the week in writing: views, posts, roster, what scaled, what died. once a month we sit on it: what to double, what to kill, who to pull into the next seats.
 
 ## fee
 
