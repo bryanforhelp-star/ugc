@@ -17,30 +17,47 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-type CanvasExample = {
-  brand: string;
-  href?: string;
-  image?: string;
-};
-
-const CANVAS_EXAMPLES: CanvasExample[] = [
+const CANVAS_CLIPS = [
   {
     brand: "solvely.ai",
     href: "https://www.instagram.com/reel/DMEenBmpo5R/",
-    image: "/brands/twisty/canvas-examples/solvely.jpg",
-  },
-  {
-    brand: "cluely",
+    video: "/brands/twisty/canvas-examples/solvely.mp4",
+    poster: "/brands/twisty/canvas-examples/solvely.jpg",
   },
   {
     brand: "higgsfield",
     href: "https://www.instagram.com/reel/DZEOfItMazu/",
-    image: "/brands/twisty/canvas-examples/higgsfield.jpg",
+    video: "/brands/twisty/canvas-examples/higgsfield.mp4",
+    poster: "/brands/twisty/canvas-examples/higgsfield.jpg",
   },
   {
     brand: "oweyou",
     href: "https://www.instagram.com/reel/DbroZC6REy0/",
-    image: "/brands/twisty/canvas-examples/oweyou.jpg",
+    video: "/brands/twisty/canvas-examples/oweyou.mp4",
+    poster: "/brands/twisty/canvas-examples/oweyou.jpg",
+  },
+];
+
+const CANVAS_LOGOS = [
+  {
+    name: "solvely.ai",
+    src: "/brands/twisty/canvas-examples/solvely.svg",
+    kind: "wordmark",
+  },
+  {
+    name: "cluely",
+    src: "/brands/twisty/canvas-examples/cluely.svg",
+    kind: "wordmark",
+  },
+  {
+    name: "higgsfield",
+    src: "/brands/twisty/canvas-examples/higgsfield.svg",
+    kind: "mark",
+  },
+  {
+    name: "oweyou",
+    src: "/brands/twisty/canvas-examples/oweyou-logo.png",
+    kind: "icon",
   },
 ];
 
@@ -154,38 +171,45 @@ export default function TwistyProposalPage() {
             </div>
             <div className="prop-examples">
               <p className="cover">who already does this</p>
-              <ul className="prop-example-grid">
-                {CANVAS_EXAMPLES.map((example) =>
-                  example.href && example.image ? (
-                    <li key={example.brand}>
-                      <a
-                        className="prop-example-card"
-                        href={example.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className="prop-example-card__thumb"
-                          src={example.image}
-                          alt={`${example.brand} canvas ugc example`}
-                          width={270}
-                          height={480}
-                          loading="lazy"
-                        />
-                        <span className="prop-example-card__brand">
-                          {example.brand}
-                        </span>
-                      </a>
-                    </li>
-                  ) : (
-                    <li
-                      key={example.brand}
-                      className="prop-example-pending"
+              <div className="prop-collage">
+                {CANVAS_CLIPS.map((clip) => (
+                  <a
+                    key={clip.brand}
+                    className="prop-clip"
+                    href={clip.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${clip.brand} canvas ugc example`}
+                  >
+                    <img
+                      src={clip.poster}
+                      alt=""
+                      width={360}
+                      height={640}
+                    />
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      poster={clip.poster}
+                      preload="metadata"
                     >
-                      {example.brand}
-                    </li>
-                  ),
-                )}
+                      <source src={clip.video} type="video/mp4" />
+                    </video>
+                  </a>
+                ))}
+              </div>
+              <ul className="prop-logo-row">
+                {CANVAS_LOGOS.map((logo) => (
+                  <li key={logo.name}>
+                    <img
+                      className={`prop-logo-row__${logo.kind}`}
+                      src={logo.src}
+                      alt={logo.name}
+                    />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

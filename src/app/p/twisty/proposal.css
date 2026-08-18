@@ -292,7 +292,7 @@ html:has(.prop) #bg {
 
 .prop-canvas {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
   gap: clamp(32px, 6vw, 80px);
   align-items: start;
   margin-top: 0.55em;
@@ -316,64 +316,119 @@ html:has(.prop) #bg {
 }
 
 .prop-examples .cover {
-  margin-bottom: 0.7em;
+  margin-bottom: 0.4em;
 }
 
-.prop-example-grid {
-  margin: 0;
+.prop-collage {
+  --clip-w: clamp(104px, 15vw, 138px);
+  position: relative;
+  width: 100%;
+  height: calc(var(--clip-w) * 16 / 9 + 42px);
+  margin: 4px 0 4px;
+}
+
+.prop-clip {
+  position: absolute;
+  width: var(--clip-w);
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  border: 2px solid #fff;
+  box-shadow: 0 14px 28px rgba(11, 11, 12, 0.18);
+  transition: transform 0.25s ease, z-index 0s;
+}
+
+.prop-clip:nth-child(1) {
+  left: 2%;
+  top: 28px;
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+
+.prop-clip:nth-child(2) {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) rotate(1.5deg);
+  z-index: 3;
+}
+
+.prop-clip:nth-child(3) {
+  right: 2%;
+  top: 32px;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+
+.prop-clip:hover,
+.prop-clip:focus-visible {
+  z-index: 5;
+  transform: translateY(-4px) scale(1.04) rotate(0deg);
+}
+
+.prop-clip:nth-child(2):hover,
+.prop-clip:nth-child(2):focus-visible {
+  transform: translateX(-50%) translateY(-4px) scale(1.04) rotate(0deg);
+}
+
+.prop-clip img,
+.prop-clip video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.prop-clip video {
+  z-index: 1;
+}
+
+.prop-logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 22px;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(14px, 2vw, 20px);
 }
 
-.prop-example-card {
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  padding: 10px 0;
-  border-top: 1px solid var(--hair);
-  transition: color 0.2s ease;
+.prop-logo-row img {
+  display: block;
+  width: auto;
+  object-fit: contain;
 }
 
-.prop-example-card:hover,
-.prop-example-card:focus-visible {
-  color: var(--pop);
+.prop-logo-row__wordmark {
+  height: 16px;
 }
 
-.prop-example-card__thumb {
-  width: 88px;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid var(--hair);
-  background: var(--paper);
+.prop-logo-row__mark {
+  height: 20px;
+  width: 20px;
 }
 
-.prop-example-card__brand {
-  font-family: var(--serif);
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.15;
+.prop-logo-row__icon {
+  height: 22px;
+  width: 22px;
+  border-radius: 6px;
 }
 
-.prop-example-grid > li:last-child .prop-example-card,
-.prop-example-grid > li:last-child.prop-example-pending {
-  border-bottom: 1px solid var(--hair);
-}
+@media (prefers-reduced-motion: reduce) {
+  .prop-clip video {
+    display: none;
+  }
 
-.prop-example-pending {
-  padding: 0.55em 0 0.55em 102px;
-  border-top: 1px solid var(--hair);
-  font-family: var(--serif);
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.15;
-  color: var(--soft);
-}
-
-.prop-example-grid > li:last-child.prop-example-pending {
-  border-bottom: 1px solid var(--hair);
+  .prop-clip,
+  .prop-clip:hover,
+  .prop-clip:focus-visible,
+  .prop-clip:nth-child(2):hover,
+  .prop-clip:nth-child(2):focus-visible {
+    transition: none;
+  }
 }
 
 .prop-index {
@@ -1325,6 +1380,11 @@ html:has(.prop) #bg {
   .prop-run-layout,
   .prop-canvas {
     grid-template-columns: 1fr;
+  }
+
+  .prop-collage {
+    --clip-w: clamp(118px, 28vw, 158px);
+    max-width: 440px;
   }
 
   .orbit {
