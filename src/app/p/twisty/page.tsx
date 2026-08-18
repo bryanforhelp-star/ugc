@@ -80,6 +80,7 @@ export default function TwistyProposalPage() {
           <p className="prop-mark">kyndall</p>
           <nav className="prop-nav" aria-label="proposal">
             <a href="#scope">scope</a>
+            <a href="#canvas">canvas</a>
             <a href="#phase-1">phase 1</a>
             <a href="#phase-2">phase 2</a>
             <a href="#fee">fee</a>
@@ -105,6 +106,28 @@ export default function TwistyProposalPage() {
           <p className="prop-lead">
             building and operating twisty&apos;s canvas creator program.
           </p>
+        </div>
+      </section>
+
+      <section id="canvas" className="prop-band">
+        <div className="wrap prop-shell">
+          <h2 className="prop-head">canvas ugc</h2>
+          <div className="prop-define">
+            <p>
+              a group of accounts run by a creator, posting videos about twisty
+              every day. creators post on twisty&apos;s accounts, not their own.
+            </p>
+            <p>
+              no follower count to start from. every video has to be good enough
+              to spread on its own. ten accounts posting daily is around 300
+              videos a month, and it only takes a few to land.
+            </p>
+            <p>
+              it&apos;s a way to get in front of a lot of people without paying
+              for ads, and it gets better the faster you spot what&apos;s working
+              and make more of it.
+            </p>
+          </div>
         </div>
       </section>
 

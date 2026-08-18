@@ -10,17 +10,18 @@ AI photo and video maker. Templates, characters, and UGC-style clips for social.
 
 ## What it actually does
 
-Twisty generates photos and short videos from ideas, selfies, and templates. The live pitch is not content on Kyndall's channels. It is building and operating their **canvas creator program**: creators posting short-form directly onto Twisty's own accounts.
+Twisty generates photos and short videos from ideas, selfies, and templates. The live pitch is not content on Kyndall's channels. It is building and operating their **canvas creator program**: dedicated accounts, each run by a creator, posting about Twisty every day. Creators post on Twisty's accounts, not their own.
 
 ## Positioning vs alternatives
 
-Canvas UGC (also called tech / high-volume UGC) vs classic licensed UGC:
+Canvas UGC is not classic licensed UGC (creator films, brand buys the file, it runs as an ad or on the creator's page).
 
-| | Classic UGC | Canvas UGC (this deal) |
-|---|---|---|
-| Where it posts | Creator's channel, or brand runs the file as an ad | The brand's own TikTok / Reels / Shorts accounts |
-| How creators are paid | Per asset | Typically per view or per install. Paid by Twisty, not by Kyndall |
-| Kyndall's job | Film and edit | Source, onboard, brief, review, and run the roster |
+- A group of accounts run by creators, posting videos about Twisty daily
+- Creators post on Twisty's accounts, not their own. No follower count to start from. Every video has to spread on its own
+- Ten accounts posting daily is around 300 videos a month. It only takes a few to land
+- Organic reach without paying for ads. It gets better the faster you spot what's working and make more of it
+
+Kyndall's job: source, onboard, brief, review, and run the roster. Not film and edit.
 
 ## Audience (who the content targets)
 
