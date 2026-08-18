@@ -117,22 +117,31 @@ html:has(.prop) #bg {
   border-top: 0;
 }
 
-.prop-phase--run .prop-product {
-  border-top-color: color-mix(in srgb, var(--pop) 12%, var(--hair));
+.prop-ops {
+  margin: 1.5em 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 54ch;
 }
 
-.prop-run {
-  padding: clamp(28px, 5vh, 56px) 0;
+.prop-ops li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7em;
+  padding: 0.9em 0;
   border-top: 1px solid color-mix(in srgb, var(--pop) 12%, var(--hair));
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.25;
+  color: var(--ink);
 }
 
-.prop-run .prop-copy,
-.prop-run .prop-spec {
-  max-width: 58ch;
+.prop-ops li:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--pop) 12%, var(--hair));
 }
 
-.prop-run__board {
-  margin-top: clamp(22px, 3.5vh, 36px);
+.prop-ops .prop-num {
+  margin-top: 0.18em;
 }
 
 .prop-head {
@@ -1028,37 +1037,6 @@ html:has(.prop) #bg {
   background: var(--hair);
 }
 
-.mock-week {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2px;
-  padding: 8px;
-}
-
-.mock-week > div {
-  padding: 16px 14px;
-}
-
-.mock-week p {
-  margin: 0 0 4px;
-  font-family: var(--display);
-  font-size: 34px;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-
-.mock-week span {
-  font-size: 12px;
-  color: var(--soft);
-}
-
-.mock-week-flags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
 .mock-kicker {
   margin: 0;
   padding: 10px 16px 6px;
@@ -1071,130 +1049,6 @@ html:has(.prop) #bg {
 .mock-kicker b {
   color: var(--ink);
   font-weight: 700;
-}
-
-.mock-rhythm-days {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--hair);
-}
-
-.mock-rhythm-days article {
-  padding: 12px 12px 14px;
-  border-right: 1px solid var(--hair);
-  min-width: 0;
-}
-
-.mock-rhythm-days article:last-child {
-  border-right: 0;
-}
-
-.mock-rhythm-days article.is-now {
-  background: var(--pop-soft);
-}
-
-.mock-rhythm-days p {
-  margin: 0 0 4px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-
-.mock-rhythm-days b {
-  display: block;
-  margin: 0 0 8px;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-}
-
-.mock-rhythm-days ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.mock-rhythm-days li {
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--soft);
-}
-
-.mock-rhythm-foot {
-  margin: 0;
-  padding: 10px 16px 14px;
-  border-top: 1px solid var(--hair);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-
-.mock-spread ul,
-.mock-report-foot {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.mock-spread-hit {
-  margin: 0;
-  padding: 12px 16px 10px;
-  font-family: var(--display);
-  font-size: 22px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.mock-spread-hit span {
-  display: block;
-  margin-top: 6px;
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0;
-  color: var(--soft);
-}
-
-.mock-spread li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 9px 16px;
-  border-top: 1px solid var(--hair);
-  font-size: 12px;
-}
-
-.mock-spread li em {
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-
-.mock-spread li em.is-live {
-  color: var(--pop);
-}
-
-.mock-report-foot {
-  border-top: 1px solid var(--hair);
-}
-
-.mock-report-foot li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 16px;
-  font-size: 12px;
-}
-
-.mock-report-foot li:last-child {
-  padding-bottom: 14px;
-}
-
-.mock-report-foot span {
-  color: var(--soft);
 }
 
 @keyframes mockArrive {
@@ -1326,11 +1180,6 @@ html:has(.prop) #bg {
 
   .mock-inbox li span:nth-child(2) {
     display: none;
-  }
-
-  .mock-rhythm-days {
-    grid-template-columns: repeat(5, minmax(132px, 1fr));
-    overflow-x: auto;
   }
 
   .mock-dash-rows li {
