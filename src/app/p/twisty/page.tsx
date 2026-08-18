@@ -17,47 +17,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const CANVAS_CLIPS = [
-  {
-    brand: "solvely.ai",
-    href: "https://www.instagram.com/reel/DMEenBmpo5R/",
-    video: "/brands/twisty/canvas-examples/solvely.mp4",
-    poster: "/brands/twisty/canvas-examples/solvely.jpg",
-  },
-  {
-    brand: "higgsfield",
-    href: "https://www.instagram.com/reel/DZEOfItMazu/",
-    video: "/brands/twisty/canvas-examples/higgsfield.mp4",
-    poster: "/brands/twisty/canvas-examples/higgsfield.jpg",
-  },
-  {
-    brand: "oweyou",
-    href: "https://www.instagram.com/reel/DbroZC6REy0/",
-    video: "/brands/twisty/canvas-examples/oweyou.mp4",
-    poster: "/brands/twisty/canvas-examples/oweyou.jpg",
-  },
-];
-
 const CANVAS_LOGOS = [
   {
-    name: "solvely.ai",
-    src: "/brands/twisty/canvas-examples/solvely.svg",
-    kind: "wordmark",
+    name: "higgfield",
   },
   {
-    name: "cluely",
-    src: "/brands/twisty/canvas-examples/cluely.svg",
-    kind: "wordmark",
+    name: "turbo learn",
   },
   {
-    name: "higgsfield",
-    src: "/brands/twisty/canvas-examples/higgsfield.svg",
-    kind: "mark",
-  },
-  {
-    name: "oweyou",
-    src: "/brands/twisty/canvas-examples/oweyou-logo.png",
-    kind: "icon",
+    name: "owe you",
   },
 ];
 
@@ -171,42 +139,16 @@ export default function TwistyProposalPage() {
             <div className="prop-examples">
               <p className="cover">who already does this</p>
               <div className="prop-collage">
-                {CANVAS_CLIPS.map((clip) => (
-                  <a
-                    key={clip.brand}
-                    className="prop-clip"
-                    href={clip.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${clip.brand} canvas ugc example`}
-                  >
-                    <img
-                      src={clip.poster}
-                      alt=""
-                      width={360}
-                      height={640}
-                    />
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      poster={clip.poster}
-                      preload="metadata"
-                    >
-                      <source src={clip.video} type="video/mp4" />
-                    </video>
-                  </a>
+                {CANVAS_LOGOS.map((logo) => (
+                  <div key={logo.name} className="prop-logo">
+                    <span className="prop-logo__text">{logo.name}</span>
+                  </div>
                 ))}
               </div>
-              <ul className="prop-logo-row">
+              <ul className="prop-logo-row prop-logo-row--text" aria-label="brand logos">
                 {CANVAS_LOGOS.map((logo) => (
                   <li key={logo.name}>
-                    <img
-                      className={`prop-logo-row__${logo.kind}`}
-                      src={logo.src}
-                      alt={logo.name}
-                    />
+                    <span className="prop-logo-row__text">{logo.name}</span>
                   </li>
                 ))}
               </ul>
