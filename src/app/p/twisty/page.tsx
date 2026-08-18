@@ -105,7 +105,10 @@ export default function TwistyProposalPage() {
           <ul className="prop-index">
             {SYSTEMS.map((system) => (
               <li key={system.id}>
-                <a href={`#${system.id}`}>{system.name}</a>
+                <a href={`#${system.id}`}>
+                  <span className="arr">↳</span>
+                  {system.name}
+                </a>
               </li>
             ))}
           </ul>

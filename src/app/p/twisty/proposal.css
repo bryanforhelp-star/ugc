@@ -121,47 +121,32 @@ html:has(.prop) #bg {
 }
 
 .prop-index {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 18ch));
-  gap: 0.35em 2.5em;
-  margin: 1.4em 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 1.6em 0 0;
   padding: 0;
   list-style: none;
 }
 
-.prop-index li {
-  position: relative;
-  padding-left: 1em;
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: clamp(15px, 1.15vw, 18px);
-  line-height: 1.45;
-  letter-spacing: -0.018em;
-}
-
-.prop-index li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--pop);
-}
-
 .prop-index a {
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.15;
   color: var(--ink);
 }
 
-.prop-index a:hover {
+.prop-index .arr {
   color: var(--pop);
+  transition: transform 0.2s ease;
 }
 
-@media (max-width: 560px) {
-  .prop-index {
-    grid-template-columns: 1fr;
-  }
+.prop-index a:hover .arr {
+  transform: translateX(5px);
 }
 
 .prop-product {
