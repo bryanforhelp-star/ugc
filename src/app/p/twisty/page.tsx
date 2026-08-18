@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import {
+  CadenceMock,
+  CommunityOpsMock,
+  DropMock,
   FormatMock,
   NetworkMock,
   OnboardingMock,
   PerformanceMock,
+  ReportMock,
+  ReviewLoopMock,
   ReviewMock,
+  RosterMock,
+  ScaleMock,
   SourcingMock,
   TrialMock,
-  WeekMock,
 } from "@/components/proposal/twisty-mocks";
 import "./proposal.css";
 
@@ -59,6 +65,51 @@ const SYSTEMS = [
     name: "performance system",
     body: "tracking by creator, format and account. what scales, what gets killed.",
     mock: <PerformanceMock />,
+  },
+];
+
+const OPS = [
+  {
+    id: "p2-drop",
+    name: "weekly format drop",
+    body: "5 to 8 briefs every week. formats pulled from what is hitting, rewritten so a creator can execute them in twisty the same day.",
+    mock: <DropMock />,
+  },
+  {
+    id: "p2-review",
+    name: "live review",
+    body: "every submission gets notes. 48-hour weekday turnaround, so posting never sits in a pile.",
+    mock: <ReviewLoopMock />,
+  },
+  {
+    id: "p2-community",
+    name: "community ops",
+    body: "the discord or slack stays live. briefs posted, questions answered, roster held at target headcount.",
+    mock: <CommunityOpsMock />,
+  },
+  {
+    id: "p2-roster",
+    name: "roster replacement",
+    body: "when someone is cut or drops, a replacement is already in the pipeline. sourced, onboarded, trialed, in.",
+    mock: <RosterMock />,
+  },
+  {
+    id: "p2-accounts",
+    name: "account reviews",
+    body: "cadence and hygiene checked every week. what is posting, what is slipping, what gets scaled or killed.",
+    mock: <CadenceMock />,
+  },
+  {
+    id: "p2-scale",
+    name: "scale loop",
+    body: "when a concept hits, it gets rebuilt across every account until it stops working. one winner becomes a week of volume.",
+    mock: <ScaleMock />,
+  },
+  {
+    id: "p2-reporting",
+    name: "reporting",
+    body: "weekly performance report plus a monthly strategy review. what doubled down, what died, what the next cohort looks like.",
+    mock: <ReportMock />,
   },
 ];
 
@@ -130,30 +181,37 @@ export default function TwistyProposalPage() {
         </section>
       ))}
 
-      <section id="phase-2" className="prop-product">
+      <section id="phase-2" className="prop-band">
         <div className="wrap prop-shell">
           <h2 className="prop-head">phase 2: running the program</h2>
-        </div>
-        <div className="wrap prop-shell prop-product__grid prop-product__grid--follow">
-          <div className="prop-product__copy">
-            <ul className="prop-ops">
-              <li>weekly format drop: 5 to 8 briefs</li>
-              <li>submissions reviewed with feedback, 48-hour weekday turnaround</li>
-              <li>community managed, roster held at target headcount</li>
-              <li>new creators sourced, onboarded and trialed as the roster moves</li>
-              <li>account reviews: cadence, hygiene, kill/scale</li>
-              <li>
-                winning concepts that hit get doubled down on, rebuilt across
-                every account until they stop working
+          <p className="prop-copy">
+            the same systems, run every week. briefs dropped, submissions
+            reviewed, roster held at 10 to 15, winners rebuilt across accounts
+            until they stop working.
+          </p>
+          <ul className="prop-index">
+            {OPS.map((system, i) => (
+              <li key={system.id}>
+                <a href={`#${system.id}`}>
+                  {i + 1}. {system.name}
+                </a>
               </li>
-              <li>weekly performance report + monthly strategy review</li>
-            </ul>
-          </div>
-          <div className="prop-product__mock">
-            <WeekMock />
-          </div>
+            ))}
+          </ul>
         </div>
       </section>
+
+      {OPS.map((system) => (
+        <section key={system.id} id={system.id} className="prop-product">
+          <div className="wrap prop-shell prop-product__grid">
+            <div className="prop-product__copy">
+              <h3 className="prop-product__name">{system.name}</h3>
+              <p>{system.body}</p>
+            </div>
+            <div className="prop-product__mock">{system.mock}</div>
+          </div>
+        </section>
+      ))}
 
       <section id="fee" className="prop-band prop-fee">
         <div className="wrap prop-shell">

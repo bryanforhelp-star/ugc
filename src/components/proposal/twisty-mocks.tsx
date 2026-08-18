@@ -293,17 +293,191 @@ export function PerformanceMock() {
   );
 }
 
-export function WeekMock() {
+export function DropMock() {
+  const briefs = [
+    { n: "01", name: "talking product", state: "live" },
+    { n: "02", name: "before / after", state: "live" },
+    { n: "03", name: "comment bait", state: "live" },
+    { n: "04", name: "pov", state: "live" },
+    { n: "05", name: "desk setup", state: "new" },
+    { n: "06", name: "glow-up", state: "new" },
+  ];
+
   return (
-    <MockFrame title="this week">
+    <MockFrame title="weekly drop">
+      <div className="mock-drop">
+        <p className="mock-kicker">6 briefs · monday</p>
+        <ul>
+          {briefs.map((brief) => (
+            <li key={brief.n} className={brief.state === "new" ? "is-new" : undefined}>
+              <b>{brief.n}</b>
+              <span>{brief.name}</span>
+              <em>{brief.state}</em>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </MockFrame>
+  );
+}
+
+export function ReviewLoopMock() {
+  return (
+    <MockFrame title="review queue">
+      <p className="mock-kicker">4 in queue · 48h weekday sla</p>
+      <ul className="mock-queue">
+        <li>
+          <span>@jules.clips</span>
+          <span>talking product</span>
+          <b className="mock-status mock-status--hot">6h left</b>
+        </li>
+        <li>
+          <span>@maya.makes</span>
+          <span>comment bait</span>
+          <b className="mock-status is-ok">notes sent</b>
+        </li>
+        <li>
+          <span>@kai.posted</span>
+          <span>pov</span>
+          <b className="mock-status is-ok">approved</b>
+        </li>
+        <li>
+          <span>@nori.studio</span>
+          <span>desk setup</span>
+          <b className="mock-status">waiting</b>
+        </li>
+      </ul>
+    </MockFrame>
+  );
+}
+
+export function CommunityOpsMock() {
+  return (
+    <MockFrame title="community">
+      <div className="mock-ops">
+        <p className="mock-kicker">
+          roster <b>12/15</b> · 3 open seats
+        </p>
+        <ul>
+          <li>
+            <span className="mock-dot is-on" />
+            <b>ops</b>
+            <span>briefs are up. rebuild talking product.</span>
+          </li>
+          <li>
+            <span className="mock-dot" />
+            <b>@maya.makes</b>
+            <span>posted. notes?</span>
+          </li>
+          <li>
+            <span className="mock-dot is-on" />
+            <b>ops</b>
+            <span>approved. ship it.</span>
+          </li>
+        </ul>
+      </div>
+    </MockFrame>
+  );
+}
+
+export function RosterMock() {
+  return (
+    <MockFrame title="roster">
+      <div className="mock-slots">
+        <p className="mock-kicker">12 live · 3 seats to fill</p>
+        <div className="mock-slot-row" aria-hidden="true">
+          {Array.from({ length: 15 }, (_, i) => (
+            <i key={i} className={i < 12 ? "is-filled" : undefined} />
+          ))}
+        </div>
+        <ul>
+          <li>
+            <b className="mock-tag mock-tag--kill">out</b>
+            <span>@nori.studio</span>
+            <em>cut</em>
+          </li>
+          <li>
+            <b className="mock-tag mock-tag--scale">in</b>
+            <span>creator 09</span>
+            <em>trial day 4</em>
+          </li>
+          <li>
+            <b className="mock-tag">next</b>
+            <span>creator 11</span>
+            <em>screened</em>
+          </li>
+        </ul>
+      </div>
+    </MockFrame>
+  );
+}
+
+export function CadenceMock() {
+  const rows = [
+    { name: "@maya.makes", days: [1, 1, 1, 1, 1, 1, 1], tag: "scale" },
+    { name: "@jules.clips", days: [1, 1, 1, 1, 1, 1, 0], tag: "scale" },
+    { name: "@kai.posted", days: [1, 1, 1, 1, 0, 1, 0], tag: "watch" },
+    { name: "@nori.studio", days: [1, 0, 1, 0, 0, 1, 0], tag: "kill" },
+  ];
+
+  return (
+    <MockFrame title="cadence">
+      <ul className="mock-cadence">
+        {rows.map((row) => (
+          <li key={row.name}>
+            <b>{row.name}</b>
+            <span className="mock-ticks">
+              {row.days.map((on, i) => (
+                <i key={i} className={on ? "is-on" : undefined} />
+              ))}
+            </span>
+            <strong className={`mock-tag mock-tag--${row.tag}`}>{row.tag}</strong>
+          </li>
+        ))}
+      </ul>
+    </MockFrame>
+  );
+}
+
+export function ScaleMock() {
+  return (
+    <MockFrame title="scale loop">
+      <div className="mock-spread">
+        <p className="mock-spread-hit">
+          talking product
+          <span>210k on @maya.makes</span>
+        </p>
+        <ul>
+          <li>
+            <span>@jules.clips</span>
+            <em className="is-live">rebuilding</em>
+          </li>
+          <li>
+            <span>@kai.posted</span>
+            <em className="is-live">rebuilding</em>
+          </li>
+          <li>
+            <span>@nori.studio</span>
+            <em>queued</em>
+          </li>
+        </ul>
+        <p className="mock-kicker">same concept, every account, until it dies</p>
+      </div>
+    </MockFrame>
+  );
+}
+
+export function ReportMock() {
+  return (
+    <MockFrame title="reporting">
       <div className="mock-week">
         <div>
-          <p>6</p>
-          <span>briefs dropped</span>
+          <p>412k</p>
+          <span>views this week</span>
         </div>
         <div>
-          <p>48h</p>
-          <span>review sla</span>
+          <p>86</p>
+          <span>posts</span>
         </div>
         <div>
           <p>12/15</p>
@@ -314,6 +488,16 @@ export function WeekMock() {
           <b className="mock-tag mock-tag--kill">1 kill</b>
         </div>
       </div>
+      <ul className="mock-report-foot">
+        <li>
+          <b>weekly</b>
+          <span>sent monday</span>
+        </li>
+        <li>
+          <b>monthly</b>
+          <span>aug 28 · strategy review</span>
+        </li>
+      </ul>
     </MockFrame>
   );
 }

@@ -36,13 +36,29 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 
 ## phase 2: running the program
 
-- weekly format drop: 5 to 8 briefs
-- submissions reviewed with feedback, 48-hour weekday turnaround
-- community managed, roster held at target headcount
-- new creators sourced, onboarded and trialed as the roster moves
-- account reviews: cadence, hygiene, kill/scale
-- winning concepts that hit get doubled down on, rebuilt across every account until they stop working
-- weekly performance report + monthly strategy review
+the same systems, run every week. briefs dropped, submissions reviewed, roster held at 10 to 15, winners rebuilt across accounts until they stop working.
+
+- weekly format drop
+- live review
+- community ops
+- roster replacement
+- account reviews
+- scale loop
+- reporting
+
+**weekly format drop.** 5 to 8 briefs every week. formats pulled from what is hitting, rewritten so a creator can execute them in twisty the same day.
+
+**live review.** every submission gets notes. 48-hour weekday turnaround, so posting never sits in a pile.
+
+**community ops.** the discord or slack stays live. briefs posted, questions answered, roster held at target headcount.
+
+**roster replacement.** when someone is cut or drops, a replacement is already in the pipeline. sourced, onboarded, trialed, in.
+
+**account reviews.** cadence and hygiene checked every week. what is posting, what is slipping, what gets scaled or killed.
+
+**scale loop.** when a concept hits, it gets rebuilt across every account until it stops working. one winner becomes a week of volume.
+
+**reporting.** weekly performance report plus a monthly strategy review. what doubled down, what died, what the next cohort looks like.
 
 ## fee
 
