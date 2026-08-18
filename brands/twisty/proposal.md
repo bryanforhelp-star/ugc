@@ -30,7 +30,7 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 
 **community management.** community space (discord or slack) built out: channels, roles, rules, intake flow.
 
-**trial structure.** 1-week trial. entry criteria, output expected, review at the end, continue or cut.
+**trial structure.** a trial period. entry criteria, output expected, review at the end, continue or cut.
 
 **format system.** viral formats sourced weekly and translated into briefs creators can execute in twisty.
 

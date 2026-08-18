@@ -182,7 +182,7 @@ export function TrialMock() {
           <span>n</span>
           <div>
             <b>@nori.studio</b>
-            <em>week 1 trial</em>
+            <em>in trial</em>
           </div>
         </div>
         <div className="mock-days">

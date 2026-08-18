@@ -46,7 +46,7 @@ const SYSTEMS = [
   {
     id: "trial",
     name: "trial structure",
-    body: "1-week trial. entry criteria, output expected, review at the end, continue or cut.",
+    body: "a trial period. entry criteria, output expected, review at the end, continue or cut.",
     mock: <TrialMock />,
   },
   {
