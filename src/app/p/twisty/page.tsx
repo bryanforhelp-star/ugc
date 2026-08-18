@@ -33,7 +33,7 @@ const SYSTEMS = [
   },
   {
     id: "network",
-    name: "creator network",
+    name: "community management",
     body: "community space (discord or slack) built out: channels, roles, rules, intake flow.",
     mock: <NetworkMock />,
   },

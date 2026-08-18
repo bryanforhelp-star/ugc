@@ -18,7 +18,7 @@ the bones and frameworks, built from scratch:
 
 **onboarding system.** agreement, credits, account setup, guidelines doc, prompt library. repeatable for every creator after.
 
-**creator network.** community space (discord or slack) built out: channels, roles, rules, intake flow.
+**community management.** community space (discord or slack) built out: channels, roles, rules, intake flow.
 
 **trial structure.** 1-week trial. entry criteria, output expected, review at the end, continue or cut.
 

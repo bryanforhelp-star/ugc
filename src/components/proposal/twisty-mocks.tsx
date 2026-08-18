@@ -2,13 +2,15 @@ import type { ReactNode } from "react";
 
 function MockFrame({
   title,
+  tone = "light",
   children,
 }: {
   title: string;
+  tone?: "light" | "discord";
   children: ReactNode;
 }) {
   return (
-    <div className="mock" aria-hidden="true">
+    <div className={tone === "discord" ? "mock mock--discord" : "mock"} aria-hidden="true">
       <div className="mock-bar">
         <span className="mock-dots" />
         <span className="mock-bar-title">{title}</span>
@@ -72,19 +74,44 @@ export function OnboardingMock() {
 
 export function NetworkMock() {
   return (
-    <MockFrame title="community">
-      <div className="mock-slack">
-        <p className="mock-slack-space">twisty canvas</p>
-        <ul>
-          <li className="is-on"># briefs</li>
-          <li># submissions</li>
-          <li># wins</li>
-          <li># trial</li>
-        </ul>
-        <p className="mock-join">
-          <span className="mock-ping" />
-          creator 09 joined
-        </p>
+    <MockFrame title="discord" tone="discord">
+      <div className="mock-dc">
+        <div className="mock-dc-rail">
+          <span className="mock-dc-server is-on">t</span>
+          <span className="mock-dc-plus">+</span>
+        </div>
+        <div className="mock-dc-nav">
+          <p className="mock-dc-space">twisty canvas</p>
+          <p className="mock-dc-cat">text channels</p>
+          <ul>
+            <li className="is-on">
+              <span>#</span> briefs
+            </li>
+            <li>
+              <span>#</span> submissions
+            </li>
+            <li>
+              <span>#</span> wins
+            </li>
+            <li>
+              <span>#</span> trial
+            </li>
+            <li>
+              <span>#</span> rules
+            </li>
+          </ul>
+        </div>
+        <div className="mock-dc-chat">
+          <p className="mock-dc-head"># briefs</p>
+          <p className="mock-dc-sys">
+            <span className="mock-ping" />
+            creator 09 joined
+          </p>
+          <div className="mock-dc-msg">
+            <b>ops</b>
+            <span>this week's briefs are up.</span>
+          </div>
+        </div>
       </div>
     </MockFrame>
   );
