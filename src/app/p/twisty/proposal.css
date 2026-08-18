@@ -436,9 +436,10 @@ html:has(.prop) #bg {
 
 .prop-logo-row__text {
   font-family: var(--serif);
-  font-size: clamp(22px, 2.2vw, 34px);
+  font-size: clamp(18px, 1.8vw, 26px);
   line-height: 1.05;
   color: var(--ink);
+  text-transform: capitalize;
 }
 
 @media (prefers-reduced-motion: reduce) {
