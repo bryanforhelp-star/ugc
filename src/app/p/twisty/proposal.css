@@ -292,7 +292,7 @@ html:has(.prop) #bg {
 
 .prop-canvas {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.6fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
   gap: clamp(32px, 6vw, 80px);
   align-items: start;
   margin-top: 0.55em;
@@ -319,21 +319,60 @@ html:has(.prop) #bg {
   margin-bottom: 0.7em;
 }
 
-.prop-examples ul {
+.prop-example-grid {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 20px);
 }
 
-.prop-examples li {
-  padding: 0.55em 0;
+.prop-example-card {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 10px 0;
   border-top: 1px solid var(--hair);
+  transition: color 0.2s ease;
+}
+
+.prop-example-card:hover,
+.prop-example-card:focus-visible {
+  color: var(--pop);
+}
+
+.prop-example-card__thumb {
+  width: 88px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--hair);
+  background: var(--paper);
+}
+
+.prop-example-card__brand {
   font-family: var(--serif);
   font-size: clamp(22px, 2.2vw, 32px);
   line-height: 1.15;
 }
 
-.prop-examples li:last-child {
+.prop-example-grid > li:last-child .prop-example-card,
+.prop-example-grid > li:last-child.prop-example-pending {
+  border-bottom: 1px solid var(--hair);
+}
+
+.prop-example-pending {
+  padding: 0.55em 0 0.55em 102px;
+  border-top: 1px solid var(--hair);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.15;
+  color: var(--soft);
+}
+
+.prop-example-grid > li:last-child.prop-example-pending {
   border-bottom: 1px solid var(--hair);
 }
 

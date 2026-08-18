@@ -17,6 +17,27 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+const CANVAS_EXAMPLES = [
+  {
+    brand: "solvely.ai",
+    href: "https://www.instagram.com/reel/DMEenBmpo5R/",
+    image: "/brands/twisty/canvas-examples/solvely.jpg",
+  },
+  {
+    brand: "cluely",
+  },
+  {
+    brand: "higgsfield",
+    href: "https://www.instagram.com/reel/DZEOfItMazu/",
+    image: "/brands/twisty/canvas-examples/higgsfield.jpg",
+  },
+  {
+    brand: "oweyou",
+    href: "https://www.instagram.com/reel/DbroZC6REy0/",
+    image: "/brands/twisty/canvas-examples/oweyou.jpg",
+  },
+] as const;
+
 const SYSTEMS = [
   {
     id: "sourcing",
@@ -127,10 +148,38 @@ export default function TwistyProposalPage() {
             </div>
             <div className="prop-examples">
               <p className="cover">who already does this</p>
-              <ul>
-                <li>cluely</li>
-                <li>wispr</li>
-                <li>quizlet</li>
+              <ul className="prop-example-grid">
+                {CANVAS_EXAMPLES.map((example) =>
+                  example.href && example.image ? (
+                    <li key={example.brand}>
+                      <a
+                        className="prop-example-card"
+                        href={example.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className="prop-example-card__thumb"
+                          src={example.image}
+                          alt={`${example.brand} canvas ugc example`}
+                          width={270}
+                          height={480}
+                          loading="lazy"
+                        />
+                        <span className="prop-example-card__brand">
+                          {example.brand}
+                        </span>
+                      </a>
+                    </li>
+                  ) : (
+                    <li
+                      key={example.brand}
+                      className="prop-example-pending"
+                    >
+                      {example.brand}
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </div>
