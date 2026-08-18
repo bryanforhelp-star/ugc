@@ -170,7 +170,7 @@ export default function TwistyProposalPage() {
                     href={clip.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${clip.brand} canvas ugc example`}
+                    aria-label="canvas ugc example"
                   >
                     <img
                       src={clip.poster}
@@ -194,7 +194,7 @@ export default function TwistyProposalPage() {
               <ul className="prop-logo-row" aria-label="brand logos">
                 {CANVAS_LOGOS.map((logo) => (
                   <li key={logo.name}>
-                    <img src={logo.src} alt={logo.name} />
+                    <img src={logo.src} alt="" />
                   </li>
                 ))}
               </ul>
