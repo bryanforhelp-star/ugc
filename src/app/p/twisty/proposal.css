@@ -107,6 +107,20 @@ html:has(.prop) #bg {
   border-top: 1px solid var(--hair);
 }
 
+.prop-phase--run {
+  background: color-mix(in srgb, var(--pop) 7%, #fff);
+  border-top: 1px solid color-mix(in srgb, var(--pop) 16%, var(--hair));
+  padding-bottom: clamp(20px, 4vh, 40px);
+}
+
+.prop-phase--run .prop-band {
+  border-top: 0;
+}
+
+.prop-phase--run .prop-product {
+  border-top-color: color-mix(in srgb, var(--pop) 12%, var(--hair));
+}
+
 .prop-head {
   font-family: var(--display);
   font-weight: 400;

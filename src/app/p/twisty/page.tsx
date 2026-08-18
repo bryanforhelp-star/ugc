@@ -198,41 +198,43 @@ export default function TwistyProposalPage() {
         </section>
       ))}
 
-      <section id="phase-2" className="prop-band">
-        <div className="wrap prop-shell">
-          <h2 className="prop-head">phase 2: running the program</h2>
-          <p className="prop-copy">
-            the same systems, run every week. briefs dropped, submissions
-            reviewed, roster held at 10 to 15, winners rebuilt across accounts
-            until they stop working.
-          </p>
-          <ul className="prop-index">
-            {OPS.map((system, i) => (
-              <li key={system.id}>
-                <a href={`#${system.id}`}>
-                  <span className="prop-num">{i + 1}</span>
-                  {system.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {OPS.map((system, i) => (
-        <section key={system.id} id={system.id} className="prop-product">
-          <div className="wrap prop-shell prop-product__grid">
-            <div className="prop-product__copy">
-              <h3 className="prop-product__name">
-                <span className="prop-num">{i + 1}</span>
-                {system.name}
-              </h3>
-              <p>{system.body}</p>
-            </div>
-            <div className="prop-product__mock">{system.mock}</div>
+      <div className="prop-phase prop-phase--run">
+        <section id="phase-2" className="prop-band">
+          <div className="wrap prop-shell">
+            <h2 className="prop-head">phase 2: running the program</h2>
+            <p className="prop-copy">
+              the same systems, run every week. briefs dropped, submissions
+              reviewed, roster held at 10 to 15, winners rebuilt across accounts
+              until they stop working.
+            </p>
+            <ul className="prop-index">
+              {OPS.map((system, i) => (
+                <li key={system.id}>
+                  <a href={`#${system.id}`}>
+                    <span className="prop-num">{i + 1}</span>
+                    {system.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
-      ))}
+
+        {OPS.map((system, i) => (
+          <section key={system.id} id={system.id} className="prop-product">
+            <div className="wrap prop-shell prop-product__grid">
+              <div className="prop-product__copy">
+                <h3 className="prop-product__name">
+                  <span className="prop-num">{i + 1}</span>
+                  {system.name}
+                </h3>
+                <p>{system.body}</p>
+              </div>
+              <div className="prop-product__mock">{system.mock}</div>
+            </div>
+          </section>
+        ))}
+      </div>
 
       <section id="fee" className="prop-band prop-fee">
         <div className="wrap prop-shell">
