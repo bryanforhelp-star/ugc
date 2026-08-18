@@ -1,7 +1,5 @@
 # twisty x kyndall
 
-creator program
-
 Live at [bykyndall.com/p/twisty](https://bykyndall.com/p/twisty) (unlisted, noindex). Edit this file, then match the page.
 
 ---

@@ -162,6 +162,10 @@ html:has(.prop) #bg {
   align-items: center;
 }
 
+.prop-product__grid--follow {
+  margin-top: clamp(20px, 3vh, 32px);
+}
+
 .prop-product__copy {
   min-width: 0;
 }

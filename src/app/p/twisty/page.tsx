@@ -80,7 +80,6 @@ export default function TwistyProposalPage() {
         <header className="prop-hero">
           <p className="cover">proposal</p>
           <h1 className="prop-title">twisty x kyndall</h1>
-          <p className="prop-kicker">creator program</p>
         </header>
       </div>
 
@@ -127,10 +126,11 @@ export default function TwistyProposalPage() {
       ))}
 
       <section id="phase-2" className="prop-product">
-        <div className="wrap prop-shell prop-product__grid">
+        <div className="wrap prop-shell">
+          <h2 className="prop-head">phase 2: running the program</h2>
+        </div>
+        <div className="wrap prop-shell prop-product__grid prop-product__grid--follow">
           <div className="prop-product__copy">
-            <h2 className="prop-head">phase 2</h2>
-            <p className="prop-subhead">running the program</p>
             <ul className="prop-ops">
               <li>weekly format drop: 5 to 8 briefs</li>
               <li>submissions reviewed with feedback, 48-hour weekday turnaround</li>
