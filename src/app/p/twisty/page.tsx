@@ -79,7 +79,14 @@ export default function TwistyProposalPage() {
 
         <header className="prop-hero">
           <p className="cover">proposal</p>
-          <h1 className="prop-title">twisty x kyndall</h1>
+          <h1 className="prop-title prop-lockup">
+            <img
+              src="/brands/twisty-logo.svg"
+              alt="twisty"
+              className="prop-logo"
+            />
+            <span>x kyndall</span>
+          </h1>
         </header>
       </div>
 

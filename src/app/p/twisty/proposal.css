@@ -78,8 +78,20 @@ html:has(.prop) #bg {
   font-size: clamp(28px, 7vw, 88px);
   letter-spacing: 0.03em;
   text-transform: lowercase;
-  white-space: nowrap;
   margin: 0 0 clamp(16px, 2vw, 24px);
+}
+
+.prop-lockup {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 22px);
+  white-space: nowrap;
+}
+
+.prop-logo {
+  display: block;
+  height: clamp(28px, 6.2vw, 72px);
+  width: auto;
 }
 
 .prop-kicker {
