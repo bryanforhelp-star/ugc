@@ -40,7 +40,7 @@ This is **not** the $250/video card in `brands/deals.md`. It is a program-ops re
 
 - **Fee:** $3,000/month, paid upfront. Month to month. No initial term.
 - **Included:** building the program (phase 1) and running it (phase 2). First cohort of 8 to 10 creators, live.
-- **Not included:** creator payouts and bonus pool, paid ads management, content posted to Kyndall's own channels (quoted separately).
+- **Contract only, not on the live page:** creator payouts and bonus pool, paid ads management, content posted to Kyndall's own channels (quoted separately).
 
 Full copy: `proposal.md`. That file is the source of truth for the live page.
 

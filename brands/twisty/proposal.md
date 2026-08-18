@@ -44,10 +44,4 @@ first cohort of 8 to 10 creators run through all of it live, so it ships tested,
 
 $3,000/month. paid upfront.
 
-## not included
-
-- creator payouts and bonus pool
-- paid ads management
-- content posted to my own channels (quoted separately)
-
 kyn@bykyndall.com
