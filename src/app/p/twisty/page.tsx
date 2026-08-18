@@ -27,7 +27,13 @@ const SYSTEMS = [
   {
     id: "sourcing",
     name: "sourcing system",
-    body: "creator profile for canvas, where they come from, screening criteria, pipeline and tracker.",
+    body: "not a pile of dms. a written canvas profile, named sources, a pass/fail screen, and a tracker so every name has a next step.",
+    points: [
+      "profile: creators who can post 4+ days a week, inside twisty, talking-head or overlay. not a studio edit.",
+      "sources: tiktok comments, discord, referrals, outbound lists.",
+      "screen: cadence, twisty-fit, on-camera or overlay, language, and whether they already post for a competing ai app.",
+      "tracker: sourced, screened, trial, roster. scored, so the next open seat has a name waiting.",
+    ],
     mock: <SourcingMock />,
   },
   {
@@ -175,6 +181,13 @@ export default function TwistyProposalPage() {
             <div className="prop-product__copy">
               <h3 className="prop-product__name">{system.name}</h3>
               <p>{system.body}</p>
+              {"points" in system && system.points ? (
+                <ul className="prop-spec">
+                  {system.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
             <div className="prop-product__mock">{system.mock}</div>
           </div>

@@ -20,7 +20,12 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 - submission + review
 - performance system
 
-**sourcing system.** creator profile for canvas, where they come from, screening criteria, pipeline and tracker.
+**sourcing system.** not a pile of dms. a written canvas profile, named sources, a pass/fail screen, and a tracker so every name has a next step.
+
+- profile: creators who can post 4+ days a week, inside twisty, talking-head or overlay. not a studio edit.
+- sources: tiktok comments, discord, referrals, outbound lists.
+- screen: cadence, twisty-fit, on-camera or overlay, language, and whether they already post for a competing ai app.
+- tracker: sourced, screened, trial, roster. scored, so the next open seat has a name waiting.
 
 **onboarding system.** agreement, credits, account setup, guidelines doc, prompt library. repeatable for every creator after.
 

@@ -21,28 +21,81 @@ function MockFrame({
 }
 
 export function SourcingMock() {
+  const profile = [
+    "4+ posts a week",
+    "made inside twisty, not after effects",
+    "talking-head or overlay",
+    "english on-screen",
+    "not posting for a competing ai app",
+  ];
+  const rows = [
+    {
+      who: "@maya.makes",
+      from: "referral",
+      screen: "pass",
+      stage: "roster",
+      tone: "ok" as const,
+    },
+    {
+      who: "@jules.clips",
+      from: "tiktok",
+      screen: "pass",
+      stage: "trial",
+      tone: "ok" as const,
+    },
+    {
+      who: "@kai.posted",
+      from: "discord",
+      screen: "hold · cadence",
+      stage: "screened",
+      tone: "hold" as const,
+    },
+    {
+      who: "@nori.studio",
+      from: "tiktok",
+      screen: "fail · competitor",
+      stage: "cut",
+      tone: "kill" as const,
+    },
+  ];
+
   return (
-    <MockFrame title="pipeline">
-      <div className="mock-kanban">
-        <div className="mock-col">
-          <p>sourced</p>
-          <span>creator 11</span>
-          <span>creator 07</span>
+    <MockFrame title="sourcing">
+      <div className="mock-source">
+        <p className="mock-kicker">canvas profile · must pass all five</p>
+        <ul className="mock-source-profile">
+          {profile.map((item) => (
+            <li key={item}>
+              <i />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mock-kicker">where they come from</p>
+        <div className="mock-source-from">
+          <span>tiktok comments</span>
+          <span>discord</span>
+          <span>referrals</span>
+          <span>outbound lists</span>
         </div>
-        <div className="mock-col">
-          <p>screened</p>
-          <span>creator 03</span>
-        </div>
-        <div className="mock-col">
-          <p>trial</p>
-          <span>creator 06</span>
-          <span className="mock-chip-leave">creator 04</span>
-        </div>
-        <div className="mock-col mock-col--live">
-          <p>roster</p>
-          <span>creator 01</span>
-          <span>creator 02</span>
-          <span className="mock-chip-arrive">creator 04</span>
+        <div className="mock-source-table">
+          <p className="mock-kicker">tracker · next open seat pulls from here</p>
+          <div className="mock-source-head">
+            <span>creator</span>
+            <span>source</span>
+            <span>screen</span>
+            <span>stage</span>
+          </div>
+          <ul>
+            {rows.map((row) => (
+              <li key={row.who} className={`is-${row.tone}`}>
+                <b>{row.who}</b>
+                <span>{row.from}</span>
+                <span>{row.screen}</span>
+                <em>{row.stage}</em>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </MockFrame>
