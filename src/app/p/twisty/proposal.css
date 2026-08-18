@@ -357,88 +357,67 @@ html:has(.prop) #bg {
   color: var(--soft);
 }
 
-.mock-source {
+.mock-engine {
   padding-bottom: 8px;
 }
 
-.mock-source-profile {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  margin: 0;
-  padding: 0 8px 8px;
-  list-style: none;
-}
-
-.mock-source-profile li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 7px 8px;
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-.mock-source-profile i {
-  flex: 0 0 8px;
-  width: 8px;
-  height: 8px;
-  margin-top: 4px;
-  border-radius: 2px;
-  background: var(--pop);
-}
-
-.mock-source-from {
+.mock-engine-apps {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   padding: 2px 16px 12px;
 }
 
-.mock-source-from span {
-  padding: 4px 8px;
+.mock-engine-apps span {
+  padding: 4px 9px;
   border-radius: 999px;
-  background: var(--pop-soft);
+  background: var(--hair);
   font-size: 11px;
-  color: var(--pop);
+  color: var(--soft);
 }
 
-.mock-source-table ul {
+.mock-engine-apps span.is-on {
+  background: var(--pop);
+  color: #fff;
+}
+
+.mock-engine ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.mock-source-head,
-.mock-source-table li {
+.mock-engine-head,
+.mock-engine li {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) 0.7fr minmax(0, 1.1fr) 0.7fr;
+  grid-template-columns: minmax(0, 1.2fr) 0.8fr 0.7fr 0.9fr;
   gap: 8px;
   align-items: center;
   padding: 8px 16px;
   font-size: 12px;
 }
 
-.mock-source-head {
+.mock-engine-head {
   color: var(--soft);
   font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.mock-source-table li {
   border-top: 1px solid var(--hair);
 }
 
-.mock-source-table li b {
+.mock-engine li {
+  border-top: 1px solid var(--hair);
+}
+
+.mock-engine li b {
   font-size: 12px;
 }
 
-.mock-source-table li span {
+.mock-engine li span {
   color: var(--soft);
 }
 
-.mock-source-table li em {
+.mock-engine li em {
   font-style: normal;
   font-size: 10px;
   font-weight: 700;
@@ -447,12 +426,9 @@ html:has(.prop) #bg {
   color: var(--soft);
 }
 
-.mock-source-table li.is-ok em {
+.mock-engine li.is-ok em,
+.mock-engine li.is-live em {
   color: var(--pop);
-}
-
-.mock-source-table li.is-kill em {
-  color: var(--soft);
 }
 
 .mock-flow {
@@ -1334,18 +1310,14 @@ html:has(.prop) #bg {
     font-size: 18px;
   }
 
-  .mock-source-profile {
-    grid-template-columns: 1fr;
-  }
-
-  .mock-source-head span:nth-child(2),
-  .mock-source-table li span:first-of-type {
+  .mock-engine-head span:nth-child(3),
+  .mock-engine li span:nth-of-type(2) {
     display: none;
   }
 
-  .mock-source-head,
-  .mock-source-table li {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) 0.7fr;
+  .mock-engine-head,
+  .mock-engine li {
+    grid-template-columns: minmax(0, 1.2fr) 0.8fr 0.9fr;
   }
 
   .mock-inbox li {

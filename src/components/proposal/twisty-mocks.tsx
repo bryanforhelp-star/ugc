@@ -21,82 +21,67 @@ function MockFrame({
 }
 
 export function SourcingMock() {
-  const profile = [
-    "4+ posts a week",
-    "made inside twisty, not after effects",
-    "talking-head or overlay",
-    "english on-screen",
-    "not posting for a competing ai app",
-  ];
+  const apps = ["tiktok", "instagram", "youtube", "discord"];
   const rows = [
     {
       who: "@maya.makes",
-      from: "referral",
-      screen: "pass",
-      stage: "roster",
-      tone: "ok" as const,
+      app: "tiktok",
+      found: "comment",
+      action: "dm sent",
+      tone: "live" as const,
     },
     {
       who: "@jules.clips",
-      from: "tiktok",
-      screen: "pass",
-      stage: "trial",
+      app: "instagram",
+      found: "explore",
+      action: "replied",
       tone: "ok" as const,
     },
     {
       who: "@kai.posted",
-      from: "discord",
-      screen: "hold · cadence",
-      stage: "screened",
+      app: "youtube",
+      found: "shorts",
+      action: "found",
       tone: "hold" as const,
     },
     {
       who: "@nori.studio",
-      from: "tiktok",
-      screen: "fail · competitor",
-      stage: "cut",
-      tone: "kill" as const,
+      app: "discord",
+      found: "server",
+      action: "dm queued",
+      tone: "live" as const,
     },
   ];
 
   return (
-    <MockFrame title="sourcing">
-      <div className="mock-source">
-        <p className="mock-kicker">canvas profile · must pass all five</p>
-        <ul className="mock-source-profile">
-          {profile.map((item) => (
-            <li key={item}>
-              <i />
-              {item}
+    <MockFrame title="sourcing engine">
+      <div className="mock-engine">
+        <p className="mock-kicker">
+          scanning <b>4 apps</b> · 18 found this week · 7 in outreach
+        </p>
+        <div className="mock-engine-apps">
+          {apps.map((app) => (
+            <span key={app} className={app === "tiktok" ? "is-on" : undefined}>
+              {app}
+            </span>
+          ))}
+        </div>
+        <div className="mock-engine-head">
+          <span>creator</span>
+          <span>found on</span>
+          <span>where</span>
+          <span>outreach</span>
+        </div>
+        <ul>
+          {rows.map((row) => (
+            <li key={row.who} className={`is-${row.tone}`}>
+              <b>{row.who}</b>
+              <span>{row.app}</span>
+              <span>{row.found}</span>
+              <em>{row.action}</em>
             </li>
           ))}
         </ul>
-        <p className="mock-kicker">where they come from</p>
-        <div className="mock-source-from">
-          <span>tiktok comments</span>
-          <span>discord</span>
-          <span>referrals</span>
-          <span>outbound lists</span>
-        </div>
-        <div className="mock-source-table">
-          <p className="mock-kicker">tracker · next open seat pulls from here</p>
-          <div className="mock-source-head">
-            <span>creator</span>
-            <span>source</span>
-            <span>screen</span>
-            <span>stage</span>
-          </div>
-          <ul>
-            {rows.map((row) => (
-              <li key={row.who} className={`is-${row.tone}`}>
-                <b>{row.who}</b>
-                <span>{row.from}</span>
-                <span>{row.screen}</span>
-                <em>{row.stage}</em>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </MockFrame>
   );

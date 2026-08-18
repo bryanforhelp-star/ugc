@@ -23,12 +23,11 @@ const SYSTEMS = [
   {
     id: "sourcing",
     name: "sourcing system",
-    body: "not a pile of dms. a written canvas profile, named sources, a pass/fail screen, and a tracker so every name has a next step.",
+    body: "an engine that finds creators across apps and reaches out so they enter the program. tiktok, instagram, youtube, discord, wherever they already post. hunt, message, get a reply, send them into trial.",
     points: [
-      "profile: creators who can post 4+ days a week, inside twisty, talking-head or overlay. not a studio edit.",
-      "sources: tiktok comments, discord, referrals, outbound lists.",
-      "screen: cadence, twisty-fit, on-camera or overlay, language, and whether they already post for a competing ai app.",
-      "tracker: sourced, screened, trial, roster. scored, so the next open seat has a name waiting.",
+      "hunt: search and watch across tiktok, instagram, youtube, discord, comments, lists, inbound.",
+      "outreach: dms and replies tracked, so a name is never a screenshot in someone's camera roll.",
+      "in: who replies gets dropped into trial. the engine keeps filling seats as people leave.",
     ],
     mock: <SourcingMock />,
   },
