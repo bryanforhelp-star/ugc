@@ -17,7 +17,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const CANVAS_EXAMPLES = [
+type CanvasExample = {
+  brand: string;
+  href?: string;
+  image?: string;
+};
+
+const CANVAS_EXAMPLES: CanvasExample[] = [
   {
     brand: "solvely.ai",
     href: "https://www.instagram.com/reel/DMEenBmpo5R/",
@@ -36,7 +42,7 @@ const CANVAS_EXAMPLES = [
     href: "https://www.instagram.com/reel/DbroZC6REy0/",
     image: "/brands/twisty/canvas-examples/oweyou.jpg",
   },
-] as const;
+];
 
 const SYSTEMS = [
   {
