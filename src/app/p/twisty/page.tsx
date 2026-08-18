@@ -139,7 +139,7 @@ export default function TwistyProposalPage() {
         <div className="wrap prop-shell">
           <h2 className="prop-head">scope</h2>
           <p className="prop-lead">
-            building and operating twisty&apos;s canvas creator program.
+            build and operate twisty&apos;s canvas creator program.
           </p>
         </div>
       </section>

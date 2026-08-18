@@ -280,6 +280,17 @@ html:has(.prop) #bg {
   line-height: 1.2;
 }
 
+#scope .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#scope .prop-lead {
+  max-width: 44ch;
+}
+
 .prop-copy {
   margin: 0;
   max-width: 46ch;
