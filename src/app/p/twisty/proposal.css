@@ -390,7 +390,7 @@ html:has(.prop) #bg {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 14px 22px;
+  gap: 10px 16px;
   margin: 10px 0 0;
   padding: 0;
   list-style: none;
@@ -398,31 +398,10 @@ html:has(.prop) #bg {
 
 .prop-logo-row img {
   display: block;
-  width: auto;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-}
-
-.prop-logo-row--text .prop-logo-row__text {
-  display: block;
-  font-family: var(--serif);
-  font-size: clamp(18px, 2.2vw, 30px);
-  line-height: 1.05;
-  color: var(--ink);
-}
-
-.prop-logo-row__wordmark {
-  height: 16px;
-}
-
-.prop-logo-row__mark {
-  height: 20px;
-  width: 20px;
-}
-
-.prop-logo-row__icon {
-  height: 22px;
-  width: 22px;
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 @media (prefers-reduced-motion: reduce) {

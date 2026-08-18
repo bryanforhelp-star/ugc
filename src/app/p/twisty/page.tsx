@@ -39,9 +39,18 @@ const CANVAS_CLIPS = [
 ];
 
 const CANVAS_LOGOS = [
-  { name: "higgfield" },
-  { name: "turbo learn" },
-  { name: "owe you" },
+  {
+    name: "higgfield",
+    src: "/brands/twisty/canvas-examples/higgsfield.svg",
+  },
+  {
+    name: "turbo learn",
+    src: "/brands/twisty/canvas-examples/turbolearn.png",
+  },
+  {
+    name: "owe you",
+    src: "/brands/twisty/canvas-examples/oweyou-logo.png",
+  },
 ];
 
 const SYSTEMS = [
@@ -182,10 +191,10 @@ export default function TwistyProposalPage() {
                   </a>
                 ))}
               </div>
-              <ul className="prop-logo-row prop-logo-row--text" aria-label="brand logos">
+              <ul className="prop-logo-row" aria-label="brand logos">
                 {CANVAS_LOGOS.map((logo) => (
                   <li key={logo.name}>
-                    <span className="prop-logo-row__text">{logo.name}</span>
+                    <img src={logo.src} alt={logo.name} />
                   </li>
                 ))}
               </ul>
