@@ -8,6 +8,10 @@ export function isShopProductPath(pathname: string) {
   return pathname.startsWith("/kits/") && pathname !== "/kits/";
 }
 
+export function isProposalPath(pathname: string) {
+  return pathname === "/p" || pathname.startsWith("/p/");
+}
+
 export function isLinksPath(pathname: string) {
   return (
     pathname === "/links" ||
@@ -25,6 +29,7 @@ export function hidesSiteChrome(pathname: string) {
     pathname === "/" ||
     pathname === "/video" ||
     isLinksPath(pathname) ||
-    isUgcPath(pathname)
+    isUgcPath(pathname) ||
+    isProposalPath(pathname)
   );
 }

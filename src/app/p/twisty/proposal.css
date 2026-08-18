@@ -1,0 +1,220 @@
+.prop {
+  position: relative;
+  color: var(--ink);
+  padding: 0 0 clamp(72px, 12vh, 140px);
+}
+
+.prop a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.prop-shell {
+  max-width: 860px;
+}
+
+.prop-chrome {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  padding-bottom: clamp(24px, 4vh, 48px);
+}
+
+.prop-mark {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.prop-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 40px);
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 28px);
+}
+
+.prop-nav a {
+  position: relative;
+  padding: 3px 0;
+}
+
+.prop-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 1px;
+  height: 2px;
+  background: var(--pop);
+  transition: right 0.3s ease;
+}
+
+.prop-nav a:hover::after,
+.prop-nav a:focus-visible::after {
+  right: 0;
+}
+
+.prop-hero {
+  padding: clamp(12px, 3vh, 32px) 0 clamp(40px, 8vh, 80px);
+}
+
+.prop-title {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 0.9;
+  font-size: clamp(52px, 9vw, 120px);
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+}
+
+.prop-kicker {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 36px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.prop-section {
+  padding: clamp(28px, 5vh, 56px) 0 0;
+  border-top: 1px solid var(--hair);
+}
+
+.prop-head {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 0.95;
+  font-size: clamp(36px, 5.5vw, 72px);
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+  margin: 0 0 0.4em;
+}
+
+.prop-head--small {
+  font-size: clamp(28px, 4vw, 48px);
+}
+
+.prop-subhead {
+  margin: -0.2em 0 1.2em;
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.6vw, 24px);
+  color: var(--soft);
+}
+
+.prop-lead {
+  margin: 0;
+  max-width: 28ch;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1.2;
+}
+
+.prop-copy {
+  margin: 0 0 1.4em;
+  max-width: 48ch;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.62;
+  letter-spacing: -0.018em;
+}
+
+.prop-copy--note {
+  margin: 1.8em 0 0;
+  color: var(--ink);
+}
+
+.prop-systems {
+  display: grid;
+  gap: clamp(22px, 3vh, 32px);
+  margin: 0;
+}
+
+.prop-system dt {
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.2vw, 18px);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35em;
+}
+
+.prop-system dd {
+  margin: 0;
+  max-width: 48ch;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.55;
+  letter-spacing: -0.018em;
+  color: var(--soft);
+}
+
+.prop-ops {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 50ch;
+}
+
+.prop-ops li {
+  position: relative;
+  padding: 0.7em 0 0.7em 1.15em;
+  border-top: 1px solid var(--hair);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.5;
+  letter-spacing: -0.018em;
+}
+
+.prop-ops li:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.prop-ops li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.15em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pop);
+}
+
+.prop-fee {
+  padding-top: clamp(36px, 6vh, 64px);
+  padding-bottom: clamp(12px, 2vh, 20px);
+}
+
+.prop-price {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 0.9;
+  font-size: clamp(42px, 7vw, 88px);
+  letter-spacing: -0.02em;
+}
+
+.prop-terms {
+  margin: 0.35em 0 0;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--ink);
+}
+
+.prop-foot {
+  padding: clamp(48px, 8vh, 80px) 0 0;
+}
+
+@media (max-width: 640px) {
+  .prop-nav {
+    gap: 16px;
+    font-size: 18px;
+  }
+}
