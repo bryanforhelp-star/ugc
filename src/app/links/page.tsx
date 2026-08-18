@@ -87,8 +87,8 @@ export default async function LinksPage() {
           <Image
             src={LINKS_PAGE.avatar}
             alt=""
-            width={96}
-            height={96}
+            width={120}
+            height={120}
             priority
           />
         </div>

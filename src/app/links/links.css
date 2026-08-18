@@ -47,22 +47,41 @@ html:has(.links-store) main {
 }
 
 .links-avatar {
+  --star: polygon(
+    50% 0%,
+    62.93% 32.2%,
+    97.55% 34.55%,
+    70.92% 56.8%,
+    79.39% 90.45%,
+    50% 72%,
+    20.61% 90.45%,
+    29.08% 56.8%,
+    2.45% 34.55%,
+    37.07% 32.2%
+  );
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto 16px;
-  border-radius: 50%;
-  overflow: hidden;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.16));
+}
+
+.links-avatar::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
   background: var(--links-card);
-  border: 3px solid var(--links-card);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  clip-path: var(--star);
 }
 
 .links-avatar img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 48% 36%;
+  clip-path: var(--star);
 }
 
 .links-name {
