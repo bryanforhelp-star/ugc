@@ -8,13 +8,13 @@ Live at [bykyndall.com/p/twisty](https://bykyndall.com/p/twisty) (unlisted, noin
 
 building and operating twisty's canvas creator program.
 
-## canvas ugc
+## what is canvas ugc?
 
-a group of accounts run by a creator, posting videos about twisty every day. creators post on twisty's accounts, not their own.
+creators run dedicated accounts for twisty and post to them every day. not their own pages. no followers to start. every video has to spread on its own.
 
-no follower count to start from. every video has to be good enough to spread on its own. ten accounts posting daily is around 300 videos a month, and it only takes a few to land.
+ten accounts posting daily is around 300 videos a month. a few hits is the whole game: reach without ads, then more of whatever works.
 
-it's a way to get in front of a lot of people without paying for ads, and it gets better the faster you spot what's working and make more of it.
+who already does this: cluely, wispr, quizlet.
 
 ## phase 1: build the program
 

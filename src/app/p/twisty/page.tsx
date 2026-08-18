@@ -111,22 +111,28 @@ export default function TwistyProposalPage() {
 
       <section id="canvas" className="prop-band">
         <div className="wrap prop-shell">
-          <h2 className="prop-head">canvas ugc</h2>
-          <div className="prop-define">
-            <p>
-              a group of accounts run by a creator, posting videos about twisty
-              every day. creators post on twisty&apos;s accounts, not their own.
-            </p>
-            <p>
-              no follower count to start from. every video has to be good enough
-              to spread on its own. ten accounts posting daily is around 300
-              videos a month, and it only takes a few to land.
-            </p>
-            <p>
-              it&apos;s a way to get in front of a lot of people without paying
-              for ads, and it gets better the faster you spot what&apos;s working
-              and make more of it.
-            </p>
+          <h2 className="prop-head prop-head--ask">what is canvas ugc?</h2>
+          <div className="prop-canvas">
+            <div className="prop-define">
+              <p>
+                creators run dedicated accounts for twisty and post to them
+                every day. not their own pages. no followers to start. every
+                video has to spread on its own.
+              </p>
+              <p>
+                ten accounts posting daily is around 300 videos a month. a few
+                hits is the whole game: reach without ads, then more of whatever
+                works.
+              </p>
+            </div>
+            <div className="prop-examples">
+              <p className="cover">who already does this</p>
+              <ul>
+                <li>cluely</li>
+                <li>wispr</li>
+                <li>quizlet</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
