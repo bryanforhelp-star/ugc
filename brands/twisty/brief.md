@@ -39,7 +39,7 @@ Canvas volume on their accounts. Format system in the proposal: viral formats so
 This is **not** the $250/video card in `brands/deals.md`. It is a program-ops retainer.
 
 - **Fee:** $3,000/month, paid upfront. Month to month. No initial term.
-- **Included:** building the program (phase 1) and running it (phase 2). First cohort of 8 to 10 creators, live.
+- **Included:** building the program (phase 1) and running it (phase 2). First cohort of 10 to 15 creators, live.
 - **Contract only, not on the live page:** creator payouts and bonus pool, paid ads management, content posted to Kyndall's own channels (quoted separately).
 
 Full copy: `proposal.md`. That file is the source of truth for the live page.

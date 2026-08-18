@@ -203,7 +203,7 @@ export function WeekMock() {
           <span>review sla</span>
         </div>
         <div>
-          <p>8/10</p>
+          <p>12/15</p>
           <span>roster</span>
         </div>
         <div className="mock-week-flags">

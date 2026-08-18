@@ -98,8 +98,8 @@ export default function TwistyProposalPage() {
           <h2 className="prop-head">phase 1</h2>
           <p className="prop-subhead">building the program</p>
           <p className="prop-copy">
-            the bones and frameworks, built from scratch. first cohort of 8 to
-            10 creators run through all of it live, so it ships tested, not
+            the bones and frameworks, built from scratch. first cohort of 10 to
+            15 creators run through all of it live, so it ships tested, not
             theoretical.
           </p>
         </div>

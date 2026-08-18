@@ -28,7 +28,7 @@ the bones and frameworks, built from scratch:
 
 **performance system.** tracking by creator, format and account. what scales, what gets killed.
 
-first cohort of 8 to 10 creators run through all of it live, so it ships tested, not theoretical.
+first cohort of 10 to 15 creators run through all of it live, so it ships tested, not theoretical.
 
 ## phase 2: running the program
 
