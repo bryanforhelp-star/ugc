@@ -95,8 +95,7 @@ export default function TwistyProposalPage() {
 
       <section id="phase-1" className="prop-band">
         <div className="wrap prop-shell">
-          <h2 className="prop-head">phase 1</h2>
-          <p className="prop-subhead">building the program</p>
+          <h2 className="prop-head">phase 1: build the program</h2>
           <p className="prop-copy">
             the bones and frameworks, built from scratch. first cohort of 10 to
             15 creators run through all of it live, so it ships tested, not

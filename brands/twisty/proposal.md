@@ -10,7 +10,7 @@ Live at [bykyndall.com/p/twisty](https://bykyndall.com/p/twisty) (unlisted, noin
 
 building and operating twisty's canvas creator program.
 
-## phase 1: building the program
+## phase 1: build the program
 
 the bones and frameworks, built from scratch. first cohort of 10 to 15 creators run through all of it live, so it ships tested, not theoretical.
 
