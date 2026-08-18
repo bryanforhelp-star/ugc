@@ -51,23 +51,32 @@ export function SourcingMock() {
 
 export function OnboardingMock() {
   const steps = [
-    "agreement",
-    "credits",
-    "account setup",
-    "guidelines",
-    "prompt library",
+    { name: "agreement", state: "done" },
+    { name: "credits", state: "done" },
+    { name: "account setup", state: "now" },
+    { name: "guidelines", state: "next" },
+    { name: "prompt library", state: "next" },
   ];
 
   return (
     <MockFrame title="onboarding">
-      <ol className="mock-checks">
-        {steps.map((step) => (
-          <li key={step}>
-            <span className="mock-tick" />
-            {step}
-          </li>
-        ))}
-      </ol>
+      <div className="mock-flow">
+        <p className="mock-flow-who">
+          <span>@jules.clips</span>
+          step 3 of 5
+        </p>
+        <ol>
+          {steps.map((step, i) => (
+            <li key={step.name} className={`is-${step.state}`}>
+              <b>{i + 1}</b>
+              <div>
+                <strong>{step.name}</strong>
+                {step.state === "now" ? <em>setting up posting access</em> : null}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </MockFrame>
   );
 }
@@ -118,22 +127,39 @@ export function NetworkMock() {
 }
 
 export function TrialMock() {
+  const days = [
+    { n: "1", posted: true },
+    { n: "2", posted: true },
+    { n: "3", posted: false },
+    { n: "4", posted: true },
+    { n: "5", posted: true },
+    { n: "6", posted: false },
+    { n: "7", posted: true },
+  ];
+
   return (
-    <MockFrame title="1-week trial">
+    <MockFrame title="trial">
       <div className="mock-trial">
+        <div className="mock-trial-who">
+          <span>n</span>
+          <div>
+            <b>@nori.studio</b>
+            <em>week 1 trial</em>
+          </div>
+        </div>
         <div className="mock-days">
-          {["1", "2", "3", "4", "5", "6", "7"].map((day, i) => (
+          {days.map((day) => (
             <span
-              key={day}
-              className={i === 6 ? "mock-day mock-day--end" : "mock-day"}
+              key={day.n}
+              className={day.posted ? "mock-day is-posted" : "mock-day is-miss"}
             >
-              {day}
+              {day.n}
             </span>
           ))}
         </div>
-        <div className="mock-split">
-          <span className="mock-tag mock-tag--scale">continue</span>
-          <span className="mock-tag mock-tag--kill">cut</span>
+        <div className="mock-trial-result">
+          <p>5 of 7 days posted</p>
+          <b className="mock-tag mock-tag--kill">cut</b>
         </div>
       </div>
     </MockFrame>
@@ -141,27 +167,30 @@ export function TrialMock() {
 }
 
 export function FormatMock() {
-  const briefs = [
-    { n: "01", name: "talking product", note: "hook in 3s, product in hand" },
-    { n: "02", name: "before / after", note: "one problem, one generate" },
-    { n: "03", name: "comment bait", note: "ask, then show the make" },
-    { n: "04", name: "desk setup", note: "phone, prompt, result" },
+  const clips = [
+    { format: "pov", views: "12k", who: "@kai.posted" },
+    { format: "before / after", views: "48k", who: "@jules.clips" },
+    { format: "comment bait", views: "91k", who: "@maya.makes" },
+    { format: "talking product", views: "210k", who: "@nori.studio" },
   ];
 
   return (
-    <MockFrame title="weekly briefs">
-      <div className="mock-briefs">
-        {briefs.map((brief, i) => (
-          <article
-            key={brief.n}
-            className="mock-brief"
-            style={{ animationDelay: `${-i * 2.4}s` }}
-          >
-            <p className="mock-brief-n">brief {brief.n}</p>
-            <p className="mock-brief-name">{brief.name}</p>
-            <p className="mock-brief-note">{brief.note}</p>
-          </article>
-        ))}
+    <MockFrame title="formats">
+      <div className="mock-tt">
+        <div className="mock-tt-row">
+          {clips.map((clip) => (
+            <article key={clip.format} className="mock-phone">
+              <p className="mock-phone-who">{clip.who}</p>
+              <p className="mock-phone-fmt">{clip.format}</p>
+              <p className="mock-phone-views">{clip.views}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mock-tt-scale">
+          <span>test</span>
+          <i />
+          <span>scale</span>
+        </div>
       </div>
     </MockFrame>
   );
@@ -195,29 +224,29 @@ export function ReviewMock() {
 export function PerformanceMock() {
   const rows = [
     {
-      name: "creator 01",
+      name: "@maya.makes",
       meta: "talking product",
       views: "124k",
       width: "82%",
       tag: "scale",
     },
     {
-      name: "creator 04",
-      meta: "talking product",
+      name: "@jules.clips",
+      meta: "comment bait",
       views: "81k",
       width: "64%",
       tag: "scale",
     },
     {
-      name: "tiktok @twisty",
-      meta: "account",
-      views: "210k",
-      width: "94%",
+      name: "@kai.posted",
+      meta: "pov",
+      views: "54k",
+      width: "48%",
       tag: "scale",
     },
     {
-      name: "desk setup",
-      meta: "format",
+      name: "@nori.studio",
+      meta: "desk setup",
       views: "9.2k",
       width: "18%",
       tag: "kill",
@@ -238,13 +267,11 @@ export function PerformanceMock() {
           </div>
           <div>
             <p>12</p>
-            <span>live accounts</span>
+            <span>creators</span>
           </div>
         </div>
         <div className="mock-dash-tabs">
-          <span className="is-on">creator</span>
-          <span>format</span>
-          <span>account</span>
+          <span className="is-on">by creator</span>
         </div>
         <ul className="mock-dash-rows">
           {rows.map((row) => (
