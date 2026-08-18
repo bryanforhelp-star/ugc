@@ -319,6 +319,17 @@ html:has(.prop) #bg {
   margin-bottom: 0.4em;
 }
 
+.prop-examples {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prop-examples .prop-collage {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .prop-collage {
   --clip-w: clamp(104px, 15vw, 138px);
   position: relative;
