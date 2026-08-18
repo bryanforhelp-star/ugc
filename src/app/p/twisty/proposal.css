@@ -283,12 +283,20 @@ html:has(.prop) #bg {
 #scope .wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 #scope .prop-lead {
-  max-width: 44ch;
+  max-width: 70ch;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  #scope .prop-lead {
+    white-space: normal;
+    max-width: 22ch;
+  }
 }
 
 .prop-copy {
