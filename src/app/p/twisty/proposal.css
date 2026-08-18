@@ -418,12 +418,24 @@ html:has(.prop) #bg {
 .prop-logo-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 10px 16px;
+  gap: 4px clamp(20px, 3vw, 36px);
   margin: 10px 0 0;
   padding: 0;
   list-style: none;
+}
+
+.prop-logo-row li:nth-child(1) {
+  transform: translateY(-6px);
+}
+
+.prop-logo-row li:nth-child(2) {
+  transform: translateY(-14px);
+}
+
+.prop-logo-row li:nth-child(3) {
+  transform: translateY(-4px);
 }
 
 .prop-logo-row img {
