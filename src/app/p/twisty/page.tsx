@@ -17,16 +17,31 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+const CANVAS_CLIPS = [
+  {
+    brand: "higgfield",
+    href: "https://www.instagram.com/reel/DZEOfItMazu/",
+    video: "/brands/twisty/canvas-examples/higgsfield.mp4",
+    poster: "/brands/twisty/canvas-examples/higgsfield.jpg",
+  },
+  {
+    brand: "turbo learn",
+    href: "https://www.instagram.com/reel/DMEenBmpo5R/",
+    video: "/brands/twisty/canvas-examples/solvely.mp4",
+    poster: "/brands/twisty/canvas-examples/solvely.jpg",
+  },
+  {
+    brand: "owe you",
+    href: "https://www.instagram.com/reel/DbroZC6REy0/",
+    video: "/brands/twisty/canvas-examples/oweyou.mp4",
+    poster: "/brands/twisty/canvas-examples/oweyou.jpg",
+  },
+];
+
 const CANVAS_LOGOS = [
-  {
-    name: "higgfield",
-  },
-  {
-    name: "turbo learn",
-  },
-  {
-    name: "owe you",
-  },
+  { name: "higgfield" },
+  { name: "turbo learn" },
+  { name: "owe you" },
 ];
 
 const SYSTEMS = [
@@ -139,10 +154,32 @@ export default function TwistyProposalPage() {
             <div className="prop-examples">
               <p className="cover">who already does this</p>
               <div className="prop-collage">
-                {CANVAS_LOGOS.map((logo) => (
-                  <div key={logo.name} className="prop-logo">
-                    <span className="prop-logo__text">{logo.name}</span>
-                  </div>
+                {CANVAS_CLIPS.map((clip) => (
+                  <a
+                    key={clip.brand}
+                    className="prop-clip"
+                    href={clip.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${clip.brand} canvas ugc example`}
+                  >
+                    <img
+                      src={clip.poster}
+                      alt=""
+                      width={360}
+                      height={640}
+                    />
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      poster={clip.poster}
+                      preload="metadata"
+                    >
+                      <source src={clip.video} type="video/mp4" />
+                    </video>
+                  </a>
                 ))}
               </div>
               <ul className="prop-logo-row prop-logo-row--text" aria-label="brand logos">

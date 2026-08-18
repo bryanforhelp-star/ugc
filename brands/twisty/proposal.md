@@ -14,7 +14,7 @@ creators run dedicated accounts for twisty and post to them every day. not their
 
 ten accounts posting daily is around 300 videos a month. a few hits is the whole game: reach without ads, then more of whatever works.
 
-who already does this: solvely.ai, cluely, higgsfield, oweyou. three example reels stacked as a collage, logos underneath. cluely reel pending.
+who already does this: higgfield, turbo learn, owe you. three example reels stacked as a collage, brand names underneath.
 
 ## phase 1: build the program
 
