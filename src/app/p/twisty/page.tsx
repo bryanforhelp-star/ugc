@@ -124,7 +124,6 @@ export default function TwistyProposalPage() {
           <p className="prop-mark">kyndall</p>
           <nav className="prop-nav" aria-label="proposal">
             <a href="#scope">scope</a>
-            <a href="#canvas">canvas</a>
             <a href="#phase-1">phase 1</a>
             <a href="#phase-2">phase 2</a>
             <a href="#fee">fee</a>
