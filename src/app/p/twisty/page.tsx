@@ -194,7 +194,7 @@ export default function TwistyProposalPage() {
               <ul className="prop-logo-row" aria-label="brand logos">
                 {CANVAS_LOGOS.map((logo) => (
                   <li key={logo.name}>
-                    <img src={logo.src} alt="" />
+                    <span className="prop-logo-row__text">{logo.name}</span>
                   </li>
                 ))}
               </ul>
