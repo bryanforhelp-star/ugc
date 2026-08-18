@@ -12,7 +12,15 @@ building and operating twisty's canvas creator program.
 
 ## phase 1: building the program
 
-the bones and frameworks, built from scratch:
+the bones and frameworks, built from scratch. first cohort of 10 to 15 creators run through all of it live, so it ships tested, not theoretical.
+
+- sourcing system
+- onboarding system
+- community management
+- trial structure
+- format system
+- submission + review
+- performance system
 
 **sourcing system.** creator profile for canvas, where they come from, screening criteria, pipeline and tracker.
 
@@ -27,8 +35,6 @@ the bones and frameworks, built from scratch:
 **submission + review system.** how content comes in, feedback loop, approval, turnaround.
 
 **performance system.** tracking by creator, format and account. what scales, what gets killed.
-
-first cohort of 10 to 15 creators run through all of it live, so it ships tested, not theoretical.
 
 ## phase 2: running the program
 

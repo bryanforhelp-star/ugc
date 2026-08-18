@@ -102,6 +102,13 @@ export default function TwistyProposalPage() {
             15 creators run through all of it live, so it ships tested, not
             theoretical.
           </p>
+          <ul className="prop-index">
+            {SYSTEMS.map((system) => (
+              <li key={system.id}>
+                <a href={`#${system.id}`}>{system.name}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
