@@ -193,26 +193,75 @@ export function ReviewMock() {
 }
 
 export function PerformanceMock() {
+  const rows = [
+    {
+      name: "creator 01",
+      meta: "talking product",
+      views: "124k",
+      width: "82%",
+      tag: "scale",
+    },
+    {
+      name: "creator 04",
+      meta: "talking product",
+      views: "81k",
+      width: "64%",
+      tag: "scale",
+    },
+    {
+      name: "tiktok @twisty",
+      meta: "account",
+      views: "210k",
+      width: "94%",
+      tag: "scale",
+    },
+    {
+      name: "desk setup",
+      meta: "format",
+      views: "9.2k",
+      width: "18%",
+      tag: "kill",
+    },
+  ];
+
   return (
-    <MockFrame title="performance">
-      <ul className="mock-perf">
-        <li>
-          <span>creator 01</span>
-          <b className="mock-tag mock-tag--scale">scale</b>
-        </li>
-        <li>
-          <span>format: talking product</span>
-          <b className="mock-tag mock-tag--scale">scale</b>
-        </li>
-        <li>
-          <span>format: desk setup</span>
-          <b className="mock-tag mock-tag--kill">kill</b>
-        </li>
-        <li>
-          <span>tiktok @twisty</span>
-          <b className="mock-tag mock-tag--scale">scale</b>
-        </li>
-      </ul>
+    <MockFrame title="dashboard">
+      <div className="mock-dash">
+        <div className="mock-dash-kpis">
+          <div>
+            <p>412k</p>
+            <span>views</span>
+          </div>
+          <div>
+            <p>86</p>
+            <span>posts</span>
+          </div>
+          <div>
+            <p>12</p>
+            <span>live accounts</span>
+          </div>
+        </div>
+        <div className="mock-dash-tabs">
+          <span className="is-on">creator</span>
+          <span>format</span>
+          <span>account</span>
+        </div>
+        <ul className="mock-dash-rows">
+          {rows.map((row) => (
+            <li key={row.name}>
+              <div className="mock-dash-who">
+                <b>{row.name}</b>
+                <span>{row.meta}</span>
+              </div>
+              <div className="mock-dash-track">
+                <i style={{ width: row.width }} />
+              </div>
+              <em>{row.views}</em>
+              <strong className={`mock-tag mock-tag--${row.tag}`}>{row.tag}</strong>
+            </li>
+          ))}
+        </ul>
+      </div>
     </MockFrame>
   );
 }

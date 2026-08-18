@@ -676,20 +676,105 @@ html:has(.prop) #bg {
   color: var(--soft);
 }
 
-.mock-perf {
+.mock-dash {
+  padding: 4px 0 8px;
+}
+
+.mock-dash-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--hair);
+}
+
+.mock-dash-kpis > div {
+  padding: 12px 14px 14px;
+}
+
+.mock-dash-kpis p {
+  margin: 0 0 2px;
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.mock-dash-kpis span {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.mock-dash-tabs {
+  display: flex;
+  gap: 16px;
+  padding: 10px 14px 6px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.mock-dash-tabs .is-on {
+  color: var(--pop);
+  border-bottom: 1.5px solid var(--pop);
+  padding-bottom: 2px;
+}
+
+.mock-dash-rows {
   margin: 0;
-  padding: 6px 0 8px;
+  padding: 0;
   list-style: none;
 }
 
-.mock-perf li {
-  display: flex;
-  justify-content: space-between;
+.mock-dash-rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(72px, 1fr) 44px auto;
+  gap: 10px;
   align-items: center;
-  gap: 12px;
-  padding: 11px 16px;
+  padding: 9px 14px;
   border-top: 1px solid var(--hair);
-  font-size: 13px;
+}
+
+.mock-dash-who {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.mock-dash-who b {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.mock-dash-who span {
+  font-size: 10px;
+  color: var(--soft);
+}
+
+.mock-dash-track {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--hair);
+  overflow: hidden;
+}
+
+.mock-dash-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--pop);
+  transform-origin: left center;
+  animation: mockBar 3.2s ease-out infinite;
+}
+
+.mock-dash-rows em {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: right;
 }
 
 .mock-tag {
@@ -843,6 +928,16 @@ html:has(.prop) #bg {
   }
 }
 
+@keyframes mockBar {
+  0% {
+    transform: scaleX(0.18);
+  }
+  28%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes mockBrief {
   0%,
   18% {
@@ -893,6 +988,14 @@ html:has(.prop) #bg {
   .mock-inbox li span:nth-child(2) {
     display: none;
   }
+
+  .mock-dash-rows li {
+    grid-template-columns: minmax(0, 1fr) 40px auto;
+  }
+
+  .mock-dash-track {
+    display: none;
+  }
 }
 
 @media (max-width: 560px) {
@@ -916,7 +1019,8 @@ html:has(.prop) #bg {
   .mock-day--end,
   .mock-brief,
   .mock-status--flip,
-  .mock-status--flip::after {
+  .mock-status--flip::after,
+  .mock-dash-track i {
     animation: none;
   }
 
