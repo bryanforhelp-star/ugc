@@ -155,7 +155,8 @@ html:has(.prop) #bg {
 
 .prop-index a {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  gap: 0.45em;
   font-family: var(--serif);
   font-size: clamp(20px, 2vw, 28px);
   line-height: 1.15;
@@ -187,6 +188,9 @@ html:has(.prop) #bg {
 }
 
 .prop-product__name {
+  display: flex;
+  align-items: center;
+  gap: 0.32em;
   margin: 0 0 0.55em;
   font-family: var(--display);
   font-weight: 400;
@@ -194,6 +198,32 @@ html:has(.prop) #bg {
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: lowercase;
+}
+
+.prop-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: clamp(26px, 0.78em, 34px);
+  height: clamp(26px, 0.78em, 34px);
+  border-radius: 50%;
+  border: 1.5px solid var(--pop);
+  background: #fff;
+  color: var(--pop);
+  box-shadow: 0 0 0 4px var(--pop-soft);
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(11px, 0.34em, 14px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+
+.prop-index .prop-num {
+  width: 1.35em;
+  height: 1.35em;
+  font-size: 0.52em;
+  box-shadow: 0 0 0 3px var(--pop-soft);
 }
 
 .prop-product__copy p {

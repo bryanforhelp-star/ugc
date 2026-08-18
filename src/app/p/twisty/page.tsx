@@ -167,7 +167,8 @@ export default function TwistyProposalPage() {
             {SYSTEMS.map((system, i) => (
               <li key={system.id}>
                 <a href={`#${system.id}`}>
-                  {i + 1}. {system.name}
+                  <span className="prop-num">{i + 1}</span>
+                  {system.name}
                 </a>
               </li>
             ))}
@@ -175,11 +176,14 @@ export default function TwistyProposalPage() {
         </div>
       </section>
 
-      {SYSTEMS.map((system) => (
+      {SYSTEMS.map((system, i) => (
         <section key={system.id} id={system.id} className="prop-product">
           <div className="wrap prop-shell prop-product__grid">
             <div className="prop-product__copy">
-              <h3 className="prop-product__name">{system.name}</h3>
+              <h3 className="prop-product__name">
+                <span className="prop-num">{i + 1}</span>
+                {system.name}
+              </h3>
               <p>{system.body}</p>
               {"points" in system && system.points ? (
                 <ul className="prop-spec">
@@ -206,7 +210,8 @@ export default function TwistyProposalPage() {
             {OPS.map((system, i) => (
               <li key={system.id}>
                 <a href={`#${system.id}`}>
-                  {i + 1}. {system.name}
+                  <span className="prop-num">{i + 1}</span>
+                  {system.name}
                 </a>
               </li>
             ))}
@@ -214,11 +219,14 @@ export default function TwistyProposalPage() {
         </div>
       </section>
 
-      {OPS.map((system) => (
+      {OPS.map((system, i) => (
         <section key={system.id} id={system.id} className="prop-product">
           <div className="wrap prop-shell prop-product__grid">
             <div className="prop-product__copy">
-              <h3 className="prop-product__name">{system.name}</h3>
+              <h3 className="prop-product__name">
+                <span className="prop-num">{i + 1}</span>
+                {system.name}
+              </h3>
               <p>{system.body}</p>
             </div>
             <div className="prop-product__mock">{system.mock}</div>
