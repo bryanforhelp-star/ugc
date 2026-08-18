@@ -75,9 +75,10 @@ html:has(.prop) #bg {
   font-family: var(--display);
   font-weight: 400;
   line-height: 0.9;
-  font-size: clamp(52px, 9vw, 120px);
+  font-size: clamp(28px, 7vw, 88px);
   letter-spacing: -0.01em;
   text-transform: lowercase;
+  white-space: nowrap;
   margin: 0 0 clamp(16px, 2vw, 24px);
 }
 
