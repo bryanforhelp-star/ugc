@@ -46,6 +46,4 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 
 ## fee
 
-$3,000/month. paid upfront.
-
-kyn@bykyndall.com
+$3,000/month.

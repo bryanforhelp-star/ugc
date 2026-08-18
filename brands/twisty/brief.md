@@ -46,4 +46,4 @@ Full copy: `proposal.md`. That file is the source of truth for the live page.
 
 ## Conversion notes
 
-Success for this engagement is a working canvas program: roster held, formats shipping weekly, winning concepts doubled down across accounts. CTA on the page is email, `kyn@bykyndall.com`.
+Success for this engagement is a working canvas program: roster held, formats shipping weekly, winning concepts doubled down across accounts. The live page shows fee only. No email CTA. Paid-upfront is contract-only, not on the page.

@@ -9,7 +9,6 @@ import {
   TrialMock,
   WeekMock,
 } from "@/components/proposal/twisty-mocks";
-import { SITE } from "@/lib/site";
 import "./proposal.css";
 
 export const metadata: Metadata = {
@@ -160,10 +159,6 @@ export default function TwistyProposalPage() {
         <div className="wrap prop-shell">
           <h2 className="prop-head">fee</h2>
           <p className="prop-price">$3,000/month</p>
-          <p className="prop-terms">paid upfront.</p>
-          <a className="glass-pill" href={`mailto:${SITE.workWithMe.email}`}>
-            {SITE.workWithMe.email}
-          </a>
         </div>
       </section>
     </div>

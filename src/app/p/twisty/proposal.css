@@ -239,10 +239,6 @@ html:has(.prop) #bg {
   padding-top: clamp(48px, 8vh, 80px);
 }
 
-.prop-fee .glass-pill {
-  margin-top: clamp(28px, 4vh, 40px);
-}
-
 .prop-price {
   margin: 0;
   font-family: var(--display);
@@ -250,13 +246,6 @@ html:has(.prop) #bg {
   line-height: 0.9;
   font-size: clamp(42px, 7vw, 88px);
   letter-spacing: -0.02em;
-}
-
-.prop-terms {
-  margin: 0.35em 0 0;
-  font-family: var(--serif);
-  font-size: clamp(20px, 2vw, 28px);
-  color: var(--ink);
 }
 
 /* ---------- mock windows ---------- */
