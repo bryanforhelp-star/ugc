@@ -22,11 +22,6 @@ const SYSTEMS = [
     id: "sourcing",
     name: "sourcing system",
     body: "an engine that finds creators across creator apps, platforms and social media, and reaches out so they enter the program. hunt, message, get a reply, send them into a trial period.",
-    points: [
-      "hunt: search and watch across creator apps, platforms and social media. comments, lists, inbound.",
-      "outreach: dms and replies tracked, so a name is never a screenshot in someone's camera roll.",
-      "in: who replies gets dropped into a trial period. the engine keeps filling seats as people leave.",
-    ],
     mock: <SourcingMock />,
   },
   {
@@ -143,13 +138,6 @@ export default function TwistyProposalPage() {
                 {system.name}
               </h3>
               <p>{system.body}</p>
-              {"points" in system && system.points ? (
-                <ul className="prop-spec">
-                  {system.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              ) : null}
             </div>
             <div className="prop-product__mock">{system.mock}</div>
           </div>

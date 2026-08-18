@@ -379,39 +379,6 @@ html:has(.prop) #bg {
   color: var(--soft);
 }
 
-.prop-spec {
-  margin: 0.85em 0 0;
-  padding: 0;
-  list-style: none;
-  max-width: 42ch;
-}
-
-.prop-spec li {
-  position: relative;
-  padding: 0.45em 0 0.45em 1.05em;
-  border-top: 1px solid var(--hair);
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: clamp(14px, 1.1vw, 16px);
-  line-height: 1.45;
-  letter-spacing: -0.018em;
-  color: var(--soft);
-}
-
-.prop-spec li:last-child {
-  border-bottom: 1px solid var(--hair);
-}
-
-.prop-spec li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.85em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--pop);
-}
-
 .prop-product__mock {
   position: relative;
   z-index: 2;
