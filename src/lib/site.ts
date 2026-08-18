@@ -38,6 +38,7 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
+    "stan-store",
     "cursor-animations",
     "not-apps",
     "building-ai-loops",
