@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 function MockFrame({
   title,
@@ -21,33 +21,33 @@ function MockFrame({
 }
 
 export function SourcingMock() {
-  const apps = ["tiktok", "instagram", "youtube", "discord"];
+  const places = ["creator apps", "platforms", "social", "inbound"];
   const rows = [
     {
       who: "@maya.makes",
-      app: "tiktok",
+      place: "social",
       found: "comment",
       action: "dm sent",
       tone: "live" as const,
     },
     {
       who: "@jules.clips",
-      app: "instagram",
-      found: "explore",
+      place: "creator app",
+      found: "profile",
       action: "replied",
       tone: "ok" as const,
     },
     {
       who: "@kai.posted",
-      app: "youtube",
-      found: "shorts",
+      place: "platform",
+      found: "search",
       action: "found",
       tone: "hold" as const,
     },
     {
       who: "@nori.studio",
-      app: "discord",
-      found: "server",
+      place: "inbound",
+      found: "reply",
       action: "dm queued",
       tone: "live" as const,
     },
@@ -57,12 +57,13 @@ export function SourcingMock() {
     <MockFrame title="sourcing engine">
       <div className="mock-engine">
         <p className="mock-kicker">
-          scanning <b>4 apps</b> · 18 found this week · 7 in outreach
+          scanning <b>creator apps, platforms, social</b> · 18 found this week · 7
+          in outreach
         </p>
         <div className="mock-engine-apps">
-          {apps.map((app) => (
-            <span key={app} className={app === "tiktok" ? "is-on" : undefined}>
-              {app}
+          {places.map((place) => (
+            <span key={place} className={place === "social" ? "is-on" : undefined}>
+              {place}
             </span>
           ))}
         </div>
@@ -76,7 +77,7 @@ export function SourcingMock() {
           {rows.map((row) => (
             <li key={row.who} className={`is-${row.tone}`}>
               <b>{row.who}</b>
-              <span>{row.app}</span>
+              <span>{row.place}</span>
               <span>{row.found}</span>
               <em>{row.action}</em>
             </li>
@@ -328,5 +329,48 @@ export function PerformanceMock() {
         </ul>
       </div>
     </MockFrame>
+  );
+}
+
+export function OpsOrbit() {
+  const inner = [
+    { label: "format drops", angle: "0deg" },
+    { label: "reviews", angle: "120deg" },
+    { label: "community", angle: "240deg" },
+  ];
+  const outer = [
+    { label: "sourcing", angle: "25deg" },
+    { label: "account reviews", angle: "115deg" },
+    { label: "scale", angle: "205deg" },
+    { label: "reporting", angle: "295deg" },
+  ];
+
+  return (
+    <div className="orbit" aria-hidden="true">
+      <i className="orbit-path orbit-path--inner" />
+      <i className="orbit-path orbit-path--outer" />
+      <p className="orbit-core">
+        creator
+        <span>program</span>
+      </p>
+      {inner.map((item) => (
+        <b
+          key={item.label}
+          className="orbit-chip orbit-chip--inner"
+          style={{ "--a": item.angle } as CSSProperties}
+        >
+          {item.label}
+        </b>
+      ))}
+      {outer.map((item) => (
+        <b
+          key={item.label}
+          className="orbit-chip orbit-chip--outer"
+          style={{ "--a": item.angle } as CSSProperties}
+        >
+          {item.label}
+        </b>
+      ))}
+    </div>
   );
 }

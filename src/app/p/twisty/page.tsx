@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   FormatMock,
   NetworkMock,
+  OpsOrbit,
   OnboardingMock,
   PerformanceMock,
   ReviewMock,
@@ -20,11 +21,11 @@ const SYSTEMS = [
   {
     id: "sourcing",
     name: "sourcing system",
-    body: "an engine that finds creators across apps and reaches out so they enter the program. tiktok, instagram, youtube, discord, wherever they already post. hunt, message, get a reply, send them into trial.",
+    body: "an engine that finds creators across creator apps, platforms and social media, and reaches out so they enter the program. hunt, message, get a reply, send them into a trial period.",
     points: [
-      "hunt: search and watch across tiktok, instagram, youtube, discord, comments, lists, inbound.",
+      "hunt: search and watch across creator apps, platforms and social media. comments, lists, inbound.",
       "outreach: dms and replies tracked, so a name is never a screenshot in someone's camera roll.",
-      "in: who replies gets dropped into trial. the engine keeps filling seats as people leave.",
+      "in: who replies gets dropped into a trial period. the engine keeps filling seats as people leave.",
     ],
     mock: <SourcingMock />,
   },
@@ -159,14 +160,17 @@ export default function TwistyProposalPage() {
         <section id="phase-2" className="prop-band">
           <div className="wrap prop-shell">
             <h2 className="prop-head">phase 2: running the program</h2>
-            <ul className="prop-ops">
-              {OPS.map((item, i) => (
-                <li key={item}>
-                  <span className="prop-num">{i + 1}</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="prop-run-layout">
+              <ul className="prop-ops">
+                {OPS.map((item, i) => (
+                  <li key={item}>
+                    <span className="prop-num">{i + 1}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <OpsOrbit />
+            </div>
           </div>
         </section>
       </div>

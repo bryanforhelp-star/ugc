@@ -117,8 +117,16 @@ html:has(.prop) #bg {
   border-top: 0;
 }
 
+.prop-run-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+  margin-top: 1.6em;
+}
+
 .prop-ops {
-  margin: 1.5em 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
   max-width: 54ch;
@@ -142,6 +150,104 @@ html:has(.prop) #bg {
 
 .prop-ops .prop-num {
   margin-top: 0.18em;
+}
+
+.orbit {
+  --inner: clamp(96px, 20vw, 124px);
+  --outer: clamp(148px, 30vw, 188px);
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.orbit-path {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--pop) 22%, var(--hair));
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-path--inner {
+  width: calc(var(--inner) * 2);
+  height: calc(var(--inner) * 2);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.orbit-path--outer {
+  width: calc(var(--outer) * 2);
+  height: calc(var(--outer) * 2);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.orbit-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  width: 132px;
+  height: 132px;
+  margin: 0;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--pop);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.orbit-core span {
+  display: block;
+}
+
+.orbit-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--pop) 18%, #d8d6cf);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(11, 11, 12, 0.08);
+}
+
+.orbit-chip--inner {
+  --r: var(--inner);
+  animation: orbit-spin 26s linear infinite reverse;
+}
+
+.orbit-chip--outer {
+  --r: var(--outer);
+  animation: orbit-spin 38s linear infinite;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
+  }
+  to {
+    transform: rotate(calc(var(--a) + 360deg)) translate(var(--r))
+      rotate(calc(-1 * var(--a) - 360deg));
+  }
 }
 
 .prop-head {
@@ -1159,6 +1265,14 @@ html:has(.prop) #bg {
     gap: 22px;
   }
 
+  .prop-run-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit {
+    order: -1;
+  }
+
   .prop-nav {
     gap: 16px;
     font-size: 18px;
@@ -1209,8 +1323,15 @@ html:has(.prop) #bg {
   .mock-ping,
   .mock-status--flip,
   .mock-status--flip::after,
-  .mock-dash-track i {
+  .mock-dash-track i,
+  .orbit-chip--inner,
+  .orbit-chip--outer {
     animation: none;
+  }
+
+  .orbit-chip--inner,
+  .orbit-chip--outer {
+    transform: rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
   }
 
   .mock-chip-arrive,

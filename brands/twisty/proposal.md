@@ -20,11 +20,11 @@ the bones and frameworks, built from scratch. first cohort of 10 to 15 creators 
 - submission + review
 - performance system
 
-**sourcing system.** an engine that finds creators across apps and reaches out so they enter the program. tiktok, instagram, youtube, discord, wherever they already post. hunt, message, get a reply, send them into trial.
+**sourcing system.** an engine that finds creators across creator apps, platforms and social media, and reaches out so they enter the program. hunt, message, get a reply, send them into a trial period.
 
-- hunt: search and watch across tiktok, instagram, youtube, discord, comments, lists, inbound.
+- hunt: search and watch across creator apps, platforms and social media. comments, lists, inbound.
 - outreach: dms and replies tracked, so a name is never a screenshot in someone's camera roll.
-- in: who replies gets dropped into trial. the engine keeps filling seats as people leave.
+- in: who replies gets dropped into a trial period. the engine keeps filling seats as people leave.
 
 **onboarding system.** agreement, credits, account setup, guidelines doc, prompt library. repeatable for every creator after.
 
