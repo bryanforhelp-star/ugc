@@ -8,6 +8,7 @@ import {
   YouTubeIcon,
 } from "@/components/SocialIcons";
 import { MatchaSupport } from "@/components/store/MatchaSupport";
+import { ProductPhotoCover } from "@/components/store/ProductPhotoCover";
 import { StoreLink } from "@/components/store/StoreLink";
 import { liveButtons, LINKS_PAGE, type LinksSocial } from "@/lib/links";
 import { absoluteUrl } from "@/lib/seo";
@@ -121,20 +122,10 @@ export default async function LinksPage() {
               href={productPath(product)}
               className="links-product"
             >
-              <div
-                className={
-                  product.image
-                    ? "links-product-photo has-photo"
-                    : "links-product-photo"
-                }
-                style={
-                  product.image
-                    ? { backgroundImage: `url('${product.image}')` }
-                    : undefined
-                }
-              >
-                {product.image ? "" : product.photoLabel || "photo"}
-              </div>
+              <ProductPhotoCover
+                image={product.image}
+                photoLabel={product.photoLabel}
+              />
               <div className="links-product-body">
                 <h2 className="links-product-title">{product.title}</h2>
                 <p className="links-product-desc">{product.description}</p>

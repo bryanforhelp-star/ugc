@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { CheckoutButton } from "@/components/store/CheckoutButton";
+import { ProductPhotoCover } from "@/components/store/ProductPhotoCover";
 import { StoreLink } from "@/components/store/StoreLink";
 import { absoluteUrl } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -121,18 +122,10 @@ export default async function ShopProductPage({
       </section>
 
       <section className="links-product">
-        <div
-          className={
-            product.image ? "links-product-photo has-photo" : "links-product-photo"
-          }
-          style={
-            product.image
-              ? { backgroundImage: `url('${product.image}')` }
-              : undefined
-          }
-        >
-          {product.image ? "" : product.photoLabel || "photo"}
-        </div>
+        <ProductPhotoCover
+          image={product.image}
+          photoLabel={product.photoLabel}
+        />
         <div className="links-product-body">
           <h2 className="links-product-title">{product.title}</h2>
           <p className="links-product-desc">{product.description}</p>

@@ -193,6 +193,7 @@ a.links-product:focus-visible {
 }
 
 .links-product-photo {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
   background: #f1f0ec center / cover no-repeat;
@@ -204,10 +205,37 @@ a.links-product:focus-visible {
   text-transform: uppercase;
   color: var(--links-muted);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
 .links-product-photo.has-photo {
   color: transparent;
+}
+
+.links-product-photo.has-photo.has-overlay {
+  color: #ffffff;
+}
+
+.links-product-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+
+.links-product-photo-caption {
+  position: relative;
+  z-index: 1;
+  font-family: var(--display);
+  font-size: clamp(34px, 10vw, 46px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
 }
 
 .links-product-body {
