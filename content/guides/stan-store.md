@@ -1,7 +1,7 @@
 ---
 title: "how to build your own stan store"
-description: "I needed a stan store and didn't want another subscription, so I added a page to the website I already had and took payments with Stripe. Find your situation below and do that one."
-summary: "Add a links page to your site and sell through Stripe. If you already have a website, use Claude plus Stripe payment links. Cursor is only if your site is code."
+description: "Add a Stan-style links page to the website you already have, take payments with Stripe, and point Instagram at it. Pick Cursor or Claude below."
+summary: "Already have a website? Add a /links page with Stripe payment links. Cursor builds and deploys if your site is code. Claude works if you publish in Carrd, Framer, Squarespace, or similar."
 category: workflow
 topics:
   - workflows
@@ -22,41 +22,51 @@ tags:
   - stripe
 published: true
 date: 2026-08-18
-updated: 2026-08-19
+updated: 2026-08-20
 ---
 
-I needed a stan store. I didn't want another subscription. I already had a website, so I added a page and took money with Stripe. That's [bykyndall.com/links](/links).
+You already have a website. You're adding one page to it. That page is your link in bio: photo, buttons, shop, Stripe for payments. Example: [bykyndall.com/links](/links).
 
-Find the person you are. Do that section. Skip the rest.
+## which one am i?
 
-Everyone uses Stripe the same way on day one: you make a [payment link](https://stripe.com/payments/payment-links) for each thing you sell, and that link is the button. No code. Stripe takes a cut when someone pays. There is no monthly fee.
+Click yours. Skip the other.
 
-## 1. i already have a website
+| You | Go here |
+|-----|---------|
+| I have a website and I want to use **Cursor** | [→ Cursor path](#i-have-a-website-and-i-want-to-use-cursor) |
+| I want to do this through **Claude** | [→ Claude path](#i-want-to-do-this-through-claude) |
 
-Carrd, Framer, Squarespace, Wix, Notion, Webflow, a site someone built for you. You are adding one page, not starting over. You do not need Cursor.
+**Quick answer:** Cursor is the easiest *if your website is code* (or you can open the project folder). Claude is the easiest *if your site has a visual editor* (Carrd, Framer, Squarespace, Wix, Webflow, Notion). Claude can also write the page as a file, but you still need a way to put that file on your site.
 
-**Stripe first, so the buttons are real.**
+Do Stripe first either way. Takes five minutes.
 
-1. Make a [Stripe](https://stripe.com) account. Add your bank. That's so they can send you money.
-2. In Stripe: Product catalog → Add product. Name, price. One product per thing you sell. A $25 guide is a product. A $200 session is a product.
-3. Open that product → Create payment link → copy the URL.
-4. Repeat for each thing. You should have a list like: `editing guide → https://buy.stripe.com/...`
+## stripe first (everyone)
 
-If someone should land somewhere after they pay (a thank-you page, a calendar, a Google Drive file), set that in the payment link under "After payment." Otherwise Stripe shows its own receipt.
+1. Make a [Stripe](https://stripe.com) account. Add your bank so they can pay you.
+2. Product catalog → Add product. Name + price. One product per thing you sell.
+3. Open the product → Create [payment link](https://stripe.com/payments/payment-links) → copy the URL.
+4. Repeat. You want a list like: `editing guide → https://buy.stripe.com/...`
 
-**Then the page.**
+No monthly fee. Stripe takes a cut when someone pays. Those URLs become your shop buttons.
 
-Open [Claude](https://claude.ai). Paste this. Drop in your photo. Paste your Stripe links in the shop list.
+## i have a website and i want to use cursor
+
+This is the path I used. Cursor opens your site files, builds the page, and helps you put it live.
+
+**You need:** [Cursor](https://cursor.com), your website project open in it, and the Stripe payment links from above.
+
+1. Open your site project in Cursor.
+2. Start a new Agent chat.
+3. Paste this (fill in your list, drop in your photo):
 
 ```
-i already have a website. add a stan-store-style links page to it. i am not a developer.
+i already have a website. add a /links page that works like stan store / link in bio.
+match the fonts, colors, and voice already on this site. do not invent a new brand.
+i am not a developer. explain what you're doing in normal words.
 
-my site is: [carrd / framer / squarespace / wix / notion / webflow / other: ___]
+shop buttons must use my stripe payment links. do not send people to gumroad or stan.
 
-the page: my photo, my name, a stack of buttons, shop cards that go to stripe, affiliates, socials.
-every paid thing uses a stripe payment link. do not send people to gumroad or stan.
-
-match my existing site. phones first. tell me what to click in the tool i already have. do not make me download anything.
+when the page looks right, put it live and give me the public url.
 
 NAME:
 PHOTO: (attached)
@@ -68,30 +78,69 @@ AFFILIATES:
 SOCIALS:
 ```
 
-Publish it as `/links` if you can pick the URL. Open it on your phone. Tap a shop card and confirm it opens Stripe.
+4. Keep talking until it looks like you. "Make the name bigger." "That button should say book a one-on-one."
+5. When it's done, say: `put this live. walk me through it if i don't know how.`
+6. Open the URL on your phone. Tap a shop button. Confirm Stripe opens.
+7. Instagram → Edit profile → Website → paste `yoursite.com/links`.
 
-Instagram → Edit profile → Website → `yoursite.com/links`.
+**How deploy works here:** Cursor edits the files and walks you through hosting (usually Vercel if that's how the site already ships). You don't leave Cursor to invent a host. You tell it to go live.
 
-## 2. i only use claude
+## i want to do this through claude
 
-You don't have Cursor. Maybe you don't have a website. Claude is enough. Stripe still happens in Stripe's own site, not inside Claude.
+No Cursor. Claude still works. The difference is *how the page gets onto your website*.
 
-**Stripe first.** Same four steps as above: account, product, payment link, copy the URL. Do this before you ask Claude to build anything, or the page will have buttons that go nowhere.
+### if your site is carrd, framer, squarespace, wix, webflow, or notion
 
-**Then tell Claude which of these you are.**
+Claude tells you what to click. You publish inside that tool. That *is* deploy.
 
-If you **do** have a website, use the prompt in section 1.
-
-If you **don't** have a website:
+1. Open [Claude](https://claude.ai).
+2. Paste this:
 
 ```
-i don't have a website and i don't have cursor. i only use claude.
-i already made stripe payment links. i will paste them.
+i already have a website. add a stan-store-style links page to it. i am not a developer.
+
+my site is: [carrd / framer / squarespace / wix / webflow / notion / other: ___]
+
+the page: my photo, my name, buttons, shop cards that go to stripe, affiliates, socials.
+every paid thing uses a stripe payment link.
+
+match my existing site. phones first.
+tell me exactly what to click in the tool i already have. do not make me download anything new.
+when we're done, tell me how to publish / make the page live and what url to put in instagram.
+
+NAME:
+PHOTO: (attached)
+BUTTONS (free stuff, real urls only):
+- title / subtitle / url
+SHOP (stripe payment links):
+- product name / price / stripe url
+AFFILIATES:
+SOCIALS:
+```
+
+3. Follow the clicks. Publish. Copy the page URL.
+4. Instagram → Website → paste that URL.
+
+### if your site is code and you only use claude
+
+Claude can write the page. It cannot log into your host for you. So pick one:
+
+| Option | What you do |
+|--------|-------------|
+| **A. Someone else updates the site** | Ask Claude for a single HTML file (or the exact files to add). Send them: "add this as `/links`." |
+| **B. You use Cursor for deploy only** | Switch to the [Cursor path](#i-have-a-website-and-i-want-to-use-cursor). Claude is not the hard part. Putting files live is. |
+| **C. You have no coded site yet** | Ask Claude for one HTML file, then say: "walk me through the easiest free way to get a public url. one tool, as few clicks as possible." Put that URL in Instagram. |
+
+Prompt for A or C:
+
+```
+i only use claude. i already made stripe payment links.
 
 make me a stan-store-style links page as a single html file.
 shop buttons must use my stripe urls. do not fake checkout.
+i am not a developer.
 
-then walk me through the easiest free way to get a public url. i am not a developer. one tool, as few clicks as possible.
+then tell me how to get this onto my website (or online) in the simplest way. ask me what kind of site i have if you need to.
 
 NAME:
 PHOTO: (attached)
@@ -102,64 +151,15 @@ AFFILIATES:
 SOCIALS:
 ```
 
-Claude gives you the file, then tells you what to click to put it online. When you have a URL, that goes in Instagram.
+## after it's live
 
-## 3. i don't have cursor
-
-You are section 1 or section 2. Do that one.
-
-Cursor only helps if your website is code and you want AI to edit the files. Carrd, Framer, Squarespace, Wix: Cursor will not help you. Stay in Claude.
-
-If your site is code and you can't touch it: stay in Claude, get the HTML file, send it to whoever updates the site with your Stripe links already on the buttons. "Add this as `/links`."
-
-## 4. i use cursor (my path)
-
-My site is already code, so I did this in Cursor and wired Stripe into the site. You only need this if you also have a coded site open in Cursor.
-
-Stripe still starts in Stripe's website. Make the account. Then let Cursor connect it.
-
-Open the project. New Agent chat. Paste:
-
-```
-i already have a website. add a /links page that works like stan store.
-match the fonts, colors, and voice already on this site.
-
-i want stripe checkout on this site for the things i sell.
-walk me through the stripe account, the products, and where the keys go.
-i am not a developer. explain in normal words. don't take live payments until i say so.
-
-NAME:
-PHOTO: (attached)
-BUTTONS:
-SHOP:
-- product name / price
-AFFILIATES:
-SOCIALS:
-```
-
-If you don't want checkout built into the site yet, say so and paste payment-link URLs instead. That still counts. It's how everyone in sections 1 to 3 sells.
-
-When it looks right:
-
-```
-put this live. then give me the public url.
-```
-
-Point Instagram at it. That's [what I shipped](/links).
-
-## later
-
-Same chat, or a new one:
+New product later: new Stripe payment link → new button. Don't rebuild the whole page.
 
 ```
 on my links page:
-- add a stripe product: [name], [price], [payment link]
-- change the booking button subtitle to [this]
-- hide [product] until i have the photo
-
-i edit this in [carrd / squarespace / claude html / cursor]. tell me exactly what to change.
+- add this stripe product: [name], [price], [payment link]
+- change [this button] to say [this]
+tell me exactly what to change in [cursor / carrd / squarespace / etc].
 ```
 
-New thing to sell: new Stripe product, new payment link, new button. Don't rebuild the page.
-
-If you actually need Stan's email flows and memberships, buy Stan. If you needed a page that looks like you and takes Stripe, you just built it.
+If you need Stan's email flows and memberships, buy Stan. If you needed a page that looks like you and takes Stripe, you're done.

@@ -16,6 +16,15 @@ function nodeToText(node: ReactNode): string {
   return "";
 }
 
+function headingId(node: ReactNode): string {
+  return nodeToText(node)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 function CopyPrompt({
   as: Tag = "blockquote",
   children,
@@ -66,6 +75,8 @@ export function GuideProse({ content }: Props) {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
+        h2: ({ children }) => <h2 id={headingId(children)}>{children}</h2>,
+        h3: ({ children }) => <h3 id={headingId(children)}>{children}</h3>,
         blockquote: ({ children }) => <CopyPrompt>{children}</CopyPrompt>,
         pre: ({ children }) => <CopyPrompt as="pre">{children}</CopyPrompt>,
       }}
