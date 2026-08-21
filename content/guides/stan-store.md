@@ -1,7 +1,7 @@
 ---
 title: "how to build your own stan store"
-description: "Add a Stan-style links page to the site you already have, take payments with Stripe, put the URL in Instagram. Cursor if your site is code. Claude if you use a website builder."
-summary: "Stripe payment links for checkout, a /links page on your site, then point Instagram at it. Use Cursor for coded sites, Claude for Carrd/Framer/Squarespace and similar."
+description: "Build a Stan-style links page on the site you already have, take payments with Stripe, point Instagram at it."
+summary: "Add a /links page with Stripe payment links. Cursor if your site is code. Claude if you use a website builder."
 category: workflow
 topics:
   - workflows
@@ -25,8 +25,6 @@ date: 2026-08-18
 updated: 2026-08-21
 ---
 
-Same job as Stan Store: one page on your site with your links and shop, paid through Stripe. Mine is [bykyndall.com/links](/links).
-
 ## which one am i?
 
 | You | Path |
@@ -35,7 +33,7 @@ Same job as Stan Store: one page on your site with your links and shop, paid thr
 | You edit in Carrd, Framer, Squarespace, Wix, Webflow, Notion | [Claude](#claude) |
 | No site yet | [Claude, starting from zero](#claude-no-site) |
 
-Cursor is better when the site is files. Claude is better when you already have a Publish button. Same Stripe setup either way.
+Cursor if the site is files. Claude if you already hit Publish. Stripe first either way. Example: [bykyndall.com/links](/links).
 
 ## stripe
 
