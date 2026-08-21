@@ -3,18 +3,15 @@ import { ContentShowcase } from "@/components/ContentShowcase";
 import { GuideCard } from "@/components/GuideCard";
 import { HomePortrait } from "@/components/HomePortrait";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { ShopCard } from "@/components/ShopCard";
 import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
 import { TrustedBy } from "@/components/TrustedBy";
 import { getFeaturedGuides } from "@/lib/guides";
 import { SITE } from "@/lib/site";
-import { listedDigitalProducts } from "@/lib/store";
 import "./home.css";
 
 export default function HomePage() {
   const featuredGuides = getFeaturedGuides();
-  const shopProducts = listedDigitalProducts();
 
   return (
     <div className="home">
@@ -23,7 +20,6 @@ export default function HomePage() {
         <div className="wrap">
           <nav>
             <a href="#about">about</a>
-            {shopProducts.length > 0 ? <a href="#shop">{SITE.kits.navLabel}</a> : null}
             <a href="#guides">{SITE.guides.navLabel}</a>
             <Link href="/work-with-me">work with me</Link>
           </nav>
@@ -106,26 +102,6 @@ export default function HomePage() {
         <TrustedBy />
 
         <ContentShowcase />
-
-        {shopProducts.length > 0 ? (
-          <section id="shop">
-            <div className="wrap">
-              <div className="s-head-row">
-                <h2 className="s-head">{SITE.kits.navLabel}</h2>
-                <Link href="/kits" className="guides-hub-link">
-                  {SITE.kits.hubLinkLabel}
-                  <span className="arr">→</span>
-                </Link>
-              </div>
-              <p className="s-sub">{SITE.kits.homepageLead}</p>
-              <div className="cards">
-                {shopProducts.map((product) => (
-                  <ShopCard key={product.id} product={product} variant="home" />
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : null}
 
         <section id="guides">
           <div className="wrap">
