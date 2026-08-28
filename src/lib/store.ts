@@ -214,6 +214,13 @@ export function getAffiliates(): StoreLinkItem[] {
       logo: "/links/logos/bento.png",
       affiliate: true,
     },
+    {
+      name: "arcads",
+      href: envUrl("AFFILIATE_ARCADS", "https://arcads.ai/?via=kyndall"),
+      perk: "AI video ads",
+      logo: "/links/logos/arcads.png",
+      affiliate: true,
+    },
   ];
 }
 
