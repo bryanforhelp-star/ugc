@@ -113,34 +113,6 @@ export default async function LinksPage() {
         </StoreLink>
       ))}
 
-      {products.length > 0 ? (
-        <>
-          <div className="links-label">{STORE_COPY.shopLabel}</div>
-          {products.map(({ product, price }) => (
-            <StoreLink
-              key={product.id}
-              href={productPath(product)}
-              className="links-product"
-            >
-              <ProductPhotoCover
-                image={product.image}
-                photoLabel={product.photoLabel}
-              />
-              <div className="links-product-body">
-                <h2 className="links-product-title">{product.title}</h2>
-                <p className="links-product-desc">{product.description}</p>
-                <span className="links-product-buy">
-                  <span>
-                    {product.status === "presale" ? "see the guide" : "get it"}
-                  </span>
-                  {price ? <span className="links-price">{price}</span> : null}
-                </span>
-              </div>
-            </StoreLink>
-          ))}
-        </>
-      ) : null}
-
       {coffeeLive ? (
         <MatchaSupport />
       ) : (
@@ -184,6 +156,34 @@ export default async function LinksPage() {
         </StoreLink>
       ))}
       <p className="links-disclosure">{STORE_COPY.disclosure}</p>
+
+      {products.length > 0 ? (
+        <>
+          <div className="links-label">{STORE_COPY.shopLabel}</div>
+          {products.map(({ product, price }) => (
+            <StoreLink
+              key={product.id}
+              href={productPath(product)}
+              className="links-product"
+            >
+              <ProductPhotoCover
+                image={product.image}
+                photoLabel={product.photoLabel}
+              />
+              <div className="links-product-body">
+                <h2 className="links-product-title">{product.title}</h2>
+                <p className="links-product-desc">{product.description}</p>
+                <span className="links-product-buy">
+                  <span>
+                    {product.status === "presale" ? "see the guide" : "get it"}
+                  </span>
+                  {price ? <span className="links-price">{price}</span> : null}
+                </span>
+              </div>
+            </StoreLink>
+          ))}
+        </>
+      ) : null}
 
       <footer className="links-footer">
         <div className="links-social">

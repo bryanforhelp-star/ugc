@@ -201,6 +201,13 @@ export function productPath(product: StoreProduct) {
 export function getAffiliates(): StoreLinkItem[] {
   return [
     {
+      name: "arcads",
+      href: envUrl("AFFILIATE_ARCADS", "https://arcads.ai/?via=kyndall"),
+      perk: "AI video ads",
+      logo: "/links/logos/arcads.png",
+      affiliate: true,
+    },
+    {
       name: "wispr flow",
       href: envUrl("AFFILIATE_WISPR", "https://wisprflow.ai/r?KYNDALL8"),
       perk: "voice typing",
@@ -212,13 +219,6 @@ export function getAffiliates(): StoreLinkItem[] {
       href: envUrl("AFFILIATE_BENTO", "https://app.onbento.com/?acode=kyndall"),
       perk: "UGC outreach",
       logo: "/links/logos/bento.png",
-      affiliate: true,
-    },
-    {
-      name: "arcads",
-      href: envUrl("AFFILIATE_ARCADS", "https://arcads.ai/?via=kyndall"),
-      perk: "AI video ads",
-      logo: "/links/logos/arcads.png",
       affiliate: true,
     },
   ];
