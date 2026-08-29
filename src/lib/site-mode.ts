@@ -12,6 +12,10 @@ export function isProposalPath(pathname: string) {
   return pathname === "/p" || pathname.startsWith("/p/");
 }
 
+export function isAnywayPath(pathname: string) {
+  return pathname === "/anyway" || pathname.startsWith("/anyway/");
+}
+
 export function isLinksPath(pathname: string) {
   return (
     pathname === "/links" ||
@@ -30,6 +34,7 @@ export function hidesSiteChrome(pathname: string) {
     pathname === "/video" ||
     isLinksPath(pathname) ||
     isUgcPath(pathname) ||
-    isProposalPath(pathname)
+    isProposalPath(pathname) ||
+    isAnywayPath(pathname)
   );
 }

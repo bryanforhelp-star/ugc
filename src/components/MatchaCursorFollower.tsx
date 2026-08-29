@@ -1,6 +1,6 @@
 "use client";
 
-import { isLinksPath } from "@/lib/site-mode";
+import { isAnywayPath, isLinksPath } from "@/lib/site-mode";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
@@ -13,7 +13,7 @@ const OFFSET_Y = 10;
 export function MatchaCursorFollower() {
   const pathname = usePathname();
   const mugRef = useRef<HTMLImageElement>(null);
-  const hidden = isLinksPath(pathname);
+  const hidden = isLinksPath(pathname) || isAnywayPath(pathname);
 
   useEffect(() => {
     if (hidden) return;
