@@ -65,7 +65,7 @@ All published. Frontmatter `commentKeyword` is the source of truth.
 
 | Keyword | Guide | Slug | Published |
 |---------|-------|------|-----------|
-| `ADS` | how to make a lot of ugc ads, fast, in arcads | `arcads` | Sep 1, 2026 |
+| `ADS` | how i made realistic ugc ads in arcads | `arcads` | Sep 1, 2026 |
 | `STAN` | how to build your own stan store | `stan-store` | Aug 18, 2026 |
 | `APPS` | the three ai systems i actually use (none of them are apps) | `not-apps` | Jul 7, 2026 |
 | `ANIMATE` | use ai to make animations for your videos | `cursor-animations` | Jul 18, 2026 |
