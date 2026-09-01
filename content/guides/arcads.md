@@ -60,6 +60,12 @@ Examples that came out:
 
 ## the agent
 
-The Agent was my favorite of the three rooms. Same workspace. You talk to it. It runs the generation.
+The Agent was my favorite. It's like talking to ChatGPT or Claude, except it's inside Arcads.
+
+You give it examples instead of moving around in the tools and prompting yourself. Drop stills. Give it a list of things to do. It completes them. The conversation goes back and forth, and different types of avatars get created that way. It does all of this for you.
+
+I dropped the stills in and told it to look. It picked the packshot, locked the can, and started using the avatars.
+
+![anyway agent chat in arcads](/guides/arcads/agent.jpg)
 
 That's the process. Brand first. Stills second. Then Arcads: Studio, Workflows, Agent.
