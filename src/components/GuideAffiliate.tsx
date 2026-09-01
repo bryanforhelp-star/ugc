@@ -12,7 +12,7 @@ export function GuideAffiliate({ name }: { name: string }) {
         className="guide-aff__btn"
         rel={item.affiliate ? "sponsored" : undefined}
       >
-        open {item.name}
+        try {item.name}
       </StoreLink>
     </p>
   );
