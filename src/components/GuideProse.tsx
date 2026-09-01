@@ -103,6 +103,8 @@ export function GuideProse({ content }: Props) {
         },
         blockquote: ({ children }) => <CopyPrompt>{children}</CopyPrompt>,
         pre: ({ children }) => <CopyPrompt as="pre">{children}</CopyPrompt>,
+        img: ({ src, alt }) =>
+          src ? <img src={src} alt={alt ?? ""} className="guide-shot" /> : null,
       }}
     >
       {content}

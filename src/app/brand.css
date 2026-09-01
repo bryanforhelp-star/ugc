@@ -258,12 +258,13 @@
   line-height: 1;
 }
 
-.guide-aff__disclosure {
-  margin: 0.65rem 0 0;
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--soft);
+.page--article .prose img.guide-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0.35rem 0 1.75rem;
+  border: 1px solid var(--hair);
+  border-radius: 12px;
 }
 
 .page--article .back {

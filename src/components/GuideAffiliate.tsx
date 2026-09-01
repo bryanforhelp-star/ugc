@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { StoreLink } from "@/components/store/StoreLink";
-import { getAffiliate, STORE_COPY } from "@/lib/store";
+import { getAffiliate } from "@/lib/store";
 
 export function GuideAffiliate({ name }: { name: string }) {
   const item = getAffiliate(name);
@@ -32,7 +32,6 @@ export function GuideAffiliate({ name }: { name: string }) {
           →
         </span>
       </StoreLink>
-      <p className="guide-aff__disclosure">{STORE_COPY.disclosure}</p>
     </div>
   );
 }
