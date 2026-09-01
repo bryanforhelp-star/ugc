@@ -1,7 +1,7 @@
 ---
 title: "how i made realistic ugc ads in arcads"
-description: "I wanted to experiment. I made anyway, a matcha that does not exist. Then I used AI to generate character images and assets, fed them to Arcads, and it did the rest."
-summary: "Build the brand first. Generate character and lifestyle stills. Upload them in Arcads. The app generates the ads."
+description: "I built a fake matcha brand from scratch. Then I used three features in Arcads: Studio, Workflows, and the Agent."
+summary: "Build or bring brand assets, then generate ads in Arcads using Studio, Workflows, or the Agent."
 category: workflow
 topics:
   - content
@@ -24,19 +24,25 @@ date: 2026-09-01
 updated: 2026-09-01
 ---
 
-## the brand
+## world building
 
-I wanted to experiment. I made anyway, a matcha that does not exist. Then I went in and created.
+I wanted to experiment. I made anyway, a matcha that does not exist.
 
 ![anyway moodboard. iced matcha, cans, lifestyle](/guides/arcads/brand.jpg)
 
 ## the stills
 
-I used Cursor and ChatGPT to generate character images and branding assets to feed into Arcads as examples.
+I used Cursor and ChatGPT to generate character images and logos. I made a mockup product image, then generated a few avatars, and put those into Arcads.
 
 ![character and branding stills for anyway](/guides/arcads/stills.jpg)
 
-Those stills are what I fed Arcads. Not a blank project.
+You don't have to use Cursor and ChatGPT. I did because I was building a brand from scratch. If you already have a brand, use those assets and go straight into generation.
+
+If you have character avatars and your product information, you can feed it your website, all sorts of things, and it will build this for you.
+
+## how i used arcads
+
+Arcads has three features: Studio, Workflows, and the Agent. I used each of them.
 
 ## studio
 
@@ -67,5 +73,3 @@ You give it examples instead of moving around in the tools and prompting yoursel
 I dropped the stills in and told it to look. It picked the packshot, locked the can, and started using the avatars.
 
 ![anyway agent chat in arcads](/guides/arcads/agent.jpg)
-
-That's the process. Brand first. Stills second. Then Arcads: Studio, Workflows, Agent.
