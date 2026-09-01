@@ -85,6 +85,8 @@ export interface GuideFrontmatter {
   cover: string;
   /** Comment keyword for ManyChat DM automation */
   commentKeyword: string | null;
+  /** Name from `getAffiliates()` in store.ts. Renders the affiliate button on the guide. */
+  affiliate?: string;
   pillars: Pillar[];
   /** Optional — no series pages yet */
   series?: SeriesSlug;

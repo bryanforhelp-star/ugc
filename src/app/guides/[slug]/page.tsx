@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GuideAffiliate } from "@/components/GuideAffiliate";
 import { GuideProse } from "@/components/GuideProse";
 import { JsonLd } from "@/components/JsonLd";
 import { getGuideBySlug, getPublishedGuideSlugs } from "@/lib/guides";
@@ -63,9 +64,13 @@ export default async function GuidePage({
           {guide.series && <span>{SERIES[guide.series].label}</span>}
         </div>
 
+        {guide.affiliate ? <GuideAffiliate name={guide.affiliate} /> : null}
+
         <div className="prose">
           <GuideProse content={guide.content} />
         </div>
+
+        {guide.affiliate ? <GuideAffiliate name={guide.affiliate} /> : null}
       </div>
     </article>
   );

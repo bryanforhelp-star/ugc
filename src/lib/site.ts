@@ -38,11 +38,11 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
+    "fake-matcha",
     "stan-store",
     "cursor-animations",
     "not-apps",
     "building-ai-loops",
-    "claude-voice-setup-skill",
   ],
   /** Digital products. `/kits` is the shop hub; product pages are stand-style. */
   kits: {

@@ -180,6 +180,92 @@
   color: var(--ink);
 }
 
+.page--article .prose a {
+  color: var(--pop);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+.guide-aff {
+  max-width: 42rem;
+  margin: 0 0 2.5rem;
+}
+
+.guide-aff + .prose {
+  margin-top: 0.5rem;
+}
+
+.prose + .guide-aff {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+.guide-aff__btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--ink);
+  background: var(--pop);
+  color: #fff;
+  text-decoration: none;
+}
+
+.guide-aff__btn:hover {
+  opacity: 0.92;
+}
+
+.guide-aff__btn:focus-visible {
+  outline: 3px solid var(--pop);
+  outline-offset: 3px;
+}
+
+.guide-aff__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.guide-aff__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.guide-aff__name {
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 1.2vw, 18px);
+  letter-spacing: -0.02em;
+}
+
+.guide-aff__perk {
+  font-family: var(--square);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.guide-aff__chev {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.guide-aff__disclosure {
+  margin: 0.65rem 0 0;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--soft);
+}
+
 .page--article .back {
   font-family: var(--readable), Helvetica, Arial, sans-serif;
 }

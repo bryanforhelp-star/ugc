@@ -11,8 +11,9 @@ summary: "One direct-answer sentence for AEO / schema (what someone gets if they
 category: guide          # guide | workflow | claude skills
 topics: []
 tools: []                # e.g. claude
-cover: "reel cover line — must match instagram"
+cover: "reel cover line. must match instagram"
 commentKeyword: KEYWORD  # ManyChat DM keyword, or null
+affiliate: arcads        # optional. name from getAffiliates() in src/lib/store.ts
 pillars:
   - how-to
 tags: []

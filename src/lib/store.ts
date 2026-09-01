@@ -224,6 +224,13 @@ export function getAffiliates(): StoreLinkItem[] {
   ];
 }
 
+export function getAffiliate(name: string) {
+  const needle = name.trim().toLowerCase();
+  return (
+    getAffiliates().find((item) => item.name.toLowerCase() === needle) ?? null
+  );
+}
+
 export const STORE_COPY = {
   shopLabel: "the shop",
   affiliatesLabel: "tools i actually use",
