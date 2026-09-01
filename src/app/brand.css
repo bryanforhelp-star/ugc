@@ -225,13 +225,28 @@
   outline-offset: 3px;
 }
 
-.page--article .prose img.guide-shot {
+.page--article .prose img.guide-shot,
+.page--article .prose video.guide-shot {
   display: block;
   width: 100%;
   height: auto;
   margin: 0.35rem 0 1.75rem;
   border: 1px solid var(--hair);
   border-radius: 12px;
+}
+
+.page--article .prose p:has(> video.guide-shot) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0.35rem 0 1.75rem;
+}
+
+.page--article .prose p:has(> video.guide-shot) > video.guide-shot {
+  margin: 0;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #111;
 }
 
 .page--article .back {

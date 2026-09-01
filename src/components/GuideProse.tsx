@@ -103,8 +103,26 @@ export function GuideProse({ content }: Props) {
         },
         blockquote: ({ children }) => <CopyPrompt>{children}</CopyPrompt>,
         pre: ({ children }) => <CopyPrompt as="pre">{children}</CopyPrompt>,
-        img: ({ src, alt }) =>
-          src ? <img src={src} alt={alt ?? ""} className="guide-shot" /> : null,
+        img: ({ src, alt }) => {
+          if (!src) return null;
+          if (/\.mp4($|\?)/i.test(src)) {
+            const poster = src.replace(/\.mp4($|\?)/i, ".jpg$1");
+            return (
+              <video
+                className="guide-shot guide-shot--video"
+                src={src}
+                poster={poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={alt ?? ""}
+              />
+            );
+          }
+          return <img src={src} alt={alt ?? ""} className="guide-shot" />;
+        },
       }}
     >
       {content}

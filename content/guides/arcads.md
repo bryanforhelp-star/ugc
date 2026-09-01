@@ -62,7 +62,7 @@ Workflows are predetermined templates. You pick a flow, it gives you examples, a
 
 Examples that came out:
 
-![anyway ads generated in arcads](/guides/arcads/examples.jpg)
+![anyway car ad](/guides/arcads/example-car.mp4) ![anyway can ad](/guides/arcads/example-can.mp4) ![anyway box ad](/guides/arcads/example-box.mp4)
 
 ## the agent
 
