@@ -202,60 +202,27 @@
 }
 
 .guide-aff__btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-  width: 100%;
-  padding: 14px 18px;
-  border: 1px solid var(--ink);
+  justify-content: center;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
   background: var(--pop);
   color: #fff;
   text-decoration: none;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: clamp(15px, 1.1vw, 17px);
+  letter-spacing: -0.02em;
 }
 
 .guide-aff__btn:hover {
-  opacity: 0.92;
+  opacity: 0.88;
 }
 
 .guide-aff__btn:focus-visible {
   outline: 3px solid var(--pop);
   outline-offset: 3px;
-}
-
-.guide-aff__logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  object-fit: contain;
-  background: #fff;
-  flex-shrink: 0;
-}
-
-.guide-aff__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-  min-width: 0;
-}
-
-.guide-aff__name {
-  font-family: var(--readable), Helvetica, Arial, sans-serif;
-  font-size: clamp(16px, 1.2vw, 18px);
-  letter-spacing: -0.02em;
-}
-
-.guide-aff__perk {
-  font-family: var(--square);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-
-.guide-aff__chev {
-  font-size: 18px;
-  line-height: 1;
 }
 
 .page--article .prose img.guide-shot {

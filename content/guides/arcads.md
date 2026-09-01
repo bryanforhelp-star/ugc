@@ -48,11 +48,11 @@ I dropped the stills into Studio, referenced them in the prompt, and generated.
 
 ## workflows
 
-Workflows is the canvas. You describe what you want, or pick a template, connect the steps, and it runs.
-
-![anyway workspace in the arcads workflow canvas](/guides/arcads/workflow.jpg)
+Workflows are predetermined templates. You pick a flow, it gives you examples, and you drop in your own resources.
 
 ![arcads workflow templates](/guides/arcads/workflow-templates.jpg)
+
+![anyway workspace in the arcads workflow canvas](/guides/arcads/workflow.jpg)
 
 Examples that came out:
 
