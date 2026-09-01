@@ -104,13 +104,14 @@ export function GuideProse({ content }: Props) {
         blockquote: ({ children }) => <CopyPrompt>{children}</CopyPrompt>,
         pre: ({ children }) => <CopyPrompt as="pre">{children}</CopyPrompt>,
         img: ({ src, alt }) => {
-          if (!src) return null;
-          if (/\.mp4($|\?)/i.test(src)) {
-            const poster = src.replace(/\.mp4($|\?)/i, ".jpg$1");
+          const url = typeof src === "string" ? src : "";
+          if (!url) return null;
+          if (/\.mp4($|\?)/i.test(url)) {
+            const poster = url.replace(/\.mp4($|\?)/i, ".jpg$1");
             return (
               <video
                 className="guide-shot guide-shot--video"
-                src={src}
+                src={url}
                 poster={poster}
                 autoPlay
                 muted
@@ -121,7 +122,7 @@ export function GuideProse({ content }: Props) {
               />
             );
           }
-          return <img src={src} alt={alt ?? ""} className="guide-shot" />;
+          return <img src={url} alt={alt ?? ""} className="guide-shot" />;
         },
       }}
     >
