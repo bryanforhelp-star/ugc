@@ -28,7 +28,7 @@ updated: 2026-09-01
 
 I made anyway. A matcha latte that does not exist. World, logo, vibe. All of that first. Then the ads.
 
-![anyway brand kit. logo, colors, product, vibe](/guides/arcads/brand.jpg)
+![anyway moodboard. iced matcha, cans, lifestyle](/guides/arcads/brand.jpg)
 
 ## the stills
 
