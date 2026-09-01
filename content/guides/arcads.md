@@ -32,22 +32,34 @@ I made anyway. A matcha latte that does not exist. World, logo, vibe. All of tha
 
 ## the stills
 
-Then I used AI to generate character images and lifestyle assets. Cursor and ChatGPT. People who would actually drink this, and the product in the world.
+I used Cursor and ChatGPT to generate character images and branding assets to feed into Arcads as examples.
 
-![character and lifestyle stills for anyway](/guides/arcads/stills.jpg)
+![character and branding stills for anyway](/guides/arcads/stills.jpg)
 
 Those stills are what I fed Arcads. Not a blank project.
 
-## then arcads
-
-Open Arcads. You'll see Studio, Workflow, and Agent.
+## studio
 
 I dropped the stills into Studio, referenced them in the prompt, and generated.
 
 ![anyway matcha in arcads studio with stills uploaded](/guides/arcads/studio.jpg)
 
-Arcads did the rest. Characters that look like people. Ads that look like they'd show up in a feed. The Agent was my favorite of the three rooms.
-
 ![generated anyway pour ad in arcads](/guides/arcads/result.jpg)
 
-That's the process. Brand first. Stills second. Then Arcads.
+## workflows
+
+Workflows is the canvas. You describe what you want, or pick a template, connect the steps, and it runs.
+
+![anyway workspace in the arcads workflow canvas](/guides/arcads/workflow.jpg)
+
+![arcads workflow templates](/guides/arcads/workflow-templates.jpg)
+
+Examples that came out:
+
+![anyway ads generated in arcads](/guides/arcads/examples.jpg)
+
+## the agent
+
+The Agent was my favorite of the three rooms. Same workspace. You talk to it. It runs the generation.
+
+That's the process. Brand first. Stills second. Then Arcads: Studio, Workflows, Agent.
