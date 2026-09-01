@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
     return [
       { source: "/link", destination: "/links", permanent: true },
       {
+        source: "/guides/fake-matcha",
+        destination: "/guides/arcads",
+        permanent: true,
+      },
+      {
         source: "/kits/editing-mini-course",
         destination: "/kits/editing-mini-guide",
         permanent: true,

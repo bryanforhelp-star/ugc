@@ -38,7 +38,7 @@ export const SITE = {
   },
   /** Homepage featured guide cards — order matters */
   featuredGuideSlugs: [
-    "fake-matcha",
+    "arcads",
     "stan-store",
     "cursor-animations",
     "not-apps",
@@ -69,9 +69,9 @@ export const SITE = {
     ] as TrustedBrand[],
   },
   building: {
-    label: "Building",
-    inProgress: "What I'm building",
-    shipped: "Things I've built",
+    label: "projects",
+    inProgress: "what i'm building",
+    shipped: "things i've built",
   },
   social: {
     instagram: "https://instagram.com/withkyndall",

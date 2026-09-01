@@ -56,7 +56,7 @@ and i made all of it with Arcads.
 
 ## CTA
 
-comment `ADS` → `https://bykyndall.com/guides/fake-matcha` (affiliate link on the page)
+comment `ADS` → `https://bykyndall.com/guides/arcads` (affiliate link on the page)
 
 ## B-roll / demo notes
 
