@@ -26,7 +26,7 @@ updated: 2026-09-01
 
 ## world building
 
-I wanted to experiment. I made anyway, a matcha that does not exist.
+I'm experimenting with different ways to make money and I wanted to see what I could do with AI UGC, so I built a fake ready-made matcha brand. I built a world, a vibe, and then I got to work making UGC ads using Arcads.
 
 ![anyway moodboard. iced matcha, cans, lifestyle](/guides/arcads/brand.jpg)
 
