@@ -51,7 +51,7 @@ export default async function ThanksPage({
   } else if (presale) {
     kicker = "presale";
     title = "you're in.";
-    tagline = `the ${product?.title ?? "guide"} lands ${product?.id === EDITING_GUIDE.id ? "september 1" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
+    tagline = `the ${product?.title ?? "guide"} lands ${product?.id === EDITING_GUIDE.id ? "september 30" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
   } else if (digital) {
     kicker = "paid";
     title = "i'll send it over.";
