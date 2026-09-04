@@ -40,6 +40,46 @@ export const VIDEO_PAGE_INTRO = {
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
+    id: "09",
+    title: "400 ads for a brand that doesn't exist",
+    video: "/showcase/09.mp4",
+    poster: "/showcase/09-poster.jpg",
+    platform: "instagram",
+    edits: ["ui overlays", "product comps", "count pacing", "talking head"],
+  },
+  {
+    id: "13",
+    title: "idk what i expected but it wasn't this",
+    video: "/showcase/13.mp4",
+    poster: "/showcase/13-poster.jpg",
+    platform: "instagram",
+    edits: ["profile ui overlays", "before after comps", "hook-first pacing"],
+  },
+  {
+    id: "12",
+    title: "sending it",
+    video: "/showcase/12.mp4",
+    poster: "/showcase/12-poster.jpg",
+    platform: "instagram",
+    edits: ["picture-in-picture", "kinetic captions", "talking head"],
+  },
+  {
+    id: "11",
+    title: "my best ideas disappear the moment i sit down at my laptop",
+    video: "/showcase/11.mp4",
+    poster: "/showcase/11-poster.jpg",
+    platform: "instagram",
+    edits: ["meme overlays", "greenscreen comps", "talking head"],
+  },
+  {
+    id: "10",
+    title: "this is my stan store except it's not stan store",
+    video: "/showcase/10.mp4",
+    poster: "/showcase/10-poster.jpg",
+    platform: "instagram",
+    edits: ["screen demos", "ui overlays", "talking head"],
+  },
+  {
     id: "08",
     title: "i hired an assistant (i built her)",
     video: "/showcase/08.mp4",
@@ -107,7 +147,7 @@ export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
 ];
 
 /** Homepage marquee — newest first */
-export const HOMEPAGE_SHOWCASE_IDS = ["08", "07", "06", "02"] as const;
+export const HOMEPAGE_SHOWCASE_IDS = ["09", "12", "11", "10"] as const;
 
 export function getHomepageShowcasePieces() {
   const byId = new Map(SOCIAL_VIDEOS.map((piece) => [piece.id, piece]));
