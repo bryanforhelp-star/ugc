@@ -60,6 +60,7 @@ export const UGC_SITE = {
 } as const;
 
 export const UGC_BRANDS: readonly TrustedBrand[] = [
+  { name: "arcads", logo: "/brands/arcads.svg", width: 141, height: 32 },
   { name: "doola", logo: "/brands/doola.png", width: 120, height: 34 },
   { name: "cantina", logo: "/brands/cantina.png", width: 132, height: 24 },
   { name: "prism ai", logo: "/ugc/assets/logos/prism.png", width: 108, height: 30 },
