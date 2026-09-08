@@ -166,7 +166,7 @@ export function getHomepageShowcasePieces() {
 }
 
 export function getUgcOrganicPieces() {
-  return SOCIAL_VIDEOS.map((piece) => ({
+  return SOCIAL_VIDEOS.slice(0, -4).map((piece) => ({
     id: piece.id,
     video: piece.video,
     poster: piece.poster,
