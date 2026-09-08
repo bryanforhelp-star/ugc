@@ -20,8 +20,8 @@ export default function UgcPage() {
         <div className="wrap">
           <nav>
             <a href="#about">about</a>
-            <a href="#ugc-ads">ugc ads</a>
             <a href="#organic">organic</a>
+            <a href="#ugc-ads">ugc ads</a>
             <a href="#contact">work with me</a>
           </nav>
 
@@ -48,7 +48,7 @@ export default function UgcPage() {
               <a className="glass-pill" href={`mailto:${UGC_SITE.email}`}>
                 work with me
               </a>
-              <a className="h-link" href="#ugc-ads">
+              <a className="h-link" href="#organic">
                 <span className="h-link__text">see the work</span>
                 <span className="arr-down">↓</span>
               </a>
@@ -56,20 +56,20 @@ export default function UgcPage() {
           </header>
         </div>
 
-        <UgcAdsGrid
-          id="ugc-ads"
-          title="ugc ads"
-          intro={UGC_SITE.adsIntro}
-          pieces={UGC_WORK_PIECES}
-        />
-
-        <BrandsMarquee label="worked with" brands={UGC_BRANDS} />
-
         <UgcOrganicGrid
           id="organic"
           title="organic social"
           intro={UGC_SITE.organicIntro}
           pieces={UGC_ORGANIC_PIECES}
+        />
+
+        <BrandsMarquee label="worked with" brands={UGC_BRANDS} />
+
+        <UgcAdsGrid
+          id="ugc-ads"
+          title="ugc ads"
+          intro={UGC_SITE.adsIntro}
+          pieces={UGC_WORK_PIECES}
         />
 
         <section id="about">
