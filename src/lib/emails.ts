@@ -41,9 +41,9 @@ function assetUrl(path: string) {
 }
 
 const BODY =
-  `margin:0 0 28px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
+  `margin:0 0 20px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
 const FOOT =
-  `margin:0;font-family:${FONT};font-size:12px;line-height:1.55;font-weight:400;color:#9a9a9e;`;
+  `margin:0;font-family:${FONT};font-size:12px;line-height:1.5;font-weight:400;color:#9a9a9e;`;
 const FOOT_LINK =
   `color:#9a9a9e;text-decoration:underline;text-underline-offset:2px;`;
 
@@ -68,7 +68,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   const signoff = signoffLines
     .map(
       (line, index) =>
-        `<p style="margin:${index === 0 ? "8px" : "0"} 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(line)}</p>`,
+        `<p style="margin:${index === 0 ? "4px" : "0"} 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(line)}</p>`,
     )
     .join("");
   const mailing = escapeHtml(SITE.mailingAddress);
@@ -84,10 +84,10 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
   <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
     <tr>
-      <td align="center" style="padding:56px 28px 40px;">
+      <td align="center" style="padding:40px 28px 28px;">
         <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;">
           <tr>
-            <td align="center" style="padding:0 0 56px;">
+            <td align="center" style="padding:0 0 36px;">
               <a href="${site}" style="text-decoration:none;">
                 <img src="${mark}" width="176" height="64" alt="withkyndall" style="display:block;border:0;width:176px;height:auto;">
               </a>
@@ -99,23 +99,22 @@ export function wrapBuyerEmail(mail: BuyerMail) {
               ${headline}
               ${paragraphs}
               ${signoff}
-              <img src="${signature}" width="86" height="71" alt="kyn" style="display:block;border:0;margin:18px 0 0;width:86px;height:auto;">
+              <img src="${signature}" width="86" height="71" alt="kyn" style="display:block;border:0;margin:12px 0 0;width:86px;height:auto;">
             </td>
           </tr>
           <tr>
-            <td style="padding:48px 8px 0;">
+            <td style="padding:20px 8px 0;">
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                  <td align="center" style="border-top:1px solid #e6e6e8;padding-top:28px;">
+                  <td align="center" style="border-top:1px solid #e6e6e8;padding-top:16px;">
                     <p style="${FOOT}">
                       you're getting this because you ordered something at
                       <a href="${site}" style="${FOOT_LINK}">${escapeHtml(siteHost)}</a>.
                     </p>
-                    <p style="${FOOT}margin-top:10px;">
-                      questions about your order?
-                      <a href="mailto:${escapeHtml(REPLY)}" style="${FOOT_LINK}">just reply here</a>.
+                    <p style="${FOOT}margin-top:8px;">
+                      questions? just reply to this email.
                     </p>
-                    <p style="${FOOT}margin-top:22px;">
+                    <p style="${FOOT}margin-top:14px;">
                       ${mailing}
                     </p>
                   </td>
@@ -138,7 +137,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
     mail.signoff,
     "",
     `you're getting this because you ordered something at ${siteHost}.`,
-    `questions about your order? reply to ${REPLY}.`,
+    "questions? just reply to this email.",
     SITE.mailingAddress,
   ]
     .filter((line): line is string => Boolean(line))

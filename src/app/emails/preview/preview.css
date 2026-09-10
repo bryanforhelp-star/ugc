@@ -52,7 +52,7 @@ html:has(.emails-preview) body {
 .emails-inbox iframe {
   display: block;
   width: 100%;
-  min-height: 980px;
+  min-height: 780px;
   border: 0;
   background: #ffffff;
 }

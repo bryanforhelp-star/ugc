@@ -59,10 +59,10 @@ export const SITE = {
     label: "Work with me",
     email: "kyn@bykyndall.com",
   },
-  /** Buyer email footer. Set NEXT_PUBLIC_MAILING_ADDRESS for a full street line. */
+  /** Buyer email footer. Prefer a PO box or virtual mailbox, not a home address. */
   mailingAddress:
     process.env.NEXT_PUBLIC_MAILING_ADDRESS?.trim() ||
-    "kyndall, bykyndall.com",
+    "kyndall, 228 Park Ave S, New York, New York 10003, United States",
   trustedBy: {
     label: "trusted by",
     brands: [
