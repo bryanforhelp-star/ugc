@@ -1,14 +1,27 @@
 import { SITE } from "./site";
-import { COFFEE, EDITING_GUIDE, type StoreProduct } from "./store";
+import {
+  COFFEE,
+  EDITING_GUIDE,
+  EDITING_GUIDE_PRODUCT,
+  type StoreProduct,
+} from "./store";
 
-const FONT =
-  "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const DISPLAY = "'Bootzy TM', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const INK = "#0b0b0c";
+const MUTED = "#767672";
+const POP = "#1b2bff";
+const PAPER = "#ffffff";
+const CREAM = "#eceae4";
 
 export type BuyerMail = {
   subject: string;
   preview: string;
   kicker?: string;
   title?: string;
+  image?: string;
+  imageAlt?: string;
+  meta?: string;
   paragraphs: string[];
   signoff: string;
 };
@@ -32,17 +45,31 @@ export function firstNameFrom(name: string) {
   return part.charAt(0).toUpperCase() + part.slice(1);
 }
 
+function assetUrl(path: string) {
+  const base = SITE.url.replace(/\/$/, "");
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export function wrapBuyerEmail(mail: BuyerMail) {
+  const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
+  const bootzy = assetUrl("/fonts/Bootzy-TM.woff2");
+  const avatar = assetUrl("/links/avatar.jpg");
   const kicker = mail.kicker
-    ? `<p style="margin:0 0 16px;font-family:${FONT};font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#1b2bff;">${escapeHtml(mail.kicker)}</p>`
+    ? `<p style="margin:0 0 14px;font-family:${FONT};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${POP};">${escapeHtml(mail.kicker)}</p>`
     : "";
   const title = mail.title
-    ? `<h1 style="margin:0 0 20px;font-family:${FONT};font-size:22px;line-height:1.25;font-weight:400;color:#0b0b0c;">${escapeHtml(mail.title)}</h1>`
+    ? `<h1 style="margin:0 0 16px;font-family:${DISPLAY};font-size:28px;line-height:1.1;font-weight:400;letter-spacing:-0.02em;color:${INK};">${escapeHtml(mail.title)}</h1>`
+    : "";
+  const meta = mail.meta
+    ? `<p style="margin:0 0 18px;font-family:${FONT};font-size:13px;line-height:1.4;color:${MUTED};">${escapeHtml(mail.meta)}</p>`
+    : "";
+  const image = mail.image
+    ? `<img src="${escapeHtml(assetUrl(mail.image))}" alt="${escapeHtml(mail.imageAlt || "")}" width="440" style="display:block;width:100%;height:auto;border:0;outline:none;">`
     : "";
   const paragraphs = mail.paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.5;color:#0b0b0c;">${escapeHtml(p)}</p>`,
+        `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(p)}</p>`,
     )
     .join("");
 
@@ -52,19 +79,48 @@ export function wrapBuyerEmail(mail: BuyerMail) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(mail.subject)}</title>
+<style>
+@font-face {
+  font-family: "Bootzy TM";
+  src: url("${bootzy}") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
 </head>
-<body style="margin:0;padding:0;background:#ffffff;">
+<body style="margin:0;padding:0;background:${CREAM};">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
-  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:${CREAM};">
     <tr>
-      <td style="padding:28px 20px 40px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:540px;">
+      <td align="center" style="padding:36px 16px 48px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:440px;">
           <tr>
-            <td style="font-family:${FONT};color:#0b0b0c;">
-              ${kicker}
-              ${title}
-              ${paragraphs}
-              <p style="margin:24px 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:#0b0b0c;">${escapeHtml(mail.signoff)}</p>
+            <td align="center" style="padding:0 0 20px;">
+              <img src="${avatar}" alt="" width="72" height="72" style="display:block;width:72px;height:72px;border-radius:50%;object-fit:cover;border:0;">
+              <p style="margin:14px 0 0;font-family:${DISPLAY};font-size:34px;line-height:1;font-weight:400;letter-spacing:-0.02em;">
+                <a href="${site}" style="color:${INK};text-decoration:none;">kyndall</a>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background:${PAPER};border-radius:18px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+              ${image}
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding:28px 24px 32px;font-family:${FONT};color:${INK};">
+                    ${kicker}
+                    ${title}
+                    ${meta}
+                    ${paragraphs}
+                    <p style="margin:24px 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(mail.signoff)}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:22px 8px 0;">
+              <a href="${site}" style="font-family:${FONT};font-size:13px;color:${POP};text-decoration:none;">bykyndall.com</a>
             </td>
           </tr>
         </table>
@@ -74,7 +130,13 @@ export function wrapBuyerEmail(mail: BuyerMail) {
 </body>
 </html>`;
 
-  const text = [...mail.paragraphs, "", mail.signoff].join("\n");
+  const text = [
+    ...mail.paragraphs,
+    "",
+    mail.signoff,
+    "",
+    site,
+  ].join("\n");
 
   return { html, text };
 }
@@ -128,6 +190,10 @@ export function buyerPaidMail(input: {
     return {
       subject: "Thank you for your purchase 💛",
       preview: "Really excited to be making this. I send it September 30th.",
+      kicker: "thank you",
+      image: EDITING_GUIDE_PRODUCT.image,
+      imageAlt: EDITING_GUIDE.title,
+      meta: `${EDITING_GUIDE.title} · ${EDITING_GUIDE.priceLabel}`,
       paragraphs: [
         hey,
         "Thank you so much for ordering the editing guide. Really excited to be making this.",

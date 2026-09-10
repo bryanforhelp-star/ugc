@@ -5,7 +5,7 @@ html:has(.emails-preview) .matcha-cursor {
 
 html:has(.emails-preview),
 html:has(.emails-preview) body {
-  background: #ffffff;
+  background: #eceae4;
 }
 
 .emails-preview {
@@ -44,8 +44,8 @@ html:has(.emails-preview) body {
 
 .emails-preview iframe {
   width: 100%;
-  min-height: 640px;
+  min-height: 900px;
   border: 0;
-  background: #ffffff;
+  background: #eceae4;
   border-radius: 0;
 }
