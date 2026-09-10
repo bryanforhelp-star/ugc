@@ -43,7 +43,7 @@ function assetUrl(path: string) {
 const BODY =
   `margin:0 0 20px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
 const FOOT =
-  `margin:0;font-family:${FONT};font-size:12px;line-height:1.5;font-weight:400;color:#9a9a9e;`;
+  `margin:0;font-family:${FONT};font-size:11px;line-height:1.45;font-weight:400;color:#9a9a9e;`;
 const FOOT_LINK =
   `color:#9a9a9e;text-decoration:underline;text-underline-offset:2px;`;
 
@@ -52,6 +52,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   const siteHost = site.replace(/^https?:\/\//, "");
   const mark = assetUrl("/email/withkyndall.gif");
   const signature = assetUrl("/email/kyn-sign.png");
+  const stopMail = `mailto:${REPLY}?subject=${encodeURIComponent("please stop emailing me")}`;
   const kicker = mail.kicker
     ? `<p style="${BODY}">${escapeHtml(mail.kicker)}</p>`
     : "";
@@ -84,17 +85,17 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
   <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
     <tr>
-      <td align="center" style="padding:40px 28px 28px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;">
+      <td align="center" style="padding:40px 24px 28px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:520px;">
           <tr>
-            <td align="center" style="padding:0 0 36px;">
+            <td align="center" style="padding:0 28px 36px;">
               <a href="${site}" style="text-decoration:none;">
                 <img src="${mark}" width="176" height="64" alt="withkyndall" style="display:block;border:0;width:176px;height:auto;">
               </a>
             </td>
           </tr>
           <tr>
-            <td style="font-family:${FONT};color:${INK};">
+            <td style="font-family:${FONT};color:${INK};padding:0 28px;">
               ${kicker}
               ${headline}
               ${paragraphs}
@@ -103,7 +104,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
             </td>
           </tr>
           <tr>
-            <td style="padding:20px 8px 0;">
+            <td style="padding:20px 28px 0;">
               <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td align="center" style="border-top:1px solid #e6e6e8;padding-top:16px;">
@@ -112,7 +113,8 @@ export function wrapBuyerEmail(mail: BuyerMail) {
                       <a href="${site}" style="${FOOT_LINK}">${escapeHtml(siteHost)}</a>.
                     </p>
                     <p style="${FOOT}margin-top:8px;">
-                      questions? just reply to this email.
+                      don't want these emails?
+                      <a href="${stopMail}" style="${FOOT_LINK}">unsubscribe here</a>.
                     </p>
                     <p style="${FOOT}margin-top:14px;">
                       ${mailing}
@@ -137,7 +139,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
     mail.signoff,
     "",
     `you're getting this because you ordered something at ${siteHost}.`,
-    "questions? just reply to this email.",
+    `don't want these emails? email ${REPLY} with subject "please stop emailing me".`,
     SITE.mailingAddress,
   ]
     .filter((line): line is string => Boolean(line))
