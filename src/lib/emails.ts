@@ -45,7 +45,7 @@ const BODY =
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
-  const mark = assetUrl("/email/withkyndall.png");
+  const mark = assetUrl("/email/withkyndall.gif");
   const signature = assetUrl("/email/kyn-sign.png");
   const kicker = mail.kicker
     ? `<p style="${BODY}">${escapeHtml(mail.kicker)}</p>`
@@ -83,7 +83,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
           <tr>
             <td align="center" style="padding:0 0 56px;">
               <a href="${site}" style="text-decoration:none;">
-                <img src="${mark}" width="196" height="51" alt="withkyndall" style="display:block;border:0;width:196px;height:auto;">
+                <img src="${mark}" width="148" height="41" alt="withkyndall" style="display:block;border:0;width:148px;height:auto;">
               </a>
             </td>
           </tr>
