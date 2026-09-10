@@ -44,7 +44,7 @@ html:has(.emails-preview) body {
 
 .emails-preview iframe {
   width: 100%;
-  min-height: 900px;
+  min-height: 780px;
   border: 0;
   background: #eceae4;
   border-radius: 0;

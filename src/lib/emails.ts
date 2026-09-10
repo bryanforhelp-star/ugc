@@ -64,7 +64,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
     ? `<p style="margin:0 0 18px;font-family:${FONT};font-size:13px;line-height:1.4;color:${MUTED};">${escapeHtml(mail.meta)}</p>`
     : "";
   const image = mail.image
-    ? `<img src="${escapeHtml(assetUrl(mail.image))}" alt="${escapeHtml(mail.imageAlt || "")}" width="440" style="display:block;width:100%;height:auto;border:0;outline:none;">`
+    ? `<img src="${escapeHtml(assetUrl(mail.image))}" alt="${escapeHtml(mail.imageAlt || "")}" width="440" height="220" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 42%;border:0;outline:none;">`
     : "";
   const paragraphs = mail.paragraphs
     .map(
