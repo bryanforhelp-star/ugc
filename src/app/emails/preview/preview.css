@@ -5,47 +5,54 @@ html:has(.emails-preview) .matcha-cursor {
 
 html:has(.emails-preview),
 html:has(.emails-preview) body {
-  background: #ffffff;
+  background: #e8e8ea;
 }
 
 .emails-preview {
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 32px 18px 64px;
+  padding: 28px 16px 64px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #0b0b0c;
 }
 
-.emails-preview__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 20px;
-}
-
-.emails-preview__nav a {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1b2bff;
-  text-decoration: none;
-}
-
-.emails-preview__nav a[aria-current="page"] {
-  text-decoration: underline;
-}
-
-.emails-preview__note {
-  margin: 0 0 20px;
-  font-size: 14px;
-  line-height: 1.45;
+.emails-preview__hint {
+  margin: 0 0 16px;
+  font-size: 13px;
   color: #5c5c62;
 }
 
-.emails-preview iframe {
+.emails-inbox {
+  background: #ffffff;
+  border: 1px solid #d8d8dc;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.emails-inbox__head {
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid #ecebe7;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.emails-inbox__head p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.emails-inbox__head span {
+  display: inline-block;
+  width: 64px;
+  color: #5c5c62;
+  font-size: 12px;
+}
+
+.emails-inbox iframe {
+  display: block;
   width: 100%;
-  min-height: 820px;
+  min-height: 520px;
   border: 0;
   background: #ffffff;
-  border-radius: 0;
 }

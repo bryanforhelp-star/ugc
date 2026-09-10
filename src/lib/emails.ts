@@ -3,10 +3,8 @@ import { COFFEE, EDITING_GUIDE, type StoreProduct } from "./store";
 
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const DISPLAY = "'Bootzy TM', 'Helvetica Neue', Helvetica, Arial, sans-serif";
-const SERIF = "'NewPixel', Georgia, 'Times New Roman', serif";
 const INK = "#0b0b0c";
 const POP = "#1b2bff";
-const PAPER = "#ffffff";
 
 export type BuyerMail = {
   subject: string;
@@ -46,43 +44,18 @@ function assetUrl(path: string) {
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
+  const from = buyerEmailFrom();
   const bootzy = assetUrl("/fonts/Bootzy-TM.woff2");
-  const pixel = assetUrl("/fonts/NewPixel.woff2");
   const portrait = assetUrl("/hero/kyndall-poster.jpg");
-  const kicker = mail.kicker
-    ? `<p style="margin:0 0 18px;font-family:${FONT};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${POP};">${escapeHtml(mail.kicker)}</p>`
-    : "";
-  const headline = mail.title
-    ? `<h1 style="margin:0;font-family:${DISPLAY};font-size:52px;line-height:0.9;font-weight:400;letter-spacing:0.02em;color:${INK};">${escapeHtml(mail.title)}</h1>`
-    : "";
-  const meta = mail.meta
-    ? `<p style="margin:18px 0 0;font-family:${SERIF};font-size:20px;line-height:1.2;color:${INK};">${escapeHtml(mail.meta)}</p>`
-    : "";
   const paragraphs = mail.paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(p)}</p>`,
+        `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(p)}</p>`,
     )
     .join("");
-  const stage = `<table role="presentation" cellpadding="0" cellspacing="0" align="right">
-    <tr>
-      <td style="width:10px;height:10px;border-top:1.5px solid ${POP};border-left:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
-      <td style="font-size:0;line-height:0;">&nbsp;</td>
-      <td style="width:10px;height:10px;border-top:1.5px solid ${POP};border-right:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
-    </tr>
-    <tr>
-      <td style="font-size:0;line-height:0;">&nbsp;</td>
-      <td style="padding:4px;">
-        <img src="${portrait}" alt="" width="150" height="200" style="display:block;width:150px;height:200px;object-fit:cover;border:0;">
-      </td>
-      <td style="font-size:0;line-height:0;">&nbsp;</td>
-    </tr>
-    <tr>
-      <td style="width:10px;height:10px;border-bottom:1.5px solid ${POP};border-left:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
-      <td style="font-size:0;line-height:0;">&nbsp;</td>
-      <td style="width:10px;height:10px;border-bottom:1.5px solid ${POP};border-right:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
-    </tr>
-  </table>`;
+  const meta = mail.meta
+    ? `<p style="margin:28px 0 0;font-family:${FONT};font-size:13px;line-height:1.4;color:#5c5c62;">${escapeHtml(mail.meta)}</p>`
+    : "";
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -97,50 +70,39 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   font-weight: 400;
   font-style: normal;
 }
-@font-face {
-  font-family: "NewPixel";
-  src: url("${pixel}") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
 </style>
 </head>
-<body style="margin:0;padding:0;background:${PAPER};">
+<body style="margin:0;padding:0;background:#ffffff;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
-  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:${PAPER};">
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
     <tr>
-      <td align="center" style="padding:36px 20px 48px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:520px;">
+      <td style="padding:28px 24px 36px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:480px;">
           <tr>
-            <td style="padding:0 0 28px;font-family:${SERIF};font-size:22px;">
-              <a href="${site}" style="color:${INK};text-decoration:none;">kyndall</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+            <td style="padding:0 0 18px;border-bottom:1px solid #ecebe7;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td valign="top" style="padding:0 16px 12px 0;">
-                    ${kicker}
-                    ${headline}
-                    ${meta}
+                  <td valign="middle" style="padding:0 12px 12px 0;">
+                    <img src="${portrait}" alt="" width="44" height="44" style="display:block;width:44px;height:44px;object-fit:cover;border:0;">
                   </td>
-                  <td valign="top" width="178" style="width:178px;">
-                    ${stage}
+                  <td valign="middle" style="padding:0 0 12px;">
+                    <p style="margin:0;font-family:${DISPLAY};font-size:22px;line-height:1;font-weight:400;letter-spacing:0.01em;color:${INK};">kyndall</p>
+                    <p style="margin:6px 0 0;font-family:${FONT};font-size:13px;color:#5c5c62;">${escapeHtml(from)}</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
           <tr>
-            <td style="padding:36px 0 0;font-family:${FONT};color:${INK};">
+            <td style="padding:26px 0 0;font-family:${FONT};color:${INK};">
               ${paragraphs}
-              <p style="margin:24px 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(mail.signoff)}</p>
+              <p style="margin:24px 0 0;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(mail.signoff)}</p>
+              ${meta}
             </td>
           </tr>
           <tr>
-            <td style="padding:32px 0 0;">
-              <a href="${site}" style="font-family:${SERIF};font-size:17px;color:${INK};text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px;">bykyndall.com <span style="color:${POP};">→</span></a>
+            <td style="padding:28px 0 0;">
+              <a href="${site}" style="font-family:${FONT};font-size:13px;color:${POP};text-decoration:underline;">bykyndall.com</a>
             </td>
           </tr>
         </table>
@@ -150,18 +112,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
 </body>
 </html>`;
 
-  const text = [
-    mail.title,
-    mail.meta,
-    "",
-    ...mail.paragraphs,
-    "",
-    mail.signoff,
-    "",
-    site,
-  ]
-    .filter((line): line is string => Boolean(line))
-    .join("\n");
+  const text = [...mail.paragraphs, "", mail.signoff, "", site].join("\n");
 
   return { html, text };
 }
@@ -185,8 +136,6 @@ export function buyerPaidMail(input: {
     return {
       subject: "you're booked.",
       preview: `${when}. reply if you need anything before then.`,
-      kicker: "1:1 session",
-      title: "you're on the calendar.",
       paragraphs: [
         hey,
         `we're on for ${when}. i'll show up ready.`,
@@ -200,8 +149,6 @@ export function buyerPaidMail(input: {
     return {
       subject: "thank you.",
       preview: "that actually helps.",
-      kicker: "matcha",
-      title: "that's kind.",
       paragraphs: [
         hey,
         "thank you. it actually helps.",
@@ -215,8 +162,6 @@ export function buyerPaidMail(input: {
     return {
       subject: "Thank you for your purchase 💛",
       preview: "Really excited to be making this. I send it September 30th.",
-      kicker: "presale",
-      title: "thank you.",
       meta: "editing mini guide, $25",
       paragraphs: [
         hey,
@@ -233,8 +178,6 @@ export function buyerPaidMail(input: {
     return {
       subject: `you're in. ${title} is on the way.`,
       preview: "i'll send it here when it drops. reply if you need anything before then.",
-      kicker: "presale",
-      title: "you're in.",
       paragraphs: [
         hey,
         `thank you for preordering ${title}. i'm so excited to be making this.`,
@@ -249,8 +192,6 @@ export function buyerPaidMail(input: {
   return {
     subject: `${title} is on the way.`,
     preview: "i'll send it to this email. reply if anything looks off.",
-    kicker: "paid",
-    title: "i'll send it over.",
     paragraphs: [
       hey,
       `thank you. ${title} comes to this email.`,
@@ -265,8 +206,6 @@ export function guideLaunchMail(): BuyerMail {
   return {
     subject: "the editing mini guide is here.",
     preview: "your copy is in this email.",
-    kicker: "it's out",
-    title: "here you go.",
     paragraphs: [
       "the editing mini guide is ready. how i edit my yaps, in one place.",
       "[download link goes here once the files exist]",
