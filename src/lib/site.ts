@@ -59,6 +59,10 @@ export const SITE = {
     label: "Work with me",
     email: "kyn@bykyndall.com",
   },
+  /** Buyer email footer. Set NEXT_PUBLIC_MAILING_ADDRESS for a full street line. */
+  mailingAddress:
+    process.env.NEXT_PUBLIC_MAILING_ADDRESS?.trim() ||
+    "kyndall, bykyndall.com",
   trustedBy: {
     label: "trusted by",
     brands: [
