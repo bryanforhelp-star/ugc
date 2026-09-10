@@ -41,7 +41,7 @@ function assetUrl(path: string) {
 }
 
 const BODY =
-  `margin:0 0 48px;font-family:${FONT};font-size:22px;line-height:1.45;font-weight:400;color:${INK};`;
+  `margin:0 0 28px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
@@ -63,7 +63,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   const signoff = signoffLines
     .map(
       (line, index) =>
-        `<p style="margin:${index === 0 ? "8px" : "0"} 0 0;font-family:${FONT};font-size:22px;line-height:1.45;color:${INK};">${escapeHtml(line)}</p>`,
+        `<p style="margin:${index === 0 ? "8px" : "0"} 0 0;font-family:${FONT};font-size:16px;line-height:1.5;color:${INK};">${escapeHtml(line)}</p>`,
     )
     .join("");
 
@@ -155,7 +155,6 @@ export function buyerPaidMail(input: {
     return {
       subject: "Thank you for your purchase 💛",
       preview: "it goes live september 30th. you'll get it in your inbox.",
-      title: "thank you sm!",
       paragraphs: [
         hey,
         "thank you so much for ordering the editing guide. i'm excited to be making this.",
