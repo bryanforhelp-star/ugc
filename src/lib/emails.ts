@@ -42,10 +42,34 @@ function assetUrl(path: string) {
 
 const BODY =
   `margin:0 0 20px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
+const BODY_LINK =
+  `color:${INK};text-decoration:underline;text-underline-offset:3px;`;
 const FOOT =
   `margin:0;font-family:${FONT};font-size:11px;line-height:1.45;font-weight:400;color:#9a9a9e;`;
 const FOOT_LINK =
   `color:#9a9a9e;text-decoration:underline;text-underline-offset:2px;`;
+
+/** Supports simple [label](https://url) links inside otherwise plain paragraphs. */
+function formatParagraphHtml(value: string) {
+  const re = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let html = "";
+  let last = 0;
+  for (const match of value.matchAll(re)) {
+    const index = match.index ?? 0;
+    html += escapeHtml(value.slice(last, index));
+    html += `<a href="${escapeHtml(match[2])}" style="${BODY_LINK}">${escapeHtml(match[1])}</a>`;
+    last = index + match[0].length;
+  }
+  html += escapeHtml(value.slice(last));
+  return html;
+}
+
+function formatParagraphText(value: string) {
+  return value.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+    "$1 ($2)",
+  );
+}
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
@@ -60,7 +84,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
     ? `<p style="${BODY}">${escapeHtml(mail.title)}</p>`
     : "";
   const paragraphs = mail.paragraphs
-    .map((p) => `<p style="${BODY}">${escapeHtml(p)}</p>`)
+    .map((p) => `<p style="${BODY}">${formatParagraphHtml(p)}</p>`)
     .join("");
   const signoffLines = mail.signoff
     .split("\n")
@@ -134,7 +158,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   const text = [
     mail.title,
     "",
-    ...mail.paragraphs,
+    ...mail.paragraphs.map(formatParagraphText),
     "",
     mail.signoff,
     "",
@@ -190,12 +214,13 @@ export function buyerPaidMail(input: {
   }
 
   if (presale && guide) {
+    const guideUrl = `${SITE.url.replace(/\/$/, "") || "https://bykyndall.com"}/kits/${EDITING_GUIDE.id}`;
     return {
       subject: "thank you for your purchase 💙",
       preview: "it goes live september 30th. you'll get it in your inbox.",
       paragraphs: [
         hey,
-        "thank you so much for ordering the editing guide. i'm excited to be making this.",
+        `thank you so much for ordering the [editing guide](${guideUrl}). i'm excited to be making this.`,
         "it goes live september 30th. you'll get it in your inbox 💌",
         "again, appreciate you sm! if you have any questions about it, just reply here.",
       ],
