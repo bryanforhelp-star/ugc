@@ -44,18 +44,24 @@ function assetUrl(path: string) {
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
-  const from = buyerEmailFrom();
   const bootzy = assetUrl("/fonts/Bootzy-TM.woff2");
-  const portrait = assetUrl("/hero/kyndall-poster.jpg");
+  const pixel = assetUrl("/fonts/NewPixel.woff2");
+  const kicker = mail.kicker
+    ? `<p style="margin:0 0 16px;font-family:${FONT};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${POP};">${escapeHtml(mail.kicker)}</p>`
+    : "";
+  const headline = mail.title
+    ? `<h1 style="margin:0 0 28px;font-family:${DISPLAY};font-size:52px;line-height:0.9;font-weight:400;letter-spacing:0.02em;color:${INK};">${escapeHtml(mail.title)}</h1>`
+    : "";
   const paragraphs = mail.paragraphs
     .map(
       (p) =>
         `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(p)}</p>`,
     )
     .join("");
-  const meta = mail.meta
-    ? `<p style="margin:28px 0 0;font-family:${FONT};font-size:13px;line-height:1.4;color:#5c5c62;">${escapeHtml(mail.meta)}</p>`
-    : "";
+  const signoff = mail.signoff.split("\n").map((line, index) => {
+    const top = index === 0 ? "24px" : "4px";
+    return `<p style="margin:${top} 0 0;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(line)}</p>`;
+  }).join("");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -70,39 +76,31 @@ export function wrapBuyerEmail(mail: BuyerMail) {
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "NewPixel";
+  src: url("${pixel}") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
 </style>
 </head>
 <body style="margin:0;padding:0;background:#ffffff;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
   <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
     <tr>
-      <td style="padding:28px 24px 36px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:480px;">
+      <td align="center" style="padding:36px 24px 48px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:520px;">
           <tr>
-            <td style="padding:0 0 18px;border-bottom:1px solid #ecebe7;">
-              <table role="presentation" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td valign="middle" style="padding:0 12px 12px 0;">
-                    <img src="${portrait}" alt="" width="44" height="44" style="display:block;width:44px;height:44px;object-fit:cover;border:0;">
-                  </td>
-                  <td valign="middle" style="padding:0 0 12px;">
-                    <p style="margin:0;font-family:${DISPLAY};font-size:22px;line-height:1;font-weight:400;letter-spacing:0.01em;color:${INK};">kyndall</p>
-                    <p style="margin:6px 0 0;font-family:${FONT};font-size:13px;color:#5c5c62;">${escapeHtml(from)}</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:26px 0 0;font-family:${FONT};color:${INK};">
+            <td style="font-family:${FONT};color:${INK};">
+              ${kicker}
+              ${headline}
               ${paragraphs}
-              <p style="margin:24px 0 0;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(mail.signoff)}</p>
-              ${meta}
+              ${signoff}
             </td>
           </tr>
           <tr>
-            <td style="padding:28px 0 0;">
-              <a href="${site}" style="font-family:${FONT};font-size:13px;color:${POP};text-decoration:underline;">bykyndall.com</a>
+            <td style="padding:32px 0 0;">
+              <a href="${site}" style="font-family:'NewPixel',Georgia,serif;font-size:17px;color:${INK};text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px;">bykyndall.com <span style="color:${POP};">→</span></a>
             </td>
           </tr>
         </table>
@@ -112,7 +110,9 @@ export function wrapBuyerEmail(mail: BuyerMail) {
 </body>
 </html>`;
 
-  const text = [...mail.paragraphs, "", mail.signoff, "", site].join("\n");
+  const text = [mail.title, "", ...mail.paragraphs, "", mail.signoff, "", site]
+    .filter((line): line is string => Boolean(line))
+    .join("\n");
 
   return { html, text };
 }
@@ -125,7 +125,7 @@ export function buyerPaidMail(input: {
 }): BuyerMail {
   const product = input.product;
   const name = firstNameFrom(input.buyerName ?? "");
-  const hey = name ? `Hey ${name},` : "Hey,";
+  const hey = name ? `hey ${name},` : "hey,";
   const coffee = product?.id === COFFEE.id;
   const booked = input.kind === "booking";
   const presale = product?.status === "presale";
@@ -161,15 +161,15 @@ export function buyerPaidMail(input: {
   if (presale && guide) {
     return {
       subject: "Thank you for your purchase 💛",
-      preview: "Really excited to be making this. I send it September 30th.",
-      meta: "editing mini guide, $25",
+      preview: "it goes live september 30th. you'll get it in your inbox.",
+      title: "thank you sm!",
       paragraphs: [
         hey,
-        "Thank you so much for ordering the editing guide. Really excited to be making this.",
-        "September 30th, I will send it out on that day.",
-        "Again, thank you so much. If you have any questions, just reply here. I get these in my inbox.",
+        "thank you so much for ordering the editing guide. i'm excited to be making this.",
+        "it goes live september 30th. you'll get it in your inbox 💌",
+        "again, appreciate you sm! if you have any questions about it, just reply here.",
       ],
-      signoff: "Kyndall",
+      signoff: "cheers,\nkyn",
     };
   }
 
