@@ -43,7 +43,7 @@ function assetUrl(path: string) {
 const BODY =
   `margin:0 0 20px;font-family:${FONT};font-size:16px;line-height:1.5;font-weight:400;color:${INK};`;
 const BODY_LINK =
-  `color:${INK};text-decoration:underline;text-underline-offset:3px;background-color:#ffe3ef;padding:0 0.18em;`;
+  `color:${INK};text-decoration:underline;text-underline-offset:3px;background-color:#e8ebff;padding:0 0.18em;`;
 const FOOT =
   `margin:0;font-family:${FONT};font-size:11px;line-height:1.45;font-weight:400;color:#9a9a9e;`;
 const FOOT_LINK =
