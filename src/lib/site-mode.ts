@@ -16,6 +16,10 @@ export function isAnywayPath(pathname: string) {
   return pathname === "/anyway" || pathname.startsWith("/anyway/");
 }
 
+export function isProjectsPath(pathname: string) {
+  return pathname === "/projects" || pathname.startsWith("/projects/");
+}
+
 export function isLinksPath(pathname: string) {
   return (
     pathname === "/links" ||
@@ -27,6 +31,10 @@ export function isLinksPath(pathname: string) {
   );
 }
 
+export function isEmailsPath(pathname: string) {
+  return pathname === "/emails" || pathname.startsWith("/emails/");
+}
+
 /** Homepage, dedicated portfolios, and the link-in-bio page carry their own chrome. */
 export function hidesSiteChrome(pathname: string) {
   return (
@@ -35,6 +43,8 @@ export function hidesSiteChrome(pathname: string) {
     isLinksPath(pathname) ||
     isUgcPath(pathname) ||
     isProposalPath(pathname) ||
-    isAnywayPath(pathname)
+    isAnywayPath(pathname) ||
+    isProjectsPath(pathname) ||
+    isEmailsPath(pathname)
   );
 }

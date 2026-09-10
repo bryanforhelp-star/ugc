@@ -1,5 +1,11 @@
 import { Resend } from "resend";
 import type Stripe from "stripe";
+import {
+  buyerEmailFrom,
+  buyerPaidMail,
+  buyerReplyTo,
+  wrapBuyerEmail,
+} from "./emails";
 import { getStoreProduct } from "./store";
 import { getStripe } from "./stripe";
 
@@ -95,12 +101,40 @@ export async function notifyPurchase(session: Stripe.Checkout.Session) {
     const duplicate =
       error.name === "application_error" &&
       /idempotency/i.test(error.message || "");
-    if (duplicate) {
-      await markNotified(session);
-      return { ok: true as const, skipped: true };
+    if (!duplicate) {
+      console.error("purchase notify failed", error);
+      return { ok: false as const, error: error.message };
     }
-    console.error("purchase notify failed", error);
-    return { ok: false as const, error: error.message };
+  }
+
+  if (buyerEmail) {
+    const mail = buyerPaidMail({
+      product,
+      kind,
+      when,
+      buyerName,
+    });
+    const wrapped = wrapBuyerEmail(mail);
+    const buyerResult = await resend.emails.send(
+      {
+        from: buyerEmailFrom(),
+        to: buyerEmail,
+        replyTo: buyerReplyTo(),
+        subject: mail.subject,
+        html: wrapped.html,
+        text: wrapped.text,
+      },
+      { idempotencyKey: `${session.id}-buyer` },
+    );
+    if (buyerResult.error) {
+      const duplicate =
+        buyerResult.error.name === "application_error" &&
+        /idempotency/i.test(buyerResult.error.message || "");
+      if (!duplicate) {
+        console.error("buyer email failed", buyerResult.error);
+        return { ok: false as const, error: buyerResult.error.message };
+      }
+    }
   }
 
   await markNotified(session);

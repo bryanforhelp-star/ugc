@@ -1,0 +1,51 @@
+html:has(.emails-preview) #bg,
+html:has(.emails-preview) .matcha-cursor {
+  display: none;
+}
+
+html:has(.emails-preview),
+html:has(.emails-preview) body {
+  background: #eceae4;
+}
+
+.emails-preview {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 18px 64px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #0b0b0c;
+}
+
+.emails-preview__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.emails-preview__nav a {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1b2bff;
+  text-decoration: none;
+}
+
+.emails-preview__nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.emails-preview__note {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #5c5c62;
+}
+
+.emails-preview iframe {
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+  background: #eceae4;
+  border-radius: 18px;
+}

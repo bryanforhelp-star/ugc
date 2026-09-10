@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { isAnywayPath, isLinksPath, isProposalPath } from "@/lib/site-mode";
+import { isAnywayPath, isEmailsPath, isLinksPath, isProjectsPath, isProposalPath } from "@/lib/site-mode";
 import { usePathname } from "next/navigation";
 
 type FadeRect = { left: number; top: number; right: number; bottom: number };
@@ -11,7 +11,8 @@ const MASK_SELECTORS =
   ".page-title, .page-lead, .prose, .meta, .back, .guides-hub, " +
   ".work-section, .work-card, .site-footer__links, " +
   ".video-portfolio__work, .video-portfolio__grid, .video-portfolio__intro, .video-portfolio__card, " +
-  ".prop, .prop-product, .prop-product__mock, .mock, .prop-head, .prop-product__name, .prop-copy, .prop-lead, .prop-chrome";
+  ".prop, .prop-product, .prop-product__mock, .mock, .prop-head, .prop-product__name, .prop-copy, .prop-lead, .prop-chrome, " +
+  "#projects, .project-card, .project-grid, .project-hub, .project-case, .project-case__copy, .project-points, .cover";
 
 /** Bottom-left anchor for inner pages (normalized 0–1) */
 const ANCHOR = { x: 0.2, y: 0.84 };
@@ -20,7 +21,11 @@ export function HomeAsciiBg() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const hide =
-    isLinksPath(pathname) || isProposalPath(pathname) || isAnywayPath(pathname);
+    isLinksPath(pathname) ||
+    isProposalPath(pathname) ||
+    isAnywayPath(pathname) ||
+    isProjectsPath(pathname) ||
+    isEmailsPath(pathname);
 
   useEffect(() => {
     if (hide) return;

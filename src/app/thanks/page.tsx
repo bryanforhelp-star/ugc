@@ -51,7 +51,7 @@ export default async function ThanksPage({
   if (booked) {
     kicker = "booked";
     title = "you're on the calendar.";
-    tagline = `${when}. stripe sent a receipt to ${email || "the email you used at checkout"}. add it below if you want it on your phone.`;
+    tagline = `${when}. i emailed ${email || "the email you used at checkout"}. add it below if you want it on your phone.`;
   } else if (coffee) {
     kicker = "thank you";
     title = "that's kind.";
@@ -59,11 +59,11 @@ export default async function ThanksPage({
   } else if (presale) {
     kicker = "presale";
     title = "you're in.";
-    tagline = `the ${product?.title ?? "guide"} lands ${product?.id === EDITING_GUIDE.id ? "september 30" : "when it drops"}. i'll send it to ${email || "the email you used at checkout"}.`;
+    tagline = `the ${product?.title ?? "guide"} lands ${product?.id === EDITING_GUIDE.id ? "september 30" : "when it drops"}. i emailed ${email || "the email you used at checkout"}. reply there if you need anything before then.`;
   } else if (digital) {
     kicker = "paid";
     title = "i'll send it over.";
-    tagline = `the ${product?.title ?? "files"} go to ${email || "the email you used at checkout"}. if it doesn't show up, reply to the stripe receipt.`;
+    tagline = `i emailed ${email || "the email you used at checkout"} about the ${product?.title ?? "files"}. reply there if anything looks off.`;
   }
 
   return (
