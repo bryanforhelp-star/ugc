@@ -45,7 +45,7 @@ const BODY =
 
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
-  const mark = assetUrl("/email/k-mark.png");
+  const mark = assetUrl("/email/withkyndall.png");
   const signature = assetUrl("/email/kyn-sign.png");
   const kicker = mail.kicker
     ? `<p style="${BODY}">${escapeHtml(mail.kicker)}</p>`
@@ -83,7 +83,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
           <tr>
             <td align="center" style="padding:0 0 56px;">
               <a href="${site}" style="text-decoration:none;">
-                <img src="${mark}" width="48" height="48" alt="kyndall" style="display:block;border:0;width:48px;height:48px;">
+                <img src="${mark}" width="196" height="51" alt="withkyndall" style="display:block;border:0;width:196px;height:auto;">
               </a>
             </td>
           </tr>
@@ -93,7 +93,7 @@ export function wrapBuyerEmail(mail: BuyerMail) {
               ${headline}
               ${paragraphs}
               ${signoff}
-              <img src="${signature}" width="148" height="108" alt="kyn" style="display:block;border:0;margin:28px 0 0;width:148px;height:auto;">
+              <img src="${signature}" width="86" height="71" alt="kyn" style="display:block;border:0;margin:18px 0 0;width:86px;height:auto;">
             </td>
           </tr>
         </table>
@@ -153,7 +153,7 @@ export function buyerPaidMail(input: {
 
   if (presale && guide) {
     return {
-      subject: "Thank you for your purchase 💛",
+      subject: "thank you for your purchase 💙",
       preview: "it goes live september 30th. you'll get it in your inbox.",
       paragraphs: [
         hey,
