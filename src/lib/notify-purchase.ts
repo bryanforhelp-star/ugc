@@ -1,9 +1,11 @@
 import { Resend } from "resend";
 import type Stripe from "stripe";
 import { getStoreProduct } from "./store";
+import { getStripe } from "./stripe";
 
 const DEFAULT_TO = "kyn@bykyndall.com";
 const DEFAULT_FROM = "bykyndall <onboarding@resend.dev>";
+const NOTIFIED_META = "purchaseNotified";
 
 function formatUsd(cents: number | null | undefined) {
   if (cents == null) return "unknown";
@@ -18,7 +20,29 @@ export function purchaseNotifyEmail() {
   return process.env.PURCHASE_NOTIFY_EMAIL?.trim() || DEFAULT_TO;
 }
 
+async function markNotified(session: Stripe.Checkout.Session) {
+  const stripe = getStripe();
+  if (!stripe) return;
+  try {
+    await stripe.checkout.sessions.update(session.id, {
+      metadata: {
+        ...(session.metadata ?? {}),
+        [NOTIFIED_META]: "1",
+      },
+    });
+  } catch (error) {
+    console.error("purchase notify: could not mark session", error);
+  }
+}
+
 export async function notifyPurchase(session: Stripe.Checkout.Session) {
+  if (session.payment_status !== "paid") {
+    return { ok: true as const, skipped: true };
+  }
+  if (session.metadata?.[NOTIFIED_META] === "1") {
+    return { ok: true as const, skipped: true };
+  }
+
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) {
     console.error("purchase notify skipped: RESEND_API_KEY missing");
@@ -57,17 +81,28 @@ export async function notifyPurchase(session: Stripe.Checkout.Session) {
   const from = process.env.PURCHASE_NOTIFY_FROM?.trim() || DEFAULT_FROM;
   const to = purchaseNotifyEmail();
 
-  const { error } = await resend.emails.send({
-    from,
-    to,
-    subject,
-    text: lines.join("\n"),
-  });
+  const { error } = await resend.emails.send(
+    {
+      from,
+      to,
+      subject,
+      text: lines.join("\n"),
+    },
+    { idempotencyKey: session.id },
+  );
 
   if (error) {
+    const duplicate =
+      error.name === "application_error" &&
+      /idempotency/i.test(error.message || "");
+    if (duplicate) {
+      await markNotified(session);
+      return { ok: true as const, skipped: true };
+    }
     console.error("purchase notify failed", error);
     return { ok: false as const, error: error.message };
   }
 
+  await markNotified(session);
   return { ok: true as const };
 }

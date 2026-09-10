@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LocalWhen } from "@/components/store/LocalWhen";
 import { StoreLink } from "@/components/store/StoreLink";
 import { bookingIcs } from "@/lib/booking";
+import { notifyPurchase } from "@/lib/notify-purchase";
 import { getPaidCheckoutSession } from "@/lib/stripe";
 import { COFFEE, EDITING_GUIDE, getStoreProduct, productPath } from "@/lib/store";
 import "../links/links.css";
@@ -20,6 +21,13 @@ export default async function ThanksPage({
 }) {
   const { session_id: sessionId } = await searchParams;
   const session = sessionId ? await getPaidCheckoutSession(sessionId) : null;
+  if (session) {
+    try {
+      await notifyPurchase(session);
+    } catch (error) {
+      console.error("purchase notify from thanks failed", error);
+    }
+  }
   const productId = session?.metadata?.productId;
   const product = productId ? getStoreProduct(productId) : null;
   const email = session?.customer_details?.email;
