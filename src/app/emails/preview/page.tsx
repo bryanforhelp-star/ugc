@@ -4,6 +4,7 @@ import {
   buyerPaidMail,
   wrapBuyerEmail,
 } from "@/lib/emails";
+import { SITE } from "@/lib/site";
 import { EDITING_GUIDE_PRODUCT } from "@/lib/store";
 import "./preview.css";
 
@@ -18,7 +19,13 @@ export default function EmailPreviewPage() {
     kind: "digital",
     buyerName: "Sam",
   });
-  const { html } = wrapBuyerEmail(mail);
+  let { html } = wrapBuyerEmail(mail);
+  if (process.env.NODE_ENV !== "production") {
+    html = html.replaceAll(
+      SITE.url.replace(/\/$/, ""),
+      "http://localhost:4000",
+    );
+  }
   const from = buyerEmailFrom();
 
   return (

@@ -2,9 +2,7 @@ import { SITE } from "./site";
 import { COFFEE, EDITING_GUIDE, type StoreProduct } from "./store";
 
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
-const DISPLAY = "'Bootzy TM', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const INK = "#0b0b0c";
-const POP = "#1b2bff";
 
 export type BuyerMail = {
   subject: string;
@@ -42,26 +40,32 @@ function assetUrl(path: string) {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+const BODY =
+  `margin:0 0 48px;font-family:${FONT};font-size:22px;line-height:1.45;font-weight:400;color:${INK};`;
+
 export function wrapBuyerEmail(mail: BuyerMail) {
   const site = SITE.url.replace(/\/$/, "") || "https://bykyndall.com";
-  const bootzy = assetUrl("/fonts/Bootzy-TM.woff2");
-  const pixel = assetUrl("/fonts/NewPixel.woff2");
+  const mark = assetUrl("/email/k-mark.png");
+  const signature = assetUrl("/email/kyn-sign.png");
   const kicker = mail.kicker
-    ? `<p style="margin:0 0 16px;font-family:${FONT};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${POP};">${escapeHtml(mail.kicker)}</p>`
+    ? `<p style="${BODY}">${escapeHtml(mail.kicker)}</p>`
     : "";
   const headline = mail.title
-    ? `<h1 style="margin:0 0 28px;font-family:${DISPLAY};font-size:52px;line-height:0.9;font-weight:400;letter-spacing:0.02em;color:${INK};">${escapeHtml(mail.title)}</h1>`
+    ? `<p style="${BODY}">${escapeHtml(mail.title)}</p>`
     : "";
   const paragraphs = mail.paragraphs
+    .map((p) => `<p style="${BODY}">${escapeHtml(p)}</p>`)
+    .join("");
+  const signoffLines = mail.signoff
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line && !/^(kyn|kyndall)$/i.test(line));
+  const signoff = signoffLines
     .map(
-      (p) =>
-        `<p style="margin:0 0 16px;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(p)}</p>`,
+      (line, index) =>
+        `<p style="margin:${index === 0 ? "8px" : "0"} 0 0;font-family:${FONT};font-size:22px;line-height:1.45;color:${INK};">${escapeHtml(line)}</p>`,
     )
     .join("");
-  const signoff = mail.signoff.split("\n").map((line, index) => {
-    const top = index === 0 ? "24px" : "4px";
-    return `<p style="margin:${top} 0 0;font-family:${FONT};font-size:16px;line-height:1.55;color:${INK};">${escapeHtml(line)}</p>`;
-  }).join("");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -69,38 +73,27 @@ export function wrapBuyerEmail(mail: BuyerMail) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(mail.subject)}</title>
-<style>
-@font-face {
-  font-family: "Bootzy TM";
-  src: url("${bootzy}") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "NewPixel";
-  src: url("${pixel}") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-</style>
 </head>
 <body style="margin:0;padding:0;background:#ffffff;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(mail.preview)}</div>
   <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff;">
     <tr>
-      <td align="center" style="padding:36px 24px 48px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:520px;">
+      <td align="center" style="padding:56px 28px 72px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;">
+          <tr>
+            <td align="center" style="padding:0 0 56px;">
+              <a href="${site}" style="text-decoration:none;">
+                <img src="${mark}" width="48" height="48" alt="kyndall" style="display:block;border:0;width:48px;height:48px;">
+              </a>
+            </td>
+          </tr>
           <tr>
             <td style="font-family:${FONT};color:${INK};">
               ${kicker}
               ${headline}
               ${paragraphs}
               ${signoff}
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:32px 0 0;">
-              <a href="${site}" style="font-family:'NewPixel',Georgia,serif;font-size:17px;color:${INK};text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px;">bykyndall.com <span style="color:${POP};">→</span></a>
+              <img src="${signature}" width="148" height="108" alt="kyn" style="display:block;border:0;margin:28px 0 0;width:148px;height:auto;">
             </td>
           </tr>
         </table>
