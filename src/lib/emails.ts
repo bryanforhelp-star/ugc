@@ -5,7 +5,6 @@ const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 const DISPLAY = "'Bootzy TM', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const SERIF = "'NewPixel', Georgia, 'Times New Roman', serif";
 const INK = "#0b0b0c";
-const MUTED = "#5c5c62";
 const POP = "#1b2bff";
 const PAPER = "#ffffff";
 
@@ -67,21 +66,21 @@ export function wrapBuyerEmail(mail: BuyerMail) {
     .join("");
   const stage = `<table role="presentation" cellpadding="0" cellspacing="0" align="right">
     <tr>
-      <td style="width:14px;height:14px;border-top:1.5px solid ${POP};border-left:1.5px solid ${POP};"></td>
-      <td></td>
-      <td style="width:14px;height:14px;border-top:1.5px solid ${POP};border-right:1.5px solid ${POP};"></td>
+      <td style="width:10px;height:10px;border-top:1.5px solid ${POP};border-left:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
+      <td style="font-size:0;line-height:0;">&nbsp;</td>
+      <td style="width:10px;height:10px;border-top:1.5px solid ${POP};border-right:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
     </tr>
     <tr>
-      <td></td>
-      <td style="padding:6px;">
+      <td style="font-size:0;line-height:0;">&nbsp;</td>
+      <td style="padding:4px;">
         <img src="${portrait}" alt="" width="150" height="200" style="display:block;width:150px;height:200px;object-fit:cover;border:0;">
       </td>
-      <td></td>
+      <td style="font-size:0;line-height:0;">&nbsp;</td>
     </tr>
     <tr>
-      <td style="width:14px;height:14px;border-bottom:1.5px solid ${POP};border-left:1.5px solid ${POP};"></td>
-      <td></td>
-      <td style="width:14px;height:14px;border-bottom:1.5px solid ${POP};border-right:1.5px solid ${POP};"></td>
+      <td style="width:10px;height:10px;border-bottom:1.5px solid ${POP};border-left:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
+      <td style="font-size:0;line-height:0;">&nbsp;</td>
+      <td style="width:10px;height:10px;border-bottom:1.5px solid ${POP};border-right:1.5px solid ${POP};font-size:0;line-height:0;">&nbsp;</td>
     </tr>
   </table>`;
 
