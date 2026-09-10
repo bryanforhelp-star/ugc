@@ -97,6 +97,13 @@ export async function POST(request: Request) {
         }
       : {
           billing_address_collection: "auto" as const,
+          custom_fields: [
+            {
+              key: "firstName",
+              label: { type: "custom" as const, custom: "First name" },
+              type: "text" as const,
+            },
+          ],
           ...(presale
             ? {
                 custom_text: {

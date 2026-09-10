@@ -61,7 +61,13 @@ export async function notifyPurchase(session: Stripe.Checkout.Session) {
   const when = session.metadata?.when?.trim() || "";
   const buyerEmail =
     session.customer_details?.email || session.customer_email || "";
-  const buyerName = session.customer_details?.name || "";
+  const customName = session.custom_fields?.find((field) => field.key === "firstName")
+    ?.text?.value;
+  const buyerName =
+    customName ||
+    session.metadata?.firstName ||
+    session.customer_details?.name ||
+    "";
   const amount = formatUsd(session.amount_total);
   const title = product?.title || productId || "checkout";
 
