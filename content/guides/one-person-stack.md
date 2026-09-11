@@ -1,53 +1,44 @@
 ---
-title: "the one-person stack: every ai tool i actually pay for."
-description: "The full list of AI tools in my stack — what each one does, what I'd cut first, and what I'd never drop."
-summary: "Audit every AI tool you pay for, cut duplicates, and keep one winner per job so your stack stays lean and useful."
+title: "my ai stack (the ones i actually use)"
+description: "Cursor, ChatGPT, Claude, and Wispr Flow. Links and any codes I have."
+summary: "Four tools: Cursor, ChatGPT, Claude, and Wispr Flow, with links and the Wispr code KYNDALL8."
 category: guide
 topics:
   - tools
   - setup
-tools: []
-cover: "every ai tool i actually pay for (and what i'd cut first)"
+tools:
+  - cursor
+  - chatgpt
+  - claude
+cover: "my ai stack"
 commentKeyword: STACK
+affiliate: wispr flow
 pillars:
   - how-to
-  - story
 tags:
   - ai
   - tools
   - stack
 published: true
 date: 2026-06-12
+updated: 2026-09-12
 ---
 
-This is my real stack — not a sponsored list. I update this whenever something changes.
+These are the four I use. Some links are affiliate. I only list what I actually pay for.
 
-## the rule
+## the stack
 
-If I haven't used it in 30 days, it gets cut. No "maybe someday" subscriptions.
+| Tool | What I use it for | Code |
+|------|-------------------|------|
+| [Cursor](https://cursor.com) | building software | |
+| [ChatGPT](https://chatgpt.com) | quick tasks / voice | |
+| [Claude](https://claude.ai) | thinking, writing, building | |
+| [Wispr Flow](https://wisprflow.ai/r?KYNDALL8) | voice typing | `KYNDALL8` |
 
-## core stack (update as you go)
+## wispr code
 
-| Tool | Job | Keep or cut? |
-|------|-----|--------------|
-| Claude | Thinking, writing, building | Keep |
-| Cursor | Building software | Keep |
-| ChatGPT | Quick tasks / voice | Keep |
-| _Add yours_ | | |
-
-## what i'd cut first
-
-Tools that duplicate what you already pay for. Pick one winner per job.
-
-## steal this
-
-Audit prompt:
+If the link doesn't catch the referral, use this:
 
 ```
-Here's my current AI tool list: [PASTE].
-Find overlap, rank by value, and tell me what to cancel first.
+KYNDALL8
 ```
-
-## what to do next
-
-Export your subscriptions. Run the audit. Cancel one thing this week.

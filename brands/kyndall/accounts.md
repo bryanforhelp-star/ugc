@@ -73,7 +73,7 @@ All published. Frontmatter `commentKeyword` is the source of truth.
 | `VOICE` | build your voice files (the simple way) | `claude-voice-setup-skill` | Jun 12, 2026 |
 | `AUDIT` | build or buy: the thing i run before i pay for anything | `claude-build-or-buy-skill` | Jun 12, 2026 |
 | `LEARN` | the ai learning loop: how to get ai to teach you anything | `ai-learning-loop` | Jun 12, 2026 |
-| `STACK` | the one-person stack: every ai tool i actually pay for | `one-person-stack` | Jun 12, 2026 |
+| `STACK` | my ai stack (the ones i actually use) | `one-person-stack` | Sep 12, 2026 |
 
 `TODO: confirm which of these are actually wired up as ManyChat triggers.` A guide being
 published is not the same as the automation being live, and the rule is that the guide must
