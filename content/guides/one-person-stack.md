@@ -1,7 +1,7 @@
 ---
 title: "my ai stack (the ones i actually use)"
-description: "The four AI tools I actually pay for. Links, what each one does for me, and any codes I have."
-summary: "Four tools: Cursor, ChatGPT, Claude, and Wispr Flow, with links and the Wispr code KYNDALL8."
+description: "The three things I actually use: Cursor, ChatGPT or Claude, and Wispr Flow. Links and any codes I have."
+summary: "Cursor to build, ChatGPT or Claude as the general AI brain, Wispr Flow for voice typing. Wispr code: KYNDALL8."
 category: guide
 topics:
   - tools
@@ -28,18 +28,25 @@ I get asked what I use a lot. This is the real list. Not every AI app that exist
 
 Some links are affiliate. I only list what I actually pay for.
 
-## the stack
+## 1. cursor
 
-| Tool | What I use it for | Code |
-|------|-------------------|------|
-| [Cursor](https://cursor.com) | where I build things. apps, sites, weird little experiments. I talk to it more than I type. | |
-| [ChatGPT](https://chatgpt.com) | quick stuff. voice mode in the car, random questions, when I want a second opinion. | |
-| [Claude](https://claude.ai) | the one I think with. writing, planning, longer projects. | |
-| [Wispr Flow](https://wisprflow.ai/r?KYNDALL8) | voice typing everywhere. I talk, it writes. slightly obsessed. | `KYNDALL8` |
+[Cursor](https://cursor.com) is an AI coding app. You describe what you want, and it builds it with you. You don't have to know how to code.
 
-## wispr code
+Things you can build with it: apps, websites, little tools, weird experiments, anything you'd normally need a developer for.
 
-If the link doesn't catch the referral, use this:
+## 2. chatgpt or claude
+
+[ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai). These are general AI. Meaning: not for one job. They think with you.
+
+Writing, planning, research, random questions, talking through an idea. Basically the brain I use everywhere. I pay for both because I like having the option. Either one works.
+
+## 3. wispr flow
+
+[Wispr Flow](https://wisprflow.ai/r?KYNDALL8) turns talking into text. You speak, it types. Works in almost any app.
+
+It's easy because you stop typing and just talk. Notes, emails, prompts into Cursor. Slightly obsessed.
+
+Code if you need it:
 
 ```
 KYNDALL8
