@@ -37,9 +37,17 @@ const CARDS = {
     photo: "hero/kyndall-poster.jpg",
     focus: "50% 22%",
   },
-  // Live homepage preview. Photo cards lose to the hero <video> in iMessage.
-  k: {
-    mark: "K",
+  // Live homepage preview. Type + mark, no photo, so iMessage cannot steal a video frame.
+  kyndall: {
+    kind: "site",
+    eyebrow: "bykyndall.com",
+    title: ["hi, i'm", "kyndall."],
+    lines: [
+      "making ai feel more creative.",
+      "building things and",
+      "bringing you along.",
+    ],
+    mark: "k",
   },
   ugc: {
     eyebrow: "bykyndall.com/ugc",
@@ -70,34 +78,88 @@ function fontUrl(file) {
   return `data:font/woff2;base64,${buf.toString("base64")}`;
 }
 
-function markHtml(letter) {
+function siteHtml(card) {
   return `<!doctype html>
 <meta charset="utf-8">
 <style>
   @font-face { font-family: "Bootzy TM"; src: url("${fontUrl("Bootzy-TM.woff2")}") format("woff2"); }
+  @font-face { font-family: "NewPixel"; src: url("${fontUrl("NewPixel.woff2")}") format("woff2"); }
+  @font-face { font-family: "NewPixelSquare"; src: url("${fontUrl("NewPixelSquare.woff2")}") format("woff2"); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: ${W}px; height: ${H}px; }
   body {
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    background: #ffffff;
+    color: #0b0b0c;
+    overflow: hidden;
+  }
+  .left {
+    padding: 64px 56px 56px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .eyebrow {
+    font-family: "NewPixelSquare", monospace;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1b2bff;
+  }
+  h1 {
+    font-family: "Bootzy TM", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 108px;
+    line-height: 0.86;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    margin-bottom: 22px;
+  }
+  p {
+    font-family: "NewPixel", Georgia, serif;
+    font-size: 32px;
+    line-height: 1.18;
+    color: #0b0b0c;
+  }
+  .rule { width: 86px; height: 6px; background: #1b2bff; margin-top: 32px; }
+  .right {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: #1b2bff;
     overflow: hidden;
   }
   .k {
     font-family: "Bootzy TM", system-ui, sans-serif;
     font-weight: 400;
     font-size: 420px;
-    line-height: 1;
-    color: #1b2bff;
-    text-shadow: 4px 4px 0 rgba(11, 11, 12, 0.12);
+    line-height: 0.78;
+    color: #ffffff;
+    transform: translateY(4px);
   }
+  .mark { position: absolute; width: 34px; height: 34px; border: 3px solid #ffffff; }
+  .mark--tl { top: 26px; left: 26px; border-right: 0; border-bottom: 0; }
+  .mark--br { bottom: 26px; right: 26px; border-left: 0; border-top: 0; }
 </style>
-<div class="k">${letter}</div>`;
+<div class="left">
+  <div class="eyebrow">${card.eyebrow}</div>
+  <div>
+    <h1>${card.title.join("<br>")}</h1>
+    ${card.lines.map((l) => `<p>${l}</p>`).join("\n    ")}
+    <div class="rule"></div>
+  </div>
+</div>
+<div class="right">
+  <div class="k">${card.mark}</div>
+  <div class="mark mark--tl"></div>
+  <div class="mark mark--br"></div>
+</div>`;
 }
 
 function html(card) {
-  if (card.mark) return markHtml(card.mark);
+  if (card.kind === "site") return siteHtml(card);
 
   return `<!doctype html>
 <meta charset="utf-8">

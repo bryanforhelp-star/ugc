@@ -13,12 +13,12 @@ const AUTHOR_SAME_AS = [
   SITE.social.youtube,
 ];
 
-/** Shared link-preview card. Do not use the hero video poster; crawlers prefer it. */
+/** Shared link-preview card. Type + mark, never the hero video poster. */
 export const SITE_OG_IMAGE = {
-  url: "/og/k.jpg",
+  url: "/og/kyndall.jpg",
   width: 1200,
   height: 630,
-  alt: SITE.name,
+  alt: "hi, i'm kyndall.",
   type: "image/jpeg",
 } as const;
 
