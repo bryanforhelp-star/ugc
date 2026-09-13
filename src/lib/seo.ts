@@ -13,7 +13,16 @@ const AUTHOR_SAME_AS = [
   SITE.social.youtube,
 ];
 
-const DEFAULT_OG_IMAGE = absoluteUrl("/hero/kyndall-poster.jpg");
+/** Shared link-preview card. Do not use the hero video poster; crawlers prefer it. */
+export const SITE_OG_IMAGE = {
+  url: "/og/k.jpg",
+  width: 1200,
+  height: 630,
+  alt: SITE.name,
+  type: "image/jpeg",
+} as const;
+
+const DEFAULT_OG_IMAGE = absoluteUrl(SITE_OG_IMAGE.url);
 
 function guideAuthor() {
   return {
@@ -44,13 +53,13 @@ export function guideMetadata(guide: Guide): Metadata {
       publishedTime: guide.date,
       modifiedTime: guide.updated ?? guide.date,
       siteName: SITE.name,
-      images: [{ url: DEFAULT_OG_IMAGE, alt: guide.title }],
+      images: [{ ...SITE_OG_IMAGE, alt: guide.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: guide.title,
       description: summary,
-      images: [DEFAULT_OG_IMAGE],
+      images: [SITE_OG_IMAGE.url],
     },
     robots: { index: true, follow: true },
   };

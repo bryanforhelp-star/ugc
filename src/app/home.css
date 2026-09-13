@@ -144,6 +144,11 @@
   background: #dcdcdc;
 }
 
+.home .portrait--still {
+  z-index: 1;
+  background: #dcdcdc url("/hero/kyndall-poster.jpg") center / cover no-repeat;
+}
+
 .home .stage::before,
 .home .stage::after {
   content: "";
@@ -469,6 +474,10 @@
   grid-template-columns: minmax(0, 420px);
 }
 
+.home #projects .project-grid {
+  margin-top: clamp(40px, 6vh, 56px);
+}
+
 .home #guides {
   padding-top: clamp(32px, 5vh, 56px);
   padding-bottom: clamp(96px, 14vh, 160px);
@@ -660,6 +669,12 @@
   height: 100%;
   object-fit: cover;
   background: #e8e8e8;
+}
+
+.home .showcase-video--still {
+  background-color: #e8e8e8;
+  background-size: cover;
+  background-position: center;
 }
 
 .home .showcase-placeholder {

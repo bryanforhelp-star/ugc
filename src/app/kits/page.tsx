@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ShopCard } from "@/components/ShopCard";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, SITE_OG_IMAGE } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { listedDigitalProducts } from "@/lib/store";
 
@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     description: SITE.kits.description,
     url: absoluteUrl("/kits"),
     siteName: SITE.name,
+    images: [SITE_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [SITE_OG_IMAGE.url],
   },
 };
 

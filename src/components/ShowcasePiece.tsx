@@ -19,7 +19,12 @@ export function ShowcasePiece({ piece, index, onPlaybackChange }: Props) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const hasMedia = Boolean(piece.video);
+
+  useEffect(() => {
+    setShowVideo(true);
+  }, []);
 
   const syncPlayback = useCallback(
     (playing: boolean) => {
@@ -78,7 +83,7 @@ export function ShowcasePiece({ piece, index, onPlaybackChange }: Props) {
     >
       <div className="showcase-piece__motion">
         <div ref={frameRef} className="showcase-frame">
-          {hasMedia ? (
+          {hasMedia && showVideo ? (
             <video
               ref={videoRef}
               className="showcase-video"
@@ -88,11 +93,21 @@ export function ShowcasePiece({ piece, index, onPlaybackChange }: Props) {
               controlsList="nodownload noremoteplayback"
               disablePictureInPicture
               playsInline
-              preload="metadata"
+              preload="none"
               onContextMenu={(e) => e.preventDefault()}
               onPlay={handlePlay}
               onPause={handlePause}
               onEnded={handleEnded}
+            />
+          ) : hasMedia ? (
+            <div
+              className="showcase-video showcase-video--still"
+              style={
+                piece.poster
+                  ? { backgroundImage: `url(${piece.poster})` }
+                  : undefined
+              }
+              aria-hidden="true"
             />
           ) : (
             <div className="showcase-placeholder" aria-label="video coming soon" />

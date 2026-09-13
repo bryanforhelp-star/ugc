@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GuidesHub } from "@/components/GuidesHub";
 import { getGuideListItems } from "@/lib/guides";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, SITE_OG_IMAGE } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     description: SITE.guides.seoDescription,
     url: absoluteUrl("/guides"),
     siteName: SITE.name,
+    images: [SITE_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [SITE_OG_IMAGE.url],
   },
 };
 

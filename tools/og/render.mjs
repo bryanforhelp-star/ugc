@@ -37,6 +37,10 @@ const CARDS = {
     photo: "hero/kyndall-poster.jpg",
     focus: "50% 22%",
   },
+  // Live homepage preview. Photo cards lose to the hero <video> in iMessage.
+  k: {
+    mark: "K",
+  },
   ugc: {
     eyebrow: "bykyndall.com/ugc",
     title: "kyndall.",
@@ -66,7 +70,35 @@ function fontUrl(file) {
   return `data:font/woff2;base64,${buf.toString("base64")}`;
 }
 
+function markHtml(letter) {
+  return `<!doctype html>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Bootzy TM"; src: url("${fontUrl("Bootzy-TM.woff2")}") format("woff2"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: ${W}px; height: ${H}px; }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    overflow: hidden;
+  }
+  .k {
+    font-family: "Bootzy TM", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 420px;
+    line-height: 1;
+    color: #1b2bff;
+    text-shadow: 4px 4px 0 rgba(11, 11, 12, 0.12);
+  }
+</style>
+<div class="k">${letter}</div>`;
+}
+
 function html(card) {
+  if (card.mark) return markHtml(card.mark);
+
   return `<!doctype html>
 <meta charset="utf-8">
 <style>

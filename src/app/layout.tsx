@@ -6,7 +6,7 @@ import { MatchaCursorFollower } from "@/components/MatchaCursorFollower";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE } from "@/lib/site";
-import { websiteJsonLd } from "@/lib/seo";
+import { SITE_OG_IMAGE, websiteJsonLd } from "@/lib/seo";
 import "./brand.css";
 import "./globals.css";
 import "./liquid-glass.css";
@@ -23,18 +23,11 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/og/home.jpg",
-        width: 1200,
-        height: 630,
-        alt: SITE.name,
-      },
-    ],
+    images: [SITE_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/home.jpg"],
+    images: [SITE_OG_IMAGE.url],
   },
 };
 
