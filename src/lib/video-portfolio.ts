@@ -173,7 +173,7 @@ export function getHomepageShowcasePieces() {
   });
 }
 
-const UGC_ORGANIC_HIDDEN_IDS = new Set(["13", "07", "09"]);
+const UGC_ORGANIC_HIDDEN_IDS = new Set(["13", "12", "07", "09"]);
 
 export function getUgcOrganicPieces() {
   return SOCIAL_VIDEOS.slice(0, -4)
