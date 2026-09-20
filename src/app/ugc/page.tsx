@@ -84,6 +84,25 @@ export default function UgcPage() {
                 </p>
                 <p>i share the process as i go.</p>
               </div>
+              <ul className="facts">
+                <li>
+                  <b>content</b>
+                  <span>
+                    ugc ads, organic short-form, and ai experiments for apps
+                    and tech
+                  </span>
+                </li>
+                <li>
+                  <b>background</b>
+                  <span>
+                    10+ years in marketing, advertising, strategy, content
+                  </span>
+                </li>
+                <li>
+                  <b>building</b>
+                  <span>ai experiments, workflows, apps, content systems</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>

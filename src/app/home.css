@@ -317,11 +317,6 @@
   padding-bottom: clamp(40px, 6vh, 64px);
 }
 
-.home--ugc .about-grid {
-  grid-template-columns: 1fr;
-  max-width: 62ch;
-}
-
 .home--ugc #contact .s-sub {
   color: var(--ink);
 }
