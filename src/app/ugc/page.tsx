@@ -56,7 +56,7 @@ export default function UgcPage() {
           </header>
         </div>
 
-        <BrandsMarquee label="worked with" brands={UGC_BRANDS} />
+        <BrandsMarquee label="trusted by" brands={UGC_BRANDS} />
 
         <section id="about">
           <div className="wrap">
