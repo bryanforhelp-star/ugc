@@ -60,6 +60,8 @@ export const UGC_SITE = {
 } as const;
 
 export const UGC_BRANDS: readonly TrustedBrand[] = [
+  { name: "preply", logo: "/ugc/assets/logos/preply-wordmark.png", width: 140, height: 41 },
+  { name: "wispr flow", logo: "/links/logos/wispr.png", width: 40, height: 40 },
   { name: "arcads", logo: "/brands/arcads.svg", width: 141, height: 32 },
   { name: "doola", logo: "/brands/doola.png", width: 120, height: 34 },
   { name: "cantina", logo: "/brands/cantina.png", width: 132, height: 24 },
@@ -69,6 +71,30 @@ export const UGC_BRANDS: readonly TrustedBrand[] = [
 ];
 
 export const UGC_WORK_PIECES: UgcWorkPiece[] = [
+  {
+    id: "arcads",
+    video: "/ugc/assets/videos/arcads.mp4",
+    poster: "/ugc/assets/posters/arcads.jpg",
+    brand: "Arcads",
+    brandLogo: "/brands/arcads.svg",
+    brandLogoWidth: 141,
+    brandLogoHeight: 32,
+    category: "product demo",
+    tags: ["apps", "tech", "software"],
+    summary: "the most annoying part of making ugc ads, then the shortcut.",
+  },
+  {
+    id: "anyway",
+    video: "/ugc/assets/videos/anyway.mp4",
+    poster: "/ugc/assets/posters/anyway.jpg",
+    brand: "anyway",
+    brandLogo: "/anyway/logo.svg",
+    brandLogoWidth: 80,
+    brandLogoHeight: 56,
+    category: "spec project",
+    tags: ["apps", "tech"],
+    summary: "400 ugc ads for a brand that doesn't exist.",
+  },
   {
     id: "doola-h1",
     video: "/ugc/assets/videos/doola-h1.mp4",
@@ -104,42 +130,6 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     category: "problem / solution",
     tags: ["apps", "tech"],
     summary: "creative burnout and phone overstimulation.",
-  },
-  {
-    id: "preply-testimonial",
-    video: "/ugc/assets/videos/preply-testimonial.mp4",
-    poster: "/ugc/assets/posters/preply-testimonial.jpg",
-    brand: "Preply",
-    brandLogo: "/ugc/assets/logos/preply-wordmark.png",
-    brandLogoWidth: 140,
-    brandLogoHeight: 38,
-    category: "educational testimonial",
-    tags: ["apps", "education"],
-    summary: "structured learning vs scattered apps.",
-  },
-  {
-    id: "replit",
-    video: "/ugc/assets/videos/replit.mp4",
-    poster: "/ugc/assets/posters/replit.jpg",
-    brand: "Replit",
-    brandLogo: "/ugc/assets/logos/replit-wordmark.svg",
-    brandLogoWidth: 128,
-    brandLogoHeight: 32,
-    category: "product demo",
-    tags: ["apps", "software", "SaaS"],
-    summary: "real-time app build from a relatable problem.",
-  },
-  {
-    id: "prism",
-    video: "/ugc/assets/videos/prism-v1.mp4",
-    poster: "/ugc/assets/posters/prism-v1.jpg",
-    brand: "Prism AI",
-    brandLogo: "/ugc/assets/logos/prism.png",
-    brandLogoWidth: 108,
-    brandLogoHeight: 30,
-    category: "product demo",
-    tags: ["apps", "tech"],
-    summary: "60-second hook on cutting through tech news noise.",
   },
 ];
 

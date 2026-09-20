@@ -40,6 +40,14 @@ export const VIDEO_PAGE_INTRO = {
 
 export const SOCIAL_VIDEOS: SocialVideoPiece[] = [
   {
+    id: "14",
+    title: "if i was starting out i'd keep my stack stupidly simple",
+    video: "/showcase/14.mp4",
+    poster: "/showcase/14-poster.jpg",
+    platform: "instagram",
+    edits: ["kinetic type", "talking head", "product logos"],
+  },
+  {
     id: "09",
     title: "400 ads for a brand that doesn't exist",
     video: "/showcase/09.mp4",
@@ -165,10 +173,14 @@ export function getHomepageShowcasePieces() {
   });
 }
 
+const UGC_ORGANIC_HIDDEN_IDS = new Set(["13", "07", "09"]);
+
 export function getUgcOrganicPieces() {
-  return SOCIAL_VIDEOS.slice(0, -4).map((piece) => ({
-    id: piece.id,
-    video: piece.video,
-    poster: piece.poster,
-  }));
+  return SOCIAL_VIDEOS.slice(0, -4)
+    .filter((piece) => !UGC_ORGANIC_HIDDEN_IDS.has(piece.id))
+    .map((piece) => ({
+      id: piece.id,
+      video: piece.video,
+      poster: piece.poster,
+    }));
 }
