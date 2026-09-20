@@ -761,6 +761,7 @@
   position: relative;
   aspect-ratio: 9 / 16;
   background: var(--hair);
+  border-radius: 20px;
 }
 
 .home .ugc-work__frame::before,
@@ -795,6 +796,7 @@
   height: 100%;
   object-fit: contain;
   background: #000;
+  border-radius: 20px;
 }
 
 .home .ugc-work__meta {
@@ -899,6 +901,7 @@
   position: absolute;
   inset: 0;
   background: var(--hair);
+  border-radius: 20px;
 }
 
 .home .ugc-work--organic {
