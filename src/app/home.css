@@ -811,7 +811,6 @@
   height: clamp(20px, 2.4vw, 28px);
   display: flex;
   align-items: center;
-  margin-bottom: clamp(8px, 1vw, 12px);
 }
 
 .home .ugc-work__logo {

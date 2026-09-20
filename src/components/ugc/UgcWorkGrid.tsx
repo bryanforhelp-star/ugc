@@ -88,21 +88,6 @@ function AdCard({ piece }: AdCardProps) {
             style={{ width: "auto", height: "100%" }}
           />
         </div>
-        {piece.category ? (
-          <p className="ugc-work__type">{piece.category}</p>
-        ) : null}
-        {piece.summary ? (
-          <p className="ugc-work__summary">{piece.summary}</p>
-        ) : null}
-        {piece.tags.length > 0 ? (
-          <ul className="ugc-work__tags" aria-label="categories">
-            {piece.tags.map((tag) => (
-              <li key={tag} className="ugc-work__tag">
-                {tag}
-              </li>
-            ))}
-          </ul>
-        ) : null}
       </footer>
     </article>
   );
