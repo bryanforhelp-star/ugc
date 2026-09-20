@@ -58,6 +58,36 @@ export default function UgcPage() {
 
         <BrandsMarquee label="worked with" brands={UGC_BRANDS} />
 
+        <section id="about">
+          <div className="wrap">
+            <h2 className="s-head">about</h2>
+            <div className="about-grid">
+              <div>
+                <p>
+                  i make content about how i use AI in my actual life and work.
+                </p>
+                <p>
+                  i&apos;ve spent 10+ years in marketing and advertising, and
+                  now i&apos;m using AI to build things, solve problems, test
+                  ideas, and make a lot of the stuff i used to think required a
+                  whole team possible on my own.
+                </p>
+                <p>
+                  i don&apos;t have a CS degree or a tech background. most of
+                  what i know came from wanting to do something, figuring out
+                  how to do it, and then trying again when it didn&apos;t work.
+                </p>
+                <p>
+                  these days i&apos;m building software, experimenting with new
+                  workflows, making content, and generally seeing what i can
+                  get AI to do.
+                </p>
+                <p>i share the process as i go.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <UgcAdsGrid
           id="ugc-ads"
           title="ugc ads"
@@ -71,50 +101,6 @@ export default function UgcPage() {
           intro={UGC_SITE.organicIntro}
           pieces={UGC_ORGANIC_PIECES}
         />
-
-        <section id="about">
-          <div className="wrap">
-            <h2 className="s-head">about</h2>
-            <div className="about-grid">
-              <div>
-                <p>
-                  i make content about using ai creatively to solve problems,
-                  build ideas, and make life feel a little more like yours.
-                </p>
-                <p>
-                  i&apos;ve spent 10+ years in marketing and advertising, so i
-                  know what actually makes people pay attention. now i build my
-                  own things: software, workflows, content systems. ai runs a
-                  huge chunk of it.
-                </p>
-                <p>
-                  no cs degree. i learned to build by doing, and when something
-                  works, i share it while it&apos;s still messy so you can try
-                  it too.
-                </p>
-              </div>
-              <ul className="facts">
-                <li>
-                  <b>content</b>
-                  <span>
-                    ugc ads, organic short-form, and ai experiments for apps
-                    and tech
-                  </span>
-                </li>
-                <li>
-                  <b>background</b>
-                  <span>
-                    10+ years in marketing, advertising, strategy, content
-                  </span>
-                </li>
-                <li>
-                  <b>building</b>
-                  <span>ai experiments, workflows, apps, content systems</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
         <section id="contact">
           <div className="wrap">

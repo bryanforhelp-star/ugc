@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { isAnywayPath, isEmailsPath, isLinksPath, isProjectsPath, isProposalPath } from "@/lib/site-mode";
+import { isAnywayPath, isEmailsPath, isLinksPath, isProjectsPath, isProposalPath, isUgcPath } from "@/lib/site-mode";
 import { usePathname } from "next/navigation";
 
 type FadeRect = { left: number; top: number; right: number; bottom: number };
@@ -25,7 +25,8 @@ export function HomeAsciiBg() {
     isProposalPath(pathname) ||
     isAnywayPath(pathname) ||
     isProjectsPath(pathname) ||
-    isEmailsPath(pathname);
+    isEmailsPath(pathname) ||
+    isUgcPath(pathname);
 
   useEffect(() => {
     if (hide) return;
