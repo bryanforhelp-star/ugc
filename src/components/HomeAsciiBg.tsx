@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { isAnywayPath, isEmailsPath, isLinksPath, isProjectsPath, isProposalPath } from "@/lib/site-mode";
+import { isAnywayPath, isEmailsPath, isLinksPath, isProjectsPath, isProposalPath, isUgcPath } from "@/lib/site-mode";
 import { usePathname } from "next/navigation";
 
 type FadeRect = { left: number; top: number; right: number; bottom: number };
@@ -20,6 +20,8 @@ const ANCHOR = { x: 0.2, y: 0.84 };
 export function HomeAsciiBg() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  /** Homepage + UGC get the floating mouse-follow blob. Other pages pin it. */
+  const floatBlob = isHome || isUgcPath(pathname);
   const hide =
     isLinksPath(pathname) ||
     isProposalPath(pathname) ||
@@ -43,7 +45,7 @@ export function HomeAsciiBg() {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = matchMedia("(pointer: fine)").matches;
     const narrow = matchMedia("(max-width: 840px)").matches;
-    const animateBlob = isHome && finePointer && !narrow && !reduce;
+    const animateBlob = floatBlob && finePointer && !narrow && !reduce;
 
     let cols: number;
     let rows: number;
@@ -180,8 +182,8 @@ export function HomeAsciiBg() {
     };
 
     function field(nx: number, ny: number, t: number) {
-      const anchor = isHome ? null : innerAnchor();
-      const mx = isHome
+      const anchor = floatBlob ? null : innerAnchor();
+      const mx = floatBlob
         ? animateBlob && mouse.on
           ? mouse.x
           : animateBlob
@@ -190,7 +192,7 @@ export function HomeAsciiBg() {
               ? 0.62
               : 0.5
         : anchor!.x;
-      const my = isHome
+      const my = floatBlob
         ? animateBlob && mouse.on
           ? mouse.y
           : animateBlob
@@ -237,19 +239,19 @@ export function HomeAsciiBg() {
     }
 
     const onPointerMove = (e: PointerEvent) => {
-      if (!isHome) return;
+      if (!floatBlob) return;
       mouse.x = e.clientX / W;
       mouse.y = e.clientY / H;
       mouse.on = true;
     };
     const onPointerLeave = () => {
-      if (!isHome) return;
+      if (!floatBlob) return;
       mouse.on = false;
     };
     const onResize = () => size();
     const onScroll = () => scheduleMaskUpdate();
 
-    if (isHome && finePointer) {
+    if (floatBlob && finePointer) {
       addEventListener("pointermove", onPointerMove);
       addEventListener("pointerleave", onPointerLeave);
     }
@@ -278,7 +280,7 @@ export function HomeAsciiBg() {
       removeEventListener("resize", onResize);
       removeEventListener("scroll", onScroll);
     };
-  }, [isHome, pathname, hide]);
+  }, [floatBlob, pathname, hide]);
 
   if (hide) return null;
 
