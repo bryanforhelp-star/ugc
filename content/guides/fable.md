@@ -78,8 +78,6 @@ turn this raw footage into a polished 9:16 ad. keep my face and my delivery. add
 
 ![fable working through arcads tools](/guides/fable/working.jpg)
 
-![arcads asset search results used as b-roll](/guides/fable/assets.jpg)
-
 6. Watch the cut. Talk back if something is off: shorter, different B-roll, quieter music, captions bigger. Same chat. A little back and forth is normal.
 
 That is the whole loop. Raw file in. Direction in plain English. Finished vertical ad out.
