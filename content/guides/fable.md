@@ -1,5 +1,5 @@
 ---
-title: "the worst part of ugc isn't filming"
+title: "how i edit my ugc videos with claude fable 5.1 and arcads"
 description: "I film the UGC. Then I drop the raw file into Claude on Fable 5.1 with the Arcads MCP connected, give it a little creative direction, and let it cut captions, B-roll, and pacing."
 summary: "Connect Arcads MCP in Claude Desktop, switch to Fable 5.1, drop your raw UGC, and prompt it to finish the ad."
 category: workflow
