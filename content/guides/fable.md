@@ -26,7 +26,7 @@ updated: 2026-09-21
 
 The annoying part of a UGC ad is not filming. It is everything after: edit, captions, B-roll, pacing. Two hours gone.
 
-So I filmed a talking-head take, then handed the raw file to Claude through the [Arcads](https://arcads.ai/?via=kyndall) MCP and used Fable 5.1 to finish it.
+So I filmed a ugc video and handed the raw file to Claude through the [Arcads](https://arcads.ai/?via=kyndall) MCP and used Fable 5.1 to finish it.
 
 ## what you need
 
