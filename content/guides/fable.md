@@ -28,8 +28,6 @@ The annoying part of a UGC ad is not filming. It is everything after: edit, capt
 
 So I filmed a talking-head take, then handed the raw file to Claude through the [Arcads](https://arcads.ai/?via=kyndall) MCP and used Fable 5.1 to finish it.
 
-![talking head hook for the ugc edit reel](/guides/fable/hook.jpg)
-
 ## what you need
 
 | Thing | Why |
