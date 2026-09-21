@@ -3,7 +3,7 @@
 Where her content actually goes, and what each comment keyword unlocks. This is the file to
 check before writing a CTA into a script.
 
-_Last updated: Sep 1, 2026._
+_Last updated: Sep 21, 2026._
 
 ---
 
@@ -74,6 +74,7 @@ All published. Frontmatter `commentKeyword` is the source of truth.
 | `AUDIT` | build or buy: the thing i run before i pay for anything | `claude-build-or-buy-skill` | Jun 12, 2026 |
 | `LEARN` | the ai learning loop: how to get ai to teach you anything | `ai-learning-loop` | Jun 12, 2026 |
 | `STACK` | my ai stack (the ones i actually use) | `one-person-stack` | Sep 12, 2026 |
+| `FABLE` | how i edit ugc with claude fable and arcads | `fable` | Sep 21, 2026 |
 
 `TODO: confirm which of these are actually wired up as ManyChat triggers.` A guide being
 published is not the same as the automation being live, and the rule is that the guide must
