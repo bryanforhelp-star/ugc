@@ -10,94 +10,33 @@ function pauseOtherUgcVideos(current: HTMLVideoElement) {
   });
 }
 
-type AdCardProps = {
-  piece: UgcWorkPiece;
-};
-
-type OrganicCardProps = {
-  piece: UgcOrganicPiece;
-};
-
-function AdCard({ piece }: AdCardProps) {
+function UgcVideoFrame({ src, poster }: { src?: string; poster?: string }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = useCallback(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    pauseOtherUgcVideos(video);
-    video.muted = false;
-    video.volume = 1;
-    setIsPlaying(true);
-  }, []);
-
-  const handlePause = useCallback(() => {
-    setIsPlaying(false);
-  }, []);
+  const [loadSrc, setLoadSrc] = useState(false);
+  const hasMedia = Boolean(src);
 
   useEffect(() => {
     const frame = frameRef.current;
-    if (!frame || !("IntersectionObserver" in window)) return;
+    if (!frame || !hasMedia) return;
+    if (!("IntersectionObserver" in window)) {
+      setLoadSrc(true);
+      return;
+    }
 
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) return;
-          const video = videoRef.current;
-          if (video && !video.paused) video.pause();
-        });
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        setLoadSrc(true);
+        io.disconnect();
       },
-      { threshold: 0.35 },
+      { rootMargin: "240px" },
     );
 
     io.observe(frame);
     return () => io.disconnect();
-  }, []);
-
-  return (
-    <article className="ugc-work__card">
-      <div
-        ref={frameRef}
-        className={`ugc-work__frame${isPlaying ? " is-playing" : ""}`}
-      >
-        <video
-          ref={videoRef}
-          className="ugc-work__video"
-          src={piece.video}
-          poster={piece.poster}
-          controls
-          controlsList="nodownload noremoteplayback"
-          disablePictureInPicture
-          playsInline
-          preload="metadata"
-          onContextMenu={(e) => e.preventDefault()}
-          onPlay={handlePlay}
-          onPause={handlePause}
-          onEnded={handlePause}
-        />
-      </div>
-      <footer className="ugc-work__meta">
-        <div className="ugc-work__logo-wrap">
-          <Image
-            src={piece.brandLogo}
-            alt={piece.brand}
-            width={piece.brandLogoWidth ?? 120}
-            height={piece.brandLogoHeight ?? 32}
-            className="ugc-work__logo"
-            style={{ width: "auto", height: "100%" }}
-          />
-        </div>
-      </footer>
-    </article>
-  );
-}
-
-function OrganicCard({ piece }: OrganicCardProps) {
-  const frameRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const hasMedia = Boolean(piece.video);
+  }, [hasMedia]);
 
   const handlePlay = useCallback(() => {
     const video = videoRef.current;
@@ -132,31 +71,67 @@ function OrganicCard({ piece }: OrganicCardProps) {
   }, [hasMedia]);
 
   return (
+    <div
+      ref={frameRef}
+      className={`ugc-work__frame${isPlaying ? " is-playing" : ""}`}
+    >
+      {hasMedia && loadSrc ? (
+        <video
+          ref={videoRef}
+          className="ugc-work__video"
+          src={src}
+          {...(poster ? { poster } : {})}
+          controls
+          controlsList="nodownload noremoteplayback"
+          disablePictureInPicture
+          playsInline
+          preload="none"
+          onContextMenu={(e) => e.preventDefault()}
+          onPlay={handlePlay}
+          onPause={handlePause}
+          onEnded={handlePause}
+        />
+      ) : hasMedia ? (
+        <div
+          className="ugc-work__video ugc-work__video--still"
+          style={poster ? { backgroundImage: `url(${poster})` } : undefined}
+          aria-hidden="true"
+        />
+      ) : (
+        <div className="ugc-work__placeholder" aria-label="video coming soon" />
+      )}
+    </div>
+  );
+}
+
+type AdCardProps = {
+  piece: UgcWorkPiece;
+};
+
+function AdCard({ piece }: AdCardProps) {
+  return (
     <article className="ugc-work__card">
-      <div
-        ref={frameRef}
-        className={`ugc-work__frame${isPlaying ? " is-playing" : ""}`}
-      >
-        {hasMedia ? (
-          <video
-            ref={videoRef}
-            className="ugc-work__video"
-            src={piece.video}
-            {...(piece.poster ? { poster: piece.poster } : {})}
-            controls
-            controlsList="nodownload noremoteplayback"
-            disablePictureInPicture
-            playsInline
-            preload="metadata"
-            onContextMenu={(e) => e.preventDefault()}
-            onPlay={handlePlay}
-            onPause={handlePause}
-            onEnded={handlePause}
+      <UgcVideoFrame src={piece.video} poster={piece.poster} />
+      <footer className="ugc-work__meta">
+        <div className="ugc-work__logo-wrap">
+          <Image
+            src={piece.brandLogo}
+            alt={piece.brand}
+            width={piece.brandLogoWidth ?? 120}
+            height={piece.brandLogoHeight ?? 32}
+            className="ugc-work__logo"
+            style={{ width: "auto", height: "100%" }}
           />
-        ) : (
-          <div className="ugc-work__placeholder" aria-label="video coming soon" />
-        )}
-      </div>
+        </div>
+      </footer>
+    </article>
+  );
+}
+
+function OrganicCard({ piece }: { piece: UgcOrganicPiece }) {
+  return (
+    <article className="ugc-work__card">
+      <UgcVideoFrame src={piece.video} poster={piece.poster} />
     </article>
   );
 }

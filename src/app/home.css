@@ -283,6 +283,10 @@
   line-height: 1.55;
 }
 
+html:has(.home--ugc) #bg {
+  display: none;
+}
+
 .home--ugc .s-sub {
   font-family: var(--readable), Helvetica, Arial, sans-serif;
   letter-spacing: -0.01em;
@@ -797,6 +801,12 @@
   object-fit: contain;
   background: #000;
   border-radius: 20px;
+}
+
+.home .ugc-work__video--still {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .home .ugc-work__meta {
