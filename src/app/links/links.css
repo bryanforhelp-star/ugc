@@ -920,6 +920,10 @@ button.links-aff:disabled {
   margin-inline: auto;
 }
 
+.links-book-copy .links-tagline {
+  max-width: 36ch;
+}
+
 .links-book-price {
   font-family: var(--serif);
   font-size: 22px;

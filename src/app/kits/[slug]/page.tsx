@@ -115,10 +115,10 @@ export default async function ShopProductPage({
         <p className="links-kicker">{kicker}</p>
         <h1 className="links-name">{headline}</h1>
         {price ? <p className="links-book-price">{price}</p> : null}
+        <p className="links-tagline">{lead}</p>
         {launchLabel ? (
           <p className="links-course-launch">{launchLabel}</p>
         ) : null}
-        <p className="links-tagline">{lead}</p>
       </section>
 
       <section className="links-product">

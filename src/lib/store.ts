@@ -132,7 +132,7 @@ export const EDITING_GUIDE = {
   headline: "how i edit my yaps.",
   description:
     "how i film and edit my yaps. the setup, cuts, text, layers, movement, and finishing touches.",
-  lead: "preorder now. you get it when it drops september 30.",
+  lead: "preorder is $25. the price goes up to $37 after september 30.",
   launchLabel: "you get it september 30",
   launchDate: "2026-09-30",
   priceLabel: "$25",
