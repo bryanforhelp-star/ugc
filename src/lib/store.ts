@@ -142,8 +142,8 @@ export const EDITING_GUIDE = {
   checkoutMessage: "preorder. you get the guide on september 30.",
   includes: [
     {
-      name: "how i film",
-      blurb: "my dji camera, d-log setup, microphone, framing, and the other cameras you can use.",
+      name: "what i use",
+      blurb: "chatcut, capcut, camera, mic, d-log, overlays, sound, and color.",
     },
     {
       name: "the cuts",

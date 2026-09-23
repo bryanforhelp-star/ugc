@@ -3,60 +3,79 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "film the original · kit example" },
+  title: { absolute: "what i use · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function FilmExamplePage() {
   return (
     <LessonShell
-      current="film the original"
+      current="what i use"
       number="01 / 07"
-      title="film the original"
-      lead="before i open capcut, i film one clean talking-head take with clear sound and enough room to build the edit around it."
-      watch="the camera, d-log settings, microphone, framing, lighting, and recording setup i actually use."
+      title="what i use"
+      lead="the tools and setup behind every edit. later chapters go deeper on each one. this chapter is the full list, plus how i film."
       next={{
         href: "/kits/editing-mini-guide/example/tight-cut",
         label: "cut the talking head",
       }}
     >
-      <h2>my setup</h2>
+      <h2>the list</h2>
+      <ol>
+        <li>
+          <a href="https://chatcut.io" target="_blank" rel="noreferrer">
+            ChatCut
+          </a>
+        </li>
+        <li>
+          <a href="https://www.capcut.com" target="_blank" rel="noreferrer">
+            CapCut
+          </a>
+        </li>
+        <li>camera and microphone</li>
+        <li>overlays</li>
+        <li>animations</li>
+        <li>sound effects</li>
+        <li>color and LUTs</li>
+      </ol>
+
+      <h2>ChatCut and CapCut</h2>
       <p>
-        I film with a DJI Osmo Pocket 3 and shoot in D-Log. The walkthrough
-        shows the exact camera settings, the microphone I use, how everything
-        is positioned, and what the flat footage looks like before color.
+        ChatCut is where I make the first cut from the transcript. CapCut is
+        where I do the rest of the edit. The next chapter walks through that
+        handoff in detail.
       </p>
 
-      <h2>the other cameras you can use</h2>
+      <h2>how i film</h2>
       <p>
-        You do not need my camera. I will show what matters when filming with a
-        phone or another camera so you can get a vertical talking-head video
-        with clear sound, a well-lit face, and a background that is easy to
-        separate later.
+        I shoot on a DJI Osmo Pocket 3. I always use a microphone. Clear voice
+        matters more than a fancy camera.
+      </p>
+      <p>
+        I shoot in D-Log. You do not have to. D-Log is a flat color profile. The
+        footage looks washed out on purpose so there is more room to grade
+        later. I bring the color back in CapCut with adjustments and a LUT.
+      </p>
+      <p>
+        You can film on a phone or another camera. What matters is a vertical
+        talking-head take, clean sound, a well-lit face, and a background that
+        is easy to separate later.
       </p>
 
-      <h2>film with the later layers in mind</h2>
+      <h2>color grading and LUTs</h2>
       <p>
-        I leave room in the frame for text and visuals. I will show how I frame
-        myself, where I look, how I handle multiple takes, and how I leave clean
-        moments that are easier to chop up later.
+        Color grading is how I take flat D-Log footage and make it look finished.
+        A LUT is a preset look I drop on after the base conversion. People ask
+        about my filters and coloring a lot. This chapter names what that is.
+        The finish chapter shows the exact pass I use on a real edit.
       </p>
 
-      <h2>choose the take</h2>
+      <h2>overlays, animations, and sound</h2>
       <p>
-        I pick the talking-head take I like before I start decorating anything.
-        It does not need perfect pacing yet. The next lesson is where I remove
-        the dead space and turn the original delivery into the tight version.
+        Overlays are the extra visuals I drop on top of the talking head.
+        Animations are the motion I add in CapCut or generate elsewhere. Sound
+        effects sit under specific moments after the picture is locked. Later
+        chapters cover where I source each one and how I place them.
       </p>
-
-      <div className="kit-course__do">
-        <h2>bring this into capcut</h2>
-        <ul>
-          <li>the talking-head take you like</li>
-          <li>clean microphone audio</li>
-          <li>any product footage or screen recordings you already know you need</li>
-        </ul>
-      </div>
     </LessonShell>
   );
 }

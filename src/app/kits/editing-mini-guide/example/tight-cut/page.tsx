@@ -82,15 +82,6 @@ export default function TightCutExamplePage() {
           </figure>
         ))}
       </div>
-
-      <div className="kit-course__do">
-        <h2>stop here before lesson three</h2>
-        <p>
-          You leave this chapter with a chopped talking-head cut inside CapCut.
-          No text, no overlays, no movement yet. Do not use an overlay to hide
-          a section that still needs a better cut.
-        </p>
-      </div>
     </LessonShell>
   );
 }

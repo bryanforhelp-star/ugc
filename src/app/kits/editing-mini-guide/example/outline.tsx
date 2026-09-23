@@ -14,9 +14,9 @@ export type CourseChapter = {
 export const COURSE_CHAPTERS: CourseChapter[] = [
   {
     n: "01",
-    name: "film the original",
-    blurb: "my camera, other camera options, d-log, microphone, framing, and how i give myself clean footage to edit.",
-    result: "one talking-head take ready for capcut",
+    name: "what i use",
+    blurb: "chatcut, capcut, camera, mic, d-log, overlays, animations, sound, and color. the full list before we go deeper.",
+    result: "a clear map of my tools and how i film",
     href: `${HUB}/film`,
   },
   {
