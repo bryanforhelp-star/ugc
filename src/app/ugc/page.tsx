@@ -22,9 +22,9 @@ export default function UgcPage() {
         <div className="wrap">
           <nav>
             <a href="#about">about</a>
-            <a href="#case-studies">results</a>
             <a href="#ugc-ads">ugc ads</a>
             <a href="#organic">organic</a>
+            <a href="#case-studies">results</a>
             <a href="#contact">work with me</a>
           </nav>
 
@@ -110,8 +110,6 @@ export default function UgcPage() {
           </div>
         </section>
 
-        <UgcCaseStudies studies={UGC_CASE_STUDIES} />
-
         <UgcAdsGrid
           id="ugc-ads"
           title="ugc ads"
@@ -125,6 +123,8 @@ export default function UgcPage() {
           intro={UGC_SITE.organicIntro}
           pieces={UGC_ORGANIC_PIECES}
         />
+
+        <UgcCaseStudies studies={UGC_CASE_STUDIES} />
 
         <section id="contact">
           <div className="wrap">

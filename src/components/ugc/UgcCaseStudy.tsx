@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import type { UgcCaseStudy as UgcCaseStudyData } from "@/lib/ugc";
+import { useEffect, useRef, type CSSProperties } from "react";
+import type { UgcCaseStudy as UgcCaseStudyData, UgcCaseVariant } from "@/lib/ugc";
 import { UgcVideoFrame } from "@/components/ugc/UgcWorkGrid";
 
 type Props = {
@@ -34,6 +35,7 @@ export function UgcCaseStudies({
 function CaseStudyBlock({ study }: { study: UgcCaseStudyData }) {
   const featured =
     study.variants.find((v) => v.featured) ?? study.variants[0];
+  const others = study.variants.filter((v) => v.id !== featured?.id);
 
   return (
     <article className="ugc-case__block">
@@ -52,10 +54,13 @@ function CaseStudyBlock({ study }: { study: UgcCaseStudyData }) {
       </header>
 
       <div className="ugc-case__layout">
-        <div className="ugc-case__hero">
-          {featured ? (
-            <UgcVideoFrame src={featured.video} poster={featured.poster} />
-          ) : null}
+        <div className="ugc-case__media">
+          <div className="ugc-case__hero">
+            {featured ? (
+              <UgcVideoFrame src={featured.video} poster={featured.poster} />
+            ) : null}
+          </div>
+          {others.length > 0 ? <MutedFan variants={others} /> : null}
         </div>
 
         <div className="ugc-case__copy">
@@ -70,23 +75,71 @@ function CaseStudyBlock({ study }: { study: UgcCaseStudyData }) {
           <p className="ugc-case__takeaway">{study.takeaway}</p>
         </div>
       </div>
-
-      {study.variants.length > 1 ? (
-        <div className="ugc-case__variants">
-          <p className="ugc-case__variants-label">hook variants</p>
-          <div className="ugc-case__variant-grid">
-            {study.variants.map((variant) => (
-              <figure
-                key={variant.id}
-                className={`ugc-case__variant${variant.featured ? " is-featured" : ""}`}
-              >
-                <UgcVideoFrame src={variant.video} poster={variant.poster} />
-                <figcaption>{variant.label}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      ) : null}
     </article>
+  );
+}
+
+function MutedFan({ variants }: { variants: UgcCaseVariant[] }) {
+  return (
+    <div className="ugc-case__fan" aria-hidden="true">
+      {variants.map((variant, i) => (
+        <MutedFanCard key={variant.id} variant={variant} index={i} />
+      ))}
+    </div>
+  );
+}
+
+function MutedFanCard({
+  variant,
+  index,
+}: {
+  variant: UgcCaseVariant;
+  index: number;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const video = videoRef.current;
+    if (!card || !video || !("IntersectionObserver" in window)) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    io.observe(card);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="ugc-case__fan-card"
+      style={{ "--fan-i": index } as CSSProperties}
+    >
+      <video
+        ref={videoRef}
+        className="ugc-case__fan-video"
+        src={variant.video}
+        poster={variant.poster}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        disablePictureInPicture
+        controlsList="nodownload noremoteplayback"
+        onContextMenu={(e) => e.preventDefault()}
+      />
+    </div>
   );
 }
