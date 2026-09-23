@@ -22,8 +22,8 @@ export const COURSE_CHAPTERS: CourseChapter[] = [
   {
     n: "02",
     name: "make the tight cut",
-    blurb: "my first and most important capcut pass: chop up the talking head and remove the dead space.",
-    result: "the complete base edit",
+    blurb: "chatcut transcript cut for free, then export to capcut so the talking head is tight before anything else.",
+    result: "a tight talking-head cut inside capcut",
     href: `${HUB}/tight-cut`,
   },
   {

@@ -263,6 +263,34 @@ html:has(.kit-course) body {
   color: var(--pop);
 }
 
+.kit-course__gifs {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.kit-course__gif {
+  margin: 0;
+  max-width: 52rem;
+}
+
+.kit-course__gif img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--hair);
+  border-radius: 12px;
+  background: #f4f4f6;
+}
+
+.kit-course__gif figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--readable), Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--soft);
+}
+
 .kit-course__files {
   list-style: none;
   margin: 0 0 1.25rem;
