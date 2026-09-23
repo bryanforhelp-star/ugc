@@ -11,22 +11,24 @@ const GIFS = [
   {
     src: "/kits/editing-mini-guide/tight-cut/01-drop-into-chatcut.gif",
     alt: "ChatCut transcript going from Processing to the full text",
-    caption: "1. drop the take in. wait for the transcript.",
+    caption: "1. drop in your talking head. chatcut builds the transcript.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/02-cut-from-transcript.gif",
     alt: "Selecting a repeated line in the ChatCut transcript and deleting it",
-    caption: "2. cut from the transcript. highlight, delete, keep going.",
+    caption:
+      "2. chop it up in the transcription editor. delete the text and that part of the video goes with it. keep going until there is no dead space.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/03-export-to-capcut.gif",
     alt: "Exporting the ChatCut project to CapCut",
-    caption: "3. export to CapCut.",
+    caption:
+      "3. export to capcut. the project opens there already cut the same way.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/04-open-in-capcut.gif",
     alt: "The cut opened as a CapCut project",
-    caption: "4. open that CapCut project and keep editing.",
+    caption: "4. open that capcut project and start the rest of the edit.",
   },
 ] as const;
 
@@ -75,19 +77,20 @@ export default function TightCutExamplePage() {
       <h2>the steps</h2>
       <ol>
         <li>
-          open{" "}
+          drop your talking head into{" "}
           <a href="https://chatcut.io" target="_blank" rel="noreferrer">
             ChatCut
-          </a>{" "}
-          on desktop.
+          </a>
+          .
         </li>
-        <li>drop in the talking-head take.</li>
         <li>
-          use the transcription editor to cut out pauses, repeats, and dead
-          space.
+          chop it up in the transcription editor. deleting text deletes that
+          part of the video. keep going until there is no dead space.
         </li>
-        <li>export to CapCut.</li>
-        <li>open that CapCut project and start the rest of the edit.</li>
+        <li>
+          export to CapCut. it opens there already cut the same way.
+        </li>
+        <li>start the rest of the edit in that CapCut project.</li>
       </ol>
 
       <h2>what the gifs show</h2>
