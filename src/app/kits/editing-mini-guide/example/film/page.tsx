@@ -17,7 +17,7 @@ export default function FilmExamplePage() {
       watch="the camera, d-log settings, microphone, framing, lighting, and recording setup i actually use."
       next={{
         href: "/kits/editing-mini-guide/example/tight-cut",
-        label: "make the tight cut",
+        label: "cut the talking head",
       }}
     >
       <h2>my setup</h2>

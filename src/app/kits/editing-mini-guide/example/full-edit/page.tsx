@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const PASSES = [
   "review the original talking-head take",
-  "make the tight cut in capcut",
+  "cut the talking head in chatcut, then open it in capcut",
   "add the captions and designed text",
   "mark and collect the visuals",
   "remove the background and build the layers",

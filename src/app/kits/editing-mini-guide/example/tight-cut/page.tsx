@@ -3,7 +3,7 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "make the tight cut · kit example" },
+  title: { absolute: "cut the talking head · kit example" },
   robots: { index: false, follow: false },
 };
 
@@ -25,7 +25,7 @@ const GIFS = [
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/04-open-in-capcut.gif",
-    alt: "The tight cut opened as a CapCut project",
+    alt: "The cut opened as a CapCut project",
     caption: "4. open that CapCut project and keep editing.",
   },
 ] as const;
@@ -33,32 +33,44 @@ const GIFS = [
 export default function TightCutExamplePage() {
   return (
     <LessonShell
-      current="make the tight cut"
+      current="cut the talking head"
       number="02 / 07"
-      title="make the tight cut"
-      lead="this is the base of every edit. i chop up the talking-head video in chatcut, then i take that cut into capcut."
-      format="gif walkthrough"
-      watch="dropping the take into chatcut, cutting from the transcript, exporting to capcut, and opening the tight cut there."
+      title="cut the talking head"
+      lead="this is the base of every edit. i chop up the talking-head video first, then i keep editing in capcut."
       next={{
         href: "/kits/editing-mini-guide/example/captions",
         label: "add the text",
       }}
     >
       <h2>the tools i use</h2>
-      <p>
-        CapCut is where I do all of my core editing. I am on the basic plan.
-      </p>
-      <p>
-        I use{" "}
-        <a href="https://chatcut.io" target="_blank" rel="noreferrer">
-          ChatCut
-        </a>{" "}
-        to make the first cut from the transcript. You can do this inside
-        CapCut too. My plan will not update, I have been paying for it for
-        years, and I do not want to cancel, update, and pay more. ChatCut lets
-        me edit from the transcript on desktop for free, then export the
-        cut-up file into CapCut. That is what I do.
-      </p>
+      <ol className="kit-course__tools">
+        <li>
+          <p>
+            <strong>
+              <a href="https://chatcut.io" target="_blank" rel="noreferrer">
+                ChatCut
+              </a>
+            </strong>
+          </p>
+          <p>
+            I make the first cut here from the transcript. Delete pauses,
+            repeats, and dead space by deleting words. It is free on desktop.
+            You can do this inside CapCut too. My CapCut plan will not update, I
+            have been paying for it for years, and I do not want to cancel,
+            update, and pay more. So I use ChatCut, then export into CapCut.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>CapCut</strong>
+          </p>
+          <p>
+            This is where I do all of my core editing. I am on the basic plan.
+            After ChatCut, I open the exported project here and add text,
+            visuals, layers, movement, and sound.
+          </p>
+        </li>
+      </ol>
 
       <h2>the steps</h2>
       <ol>
@@ -92,7 +104,7 @@ export default function TightCutExamplePage() {
       <div className="kit-course__do">
         <h2>stop here before lesson three</h2>
         <p>
-          You leave this chapter with a tight talking-head cut inside CapCut.
+          You leave this chapter with a chopped talking-head cut inside CapCut.
           No text, no overlays, no movement yet. Do not use an overlay to hide
           a section that still needs a better cut.
         </p>

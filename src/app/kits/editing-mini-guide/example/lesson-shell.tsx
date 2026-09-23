@@ -8,7 +8,7 @@ type LessonShellProps = {
   title: string;
   lead: string;
   format?: "video walkthrough" | "gif walkthrough" | "full edit";
-  watch: string;
+  watch?: string;
   children: ReactNode;
   next?: {
     href: string;
@@ -44,10 +44,12 @@ export function LessonShell({
             <h1 className="page-title page-title--article">{title}.</h1>
             <p className="page-lead">{lead}</p>
 
-            <div className="kit-course__watch">
-              <span>{format}</span>
-              <strong>{watch}</strong>
-            </div>
+            {watch ? (
+              <div className="kit-course__watch">
+                <span>{format}</span>
+                <strong>{watch}</strong>
+              </div>
+            ) : null}
 
             <div className="prose kit-course__prose">{children}</div>
 
