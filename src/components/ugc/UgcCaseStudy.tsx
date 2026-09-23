@@ -54,13 +54,13 @@ function CaseStudyBlock({ study }: { study: UgcCaseStudyData }) {
       </header>
 
       <div className="ugc-case__layout">
-        <div className="ugc-case__media">
+        <div className="ugc-case__media" tabIndex={0}>
+          {others.length > 0 ? <MutedFan variants={others} /> : null}
           <div className="ugc-case__hero">
             {featured ? (
               <UgcVideoFrame src={featured.video} poster={featured.poster} />
             ) : null}
           </div>
-          {others.length > 0 ? <MutedFan variants={others} /> : null}
         </div>
 
         <div className="ugc-case__copy">
@@ -83,7 +83,7 @@ function MutedFan({ variants }: { variants: UgcCaseVariant[] }) {
   return (
     <div className="ugc-case__fan" aria-hidden="true">
       {variants.map((variant, i) => (
-        <MutedFanCard key={variant.id} variant={variant} index={i} />
+        <MutedFanCard key={variant.id} variant={variant} index={i} total={variants.length} />
       ))}
     </div>
   );
@@ -92,9 +92,11 @@ function MutedFan({ variants }: { variants: UgcCaseVariant[] }) {
 function MutedFanCard({
   variant,
   index,
+  total,
 }: {
   variant: UgcCaseVariant;
   index: number;
+  total: number;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -102,30 +104,53 @@ function MutedFanCard({
   useEffect(() => {
     const card = cardRef.current;
     const video = videoRef.current;
-    if (!card || !video || !("IntersectionObserver" in window)) return;
+    if (!card || !video) return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
+    video.muted = true;
+    video.volume = 0;
+    video.defaultMuted = true;
 
-    io.observe(card);
-    return () => io.disconnect();
+    const playMuted = () => {
+      video.muted = true;
+      video.volume = 0;
+      video.play().catch(() => {});
+    };
+
+    const media = card.closest(".ugc-case__media");
+    if (!media) return;
+
+    const onEnter = () => playMuted();
+    const onLeave = () => {
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    media.addEventListener("mouseenter", onEnter);
+    media.addEventListener("mouseleave", onLeave);
+    media.addEventListener("focusin", onEnter);
+    const onFocusOut = (e: FocusEvent) => {
+      if (!media.contains(e.relatedTarget as Node | null)) onLeave();
+    };
+    media.addEventListener("focusout", onFocusOut);
+
+    return () => {
+      media.removeEventListener("mouseenter", onEnter);
+      media.removeEventListener("mouseleave", onLeave);
+      media.removeEventListener("focusin", onEnter);
+      media.removeEventListener("focusout", onFocusOut);
+    };
   }, []);
 
   return (
     <div
       ref={cardRef}
       className="ugc-case__fan-card"
-      style={{ "--fan-i": index } as CSSProperties}
+      style={
+        {
+          "--fan-i": index,
+          "--fan-n": total,
+        } as CSSProperties
+      }
     >
       <video
         ref={videoRef}

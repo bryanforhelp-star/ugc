@@ -982,12 +982,19 @@
   display: flex;
   align-items: center;
   min-height: clamp(200px, 28vw, 280px);
-  padding-right: clamp(48px, 8vw, 72px);
+  padding-right: clamp(36px, 6vw, 56px);
+  outline: none;
+  transition: padding-right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home .ugc-case__media:hover,
+.home .ugc-case__media:focus-within {
+  padding-right: clamp(110px, 18vw, 168px);
 }
 
 .home .ugc-case__hero {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   width: min(180px, 42vw);
   flex-shrink: 0;
 }
@@ -1003,12 +1010,13 @@
 
 .home .ugc-case__fan {
   position: absolute;
-  left: clamp(72px, 18vw, 110px);
+  left: 18px;
   top: 50%;
   width: clamp(92px, 14vw, 118px);
   height: clamp(164px, 25vw, 210px);
   transform: translateY(-50%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .home .ugc-case__fan-card {
@@ -1017,12 +1025,24 @@
   border-radius: 12px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 8px 24px rgba(11, 11, 12, 0.14);
-  transform-origin: 30% 90%;
-  transform: rotate(calc(-6deg + var(--fan-i, 0) * 9deg))
-    translateX(calc(var(--fan-i, 0) * 18px))
-    translateY(calc(var(--fan-i, 0) * -4px));
+  box-shadow: 0 6px 18px rgba(11, 11, 12, 0.12);
+  transform-origin: 20% 85%;
+  transform: rotate(calc(-3deg + var(--fan-i, 0) * 4deg))
+    translateX(calc(var(--fan-i, 0) * 5px))
+    translateY(calc(var(--fan-i, 0) * -2px));
   z-index: calc(1 + var(--fan-i, 0));
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.home .ugc-case__media:hover .ugc-case__fan-card,
+.home .ugc-case__media:focus-within .ugc-case__fan-card {
+  box-shadow: 0 14px 32px rgba(11, 11, 12, 0.18);
+  transform: rotate(calc(-18deg + var(--fan-i, 0) * 18deg))
+    translateX(calc(52px + var(--fan-i, 0) * 42px))
+    translateY(calc(-6px + var(--fan-i, 0) * -10px));
 }
 
 .home .ugc-case__fan-video {
@@ -1081,8 +1101,13 @@
 
   .home .ugc-case__media {
     min-height: 220px;
-    padding-right: 56px;
-    max-width: 320px;
+    padding-right: 48px;
+    max-width: 340px;
+  }
+
+  .home .ugc-case__media:hover,
+  .home .ugc-case__media:focus-within {
+    padding-right: 120px;
   }
 
   .home .ugc-case__hero {
@@ -1090,9 +1115,16 @@
   }
 
   .home .ugc-case__fan {
-    left: 70px;
+    left: 12px;
     width: 96px;
     height: 170px;
+  }
+
+  .home .ugc-case__media:hover .ugc-case__fan-card,
+  .home .ugc-case__media:focus-within .ugc-case__fan-card {
+    transform: rotate(calc(-14deg + var(--fan-i, 0) * 14deg))
+      translateX(calc(40px + var(--fan-i, 0) * 34px))
+      translateY(calc(-4px + var(--fan-i, 0) * -8px));
   }
 }
 
