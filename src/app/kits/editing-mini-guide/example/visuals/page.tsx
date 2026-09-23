@@ -3,7 +3,7 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "choose the visuals · kit example" },
+  title: { absolute: "visuals · kit example" },
   robots: { index: false, follow: false },
 };
 
@@ -29,14 +29,14 @@ const VISUAL_EXAMPLES = [
 export default function VisualsExamplePage() {
   return (
     <LessonShell
-      current="choose the visuals"
+      current="visuals"
       number="04 / 07"
-      title="choose the visuals"
-      lead="i go back through the tight cut and decide exactly where the viewer needs to see something besides my talking head."
+      title="visuals"
+      lead="choose what goes on screen"
       watch="one finished talking-head timeline with every visual marked before any overlay is added."
       next={{
         href: "/kits/editing-mini-guide/example/layers",
-        label: "cut out and layer",
+        label: "layers",
       }}
     >
       <h2>listen to the cut line by line</h2>

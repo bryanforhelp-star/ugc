@@ -3,21 +3,21 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "add the text · kit example" },
+  title: { absolute: "text · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function CaptionsExamplePage() {
   return (
     <LessonShell
-      current="add the text"
+      current="text"
       number="03 / 07"
-      title="add the text"
-      lead="after the talking head is tight, i add the captions and the larger words that become part of the visual."
+      title="text"
+      lead="add captions and on-screen text"
       watch="the full capcut text pass, including how i create the captions, time them, place them, and style them."
       next={{
         href: "/kits/editing-mini-guide/example/visuals",
-        label: "choose the visuals",
+        label: "visuals",
       }}
     >
       <h2>spoken captions</h2>

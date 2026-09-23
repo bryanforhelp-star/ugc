@@ -3,21 +3,21 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "cut out and layer · kit example" },
+  title: { absolute: "layers · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function LayersExamplePage() {
   return (
     <LessonShell
-      current="cut out and layer"
+      current="layers"
       number="05 / 07"
-      title="cut out and layer"
-      lead="this is where i cut myself out, add the visual, and arrange the pieces into the moments people ask me how to make."
+      title="layers"
+      lead="cut out and stack your visuals"
       watch="a plain talking-head frame becoming a finished layered frame inside capcut."
       next={{
         href: "/kits/editing-mini-guide/example/motion",
-        label: "add movement",
+        label: "motion",
       }}
     >
       <h2>remove the background when the idea needs it</h2>

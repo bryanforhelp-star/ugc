@@ -3,21 +3,21 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "add movement · kit example" },
+  title: { absolute: "motion · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function MotionExamplePage() {
   return (
     <LessonShell
-      current="add movement"
+      current="motion"
       number="06 / 07"
-      title="add movement"
-      lead="once the layers are in place, i add the keyframes, zooms, and animations that make the frame move."
+      title="motion"
+      lead="add movement to keep it watchable"
       watch="the movement pass in capcut, with every keyframe, zoom, and animation added to a real edit."
       next={{
         href: "/kits/editing-mini-guide/example/finish",
-        label: "finish the video",
+        label: "finish",
       }}
     >
       <h2>keyframes</h2>

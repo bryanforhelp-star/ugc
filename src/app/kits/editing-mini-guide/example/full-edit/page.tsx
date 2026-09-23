@@ -3,27 +3,27 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "watch the whole build · kit example" },
+  title: { absolute: "full edit · kit example" },
   robots: { index: false, follow: false },
 };
 
 const PASSES = [
-  "review the original talking-head take",
+  "tools and how i film",
   "cut the talking head in chatcut, then open it in capcut",
-  "add the captions and designed text",
-  "mark and collect the visuals",
-  "remove the background and build the layers",
-  "add the keyframes, zooms, and animations",
-  "finish the sound, color, and export",
+  "add captions and on-screen text",
+  "choose the visuals",
+  "cut out and stack the layers",
+  "add motion",
+  "polish, sound, color, and export",
 ];
 
 export default function FullEditExamplePage() {
   return (
     <LessonShell
-      current="watch the whole build"
+      current="full edit"
       number="bonus"
-      title="watch the whole build"
-      lead="now watch the same video move through every lesson without skipping from a polished before to a polished after."
+      title="full edit"
+      lead="watch the whole build start to finish"
       format="full edit"
       watch="one continuous walkthrough from the original talking-head footage to the video that was posted."
     >

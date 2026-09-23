@@ -3,7 +3,7 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "cut the talking head · kit example" },
+  title: { absolute: "cut · kit example" },
   robots: { index: false, follow: false },
 };
 
@@ -37,13 +37,13 @@ const GIFS = [
 export default function TightCutExamplePage() {
   return (
     <LessonShell
-      current="cut the talking head"
+      current="cut"
       number="02 / 07"
-      title="cut the talking head"
-      lead="this is the base of every edit. i chop up the talking-head video first, then i keep editing in capcut."
+      title="cut"
+      lead="tighten the talking head"
       next={{
         href: "/kits/editing-mini-guide/example/captions",
-        label: "add the text",
+        label: "text",
       }}
     >
       <h2>the tools i use</h2>

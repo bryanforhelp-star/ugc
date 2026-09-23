@@ -3,20 +3,20 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "what i use · kit example" },
+  title: { absolute: "tools · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function FilmExamplePage() {
   return (
     <LessonShell
-      current="what i use"
+      current="tools"
       number="01 / 07"
-      title="what i use"
-      lead="the tools and setup behind every edit. later chapters go deeper on each one. this chapter is the full list, plus how i film."
+      title="tools"
+      lead="what i use to film and edit"
       next={{
         href: "/kits/editing-mini-guide/example/tight-cut",
-        label: "cut the talking head",
+        label: "cut",
       }}
     >
       <h2>the list</h2>

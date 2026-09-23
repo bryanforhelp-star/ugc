@@ -3,21 +3,21 @@ import "../course.css";
 import { LessonShell } from "../lesson-shell";
 
 export const metadata: Metadata = {
-  title: { absolute: "finish the video · kit example" },
+  title: { absolute: "finish · kit example" },
   robots: { index: false, follow: false },
 };
 
 export default function FinishExamplePage() {
   return (
     <LessonShell
-      current="finish the video"
+      current="finish"
       number="07 / 07"
-      title="finish the video"
-      lead="the final pass adds the sound effects, color, and export settings i actually use."
+      title="finish"
+      lead="polish, sound, and export"
       watch="the last capcut pass on a finished edit, from the first sound cue through the exported file."
       next={{
         href: "/kits/editing-mini-guide/example/full-edit",
-        label: "watch the whole build",
+        label: "full edit",
       }}
     >
       <h2>sound effects</h2>

@@ -15,15 +15,15 @@ export default function EditingGuideExamplePage() {
       <div className="wrap">
         <CourseMark />
         <p className="kit-course__note">
-          private course preview. what i use, how i film, then how i edit from
-          the first cut through the finished video.
+          private course preview. tools, cut, text, visuals, layers, motion,
+          finish, then the full edit.
         </p>
 
         <p className="cover">the editing mini course</p>
         <h1 className="page-title">{EDITING_GUIDE.headline}</h1>
         <p className="page-lead">
-          start with the tools and how i film. then chop the talking head and
-          add the text, visuals, layers, movement, sound, and color.
+          from what i use to film and edit, through every layer, to a finished
+          video.
         </p>
 
         <section className="kit-course__method" aria-label="course method">
