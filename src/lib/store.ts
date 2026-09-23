@@ -131,7 +131,7 @@ export const EDITING_GUIDE = {
   title: "editing mini guide",
   headline: "how i edit my yaps.",
   description:
-    "how i edit my yaps. the cuts, the captions, the little bits that make it hold.",
+    "how i film and edit my yaps. the setup, cuts, text, layers, movement, and finishing touches.",
   lead: "preorder now. you get it when it drops september 30.",
   launchLabel: "you get it september 30",
   launchDate: "2026-09-30",
@@ -141,6 +141,10 @@ export const EDITING_GUIDE = {
   cardCta: "see the guide",
   checkoutMessage: "preorder. you get the guide on september 30.",
   includes: [
+    {
+      name: "how i film",
+      blurb: "my dji camera, d-log setup, microphone, framing, and the other cameras you can use.",
+    },
     {
       name: "the cuts",
       blurb: "what stays in a yap, what gets thrown, where it actually starts.",
