@@ -10,7 +10,7 @@ function pauseOtherUgcVideos(current: HTMLVideoElement) {
   });
 }
 
-function UgcVideoFrame({ src, poster }: { src?: string; poster?: string }) {
+export function UgcVideoFrame({ src, poster }: { src?: string; poster?: string }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);

@@ -35,6 +35,33 @@ export type UgcOrganicPiece = {
   poster?: string;
 };
 
+export type UgcCaseStat = {
+  value: string;
+  label: string;
+};
+
+export type UgcCaseVariant = {
+  id: string;
+  label: string;
+  video: string;
+  poster: string;
+  /** highlight the winning creative */
+  featured?: boolean;
+};
+
+export type UgcCaseStudy = {
+  id: string;
+  brand: string;
+  brandLogo: string;
+  brandLogoWidth?: number;
+  brandLogoHeight?: number;
+  /** e.g. "meta ads · 3 scripts, 4 hooks" */
+  brief: string;
+  stats: UgcCaseStat[];
+  takeaway: string;
+  variants: UgcCaseVariant[];
+};
+
 export const UGC_SITE = {
   title: "kyndall",
   seoDescription:
@@ -68,6 +95,60 @@ export const UGC_BRANDS: readonly TrustedBrand[] = [
   { name: "prism ai", logo: "/ugc/assets/logos/prism.png", width: 108, height: 30 },
   { name: "solvely.ai", logo: "/brands/solvely.png", width: 140, height: 33 },
   { name: "honeydew", logo: "/ugc/assets/logos/honeydew.png", width: 120, height: 32 },
+];
+
+export const UGC_CASE_STUDIES: UgcCaseStudy[] = [
+  {
+    id: "honeydew",
+    brand: "Honeydew",
+    brandLogo: "/ugc/assets/logos/honeydew.png",
+    brandLogoWidth: 120,
+    brandLogoHeight: 32,
+    brief: "subscription app · meta ads · 3 scripts, 4 hooks",
+    stats: [
+      {
+        value: "$22.39",
+        label: "cost per subscribe, ~25% under the brand's $30 benchmark",
+      },
+      {
+        value: "$1.05",
+        label: "cost per install",
+      },
+      {
+        value: "script a, hook 1",
+        label: "top performer",
+      },
+    ],
+    takeaway:
+      "script a outconverted script b at the same install cost, so the messaging carried the sale once people clicked.",
+    variants: [
+      {
+        id: "honeydew-a1",
+        label: "script a · hook 1",
+        video: "/ugc/assets/videos/honeydew-a1.mp4",
+        poster: "/ugc/assets/posters/honeydew-a1.jpg",
+        featured: true,
+      },
+      {
+        id: "honeydew-a2",
+        label: "script a · hook 2",
+        video: "/ugc/assets/videos/honeydew-a2.mp4",
+        poster: "/ugc/assets/posters/honeydew-a2.jpg",
+      },
+      {
+        id: "honeydew-b1",
+        label: "script b · hook 1",
+        video: "/ugc/assets/videos/honeydew-b1.mp4",
+        poster: "/ugc/assets/posters/honeydew-b1.jpg",
+      },
+      {
+        id: "honeydew-b2",
+        label: "script b · hook 2",
+        video: "/ugc/assets/videos/honeydew-b2.mp4",
+        poster: "/ugc/assets/posters/honeydew-b2.jpg",
+      },
+    ],
+  },
 ];
 
 export const UGC_WORK_PIECES: UgcWorkPiece[] = [

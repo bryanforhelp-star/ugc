@@ -4,9 +4,11 @@ import { HomePortrait } from "@/components/HomePortrait";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SiteCopyright } from "@/components/SiteCopyright";
 import { SiteSocials } from "@/components/SiteSocials";
+import { UgcCaseStudies } from "@/components/ugc/UgcCaseStudy";
 import { UgcAdsGrid, UgcOrganicGrid } from "@/components/ugc/UgcWorkGrid";
 import {
   UGC_BRANDS,
+  UGC_CASE_STUDIES,
   UGC_ORGANIC_PIECES,
   UGC_SITE,
   UGC_WORK_PIECES,
@@ -20,6 +22,7 @@ export default function UgcPage() {
         <div className="wrap">
           <nav>
             <a href="#about">about</a>
+            <a href="#case-studies">results</a>
             <a href="#ugc-ads">ugc ads</a>
             <a href="#organic">organic</a>
             <a href="#contact">work with me</a>
@@ -106,6 +109,8 @@ export default function UgcPage() {
             </div>
           </div>
         </section>
+
+        <UgcCaseStudies studies={UGC_CASE_STUDIES} />
 
         <UgcAdsGrid
           id="ugc-ads"

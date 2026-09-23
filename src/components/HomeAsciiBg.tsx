@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 type FadeRect = { left: number; top: number; right: number; bottom: number };
 
 const MASK_SELECTORS =
-  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .brands, .showcase, .showcase-carousel, .ugc-work, #guides, .guide-card, .foot, .foot-start, .site-copyright, .newsletter, #contact, " +
+  "nav, .site-nav, .site-header, .h-sub, .h-actions, .s-head, .s-head-row, .s-sub, .about-grid, .brands, .showcase, .showcase-carousel, .ugc-work, .ugc-case, #guides, .guide-card, .foot, .foot-start, .site-copyright, .newsletter, #contact, " +
   ".page-title, .page-lead, .prose, .meta, .back, .guides-hub, " +
   ".work-section, .work-card, .site-footer__links, " +
   ".video-portfolio__work, .video-portfolio__grid, .video-portfolio__intro, .video-portfolio__card, " +
