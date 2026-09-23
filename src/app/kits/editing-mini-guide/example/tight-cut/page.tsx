@@ -30,7 +30,7 @@ const GIFS = [
     src: "/kits/editing-mini-guide/tight-cut/04-open-in-capcut.gif",
     alt: "The cut opened as a CapCut project",
     caption:
-      "4. Open that CapCut project. The timeline matches the ChatCut cut, and this is where the rest of the edit starts.",
+      "4. Open the project in CapCut and move on to the next editing step.",
   },
 ] as const;
 
@@ -68,7 +68,7 @@ export default function TightCutExamplePage() {
         visuals, layers, movement, and sound.
       </p>
 
-      <h2>what the gifs show</h2>
+      <h2>visual guide for each step</h2>
       <div className="kit-course__gifs">
         {GIFS.map((gif) => (
           <figure key={gif.src} className="kit-course__gif">
