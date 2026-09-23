@@ -117,20 +117,20 @@ function MutedFanCard({
     };
 
     const media = card.closest(".ugc-case__media");
-    if (!media) return;
+    if (!(media instanceof HTMLElement)) return;
 
     const onEnter = () => playMuted();
     const onLeave = () => {
       video.pause();
       video.currentTime = 0;
     };
+    const onFocusOut = (e: FocusEvent) => {
+      if (!media.contains(e.relatedTarget as Node | null)) onLeave();
+    };
 
     media.addEventListener("mouseenter", onEnter);
     media.addEventListener("mouseleave", onLeave);
     media.addEventListener("focusin", onEnter);
-    const onFocusOut = (e: FocusEvent) => {
-      if (!media.contains(e.relatedTarget as Node | null)) onLeave();
-    };
     media.addEventListener("focusout", onFocusOut);
 
     return () => {
