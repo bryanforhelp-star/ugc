@@ -53,7 +53,11 @@ export default function TightCutExamplePage() {
             ChatCut
           </a>
         </li>
-        <li>CapCut</li>
+        <li>
+          <a href="https://www.capcut.com" target="_blank" rel="noreferrer">
+            CapCut
+          </a>
+        </li>
       </ol>
       <p>
         ChatCut is where I make the first cut from the transcript. It is free
