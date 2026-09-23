@@ -12,7 +12,7 @@ const GIFS = [
     src: "/kits/editing-mini-guide/tight-cut/01-drop-into-chatcut.gif",
     alt: "ChatCut transcript going from Processing to the full text",
     caption:
-      "1. Drop in your talking head. ChatCut builds the transcript. When Processing finishes, the full text shows up and you can start cutting.",
+      "1. Drop in your video. ChatCut transcribes it, and once the full text shows up, you can start text-based editing or cutting.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/02-cut-from-transcript.gif",
