@@ -123,7 +123,7 @@ export const MATCHA_TIPS = {
 
 /**
  * Editing mini guide. Presale until September 30, 2026.
- * Checkout uses $25 from amountCents. Ignore any leftover $49 Stripe Price.
+ * Checkout uses $29 from amountCents. Ignore any leftover $49 Stripe Price.
  */
 export const EDITING_GUIDE = {
   id: "editing-mini-guide",
@@ -132,11 +132,11 @@ export const EDITING_GUIDE = {
   headline: "how i edit my yaps.",
   description:
     "how i film and edit my yaps. the setup, cuts, text, layers, movement, and finishing touches.",
-  lead: "preorder is $25. the price goes up to $35 after september 30.",
+  lead: "preorder is $29. the price goes up to $35 after september 30.",
   launchLabel: "you get it september 30",
   launchDate: "2026-09-30",
-  priceLabel: "$25",
-  amountCents: 2_500,
+  priceLabel: "$29",
+  amountCents: 2_900,
   cta: "preorder",
   cardCta: "see the guide",
   checkoutMessage: "preorder. you get the guide on september 30.",

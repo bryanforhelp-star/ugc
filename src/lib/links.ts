@@ -32,7 +32,7 @@ export const LINKS_PAGE = {
     },
     {
       title: "editing mini guide",
-      sub: "how i edit my yaps. preorder $25, then $35",
+      sub: "how i edit my yaps. preorder $29, then $35",
       href: "/kits/editing-mini-guide",
       emoji: "✂️",
     },
