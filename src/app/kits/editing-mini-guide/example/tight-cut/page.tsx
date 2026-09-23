@@ -11,24 +11,26 @@ const GIFS = [
   {
     src: "/kits/editing-mini-guide/tight-cut/01-drop-into-chatcut.gif",
     alt: "ChatCut transcript going from Processing to the full text",
-    caption: "1. drop in your talking head. chatcut builds the transcript.",
+    caption:
+      "1. Drop in your talking head. ChatCut builds the transcript. When Processing finishes, the full text shows up and you can start cutting.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/02-cut-from-transcript.gif",
     alt: "Selecting a repeated line in the ChatCut transcript and deleting it",
     caption:
-      "2. chop it up in the transcription editor. delete the text and that part of the video goes with it. keep going until there is no dead space.",
+      "2. I chop up the talking head in the transcription editor. Delete the text and that part of the video goes with it. I keep going until it is tight, with no pauses or dead space.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/03-export-to-capcut.gif",
     alt: "Exporting the ChatCut project to CapCut",
     caption:
-      "3. export to capcut. the project opens there already cut the same way.",
+      "3. Once the cut is done in ChatCut, I export to CapCut. That sends the project over already chopped the same way I cut it in ChatCut.",
   },
   {
     src: "/kits/editing-mini-guide/tight-cut/04-open-in-capcut.gif",
     alt: "The cut opened as a CapCut project",
-    caption: "4. open that capcut project and start the rest of the edit.",
+    caption:
+      "4. Open that CapCut project. The timeline matches the ChatCut cut, and this is where the rest of the edit starts.",
   },
 ] as const;
 
@@ -45,53 +47,26 @@ export default function TightCutExamplePage() {
       }}
     >
       <h2>the tools i use</h2>
-      <ol className="kit-course__tools">
-        <li>
-          <p>
-            <strong>
-              <a href="https://chatcut.io" target="_blank" rel="noreferrer">
-                ChatCut
-              </a>
-            </strong>
-          </p>
-          <p>
-            I make the first cut here from the transcript. Delete pauses,
-            repeats, and dead space by deleting words. It is free on desktop.
-            You can do this inside CapCut too. My CapCut plan will not update, I
-            have been paying for it for years, and I do not want to cancel,
-            update, and pay more. So I use ChatCut, then export into CapCut.
-          </p>
-        </li>
-        <li>
-          <p>
-            <strong>CapCut</strong>
-          </p>
-          <p>
-            This is where I do all of my core editing. I am on the basic plan.
-            After ChatCut, I open the exported project here and add text,
-            visuals, layers, movement, and sound.
-          </p>
-        </li>
-      </ol>
-
-      <h2>the steps</h2>
       <ol>
         <li>
-          drop your talking head into{" "}
           <a href="https://chatcut.io" target="_blank" rel="noreferrer">
             ChatCut
           </a>
-          .
         </li>
-        <li>
-          chop it up in the transcription editor. deleting text deletes that
-          part of the video. keep going until there is no dead space.
-        </li>
-        <li>
-          export to CapCut. it opens there already cut the same way.
-        </li>
-        <li>start the rest of the edit in that CapCut project.</li>
+        <li>CapCut</li>
       </ol>
+      <p>
+        ChatCut is where I make the first cut from the transcript. It is free
+        on desktop. You can do this inside CapCut too. My CapCut plan will not
+        update, I have been paying for it for years, and I do not want to
+        cancel, update, and pay more. So I cut in ChatCut, then export into
+        CapCut.
+      </p>
+      <p>
+        CapCut is where I do all of my core editing. I am on the basic plan.
+        After the ChatCut export, I open the project here and add text,
+        visuals, layers, movement, and sound.
+      </p>
 
       <h2>what the gifs show</h2>
       <div className="kit-course__gifs">
