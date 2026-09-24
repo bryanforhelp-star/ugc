@@ -19,33 +19,13 @@ export default function FilmExamplePage() {
         label: "cut",
       }}
     >
-      <h2>the list</h2>
-      <ol>
-        <li>
-          <a href="https://chatcut.io" target="_blank" rel="noreferrer">
-            ChatCut
-          </a>
-        </li>
-        <li>
-          <a href="https://www.capcut.com" target="_blank" rel="noreferrer">
-            CapCut
-          </a>
-        </li>
-        <li>camera and microphone</li>
-        <li>overlays</li>
-        <li>animations</li>
-        <li>sound effects</li>
-        <li>color and LUTs</li>
-      </ol>
-
-      <h2>ChatCut and CapCut</h2>
       <p>
-        ChatCut is where I make the first cut from the transcript. CapCut is
-        where I do the rest of the edit. The next chapter walks through that
-        handoff in detail.
+        This chapter is the map. Film first, then the two apps I cut in, then
+        the pieces that get added later. Other chapters go deep on each part.
+        Here you just need to know what everything is and why it shows up.
       </p>
 
-      <h2>how i film</h2>
+      <h2>1. how i film</h2>
       <p>
         I shoot on a DJI Osmo Pocket 3. I always use a microphone. Clear voice
         matters more than a fancy camera.
@@ -53,7 +33,7 @@ export default function FilmExamplePage() {
       <p>
         I shoot in D-Log. You do not have to. D-Log is a flat color profile. The
         footage looks washed out on purpose so there is more room to grade
-        later. I bring the color back in CapCut with adjustments and a LUT.
+        later. I bring the color back in CapCut.
       </p>
       <p>
         You can film on a phone or another camera. What matters is a vertical
@@ -61,21 +41,57 @@ export default function FilmExamplePage() {
         is easy to separate later.
       </p>
 
-      <h2>color grading and LUTs</h2>
+      <h2>2. color grading and LUTs</h2>
       <p>
-        Color grading is how I take flat D-Log footage and make it look finished.
-        A LUT is a preset look I drop on after the base conversion. People ask
-        about my filters and coloring a lot. This chapter names what that is.
-        The finish chapter shows the exact pass I use on a real edit.
+        People ask about my filters and coloring a lot. Color grading is how I
+        take that flat D-Log footage and make it look finished. A LUT is a
+        preset look I drop on after the base conversion. The finish chapter
+        shows the exact pass on a real edit.
       </p>
 
-      <h2>overlays, animations, and sound</h2>
+      <h2>3. ChatCut and CapCut</h2>
       <p>
-        Overlays are the extra visuals I drop on top of the talking head.
-        Animations are the motion I add in CapCut or generate elsewhere. Sound
-        effects sit under specific moments after the picture is locked. Later
-        chapters cover where I source each one and how I place them.
+        These are the two apps for the cut.
       </p>
+      <ol>
+        <li>
+          <a href="https://chatcut.io" target="_blank" rel="noreferrer">
+            ChatCut
+          </a>
+          : first cut from the transcript. Free on desktop.
+        </li>
+        <li>
+          <a href="https://www.capcut.com" target="_blank" rel="noreferrer">
+            CapCut
+          </a>
+          : everything after that. Text, visuals, layers, motion, sound, color.
+          I am on the basic plan.
+        </li>
+      </ol>
+      <p>
+        I cut in ChatCut, export to CapCut, then keep editing there. The next
+        chapter is that handoff.
+      </p>
+
+      <h2>4. what gets added later</h2>
+      <p>
+        Once the talking head is tight in CapCut, I add the rest. You will see
+        each of these in its own chapter:
+      </p>
+      <ul>
+        <li>
+          <strong>overlays</strong>: extra visuals on top of the talking head
+          (visuals + layers)
+        </li>
+        <li>
+          <strong>animations</strong>: motion I add in CapCut or generate
+          elsewhere (motion)
+        </li>
+        <li>
+          <strong>sound effects</strong>: hits under specific moments after the
+          picture is locked (finish)
+        </li>
+      </ul>
     </LessonShell>
   );
 }
