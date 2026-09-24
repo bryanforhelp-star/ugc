@@ -984,12 +984,12 @@
   min-height: clamp(200px, 28vw, 280px);
   padding-right: clamp(36px, 6vw, 56px);
   outline: none;
-  transition: padding-right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: padding-right 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home .ugc-case__media:hover,
 .home .ugc-case__media:focus-within {
-  padding-right: clamp(110px, 18vw, 168px);
+  padding-right: clamp(200px, 32vw, 300px);
 }
 
 .home .ugc-case__hero {
@@ -1027,8 +1027,8 @@
   background: #000;
   box-shadow: 0 6px 18px rgba(11, 11, 12, 0.12);
   transform-origin: 20% 85%;
-  transform: rotate(calc(-3deg + var(--fan-i, 0) * 4deg))
-    translateX(calc(var(--fan-i, 0) * 5px))
+  transform: rotate(calc(-2deg + var(--fan-i, 0) * 3deg))
+    translateX(calc(var(--fan-i, 0) * 6px))
     translateY(calc(var(--fan-i, 0) * -2px));
   z-index: calc(1 + var(--fan-i, 0));
   transition:
@@ -1040,9 +1040,9 @@
 .home .ugc-case__media:hover .ugc-case__fan-card,
 .home .ugc-case__media:focus-within .ugc-case__fan-card {
   box-shadow: 0 14px 32px rgba(11, 11, 12, 0.18);
-  transform: rotate(calc(-18deg + var(--fan-i, 0) * 18deg))
-    translateX(calc(52px + var(--fan-i, 0) * 42px))
-    translateY(calc(-6px + var(--fan-i, 0) * -10px));
+  transform: rotate(calc(-6deg + var(--fan-i, 0) * 10deg))
+    translateX(calc(110px + var(--fan-i, 0) * 88px))
+    translateY(calc(-4px + var(--fan-i, 0) * -12px));
 }
 
 .home .ugc-case__fan-video {
@@ -1102,12 +1102,12 @@
   .home .ugc-case__media {
     min-height: 220px;
     padding-right: 48px;
-    max-width: 340px;
+    max-width: 420px;
   }
 
   .home .ugc-case__media:hover,
   .home .ugc-case__media:focus-within {
-    padding-right: 120px;
+    padding-right: 220px;
   }
 
   .home .ugc-case__hero {
@@ -1122,9 +1122,16 @@
 
   .home .ugc-case__media:hover .ugc-case__fan-card,
   .home .ugc-case__media:focus-within .ugc-case__fan-card {
-    transform: rotate(calc(-14deg + var(--fan-i, 0) * 14deg))
-      translateX(calc(40px + var(--fan-i, 0) * 34px))
-      translateY(calc(-4px + var(--fan-i, 0) * -8px));
+    transform: rotate(calc(-5deg + var(--fan-i, 0) * 8deg))
+      translateX(calc(88px + var(--fan-i, 0) * 72px))
+      translateY(calc(-4px + var(--fan-i, 0) * -10px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home .ugc-case__media,
+  .home .ugc-case__fan-card {
+    transition: none;
   }
 }
 
