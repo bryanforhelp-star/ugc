@@ -182,5 +182,7 @@ export function getUgcOrganicPieces() {
       id: piece.id,
       video: piece.video,
       poster: piece.poster,
+      title: piece.title,
+      edits: piece.edits,
     }));
 }

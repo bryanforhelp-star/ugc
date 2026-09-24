@@ -1,170 +1,55 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef, type CSSProperties } from "react";
-import type { UgcCaseStudy as UgcCaseStudyData, UgcCaseVariant } from "@/lib/ugc";
-import { UgcVideoFrame } from "@/components/ugc/UgcWorkGrid";
+import type { UgcCaseStudy } from "@/lib/ugc";
+import { UgcProjectPlayer } from "@/components/ugc/UgcWorkGrid";
 
-type Props = {
-  id?: string;
-  title?: string;
-  studies: UgcCaseStudyData[];
-};
-
-export function UgcCaseStudies({
-  id = "case-studies",
-  title = "results",
-  studies,
-}: Props) {
-  if (studies.length === 0) return null;
-
+export function UgcCaseStudies({ studies }: { studies: UgcCaseStudy[] }) {
+  if (!studies.length) return null;
   return (
-    <section id={id} className="ugc-case">
+    <section id="case-studies" className="ugc-case ugc-results">
       <div className="wrap">
-        <div className="ugc-case__intro">
-          <h2 className="s-head">{title}</h2>
+        <div className="ugc-section-heading">
+          <div><p className="ugc-eyebrow">the work, in numbers</p><h2 className="s-head">results</h2></div>
+          <p className="s-sub">paid campaigns. organic content.<br />a closer look at both.</p>
         </div>
-        {studies.map((study) => (
-          <CaseStudyBlock key={study.id} study={study} />
-        ))}
+        {studies.map((study, index) => {
+          const [primary, ...secondary] = study.stats;
+          return (
+            <article key={study.id} className={`ugc-result ugc-result--${study.id}`} id={`result-${study.id}`}>
+              <div className="ugc-result__topline"><span>0{index + 1} / {study.channel}</span><span>{study.brief}</span></div>
+              <div className="ugc-result__layout">
+                <div className="ugc-result__copy">
+                  <div className="ugc-result__brand">
+                    <Image src={study.brandLogo} alt={study.brand} width={study.brandLogoWidth ?? 120} height={study.brandLogoHeight ?? 32} />
+                    <span>{study.product}</span>
+                  </div>
+                  <h3>{study.title}</h3>
+                  <p className="ugc-result__description">{study.description}</p>
+                  {primary && <div className="ugc-result__primary"><strong>{primary.value}</strong><span>{primary.label}</span></div>}
+                  {study.resultNote && <p className="ugc-result__note">{study.resultNote}</p>}
+                  <dl className="ugc-result__secondary">
+                    {secondary.map((stat) => (
+                      <div key={stat.label}>
+                        <dt>{stat.label}{stat.note && <span className="ugc-result__stat-note">{stat.note}</span>}</dt>
+                        <dd>{stat.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="ugc-result__takeaway">{study.takeaway}</p>
+                  {study.sourceNote && <p className="ugc-result__source">{study.sourceNote}</p>}
+                  {study.detailStats && (
+                    <details className="ugc-result__details">
+                      <summary>all reel metrics <span aria-hidden="true">↗</span></summary>
+                      <dl>{study.detailStats.map((stat) => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}</dl>
+                      <p>{study.detailNote}</p>
+                    </details>
+                  )}
+                </div>
+                <div className="ugc-result__media"><UgcProjectPlayer variants={study.variants} brand={study.brand} /></div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
-  );
-}
-
-function CaseStudyBlock({ study }: { study: UgcCaseStudyData }) {
-  const featured =
-    study.variants.find((v) => v.featured) ?? study.variants[0];
-  const others = study.variants.filter((v) => v.id !== featured?.id);
-
-  return (
-    <article className="ugc-case__block">
-      <header className="ugc-case__head">
-        <div className="ugc-case__logo-wrap">
-          <Image
-            src={study.brandLogo}
-            alt={study.brand}
-            width={study.brandLogoWidth ?? 120}
-            height={study.brandLogoHeight ?? 32}
-            className="ugc-case__logo"
-            style={{ width: "auto", height: "100%" }}
-          />
-        </div>
-        <p className="ugc-case__brief">{study.brief}</p>
-      </header>
-
-      <div className="ugc-case__layout">
-        <div className="ugc-case__media" tabIndex={0}>
-          {others.length > 0 ? <MutedFan variants={others} /> : null}
-          <div className="ugc-case__hero">
-            {featured ? (
-              <UgcVideoFrame src={featured.video} poster={featured.poster} />
-            ) : null}
-          </div>
-        </div>
-
-        <div className="ugc-case__copy">
-          <ul className="ugc-case__stats">
-            {study.stats.map((stat) => (
-              <li key={stat.value + stat.label}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="ugc-case__takeaway">{study.takeaway}</p>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function MutedFan({ variants }: { variants: UgcCaseVariant[] }) {
-  return (
-    <div className="ugc-case__fan" aria-hidden="true">
-      {variants.map((variant, i) => (
-        <MutedFanCard key={variant.id} variant={variant} index={i} total={variants.length} />
-      ))}
-    </div>
-  );
-}
-
-function MutedFanCard({
-  variant,
-  index,
-  total,
-}: {
-  variant: UgcCaseVariant;
-  index: number;
-  total: number;
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const card = cardRef.current;
-    const video = videoRef.current;
-    if (!card || !video) return;
-
-    video.muted = true;
-    video.volume = 0;
-    video.defaultMuted = true;
-
-    const playMuted = () => {
-      video.muted = true;
-      video.volume = 0;
-      video.play().catch(() => {});
-    };
-
-    const media = card.closest(".ugc-case__media");
-    if (!(media instanceof HTMLElement)) return;
-
-    const onEnter = () => playMuted();
-    const onLeave = () => {
-      video.pause();
-      video.currentTime = 0;
-    };
-    const onFocusOut = (e: FocusEvent) => {
-      if (!media.contains(e.relatedTarget as Node | null)) onLeave();
-    };
-
-    media.addEventListener("mouseenter", onEnter);
-    media.addEventListener("mouseleave", onLeave);
-    media.addEventListener("focusin", onEnter);
-    media.addEventListener("focusout", onFocusOut);
-
-    return () => {
-      media.removeEventListener("mouseenter", onEnter);
-      media.removeEventListener("mouseleave", onLeave);
-      media.removeEventListener("focusin", onEnter);
-      media.removeEventListener("focusout", onFocusOut);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={cardRef}
-      className="ugc-case__fan-card"
-      style={
-        {
-          "--fan-i": index,
-          "--fan-n": total,
-        } as CSSProperties
-      }
-    >
-      <video
-        ref={videoRef}
-        className="ugc-case__fan-video"
-        src={variant.video}
-        poster={variant.poster}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        disablePictureInPicture
-        controlsList="nodownload noremoteplayback"
-        onContextMenu={(e) => e.preventDefault()}
-      />
-    </div>
   );
 }

@@ -14,6 +14,7 @@ import {
   UGC_WORK_PIECES,
 } from "@/lib/ugc";
 import "../home.css";
+import "./ugc.css";
 
 export default function UgcPage() {
   return (
@@ -21,10 +22,10 @@ export default function UgcPage() {
       <div className="layer">
         <div className="wrap">
           <nav>
-            <a href="#about">about</a>
+            <a href="#case-studies">results</a>
             <a href="#ugc-ads">ugc ads</a>
             <a href="#organic">organic</a>
-            <a href="#case-studies">results</a>
+            <a href="#about">about</a>
             <a href="#contact">work with me</a>
           </nav>
 
@@ -51,7 +52,7 @@ export default function UgcPage() {
               <a className="glass-pill" href={`mailto:${UGC_SITE.email}`}>
                 work with me
               </a>
-              <a className="h-link" href="#brands">
+              <a className="h-link" href="#case-studies">
                 <span className="h-link__text">see the work</span>
                 <span className="arr-down">↓</span>
               </a>
@@ -60,6 +61,22 @@ export default function UgcPage() {
         </div>
 
         <BrandsMarquee label="trusted by" brands={UGC_BRANDS} />
+
+        <UgcCaseStudies studies={UGC_CASE_STUDIES} />
+
+        <UgcAdsGrid
+          id="ugc-ads"
+          title="ugc ads"
+          intro={UGC_SITE.adsIntro}
+          pieces={UGC_WORK_PIECES}
+        />
+
+        <UgcOrganicGrid
+          id="organic"
+          title="organic social"
+          intro={UGC_SITE.organicIntro}
+          pieces={UGC_ORGANIC_PIECES}
+        />
 
         <section id="about">
           <div className="wrap">
@@ -75,17 +92,6 @@ export default function UgcPage() {
                   ideas, and make a lot of the stuff i used to think required a
                   whole team possible on my own.
                 </p>
-                <p>
-                  i don&apos;t have a CS degree or a tech background. most of
-                  what i know came from wanting to do something, figuring out
-                  how to do it, and then trying again when it didn&apos;t work.
-                </p>
-                <p>
-                  these days i&apos;m building software, experimenting with new
-                  workflows, making content, and generally seeing what i can
-                  get AI to do.
-                </p>
-                <p>i share the process as i go.</p>
               </div>
               <ul className="facts">
                 <li>
@@ -109,22 +115,6 @@ export default function UgcPage() {
             </div>
           </div>
         </section>
-
-        <UgcAdsGrid
-          id="ugc-ads"
-          title="ugc ads"
-          intro={UGC_SITE.adsIntro}
-          pieces={UGC_WORK_PIECES}
-        />
-
-        <UgcOrganicGrid
-          id="organic"
-          title="organic social"
-          intro={UGC_SITE.organicIntro}
-          pieces={UGC_ORGANIC_PIECES}
-        />
-
-        <UgcCaseStudies studies={UGC_CASE_STUDIES} />
 
         <section id="contact">
           <div className="wrap">

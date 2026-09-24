@@ -27,17 +27,22 @@ export type UgcWorkPiece = {
   tags: UgcTag[];
   /** one line under the video */
   summary?: string;
+  product: string;
+  variants?: UgcCaseVariant[];
 };
 
 export type UgcOrganicPiece = {
   id: string;
   video?: string;
   poster?: string;
+  title?: string;
+  edits?: string[];
 };
 
 export type UgcCaseStat = {
   value: string;
   label: string;
+  note?: string;
 };
 
 export type UgcCaseVariant = {
@@ -57,6 +62,14 @@ export type UgcCaseStudy = {
   brandLogoHeight?: number;
   /** e.g. "meta ads · 3 scripts, 4 hooks" */
   brief: string;
+  channel: string;
+  title: string;
+  product: string;
+  description: string;
+  resultNote?: string;
+  sourceNote?: string;
+  detailStats?: UgcCaseStat[];
+  detailNote?: string;
   stats: UgcCaseStat[];
   takeaway: string;
   variants: UgcCaseVariant[];
@@ -104,23 +117,24 @@ export const UGC_CASE_STUDIES: UgcCaseStudy[] = [
     brandLogo: "/ugc/assets/logos/honeydew.png",
     brandLogoWidth: 120,
     brandLogoHeight: 32,
-    brief: "subscription app · meta ads · 3 scripts, 4 hooks",
+    brief: "meta ads · script & hook testing",
+    channel: "paid social",
+    title: "finding the message that converts.",
+    product: "subscription app",
+    description: "three scripts, four hooks. testing different ways into the same app.",
     stats: [
-      {
-        value: "$22.39",
-        label: "cost per subscribe, ~25% under the brand's $30 benchmark",
-      },
       {
         value: "$1.05",
         label: "cost per install",
       },
       {
-        value: "script a, hook 1",
-        label: "top performer",
+        value: "25%",
+        label: "below benchmark",
+        note: "$22.39 per subscription vs. the brand’s $30 benchmark",
       },
     ],
     takeaway:
-      "script a outconverted script b at the same install cost, so the messaging carried the sale once people clicked.",
+      "script a brought in more subscriptions than script b at the same cost per install.",
     variants: [
       {
         id: "honeydew-a1",
@@ -149,6 +163,44 @@ export const UGC_CASE_STUDIES: UgcCaseStudy[] = [
       },
     ],
   },
+  {
+    id: "arcads-organic",
+    brand: "Arcads",
+    brandLogo: "/brands/arcads.svg",
+    brandLogoWidth: 141,
+    brandLogoHeight: 32,
+    channel: "organic social",
+    brief: "instagram · @withkyndall · unboosted",
+    title: "a campaign for a brand that doesn’t exist.",
+    product: "generative AI video tool",
+    description: "building an entire ugc campaign for a fictional brand using arcads, then showing the process.",
+    stats: [
+      { value: "15,267", label: "organic views" },
+      { value: "740", label: "saves" },
+      { value: "495", label: "shares" },
+    ],
+    resultNote: "205 follows from this reel",
+    takeaway: "the reel showed the process, with a guide for people who wanted to try it themselves.",
+    sourceNote: "posted sep 1, 2026 · insights as of sep 24, 2026",
+    detailStats: [
+      { value: "15,267", label: "views" },
+      { value: "9,743", label: "viewers" },
+      { value: "16.03s", label: "average watch time" },
+      { value: "481", label: "likes" },
+      { value: "916", label: "comments" },
+      { value: "21", label: "reposts" },
+      { value: "495", label: "shares" },
+      { value: "740", label: "saves" },
+      { value: "205", label: "follows" },
+    ],
+    detailNote: "instagram reel insights + edits export. the caption invited viewers to comment “ads” for the process guide. this reel was not boosted.",
+    variants: [{
+      id: "arcads-organic-reel",
+      label: "process walkthrough · 38 seconds",
+      video: "/ugc/assets/videos/anyway.mp4",
+      poster: "/ugc/assets/posters/anyway.jpg",
+    }],
+  },
 ];
 
 export const UGC_WORK_PIECES: UgcWorkPiece[] = [
@@ -161,18 +213,9 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 141,
     brandLogoHeight: 32,
     category: "product demo",
+    product: "generative AI video tool",
     tags: ["apps", "tech", "software"],
     summary: "the most annoying part of making ugc ads, then the shortcut.",
-  },
-  {
-    id: "anyway",
-    video: "/ugc/assets/videos/anyway.mp4",
-    poster: "/ugc/assets/posters/anyway.jpg",
-    brand: "Arcads",
-    brandLogo: "/brands/arcads.svg",
-    brandLogoWidth: 141,
-    brandLogoHeight: 32,
-    tags: ["apps", "tech"],
   },
   {
     id: "doola-h1",
@@ -183,20 +226,13 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 120,
     brandLogoHeight: 34,
     category: "variation testing",
+    product: "business formation platform",
     tags: ["tech", "software", "SaaS"],
-    summary: "hook A from a multi-hook package built to test before scaling.",
-  },
-  {
-    id: "doola-h2",
-    video: "/ugc/assets/videos/doola-h2.mp4",
-    poster: "/ugc/assets/posters/doola-h2.jpg",
-    brand: "Doola",
-    brandLogo: "/brands/doola.png",
-    brandLogoWidth: 120,
-    brandLogoHeight: 34,
-    category: "variation testing",
-    tags: ["tech", "software", "SaaS"],
-    summary: "hook B, same offer, built to run against hook A.",
+    summary: "same offer. two different hooks, built to test against each other.",
+    variants: [
+      { id: "doola-a", label: "hook a", video: "/ugc/assets/videos/doola-h1.mp4", poster: "/ugc/assets/posters/doola-h1.jpg" },
+      { id: "doola-b", label: "hook b", video: "/ugc/assets/videos/doola-h2.mp4", poster: "/ugc/assets/posters/doola-h2.jpg" },
+    ],
   },
   {
     id: "opal",
@@ -207,6 +243,7 @@ export const UGC_WORK_PIECES: UgcWorkPiece[] = [
     brandLogoWidth: 130,
     brandLogoHeight: 61,
     category: "problem / solution",
+    product: "focus & screen-time app",
     tags: ["apps", "tech"],
     summary: "creative burnout and phone overstimulation.",
   },
