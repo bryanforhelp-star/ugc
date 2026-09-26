@@ -44,9 +44,18 @@ export default function SoundPage() {
         <header className="kit-course__module-header">
           <h2>where I use sound effects</h2>
         </header>
-        <p>I add sound effects after the visual timing is finished. I use them when
-          something happens on screen, like text landing, a photo appearing, a click,
-          or a transition. The sound lines up with that exact moment.</p>
+        <p>
+          Sound effects are the last thing I add. By this point, all of my overlays
+          are in, the text is moving, and the keyframes are finished. I wait until
+          the visuals are done so I can line each sound up with the exact moment it
+          is supporting without having to move it again later.
+        </p>
+        <p>
+          I add a sound when something happens on screen, like text landing, a photo
+          appearing, a click, or a transition. Then I lower the volume until the
+          sound adds to the moment without covering my voice. Once this pass is done,
+          the edit is basically finished.
+        </p>
 
         <figure className="kit-course__gif kit-course__demo kit-course__gif-slot">
           <div className="kit-course__gif-slot-frame">
