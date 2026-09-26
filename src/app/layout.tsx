@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [SITE_OG_IMAGE.url],
   },
+  other: {
+    "p:domain_verify": "b72a3bf73b63f95e37a3243b3b665304",
+  },
 };
 
 export default function RootLayout({
