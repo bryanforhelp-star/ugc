@@ -25,7 +25,7 @@ export default function FilmExamplePage() {
       <div className="kit-course__tool-stack">
         <section className="kit-course__tool-card">
           <header className="kit-course__tool-header">
-            <p className="kit-course__eyebrow">01 · film</p>
+            <p className="kit-course__eyebrow">film</p>
             <h2>DJI Osmo Pocket 3</h2>
           </header>
           <p>
@@ -61,7 +61,7 @@ export default function FilmExamplePage() {
 
         <section className="kit-course__tool-card">
           <header className="kit-course__tool-header">
-            <p className="kit-course__eyebrow">02 · first cut</p>
+            <p className="kit-course__eyebrow">first cut</p>
             <ToolBrand name="ChatCut" />
           </header>
           <p>
@@ -81,7 +81,7 @@ export default function FilmExamplePage() {
 
         <section className="kit-course__tool-card">
           <header className="kit-course__tool-header">
-            <p className="kit-course__eyebrow">03 · main edit</p>
+            <p className="kit-course__eyebrow">main edit</p>
             <ToolBrand name="CapCut" />
           </header>
           <p>This is where the actual edit comes together. I use it for:</p>
@@ -104,7 +104,7 @@ export default function FilmExamplePage() {
 
         <section className="kit-course__tool-card">
           <header className="kit-course__tool-header">
-            <p className="kit-course__eyebrow">04 · custom animations</p>
+            <p className="kit-course__eyebrow">custom animations</p>
             <ToolBrand name="Cursor" />
           </header>
           <p>

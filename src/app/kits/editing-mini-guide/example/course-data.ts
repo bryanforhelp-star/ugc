@@ -74,13 +74,6 @@ export const COURSE_CHAPTERS: CourseChapter[] = [
   },
   {
     n: "10",
-    name: "finish",
-    blurb: "the final check and export",
-    result: "a finished video ready to post",
-    href: `${HUB}/finish`,
-  },
-  {
-    n: "11",
     name: "resources",
     blurb: "download everything from the course",
     result: "the overlays, sound effects, luts, and files in one place",
@@ -96,5 +89,5 @@ export const READY_LESSONS = new Set(["tools", "cut"]);
 export const COURSE_GROUPS = [
   { label: "get started", chapters: COURSE_CHAPTERS.slice(0, 3) },
   { label: "build your edit", chapters: COURSE_CHAPTERS.slice(3, 7) },
-  { label: "finish + keep", chapters: COURSE_CHAPTERS.slice(7) },
+  { label: "sound, color + files", chapters: COURSE_CHAPTERS.slice(7) },
 ];

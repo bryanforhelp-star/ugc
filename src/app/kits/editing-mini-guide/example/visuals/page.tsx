@@ -42,7 +42,7 @@ export default function VisualsExamplePage() {
       <div className="kit-course__module-stack">
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">01 · listen</p>
+            <p className="kit-course__eyebrow">listen</p>
             <h2>listen to the cut line by line</h2>
           </header>
           <p>
@@ -67,7 +67,7 @@ export default function VisualsExamplePage() {
 
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">02 · choose</p>
+            <p className="kit-course__eyebrow">choose</p>
             <h2>choose the thing that explains the line fastest</h2>
           </header>
           <p>

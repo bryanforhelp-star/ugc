@@ -23,7 +23,7 @@ export default function CaptionsExamplePage() {
       <div className="kit-course__module-stack">
         <section id="captions" className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">01 · captions</p>
+            <p className="kit-course__eyebrow">captions</p>
             <h2>i caption the whole video</h2>
           </header>
           <p>I do mine one by one because I’m a psychopath. You can absolutely use auto captions. But this is the way I do it right now.</p>
@@ -55,7 +55,7 @@ export default function CaptionsExamplePage() {
         </section>
         <section id="fonts" className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">02 · fonts</p>
+            <p className="kit-course__eyebrow">fonts</p>
             <h2>the fonts i use</h2>
           </header>
           <p>I go between CC Soft Edge and Helvetica Neue for my main captions. New Pixel and Bootzy TM are the accent fonts. CC Soft Edge is the one I’ve used in my last three videos.</p>
@@ -63,7 +63,7 @@ export default function CaptionsExamplePage() {
         </section>
         <section id="placement" className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">03 · placement</p>
+            <p className="kit-course__eyebrow">placement</p>
             <h2>where the captions sit</h2>
           </header>
           <p>I usually center the captions around my chest. Where that lands depends on how I’m framed.</p>
@@ -82,7 +82,7 @@ export default function CaptionsExamplePage() {
         </section>
         <section id="layering" className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">04 · layering text</p>
+            <p className="kit-course__eyebrow">layering text</p>
             <h2>put the text slightly behind me</h2>
           </header>
           <p>I put a cutout of myself above the text, so my head sits in front of the words. The original video stays underneath.</p>

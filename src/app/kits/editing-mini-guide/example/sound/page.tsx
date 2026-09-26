@@ -19,7 +19,7 @@ export default function SoundPage() {
       </div>
       <section className="kit-course__module-card">
         <header className="kit-course__module-header">
-          <p className="kit-course__eyebrow">01 · sound</p>
+          <p className="kit-course__eyebrow">sound</p>
           <h2>sound effects</h2>
         </header>
         <p>I add sound after the visual timing is finished. The walkthrough will

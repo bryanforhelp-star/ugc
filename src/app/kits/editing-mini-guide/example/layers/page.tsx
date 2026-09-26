@@ -23,7 +23,7 @@ export default function LayersExamplePage() {
       <div className="kit-course__module-stack">
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">01 · cutout</p>
+            <p className="kit-course__eyebrow">cutout</p>
             <h2>remove the background when the idea needs it</h2>
           </header>
           <p>
@@ -36,7 +36,7 @@ export default function LayersExamplePage() {
 
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">02 · stack</p>
+            <p className="kit-course__eyebrow">stack</p>
             <h2>build the layers in CapCut</h2>
           </header>
           <p>
@@ -48,7 +48,7 @@ export default function LayersExamplePage() {
 
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">03 · source</p>
+            <p className="kit-course__eyebrow">source</p>
             <h2>where the extra bits come from</h2>
           </header>
           <p>

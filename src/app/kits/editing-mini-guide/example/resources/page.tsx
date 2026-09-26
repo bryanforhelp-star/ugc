@@ -26,6 +26,31 @@ const EXTRA_LUTS = [
   "37",
 ] as const;
 
+const SOUND_EFFECTS = [
+  ["AirDrop", "airdrop.mp3"],
+  ["Apple Pay", "apple-pay.mp3"],
+  ["Call", "call.mp3"],
+  ["Click 1", "click-1.mp3"],
+  ["Click 2", "click-2.mp3"],
+  ["Click 3", "click-3.mp3"],
+  ["Click 4", "click-4.mp3"],
+  ["Click 5", "click-5.mp3"],
+  ["Counting", "counting.mp3"],
+  ["Impact", "impact.mp3"],
+  ["Low Battery", "low-battery.mp3"],
+  ["Mute", "mute.mp3"],
+  ["Photo", "photo.mp3"],
+  ["Scrolling", "scrolling.mp3"],
+  ["Siri Fail", "siri-fail.mp3"],
+  ["SMS", "sms-1.mp3"],
+  ["Snap", "snap.mp3"],
+  ["Stretching", "stretching.mp3"],
+  ["Swoosh 1", "swoosh-1.mp3"],
+  ["Swoosh 2", "swoosh-2.mp3"],
+  ["Transformation", "transformation.mp3"],
+  ["Transition", "transition.mp3"],
+] as const;
+
 export default function ResourcesExamplePage() {
   return (
     <LessonShell
@@ -33,7 +58,81 @@ export default function ResourcesExamplePage() {
       title="resources"
       lead="everything from the course, in one place."
     >
-      <section id="luts" className="kit-course__module-card">
+      <section className="kit-course__module-card kit-course__resource-section kit-course__desktop-files">
+        <header className="kit-course__module-header">
+          <p className="kit-course__eyebrow">downloads</p>
+          <h2>grab what you need</h2>
+        </header>
+        <div className="kit-course__folder-grid">
+          <a
+            className="kit-course__folder-link"
+            href="https://www.pinterest.com/withkyndall/video-editing-3/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="kit-course__folder" aria-hidden="true" />
+            <strong>favorite overlays</strong>
+          </a>
+          <a
+            className="kit-course__folder-link"
+            href="/kits/editing-mini-guide/sounds/kyndall-sound-effects-22.zip"
+            download
+          >
+            <span className="kit-course__folder" aria-hidden="true" />
+            <strong>sound effects</strong>
+          </a>
+          <a
+            className="kit-course__folder-link"
+            href="/kits/editing-mini-guide/luts/kyndall-lut-pack-16.zip"
+            download
+          >
+            <span className="kit-course__folder" aria-hidden="true" />
+            <strong>all 16 LUTs</strong>
+          </a>
+          <a
+            className="kit-course__folder-link"
+            href="/kits/editing-mini-guide/luts/S-LOG_3_to_Rec709_v2.cube"
+            download
+          >
+            <span className="kit-course__folder" aria-hidden="true" />
+            <strong>my go-to LUT</strong>
+          </a>
+          <a className="kit-course__folder-link" href="#fonts">
+            <span className="kit-course__folder" aria-hidden="true" />
+            <strong>fonts i use</strong>
+          </a>
+        </div>
+      </section>
+
+      <section id="sounds" className="kit-course__module-card kit-course__resource-section">
+        <header className="kit-course__module-header kit-course__resource-title-row">
+          <div>
+            <p className="kit-course__eyebrow">sound effects</p>
+            <h2>the sounds i use</h2>
+          </div>
+          <a
+            className="kit-course__tool-link"
+            href="/kits/editing-mini-guide/sounds/kyndall-sound-effects-22.zip"
+            download
+          >
+            download all 22 (.zip) ↓
+          </a>
+        </header>
+        <div className="kit-course__sound-grid">
+          {SOUND_EFFECTS.map(([name, file]) => (
+            <a
+              key={file}
+              href={`/kits/editing-mini-guide/sounds/${file}`}
+              download
+            >
+              <span aria-hidden="true">♪</span>
+              <strong>{name}</strong>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="luts" className="kit-course__module-card kit-course__resource-section">
         <header className="kit-course__module-header">
           <p className="kit-course__eyebrow">color + LUTs</p>
           <h2>the LUT i use + 15 more</h2>
@@ -109,7 +208,7 @@ export default function ResourcesExamplePage() {
         </ol>
       </section>
 
-      <section id="fonts" className="kit-course__module-card kit-course__font-library">
+      <section id="fonts" className="kit-course__module-card kit-course__resource-section kit-course__font-library">
         <header className="kit-course__module-header">
           <p className="kit-course__eyebrow">font sources</p>
           <h2>the fonts i use</h2>

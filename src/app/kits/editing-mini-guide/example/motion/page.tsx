@@ -23,7 +23,7 @@ export default function MotionExamplePage() {
       <div className="kit-course__module-stack">
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">01 · move</p>
+            <p className="kit-course__eyebrow">move</p>
             <h2>keyframes</h2>
           </header>
           <p>
@@ -35,7 +35,7 @@ export default function MotionExamplePage() {
 
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">02 · emphasize</p>
+            <p className="kit-course__eyebrow">emphasize</p>
             <h2>zooms</h2>
           </header>
           <p>
@@ -47,7 +47,7 @@ export default function MotionExamplePage() {
 
         <section className="kit-course__module-card">
           <header className="kit-course__module-header">
-            <p className="kit-course__eyebrow">03 · enter + leave</p>
+            <p className="kit-course__eyebrow">enter + leave</p>
             <h2>animations and transitions</h2>
           </header>
           <p>

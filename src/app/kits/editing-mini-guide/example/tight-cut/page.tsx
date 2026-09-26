@@ -57,7 +57,7 @@ export default function TightCutExamplePage() {
         <div className="kit-course__tool-stack">
           <section className="kit-course__tool-card">
             <header className="kit-course__tool-header">
-              <p className="kit-course__eyebrow">01 · first cut</p>
+              <p className="kit-course__eyebrow">first cut</p>
               <ToolBrand name="ChatCut" />
             </header>
             <p>
@@ -82,7 +82,7 @@ export default function TightCutExamplePage() {
 
           <section className="kit-course__tool-card">
             <header className="kit-course__tool-header">
-              <p className="kit-course__eyebrow">02 · core edit</p>
+              <p className="kit-course__eyebrow">core edit</p>
               <ToolBrand name="CapCut" />
             </header>
             <p>
