@@ -11,39 +11,58 @@ export default function LayersExamplePage() {
   return (
     <LessonShell
       current="layers"
-      number="05 / 07"
       title="layers"
       lead="cut out and stack your visuals"
       watch="a plain talking-head frame becoming a finished layered frame inside capcut."
-      next={{
-        href: "/kits/editing-mini-guide/example/motion",
-        label: "motion",
-      }}
     >
-      <h2>remove the background when the idea needs it</h2>
-      <p>
-        I do not cut myself out for the whole video. I use it for the moments
-        where I want the visual behind me, want to build a different
-        background, or need my talking head to become one piece of a larger
-        composition.
-      </p>
+      <div className="kit-course__lesson-goal">
+        <p className="kit-course__eyebrow">lesson goal</p>
+        <p>turn the talking head and visuals into one frame that still reads.</p>
+      </div>
 
-      <h2>build the layers in capcut</h2>
-      <p>
-        The walkthrough will show the exact order: how I create the cutout,
-        bring in the overlay, place each layer, crop it, and resize everything
-        so the face, text, and visual can all be understood.
-      </p>
+      <div className="kit-course__module-stack">
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">01 · cutout</p>
+            <h2>remove the background when the idea needs it</h2>
+          </header>
+          <p>
+            I do not cut myself out for the whole video. I use it for the
+            moments where I want the visual behind me, want to build a
+            different background, or need my talking head to become one piece
+            of a larger composition.
+          </p>
+        </section>
 
-      <h2>where the extra bits come from</h2>
-      <p>
-        The lesson will include the places I actually source screenshots,
-        memes, images, clips, and design references. The Pinterest board lives
-        beside the lesson so you can use it while building your own frame.
-      </p>
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">02 · stack</p>
+            <h2>build the layers in CapCut</h2>
+          </header>
+          <p>
+            The walkthrough will show the exact order: how I create the cutout,
+            bring in the overlay, place each layer, crop it, and resize
+            everything so the face, text, and visual can all be understood.
+          </p>
+        </section>
 
-      <div className="kit-course__do">
-        <h2>short gifs included here</h2>
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">03 · source</p>
+            <h2>where the extra bits come from</h2>
+          </header>
+          <p>
+            The lesson will include the places I actually source screenshots,
+            memes, images, clips, and design references. The Pinterest board
+            lives beside the lesson so you can use it while building your own
+            frame.
+          </p>
+        </section>
+      </div>
+
+      <aside className="kit-course__resources">
+        <p className="kit-course__eyebrow">included</p>
+        <h2>short gifs for each move</h2>
         <ul>
           <li>remove a talking-head background in CapCut</li>
           <li>add an overlay above or behind the talking head</li>
@@ -51,7 +70,7 @@ export default function LayersExamplePage() {
           <li>replace the original background</li>
           <li>keep the captions visible while layering</li>
         </ul>
-      </div>
+      </aside>
     </LessonShell>
   );
 }

@@ -1,63 +1,51 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { CourseMark, CourseNav } from "./outline";
+import { LessonFooter } from "./course-navigation";
+import { COURSE_CHAPTERS, READY_LESSONS } from "./course-data";
 
 type LessonShellProps = {
   current: string;
-  number: string;
   title: string;
-  lead: string;
-  format?: "video walkthrough" | "gif walkthrough" | "full edit";
+  lead?: string;
+  format?: "video walkthrough" | "gif walkthrough";
   watch?: string;
   children: ReactNode;
-  next?: {
-    href: string;
-    label: string;
-  };
 };
 
 export function LessonShell({
   current,
-  number,
   title,
   lead,
   format = "video walkthrough",
   watch,
   children,
-  next,
 }: LessonShellProps) {
+  const chapter = COURSE_CHAPTERS.find((item) => item.name === current);
   return (
     <article className="page page--article kit-course">
       <div className="wrap">
         <CourseMark />
-        <p className="back">
-          <Link href="/kits/editing-mini-guide/example" className="text-link">
-            <span className="text-link__label">← all chapters</span>
-          </Link>
-        </p>
-
         <div className="kit-course__lesson">
           <CourseNav current={current} />
 
-          <div>
-            <p className="cover">{number}</p>
-            <h1 className="page-title page-title--article">{title}.</h1>
-            <p className="page-lead">{lead}</p>
+          <div className={`kit-course__main${current === "intro" ? " kit-course__main--intro" : ""}`}>
+            <header className="kit-course__lesson-heading">
+              <p className="kit-course__eyebrow">{current === "intro" ? "start here" : current === "resources" ? "your library" : "the editing mini course"} <span aria-hidden="true">/</span> {chapter?.n}</p>
+              <h1 className="page-title page-title--article">{title}.</h1>
+              {lead ? <p className="page-lead">{lead}</p> : null}
+              {current !== "intro" && current !== "resources" && !READY_LESSONS.has(current) ? <span className="kit-course__pending kit-course__draft-label">lesson in progress</span> : null}
+            </header>
 
             {watch ? (
-              <div className="kit-course__watch">
-                <span>{format}</span>
-                <strong>{watch}</strong>
-              </div>
+              <details className="kit-course__watch">
+                <summary><span>{format}</span><span className="kit-course__pending">coming soon</span></summary>
+                <p>{watch}</p>
+              </details>
             ) : null}
 
             <div className="prose kit-course__prose">{children}</div>
 
-            {next ? (
-              <p className="kit-course__next">
-                <Link href={next.href}>next: {next.label}</Link>
-              </p>
-            ) : null}
+            <LessonFooter current={current} />
           </div>
         </div>
       </div>

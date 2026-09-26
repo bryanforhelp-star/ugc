@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EDITING_GUIDE } from "@/lib/store";
-import "./course.css";
-import { CourseMark, courseChapters } from "./outline";
+import { CourseMark, CourseNav } from "./outline";
+import { COURSE_GROUPS, COURSE_CHAPTERS, HUB, LESSONS, READY_LESSONS } from "./course-data";
+import { ContinueCourse } from "./course-navigation";
 
 export const metadata: Metadata = {
-  title: { absolute: "kit example" },
+  title: { absolute: "how i edit my yaps · the course" },
   robots: { index: false, follow: false },
 };
 
@@ -14,64 +14,46 @@ export default function EditingGuideExamplePage() {
     <div className="page kit-course">
       <div className="wrap">
         <CourseMark />
-        <p className="kit-course__note">
-          private course preview. tools, cut, text, visuals, layers, motion,
-          finish, then the full edit.
-        </p>
+        <div className="kit-course__lesson">
+          <CourseNav />
+          <div className="kit-course__main">
+            <header className="kit-course__welcome">
+              <p className="kit-course__eyebrow">the editing mini course · by kyndall</p>
+              <h1>how i edit<br />my yaps.</h1>
+              <p className="kit-course__welcome-copy">one talking-head video. every layer of the edit.</p>
+              <ContinueCourse />
+              <p className="kit-course__welcome-meta">{LESSONS.length} lessons <span aria-hidden="true">/</span> follow along at your own pace</p>
+            </header>
 
-        <p className="cover">the editing mini course</p>
-        <h1 className="page-title">{EDITING_GUIDE.headline}</h1>
-        <p className="page-lead">
-          from what i use to film and edit, through every layer, to a finished
-          video.
-        </p>
+            <div className="kit-course__syllabus-heading">
+              <div><p className="kit-course__eyebrow">the course</p><h2>from first take to final edit.</h2></div>
+              <span>{COURSE_CHAPTERS[0].n} — {COURSE_CHAPTERS.at(-1)?.n}</span>
+            </div>
+            <div className="kit-course__syllabus">
+              {COURSE_GROUPS.map((group, index) => (
+                <section className="kit-course__chapter-group" key={group.label} aria-labelledby={`group-${index}`}>
+                  <h3 id={`group-${index}`} className="kit-course__group-heading">{group.label}</h3>
+                  <ol>
+                    {group.chapters.map((chapter) => (
+                      <li key={chapter.name}>
+                        <Link className="kit-course__chapter-row" href={chapter.href}>
+                          <span className="kit-course__chapter-number">{chapter.n}</span>
+                          <span className="kit-course__chapter-copy"><strong>{chapter.name}</strong><span>{chapter.blurb}</span><small className={READY_LESSONS.has(chapter.name) ? "kit-course__ready-label" : "kit-course__draft-note"}>{READY_LESSONS.has(chapter.name) ? "ready to explore" : "in progress"}</small></span>
+                          <span className="kit-course__row-arrow" aria-hidden="true">↗</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ))}
+            </div>
 
-        <section className="kit-course__method" aria-label="course method">
-          <p>what you will make</p>
-          <p className="kit-course__method-result">
-            one finished talking-head video, edited from start to finish in
-            capcut.
-          </p>
-          <ol>
-            <li>see what i do on one of my actual videos.</li>
-            <li>follow the exact steps in capcut.</li>
-            <li>make the same change on your own video.</li>
-          </ol>
-        </section>
-
-        <div className="kit-course__grid">
-          {courseChapters().map((item) => {
-            return (
-              <article key={item.name} className="guide-card guide-card--hub">
-                <Link href={item.href} className="guide-card__link">
-                  <p className="kit-course__num">{item.n}</p>
-                  <h2>{item.name}</h2>
-                  <p className="guide-card__desc">{item.blurb}</p>
-                  <p className="kit-course__result">
-                    you leave with: {item.result}
-                  </p>
-                  <span className="guide-card__arrow">open chapter</span>
-                </Link>
-              </article>
-            );
-          })}
+            <Link className="kit-course__library-callout" href={`${HUB}/resources`}>
+              <div><p className="kit-course__eyebrow">keep these close</p><h2>the resource library.</h2><p>overlays, sound effects, LUTs, and the other files from the course.</p></div>
+              <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
         </div>
-
-        <section className="kit-course__shelf">
-          <p className="kit-course__num">included with the course</p>
-          <h2>the things i actually use.</h2>
-          <p>
-            no giant folders to sort through. just the fonts, sound effects,
-            visual sources, and looks that appear in the walkthroughs.
-          </p>
-          <ul>
-            <li>my font list and text settings</li>
-            <li>my named sound effects</li>
-            <li>my overlay sources and pinterest board</li>
-            <li>the luts and color starting points i use</li>
-            <li>short gifs for the capcut moves you need to repeat</li>
-          </ul>
-        </section>
       </div>
     </div>
   );

@@ -11,38 +11,56 @@ export default function MotionExamplePage() {
   return (
     <LessonShell
       current="motion"
-      number="06 / 07"
       title="motion"
       lead="add movement to keep it watchable"
       watch="the movement pass in capcut, with every keyframe, zoom, and animation added to a real edit."
-      next={{
-        href: "/kits/editing-mini-guide/example/finish",
-        label: "finish",
-      }}
     >
-      <h2>keyframes</h2>
-      <p>
-        I will show where I place the first and second keyframe, what I change
-        between them, and how I use that movement on a talking head, cutout,
-        screenshot, or other overlay.
-      </p>
+      <div className="kit-course__lesson-goal">
+        <p className="kit-course__eyebrow">lesson goal</p>
+        <p>add movement where it helps the edit instead of moving everything.</p>
+      </div>
 
-      <h2>zooms</h2>
-      <p>
-        The walkthrough will separate a regular scale change from the zooms I
-        use for emphasis. You will see the start size, end size, timing, and
-        where the zoom belongs in the cut.
-      </p>
+      <div className="kit-course__module-stack">
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">01 · move</p>
+            <h2>keyframes</h2>
+          </header>
+          <p>
+            I will show where I place the first and second keyframe, what I
+            change between them, and how I use that movement on a talking head,
+            cutout, screenshot, or other overlay.
+          </p>
+        </section>
 
-      <h2>animations and transitions</h2>
-      <p>
-        I use these when a piece needs to enter, leave, or change into the next
-        part of the frame. I will show the small group I repeat instead of
-        sending you through every animation in CapCut.
-      </p>
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">02 · emphasize</p>
+            <h2>zooms</h2>
+          </header>
+          <p>
+            The walkthrough will separate a regular scale change from the zooms
+            I use for emphasis. You will see the start size, end size, timing,
+            and where the zoom belongs in the cut.
+          </p>
+        </section>
 
-      <div className="kit-course__do">
-        <h2>short gifs included here</h2>
+        <section className="kit-course__module-card">
+          <header className="kit-course__module-header">
+            <p className="kit-course__eyebrow">03 · enter + leave</p>
+            <h2>animations and transitions</h2>
+          </header>
+          <p>
+            I use these when a piece needs to enter, leave, or change into the
+            next part of the frame. I will show the small group I repeat instead
+            of sending you through every animation in CapCut.
+          </p>
+        </section>
+      </div>
+
+      <aside className="kit-course__resources">
+        <p className="kit-course__eyebrow">included</p>
+        <h2>short gifs for each move</h2>
         <ul>
           <li>add and adjust a keyframe</li>
           <li>make a push in or pull out</li>
@@ -50,7 +68,7 @@ export default function MotionExamplePage() {
           <li>add the animations I use most</li>
           <li>copy movement to another clip</li>
         </ul>
-      </div>
+      </aside>
     </LessonShell>
   );
 }
