@@ -26,9 +26,10 @@ const RESOURCE_GROUPS = [
   {
     number: "03",
     name: "LUTs",
-    kind: "color downloads",
+    kind: "color guide",
     lesson: "09 color + LUTs",
-    description: "the looks I use on my videos.",
+    description: "the LUT I use in the course and how to add your own to CapCut.",
+    href: "#luts",
   },
   {
     number: "04",
@@ -37,6 +38,7 @@ const RESOURCE_GROUPS = [
     lesson: "throughout the course",
     description:
       "every other downloadable file I give you throughout the course.",
+    href: null,
   },
 ] as const;
 
@@ -63,10 +65,50 @@ export default function ResourcesExamplePage() {
               <h2>{resource.name}</h2>
             </header>
             <p>{resource.description}</p>
-            <div className="kit-course__resource-meta"><span>{resource.lesson}</span><span className="kit-course__pending">coming soon</span></div>
+            <div className="kit-course__resource-meta">
+              <span>{resource.lesson}</span>
+              {"href" in resource && resource.href ? (
+                <a href={resource.href}>open below ↓</a>
+              ) : (
+                <span className="kit-course__pending">coming soon</span>
+              )}
+            </div>
           </section>
         ))}
       </div>
+
+      <section id="luts" className="kit-course__module-card">
+        <header className="kit-course__module-header">
+          <p className="kit-course__eyebrow">color + LUTs</p>
+          <h2>the LUT i use</h2>
+        </header>
+        <p>
+          In the course recording, I use <strong>S-LOG_3_to_Rec709_v2.cube</strong>{" "}
+          at 30% intensity. That is the exact LUT and strength you see in the
+          example. Use 30% as a starting point, then adjust it based on your
+          footage and lighting.
+        </p>
+
+        <h3>how to upload a LUT to CapCut</h3>
+        <ol className="kit-course__caption-steps">
+          <li>
+            <strong>Start with the LUT file on your computer.</strong>
+            <span>CapCut can import .cube or .3dl files.</span>
+          </li>
+          <li>
+            <strong>Select your video clip.</strong>
+            <span>Open Video → Adjust → Basic, then turn on LUT.</span>
+          </li>
+          <li>
+            <strong>Import the LUT.</strong>
+            <span>Open the Name menu, choose Import, and select the LUT file from your computer.</span>
+          </li>
+          <li>
+            <strong>Adjust the intensity.</strong>
+            <span>Choose the LUT you imported and move the Intensity slider while watching the preview.</span>
+          </li>
+        </ol>
+      </section>
 
       <section id="fonts" className="kit-course__module-card kit-course__font-library">
         <header className="kit-course__module-header">

@@ -33,8 +33,8 @@ export default function ColorPage() {
           caption="Watch how much the picture changes as the intensity moves. This shows where the controls are and what they change."
         />
         <p className="kit-course__small-note">
-          The LUT files aren&apos;t included yet. This is a demo of the controls,
-          not a D-Log conversion guide.
+          The LUT in this example is S-LOG_3_to_Rec709_v2.cube at 30%
+          intensity. The exact name and upload steps are in the resource library.
         </p>
         <h3>adjust the curve</h3>
         <p>Open Curves and move a point on the line. Watch the picture as you
@@ -48,8 +48,8 @@ export default function ColorPage() {
       <aside className="kit-course__resources">
         <p className="kit-course__eyebrow">resources</p>
         <h2>the LUTs from the examples</h2>
-        <p>The download links will live in the resource library.</p>
-        <Link className="kit-course__tool-link" href={`${HUB}/resources`}>open resource library →</Link>
+        <p>See the exact LUT and how to import your own .cube file into CapCut.</p>
+        <Link className="kit-course__tool-link" href={`${HUB}/resources#luts`}>open LUT resources →</Link>
       </aside>
     </LessonShell>
   );
