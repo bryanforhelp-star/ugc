@@ -88,6 +88,13 @@ export default function ResourcesExamplePage() {
           example. Use 30% as a starting point, then adjust it based on your
           footage and lighting.
         </p>
+        <a
+          className="kit-course__tool-link"
+          href="/kits/editing-mini-guide/luts/S-LOG_3_to_Rec709_v2.cube"
+          download
+        >
+          download the free LUT (.cube) ↓
+        </a>
 
         <h3>how to upload a LUT to CapCut</h3>
         <ol className="kit-course__caption-steps">
