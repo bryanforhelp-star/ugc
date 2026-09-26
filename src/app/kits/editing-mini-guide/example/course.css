@@ -190,6 +190,19 @@ html:has(.kit-course) body { background: #f7f8fc; }
 .kit-course .prose .kit-course__sound-grid a:hover { border-color: #b9c5f3; background: var(--course-tint); color: var(--pop); }
 .kit-course__sound-grid span { display: grid; place-items: center; flex: 0 0 27px; width: 27px; height: 27px; border-radius: 6px; background: #e9edff; color: var(--pop); font-size: 15px; }
 .kit-course__sound-grid strong { overflow: hidden; font-size: 13px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
+.kit-course__gif-slot-frame { display: grid; place-items: center; align-content: center; gap: 12px; aspect-ratio: 16 / 9; border: 1px solid var(--course-line); border-radius: 6px; background: #f4f5f9; color: #4c5369; }
+.kit-course__gif-slot-frame > span { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--pop); color: white; font-size: 17px; text-indent: 3px; }
+.kit-course__gif-slot-frame > strong { font-size: 15px; }
+.kit-course .kit-course__sound-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; counter-reset: sound-step; }
+.kit-course .kit-course__sound-steps li { counter-increment: sound-step; display: grid; align-content: start; gap: 7px; min-width: 0; margin: 0; padding: 18px; border: 1px solid var(--course-line); border-radius: 9px; background: #fafbfe; }
+.kit-course__sound-steps strong::before { content: counter(sound-step) ". "; color: var(--pop); }
+.kit-course__sound-steps strong { font-size: 15px; line-height: 1.4; }
+.kit-course__sound-steps span { color: var(--course-muted); font-size: 14px; line-height: 1.55; }
+.kit-course__audio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 20px; }
+.kit-course__audio-card { min-width: 0; display: grid; gap: 10px; padding: 16px; border: 1px solid #d8deed; border-radius: 9px; background: white; }
+.kit-course__audio-card > strong { font-size: 14px; line-height: 1.4; }
+.kit-course__audio-card audio { display: block; width: 100%; height: 36px; }
+.kit-course .prose .kit-course__audio-card > a { justify-self: start; color: var(--pop); font-size: 13px; font-weight: 600; text-underline-offset: 3px; }
 .kit-course__lut-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 32px; }
 .kit-course .prose .kit-course__lut-actions .kit-course__tool-link { margin-top: 0; }
 .kit-course__lut-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 20px 0 34px; }
@@ -338,6 +351,8 @@ html:has(.kit-course) body { background: #f7f8fc; }
   .kit-course__watch summary { padding: 14px; gap: 8px; font-size: 13px; }
   .kit-course__photo { max-width: 100%; }
   .kit-course__resource-title-row { align-items: flex-start; flex-direction: column; }
+  .kit-course .kit-course__sound-steps { grid-template-columns: 1fr; }
+  .kit-course__audio-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 430px) {
   .kit-course__sound-grid { grid-template-columns: 1fr; }
