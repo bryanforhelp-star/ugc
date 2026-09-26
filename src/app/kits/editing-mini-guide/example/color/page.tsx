@@ -48,7 +48,7 @@ export default function ColorPage() {
       <aside className="kit-course__resources">
         <p className="kit-course__eyebrow">resources</p>
         <h2>the LUTs from the examples</h2>
-        <p>See the exact LUT and how to import your own .cube file into CapCut.</p>
+        <p>Download the exact LUT from the demo or try 15 more LOG looks.</p>
         <Link className="kit-course__tool-link" href={`${HUB}/resources#luts`}>open LUT resources →</Link>
       </aside>
     </LessonShell>

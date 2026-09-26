@@ -28,7 +28,7 @@ const RESOURCE_GROUPS = [
     name: "LUTs",
     kind: "color guide",
     lesson: "09 color + LUTs",
-    description: "the LUT I use in the course and how to add your own to CapCut.",
+    description: "my go-to LUT, 15 more looks, and how to add them to CapCut.",
     href: "#luts",
   },
   {
@@ -40,6 +40,24 @@ const RESOURCE_GROUPS = [
       "every other downloadable file I give you throughout the course.",
     href: null,
   },
+] as const;
+
+const EXTRA_LUTS = [
+  "02",
+  "04",
+  "07",
+  "09",
+  "10",
+  "15",
+  "19",
+  "21",
+  "23",
+  "24",
+  "28",
+  "29",
+  "31",
+  "34",
+  "37",
 ] as const;
 
 export default function ResourcesExamplePage() {
@@ -80,7 +98,7 @@ export default function ResourcesExamplePage() {
       <section id="luts" className="kit-course__module-card">
         <header className="kit-course__module-header">
           <p className="kit-course__eyebrow">color + LUTs</p>
-          <h2>the LUT i use</h2>
+          <h2>the LUT i use + 15 more</h2>
         </header>
         <p>
           In the course recording, I use <strong>S-LOG_3_to_Rec709_v2.cube</strong>{" "}
@@ -88,13 +106,49 @@ export default function ResourcesExamplePage() {
           example. Use 30% as a starting point, then adjust it based on your
           footage and lighting.
         </p>
-        <a
-          className="kit-course__tool-link"
-          href="/kits/editing-mini-guide/luts/S-LOG_3_to_Rec709_v2.cube"
-          download
-        >
-          download the free LUT (.cube) ↓
-        </a>
+        <div className="kit-course__lut-actions">
+          <a
+            className="kit-course__tool-link"
+            href="/kits/editing-mini-guide/luts/S-LOG_3_to_Rec709_v2.cube"
+            download
+          >
+            download my go-to LUT (.cube) ↓
+          </a>
+          <a
+            className="kit-course__tool-link"
+            href="/kits/editing-mini-guide/luts/kyndall-lut-pack-16.zip"
+            download
+          >
+            download all 16 LUTs (.zip) ↓
+          </a>
+        </div>
+
+        <h3>15 more looks to try</h3>
+        <p>
+          These are all made for LOG footage. The previews give you a rough idea
+          of the color, but try them on your own clip and adjust the intensity.
+          You can download one at a time or grab the full pack above.
+        </p>
+        <div className="kit-course__lut-grid">
+          {EXTRA_LUTS.map((number) => (
+            <article className="kit-course__lut-card" key={number}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/kits/editing-mini-guide/luts/cinematic-v1-log-${number}.jpg`}
+                alt={`Preview of Cinematic V1 LOG ${number}`}
+              />
+              <div>
+                <strong>Cinematic V1 · LOG {number}</strong>
+                <a
+                  href={`/kits/editing-mini-guide/luts/cinematic-v1-log-${number}.cube`}
+                  download
+                >
+                  download .cube ↓
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
 
         <h3>how to upload a LUT to CapCut</h3>
         <ol className="kit-course__caption-steps">
