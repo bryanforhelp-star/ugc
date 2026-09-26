@@ -55,14 +55,6 @@ export default function ResourcesExamplePage() {
         </p>
       </div>
 
-      <section id="fonts" className="kit-course__module-card kit-course__font-library">
-        <header className="kit-course__module-header">
-          <p className="kit-course__eyebrow">04 text · font sources</p>
-          <h2>the fonts i use</h2>
-        </header>
-        <FontShelf samples={false} />
-      </section>
-
       <div className="kit-course__resource-grid">
         {RESOURCE_GROUPS.map((resource) => (
           <section key={resource.name} className="kit-course__resource-card">
@@ -75,6 +67,22 @@ export default function ResourcesExamplePage() {
           </section>
         ))}
       </div>
+
+      <section id="fonts" className="kit-course__module-card kit-course__font-library">
+        <header className="kit-course__module-header">
+          <p className="kit-course__eyebrow">font sources</p>
+          <h2>the fonts i use</h2>
+        </header>
+        <p>
+          There are a lot of fonts you can download from{" "}
+          <a href="https://www.dafont.com/" target="_blank" rel="noreferrer">
+            dafont.com
+          </a>{" "}
+          and then upload into CapCut. If you find one you like, download the
+          font file to your computer, then add it to CapCut from the font menu.
+        </p>
+        <FontShelf samples={false} />
+      </section>
     </LessonShell>
   );
 }
