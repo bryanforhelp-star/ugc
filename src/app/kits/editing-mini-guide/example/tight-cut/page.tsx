@@ -163,7 +163,7 @@ export default function TightCutExamplePage() {
           </li>
         </ol>
         <p>
-          <strong>You&apos;re done when:</strong> you can see your separate clips
+          <strong>You&apos;re done when:</strong>{" "}you can see your separate clips
           and tracks on the new timeline again. Keep editing in this new project.
           Now you&apos;re ready to add text and layers.
         </p>
